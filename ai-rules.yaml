@@ -1,6 +1,6 @@
 # AI 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI)
 # 描述: 准确覆盖核心域名，支持 Clash/Stash 远程 RULE-SET 调用
-# 版本: 2.0 (2025-10-09 更新，基于社区最新源)
+# 版本: 2.1 (2025-10-10 更新，修复 Gemini 依赖 API 流量丢失问题)
 # 来源: G4free/clash-ruleset, SirBrother/Clash-Rules, SkywalkerJi/Clash-Rules
 # 使用: RULE-SET,ai-rules,PROXY (PROXY 替换为你的代理组)
 
@@ -37,9 +37,12 @@ payload:
   - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com
   - DOMAIN-SUFFIX,sentry.io
 
-  # Gemini (Google AI) - API 和网页域名 (generativelanguage 等)
+  # Gemini (Google AI) - 修复版 API 和网页域名
+  # 增加了 googleapis.com 和 googleusercontent.com，以解决 play.googleapis.com 和认证流量丢失问题
   - DOMAIN-SUFFIX,gemini.google.com
   - DOMAIN-SUFFIX,ai.google.dev
   - DOMAIN-SUFFIX,aistudio.google.com
   - DOMAIN-SUFFIX,generativelanguage.googleapis.com
-  - DOMAIN-SUFFIX,bard.google.com  # 旧版 Bard，重定向到 Gemini
+  - DOMAIN-SUFFIX,bard.google.com  # 旧版 Bard，重定向到 Gemini
+  - DOMAIN-SUFFIX,googleapis.com     # 【修复关键】捕获所有 Google API 流量，解决 play.googleapis.com 问题
+  - DOMAIN-SUFFIX,googleusercontent.com # 捕获 Google 静态内容和 CDN
