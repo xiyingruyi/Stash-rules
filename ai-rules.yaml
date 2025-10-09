@@ -1,43 +1,45 @@
-# AI 分流规则集 - Grok, ChatGPT, Gemini
-# 描述: 针对 xAI Grok、OpenAI ChatGPT 和 Google Gemini 的域名分流
-# 版本: 1.0
-# 更新日期: 2025-10-09
-# 使用: 在 Clash/Stash 的 rule-providers 中导入
+# AI 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI)
+# 描述: 准确覆盖核心域名，支持 Clash/Stash 远程 RULE-SET 调用
+# 版本: 2.0 (2025-10-09 更新，基于社区最新源)
+# 来源: G4free/clash-ruleset, SirBrother/Clash-Rules, SkywalkerJi/Clash-Rules
+# 使用: RULE-SET,ai-rules,PROXY (PROXY 替换为你的代理组)
 
 payload:
-  # Grok (xAI)
+  # Grok (xAI) - 核心域名 (api.x.ai, grok.x.ai 等)
+  - DOMAIN-SUFFIX,x.ai
   - DOMAIN-SUFFIX,grok.x.ai
   - DOMAIN-SUFFIX,api.x.ai
-  - DOMAIN-SUFFIX,x.ai
 
-  # ChatGPT (OpenAI) - 核心域名
+  # ChatGPT (OpenAI) - 完整列表 (chat.openai.com, api 等，包含 CDN 和 auth)
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,chat.openai.com
   - DOMAIN-SUFFIX,chatgpt.com
   - DOMAIN-SUFFIX,oaiusercontent.com
   - DOMAIN-SUFFIX,oaistatic.com
+  - DOMAIN-SUFFIX,ai.com
+  - DOMAIN-SUFFIX,auth0.com
   - DOMAIN-SUFFIX,auth0.openai.com
+  - DOMAIN-SUFFIX,cdn.auth0.com
+  - DOMAIN-SUFFIX,algolia.net
+  - DOMAIN-SUFFIX,api.statsig.com
   - DOMAIN-SUFFIX,statsig.com
   - DOMAIN-SUFFIX,intercom.io
   - DOMAIN-SUFFIX,stripe.com
+  - DOMAIN-SUFFIX,hcaptcha.com
+  - DOMAIN-SUFFIX,vimeo.com
+  - DOMAIN-SUFFIX,vimeocdn.com
+  - DOMAIN-SUFFIX,akamaized.com
+  - DOMAIN,openaiapi-site.azureedge.net
+  - DOMAIN-SUFFIX,chatgpt.livekit.cloud
+  - DOMAIN,browser-intake-datadoghq.com
+  - DOMAIN,static.cloudflareinsights.com
   - DOMAIN-SUFFIX,challenges.cloudflare.com
   - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com
   - DOMAIN-SUFFIX,sentry.io
 
-  # Gemini (Google AI)
+  # Gemini (Google AI) - API 和网页域名 (generativelanguage 等)
   - DOMAIN-SUFFIX,gemini.google.com
   - DOMAIN-SUFFIX,ai.google.dev
   - DOMAIN-SUFFIX,aistudio.google.com
   - DOMAIN-SUFFIX,generativelanguage.googleapis.com
   - DOMAIN-SUFFIX,bard.google.com  # 旧版 Bard，重定向到 Gemini
-
-rule-providers:
-  ai-divert:
-    type: http
-    behavior: domain
-    url: "https://raw.githubusercontent.com/你的用户名/你的仓库名/main/ai-divert-rules.yaml"
-    path: ./ruleset/ai-divert-rules.yaml
-    interval: 86400  # 每天更新一次
-
-rules:
-  - RULE-SET,ai-divert,PROXY  # 将匹配的 AI 流量路由到代理组（可替换为 DIRECT 或其他组）
