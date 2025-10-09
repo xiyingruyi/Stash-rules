@@ -1,1 +1,1 @@
-# Stash-ai-rules
+# Stash-rules
