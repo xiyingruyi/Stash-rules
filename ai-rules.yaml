@@ -1,14 +1,15 @@
 # AI 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI)
 # 描述: 准确覆盖核心域名，支持 Clash/Stash 远程 RULE-SET 调用
-# 版本: 2.1 (2025-10-10 更新，修复 Gemini 依赖 API 流量丢失问题)
+# 版本: 2.2 (2025-10-10 最终修复，涵盖 Grok.com 和所有 Google API 依赖)
 # 来源: G4free/clash-ruleset, SirBrother/Clash-Rules, SkywalkerJi/Clash-Rules
 # 使用: RULE-SET,ai-rules,PROXY (PROXY 替换为你的代理组)
 
 payload:
-  # Grok (xAI) - 核心域名 (api.x.ai, grok.x.ai 等)
+  # Grok (xAI) - 核心域名 (api.x.ai, grok.x.ai, grok.com 等)
   - DOMAIN-SUFFIX,x.ai
   - DOMAIN-SUFFIX,grok.x.ai
   - DOMAIN-SUFFIX,api.x.ai
+  - DOMAIN-SUFFIX,grok.com  # 【修复关键】解决 Grok.com 漏分流的问题
 
   # ChatGPT (OpenAI) - 完整列表 (chat.openai.com, api 等，包含 CDN 和 auth)
   - DOMAIN-SUFFIX,openai.com
@@ -44,5 +45,5 @@ payload:
   - DOMAIN-SUFFIX,aistudio.google.com
   - DOMAIN-SUFFIX,generativelanguage.googleapis.com
   - DOMAIN-SUFFIX,bard.google.com  # 旧版 Bard，重定向到 Gemini
-  - DOMAIN-SUFFIX,googleapis.com     # 【修复关键】捕获所有 Google API 流量，解决 play.googleapis.com 问题
+  - DOMAIN-SUFFIX,googleapis.com     # 【修复关键】捕获所有 Google API 流量，解决 play.googleapis.com 问题
   - DOMAIN-SUFFIX,googleusercontent.com # 捕获 Google 静态内容和 CDN
