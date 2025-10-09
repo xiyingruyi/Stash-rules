@@ -1,17 +1,26 @@
-# AI 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI)
-# 描述: 准确覆盖核心域名，支持 Clash/Stash 远程 RULE-SET 调用
-# 版本: 2.2 (2025-10-10 最终修复，涵盖 Grok.com 和所有 Google API 依赖)
-# 来源: G4free/clash-ruleset, SirBrother/Clash-Rules, SkywalkerJi/Clash-Rules
-# 使用: RULE-SET,ai-rules,PROXY (PROXY 替换为你的代理组)
+# 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI)
+# 描述: AI 流量专用远程规则集，不绑定任何代理组
+# 版本: 2.7 (2025-10-10 AI专用远程规则)
+# 使用: RULE-SET,ai-rules,PROXY  # 调用时指定 PROXY
 
 payload:
-  # Grok (xAI) - 核心域名 (api.x.ai, grok.x.ai, grok.com 等)
+  # -----------------------------
+  # Grok (xAI) 流量
+  # -----------------------------
   - DOMAIN-SUFFIX,x.ai
   - DOMAIN-SUFFIX,grok.x.ai
   - DOMAIN-SUFFIX,api.x.ai
-  - DOMAIN-SUFFIX,grok.com  # 【修复关键】解决 Grok.com 漏分流的问题
+  - DOMAIN-SUFFIX,grok.com
+  - DOMAIN-SUFFIX,api.grok.com
+  - DOMAIN-SUFFIX,beta.grok.com
+  - DOMAIN-SUFFIX,cdn.grok.com
+  - DOMAIN-SUFFIX,static.grok.com
+  - DOMAIN-SUFFIX,grokusercontent.com
+  - DOMAIN-SUFFIX,grokcdn.com
 
-  # ChatGPT (OpenAI) - 完整列表 (chat.openai.com, api 等，包含 CDN 和 auth)
+  # -----------------------------
+  # ChatGPT (OpenAI) 流量
+  # -----------------------------
   - DOMAIN-SUFFIX,openai.com
   - DOMAIN-SUFFIX,chat.openai.com
   - DOMAIN-SUFFIX,chatgpt.com
@@ -38,12 +47,12 @@ payload:
   - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com
   - DOMAIN-SUFFIX,sentry.io
 
-  # Gemini (Google AI) - 修复版 API 和网页域名
-  # 增加了 googleapis.com 和 googleusercontent.com，以解决 play.googleapis.com 和认证流量丢失问题
+  # -----------------------------
+  # Gemini (Google AI) 流量
+  # -----------------------------
   - DOMAIN-SUFFIX,gemini.google.com
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
+  - DOMAIN-SUFFIX,bard.google.com
   - DOMAIN-SUFFIX,ai.google.dev
   - DOMAIN-SUFFIX,aistudio.google.com
-  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
-  - DOMAIN-SUFFIX,bard.google.com  # 旧版 Bard，重定向到 Gemini
-  - DOMAIN-SUFFIX,googleapis.com     # 【修复关键】捕获所有 Google API 流量，解决 play.googleapis.com 问题
-  - DOMAIN-SUFFIX,googleusercontent.com # 捕获 Google 静态内容和 CDN
+  - DOMAIN-SUFFIX,play.googleapis.com
