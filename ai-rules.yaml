@@ -1,6 +1,6 @@
-# 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI)
-# 描述: AI 流量专用远程规则集，不绑定任何代理组
-# 版本: 2.7 (2025-10-10 AI专用远程规则)
+# 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI) 智能捕获版
+# 描述: AI 流量专用远程规则集，支持新增子域自动匹配，不绑定代理组
+# 版本: 2.8 (2025-10-10 AI智能捕获远程规则)
 # 使用: RULE-SET,ai-rules,PROXY  # 调用时指定 PROXY
 
 payload:
@@ -17,6 +17,8 @@ payload:
   - DOMAIN-SUFFIX,static.grok.com
   - DOMAIN-SUFFIX,grokusercontent.com
   - DOMAIN-SUFFIX,grokcdn.com
+  # 智能捕获未知 Grok 子域
+  - DOMAIN-KEYWORD,grok
 
   # -----------------------------
   # ChatGPT (OpenAI) 流量
@@ -46,6 +48,9 @@ payload:
   - DOMAIN-SUFFIX,challenges.cloudflare.com
   - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com
   - DOMAIN-SUFFIX,sentry.io
+  # 智能捕获未知 ChatGPT / OpenAI 子域
+  - DOMAIN-KEYWORD,openai
+  - DOMAIN-KEYWORD,chatgpt
 
   # -----------------------------
   # Gemini (Google AI) 流量
@@ -56,3 +61,7 @@ payload:
   - DOMAIN-SUFFIX,ai.google.dev
   - DOMAIN-SUFFIX,aistudio.google.com
   - DOMAIN-SUFFIX,play.googleapis.com
+  # 智能捕获未知 Gemini / Google AI 子域
+  - DOMAIN-KEYWORD,generativelanguage
+  - DOMAIN-KEYWORD,bard
+  - DOMAIN-KEYWORD,ai.google
