@@ -1,7 +1,9 @@
-# 分流规则集 - Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI) 智能捕获升级版
-# 描述: AI 流量专用远程规则集，补全漏掉的 Gemini 子域，支持未来新增域名自动匹配
-# 版本: 2.9 (2025-10-10 AI智能捕获升级远程规则)
-# 使用: RULE-SET,ai-rules,PROXY  # 调用时指定 PROXY
+# -----------------------------
+# Ai 分流 - 完整升级版远程规则集
+# 描述: Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI) 智能捕获升级版
+# 版本: 2.10 (2025-10-10 最终补全)
+# 使用: RULE-SET,ai-rules,Ai 分流
+# -----------------------------
 
 payload:
   # -----------------------------
@@ -62,6 +64,7 @@ payload:
   - DOMAIN-SUFFIX,oauth2.googleapis.com
   - DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com
   - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
+  - DOMAIN-SUFFIX,notifications-pa.googleapis.com  # 新增补全
   - DOMAIN-KEYWORD,generativelanguage      # 智能捕获未来 Generative Language API 子域
   - DOMAIN-KEYWORD,bard                    # 智能捕获未来 Bard 子域
   - DOMAIN-KEYWORD,ai.google               # 智能捕获未来 Google AI 子域
