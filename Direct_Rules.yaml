@@ -2,12 +2,6 @@
 # 备注: 网站直连
 
 payload:
-  # Apple LBS 域名
-  - DOMAIN-SUFFIX,iphone-ld.apple.com
-  - DOMAIN-SUFFIX,lcdn-locator.apple.com
-  - DOMAIN-SUFFIX,lcdn-registration.apple.com
-  - DOMAIN-SUFFIX,push.apple.com
-
   # 下载工具进程直连
   - PROCESS-NAME,p4pclient
   - PROCESS-NAME,Thunder
@@ -21,17 +15,9 @@ payload:
   - PROCESS-NAME,uTorrent
   - PROCESS-NAME,WebTorrent
 
-  # 应用域名直连 (Steam, Microsoft CN)
-  - GEOSITE,steam@cn
-  - GEOSITE,microsoft@cn
-
   # === 网站直连（Epic Games 商店领取、Appstorrent、小黑盒主体） ===
   # Appstorrent 网站
   - DOMAIN-SUFFIX,appstorrent.ru
-
-  # Telegram 进程直连
-  - PROCESS-NAME,Telegram.exe
-  - PROCESS-NAME,Telegram
   
   # 小黑盒 App 主体直连
   - DOMAIN-SUFFIX,xiaoheiwu.cn
