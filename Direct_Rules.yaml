@@ -28,6 +28,10 @@ payload:
   # === 网站直连（Epic Games 商店领取、Appstorrent、小黑盒主体） ===
   # Appstorrent 网站
   - DOMAIN-SUFFIX,appstorrent.ru
+
+  # Telegram 进程直连
+  - PROCESS-NAME,Telegram.exe
+  - PROCESS-NAME,Telegram
   
   # 小黑盒 App 主体直连
   - DOMAIN-SUFFIX,xiaoheiwu.cn
@@ -57,7 +61,3 @@ payload:
   - DOMAIN-SUFFIX,cdn1.unrealengine.com
   - DOMAIN-SUFFIX,cdn2.unrealengine.com
   # =======================================================
-
-  # Telegram 进程直连
-  - PROCESS-NAME,Telegram.exe
-  - PROCESS-NAME,Telegram
