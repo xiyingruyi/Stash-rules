@@ -1,33 +1,63 @@
 # FILE NAME: Direct_Rules.yaml (包含所有应用域名和进程名)
+# 备注: 网站直连
+
 payload:
-  # 小黑盒 App 直连
-  - DOMAIN-SUFFIX,xiaoheiwu.cn,DIRECT
-  - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT
-  - DOMAIN-SUFFIX,xiaoihe.com,DIRECT
-
   # Apple LBS 域名
-  - DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
-  - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
-  - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
-  - DOMAIN-SUFFIX,push.apple.com,DIRECT
-
-  # Telegram 进程直连
-  - PROCESS-NAME,Telegram.exe,DIRECT
-  - PROCESS-NAME,Telegram,DIRECT
+  - DOMAIN-SUFFIX,iphone-ld.apple.com
+  - DOMAIN-SUFFIX,lcdn-locator.apple.com
+  - DOMAIN-SUFFIX,lcdn-registration.apple.com
+  - DOMAIN-SUFFIX,push.apple.com
 
   # 下载工具进程直连
-  - PROCESS-NAME,p4pclient,DIRECT
-  - PROCESS-NAME,Thunder,DIRECT
-  - PROCESS-NAME,DownloadService,DIRECT
-  - PROCESS-NAME,qbittorrent,DIRECT
-  - PROCESS-NAME,Transmission,DIRECT
-  - PROCESS-NAME,fdm,DIRECT
-  - PROCESS-NAME,aria2c,DIRECT
-  - PROCESS-NAME,Folx,DIRECT
-  - PROCESS-NAME,NetTransport,DIRECT
-  - PROCESS-NAME,uTorrent,DIRECT
-  - PROCESS-NAME,WebTorrent,DIRECT
+  - PROCESS-NAME,p4pclient
+  - PROCESS-NAME,Thunder
+  - PROCESS-NAME,DownloadService
+  - PROCESS-NAME,qbittorrent
+  - PROCESS-NAME,Transmission
+  - PROCESS-NAME,fdm
+  - PROCESS-NAME,aria2c
+  - PROCESS-NAME,Folx
+  - PROCESS-NAME,NetTransport
+  - PROCESS-NAME,uTorrent
+  - PROCESS-NAME,WebTorrent
 
   # 应用域名直连 (Steam, Microsoft CN)
-  - GEOSITE,steam@cn,DIRECT
-  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,steam@cn
+  - GEOSITE,microsoft@cn
+
+  # === 网站直连（Epic Games 商店领取、Appstorrent、小黑盒主体） ===
+  # Appstorrent 网站
+  - DOMAIN-SUFFIX,appstorrent.ru
+  
+  # 小黑盒 App 主体直连
+  - DOMAIN-SUFFIX,xiaoheiwu.cn
+  - DOMAIN-SUFFIX,xiaoheihe.cn
+  - DOMAIN-SUFFIX,xiaoihe.com
+  - DOMAIN-SUFFIX,api.xiaoheihe.cn
+
+  # Epic Games 商店领取限免游戏（通过网页或小黑盒领取都需要这些）
+  # Epic Games 商店主体
+  - DOMAIN-SUFFIX,epicgames.com
+  - DOMAIN-SUFFIX,store.epicgames.com
+  # Epic Games 认证和 API 接口
+  - DOMAIN-SUFFIX,accounts.epicgames.com
+  - DOMAIN-SUFFIX,epicgames.dev
+  - DOMAIN-SUFFIX,epicsandbox.com
+  - DOMAIN-SUFFIX,ol.epicgames.com
+  - DOMAIN-SUFFIX,datarouter.ol.epicgames.com
+  - DOMAIN-SUFFIX,tracking.epicgames.com
+  # Epic Games 专用的 CDN 与下载服务
+  - DOMAIN-SUFFIX,on.epicgames.com
+  - DOMAIN-SUFFIX,download.epicgames.com
+  - DOMAIN-SUFFIX,download2.epicgames.com
+  - DOMAIN-SUFFIX,download3.epicgames.com
+  - DOMAIN-SUFFIX,download4.epicgames.com
+  - DOMAIN-SUFFIX,epicgames-download1.akamaized.net
+  - DOMAIN-SUFFIX,static-assets-prod.epicgames.com
+  - DOMAIN-SUFFIX,cdn1.unrealengine.com
+  - DOMAIN-SUFFIX,cdn2.unrealengine.com
+  # =======================================================
+
+  # Telegram 进程直连
+  - PROCESS-NAME,Telegram.exe
+  - PROCESS-NAME,Telegram
