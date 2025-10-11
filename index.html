@@ -56,7 +56,7 @@
 
     <div class="buttons">
       <button id="convert">✨ 转换</button>
-      <button id="clear">↺ 重置</button>
+      <button id="actionBtn">🗑️ 清空</button>
     </div>
   </div>
 
@@ -68,7 +68,7 @@
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
-    const clearBtn = document.getElementById('clear');
+    const actionBtn = document.getElementById('actionBtn'); // 动态按钮
 
     // 获取两个 CDN 链接
     function getUrls(url) {
@@ -107,9 +107,19 @@
         document.getElementById('fastlyUrl').textContent = urls.fastly;
         resultGroup.style.display = 'block';
 
+        // 转换后：按钮变为「重置」
+        actionBtn.textContent = '↺ 重置';
+
       } catch (e) {
         alert("链接格式无效，请检查");
       }
+    }
+
+    function clearOrReset() {
+      input.value = '';
+      resultGroup.style.display = 'none';
+      actionBtn.textContent = '🗑️ 清空'; // 恢复为「清空」
+      input.focus();
     }
 
     // 复制功能
@@ -126,14 +136,8 @@
       });
     });
 
-    function clearAll() {
-      input.value = '';
-      resultGroup.style.display = 'none';
-      input.focus();
-    }
-
     convertBtn.addEventListener('click', convert);
-    clearBtn.addEventListener('click', clearAll);
+    actionBtn.addEventListener('click', clearOrReset);
     input.focus();
 
     // 回车转换（Shift+Enter 换行）
@@ -310,7 +314,7 @@
       background-color: var(--primary);
       color: white;
     }
-    #clear {
+    #actionBtn {
       background-color: var(--border);
       color: var(--text);
     }
