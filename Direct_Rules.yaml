@@ -1,36 +1,45 @@
-# FILE NAME: Direct_Rules.yaml (包含所有应用域名)
-# 备注: 网站直连
-
+# FILE NAME: Direct_Rules.yaml
+# 备注: 国内网站 & 游戏平台直连规则
+# 适用: Epic Games 领取限免、小黑盒、Appstorrent 等
 payload:
-  # === 网站直连（Epic Games 商店领取、Appstorrent、小黑盒主体） ===
-  # Appstorrent 网站
-  - DOMAIN-SUFFIX,appstorrent.ru
-  
-  # 小黑盒 App 主体直连
-  - DOMAIN-SUFFIX,xiaoheiwu.cn
-  - DOMAIN-SUFFIX,xiaoheihe.cn
-  - DOMAIN-SUFFIX,xiaoihe.com
-  - DOMAIN-SUFFIX,api.xiaoheihe.cn
+  # === 小黑盒 App 主体及 API ===
+  - DOMAIN-SUFFIX,xiaoheiwu.cn,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,xiaoihe.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,api.xiaoheihe.cn,DIRECT,no-resolve
 
-  # Epic Games 商店领取限免游戏（通过网页或小黑盒领取都需要这些）
-  # Epic Games 商店主体
-  - DOMAIN-SUFFIX,epicgames.com
-  - DOMAIN-SUFFIX,store.epicgames.com
-  # Epic Games 认证和 API 接口
-  - DOMAIN-SUFFIX,accounts.epicgames.com
-  - DOMAIN-SUFFIX,epicgames.dev
-  - DOMAIN-SUFFIX,epicsandbox.com
-  - DOMAIN-SUFFIX,ol.epicgames.com
-  - DOMAIN-SUFFIX,datarouter.ol.epicgames.com
-  - DOMAIN-SUFFIX,tracking.epicgames.com
-  # Epic Games 专用的 CDN 与下载服务
-  - DOMAIN-SUFFIX,on.epicgames.com
-  - DOMAIN-SUFFIX,download.epicgames.com
-  - DOMAIN-SUFFIX,download2.epicgames.com
-  - DOMAIN-SUFFIX,download3.epicgames.com
-  - DOMAIN-SUFFIX,download4.epicgames.com
-  - DOMAIN-SUFFIX,epicgames-download1.akamaized.net
-  - DOMAIN-SUFFIX,static-assets-prod.epicgames.com
-  - DOMAIN-SUFFIX,cdn1.unrealengine.com
-  - DOMAIN-SUFFIX,cdn2.unrealengine.com
-  # =======================================================
+  # === Appstorrent 网站 ===
+  - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
+
+  # === Epic Games 商店主体 ===
+  - DOMAIN-SUFFIX,epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,store.epicgames.com,DIRECT,no-resolve
+
+  # === Epic Games 认证与 API ===
+  - DOMAIN-SUFFIX,accounts.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,epicgames.dev,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,epicsandbox.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,ol.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,datarouter.ol.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,tracking.epicgames.com,DIRECT,no-resolve
+
+  # === Epic Games 下载与 CDN ===
+  - DOMAIN-SUFFIX,on.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,download.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,download2.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,download3.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,download4.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,epicgames-download1.akamaized.net,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,static-assets-prod.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,cdn1.unrealengine.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,cdn2.unrealengine.com,DIRECT,no-resolve
+
+  # === 补充常用 CDN 边缘节点（防漏）===
+  - DOMAIN-SUFFIX,cdn-fastly.epicgames.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,dualstack.fastly.net,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,cloudfront.net,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,akamaiedge.net,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,akamaitechnologies.com,DIRECT,no-resolve
+
+  # === 可选：关键词兜底（谨慎开启）===
+  # - DOMAIN-KEYWORD,epicgames,DIRECT,no-resolve
