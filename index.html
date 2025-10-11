@@ -2,142 +2,21 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>jsDelivr 加速器</title>
-  <meta name="description" content="将 GitHub raw 链接转为 jsDelivr CDN 加速链接 | 极简 · 大气 · 苹果美学" />
-
-  <!-- Apple Web App 设置 -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="theme-color" content="#f7f9fc" />
-
-  <!-- 🔥 内联图标：蓝色背景 + 白色"JDJS"文字（无需上传任何图片） -->
-  <link rel="icon" href="data:image/svg+xml,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-      <rect width='100' height='100' rx='20' fill='%23007AFF'/>
-      <text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle'
-            font-size='40' font-family='sans-serif' font-weight='bold' fill='white'>
-        JDJS
-      </text>
-    </svg>" type="image/svg+xml">
-
-  <!-- 可选 fallback：纯色图标（极少数浏览器需要） -->
-  <link rel="icon" href="data:image/x-icon;,">
-</head>
-<body>
-  <h1>jsDelivr 加速器</h1>
-  <p class="subtitle">一键转换 GitHub 链接等静态资源</p>
-  <div class="container">
-    <textarea id="input" placeholder="粘贴 raw.githubusercontent.com 链接..."></textarea>
-    <p class="tip">
-      支持加速：<br>
-      • GitHub raw 文件链接（自动替换）<br>
-      • JS、CSS、图片、字体等静态资源<br>
-      • 示例：<span style="color:var(--primary)">https://raw.githubusercontent.com/user/repo/main/very/long/path/to/your/file.js</span>
-    </p>
-    <div id="result" class="result"></div>
-    <div class="buttons">
-      <button id="convert">✨ 开启转换</button>
-      <button id="copy">📋 复制结果</button>
-      <button id="clear">🗑️ 清空</button>
-    </div>
-  </div>
-  <footer>
-    基于开源项目构建 | 可添加到主屏幕快捷使用
-  </footer>
-
-  <script>
-    const input = document.getElementById('input');
-    const resultBox = document.getElementById('result');
-    const convertBtn = document.getElementById('convert');
-    const copyBtn = document.getElementById('copy');
-    const clearBtn = document.getElementById('clear');
-
-    function convert() {
-      const url = input.value.trim();
-      if (!url) {
-        alert("请输入原始链接");
-        return;
-      }
-      try {
-        const parsed = new URL(url);
-        if (parsed.hostname === 'raw.githubusercontent.com') {
-          const parts = parsed.pathname.slice(1).split('/');
-          if (parts.length >= 4) {
-            const user = parts[0];
-            const repo = parts[1];
-            const ref = parts[2];
-            const filePath = parts.slice(3).join('/');
-            const cdnUrl = `https://cdn.jsdelivr.net/gh/${user}/${repo}@${ref}/${filePath}`;
-            resultBox.textContent = cdnUrl;
-            resultBox.style.display = 'block';
-          } else {
-            throw new Error('路径不完整');
-          }
-        } else {
-          alert("请提供 GitHub raw 链接\n如需加速其他资源，请先上传至 GitHub");
-          resultBox.style.display = 'none';
-        }
-      } catch (e) {
-        alert("无效的链接格式，请检查后重试");
-        resultBox.style.display = 'none';
-      }
-    }
-
-    async function copyResult() {
-      if (resultBox.style.display === 'none' || !resultBox.textContent) {
-        alert("暂无结果可复制");
-        return;
-      }
-      try {
-        await navigator.clipboard.writeText(resultBox.textContent);
-
-        // 简单反馈
-        const text = copyBtn.textContent;
-        copyBtn.textContent = "✅ 已复制";
-        setTimeout(() => {
-          copyBtn.textContent = text;
-        }, 1500);
-      } catch (err) {
-        prompt("复制成功！", resultBox.textContent);
-      }
-    }
-
-    function clearAll() {
-      input.value = '';
-      resultBox.style.display = 'none';
-      resultBox.textContent = '';
-      input.focus();
-    }
-
-    convertBtn.addEventListener('click', convert);
-    copyBtn.addEventListener('click', copyResult);
-    clearBtn.addEventListener('click', clearAll);
-    input.focus();
-
-    // 回车快速转换（Shift+Enter 换行）
-    input.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        convert();
-      }
-    });
-  </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDN 转换器</title>
   <style>
     :root {
       --bg: #f7f9fc;
       --card-bg: #ffffff;
       --text: #1c1e21;
-      --text-light: #666;
-      --border: #e1e5e9;
+      --text-light: #636366;
+      --border: #d1d5da;
       --primary: #007aff;
       --success: #34c759;
-      --danger: #ff3b30;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-      --radius: 16px;
-      --transition: all 0.2s ease;
+      --warning: #ffcc00;
+      --shadow: 0 8px 30px rgba(0,0,0,0.1);
+      --radius: 18px;
+      --btn-hover: #f2f2f7;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -146,6 +25,7 @@
         --text: #f1f1f3;
         --text-light: #8e8e93;
         --border: #3a3a3c;
+        --btn-hover: #2c2c2e;
       }
     }
     * {
@@ -154,125 +34,206 @@
       padding: 0;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      padding: 40px 20px;
       max-width: 860px;
       margin: 0 auto;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
     }
     h1 {
       text-align: center;
       font-size: 1.8rem;
       font-weight: 600;
-      margin: 32px 0 16px;
-      letter-spacing: -0.02em;
-      color: var(--text);
+      margin-bottom: 30px;
     }
-    .subtitle {
-      text-align: center;
+    input[type="text"] {
+      width: 100%;
+      padding: 16px;
       font-size: 1rem;
-      color: var(--text-light);
-      margin-bottom: 24px;
-      font-weight: 400;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card-bg);
+      color: var(--text);
+      outline: none;
+      transition: border 0.3s;
     }
-    .container {
-      flex: 1;
-      padding: 0 20px;
+    input[type="text"]:focus {
+      border-color: var(--primary);
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: none;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      margin: 20px 0;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: var(--btn-hover);
+    }
+    .result-group {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      margin-top: 20px;
     }
-    textarea,
-    .result {
-      width: 100%;
-      padding: 16px 20px;
+    .result-card {
+      background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      font-size: 1rem;
-      resize: vertical;
-      background-color: var(--card-bg);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: var(--transition);
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    textarea:focus,
-    .result:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px var(--primary), var(--shadow);
+    .result-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
-    textarea::placeholder {
-      color: var(--text-light);
+    .result-url {
+      word-break: break-all;
+      font-family: Menlo, Monaco, 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.5;
     }
-    .tip {
+    .result-hint {
       font-size: 0.9rem;
       color: var(--text-light);
-      padding: 14px 20px;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-top: -8px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      /* 关键修复：确保长链接自动换行 */
-      word-break: break-all;
-      overflow-wrap: break-word;
+      margin-bottom: 12px;
     }
-    .result {
-      font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
-      color: #d63384;
-      min-height: 56px;
-      display: none;
-      word-break: break-all;
-      white-space: pre-wrap;
-    }
-    .buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    button {
-      flex: 1;
-      padding: 14px 0;
-      font-size: 1rem;
-      font-weight: 500;
+    .copy-btn {
+      background: var(--primary);
+      color: white;
       border: none;
-      border-radius: var(--radius);
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      border-radius: 9px;
       cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
-    button:active {
-      transform: scale(0.98);
+    .copy-btn:active {
+      transform: scale(0.96);
     }
-    #convert {
-      background-color: var(--primary);
-      color: white;
-    }
-    #copy {
-      background-color: var(--success);
-      color: white;
-    }
-    #clear {
-      background-color: var(--border);
-      color: var(--text);
-    }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-light);
-      padding-bottom: 30px;
-    }
-    button:hover:not(:active) {
-      opacity: 0.92;
+    #resetBtn {
+      display: none;
     }
   </style>
+</head>
+<body>
+
+  <h1>🔗 CDN 链接转换器</h1>
+  <input type="text" id="inputUrl" placeholder="输入 raw.githubusercontent.com 链接">
+
+  <button id="convertBtn">🚀 开始转换</button>
+  <button id="resetBtn">↺ 重置</button>
+
+  <div class="result-group" id="results" style="display:none;">
+    <div class="result-card">
+      <div class="result-header">✅ cdn.jsdelivr.net</div>
+      <div class="result-url" id="cdnUrl"></div>
+      <div class="result-hint">国内推荐使用，自动选择最优节点</div>
+      <button class="copy-btn" data-target="cdnUrl">复制链接</button>
+    </div>
+
+    <div class="result-card">
+      <div class="result-header">🌐 fastly.jsdelivr.net</div>
+      <div class="result-url" id="fastlyUrl"></div>
+      <div class="result-hint">海外线路优选，在国际网络下速度更快</div>
+      <button class="copy-btn" data-target="fastlyUrl">复制链接</button>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById('inputUrl');
+    const convertBtn = document.getElementById('convertBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const results = document.getElementById('results');
+    const cdnUrlEl = document.getElementById('cdnUrl');
+    const fastlyUrlEl = document.getElementById('fastlyUrl');
+
+    // 转换函数
+    function convertUrl(url) {
+      try {
+        const u = new URL(url.trim());
+        if (!u.hostname.includes('githubusercontent.com')) {
+          alert('请输入 raw.githubusercontent.com 开头的链接');
+          return null;
+        }
+
+        const path = u.pathname;
+        const match = path.match(/\/([^\/]+)\/([^\/]+)\/([^\/]+)\/(.+)/);
+        if (!match) {
+          alert('GitHub 链接格式不正确');
+          return null;
+        }
+
+        const [, user, repo, ref, filePath] = match;
+        const branch = ref === 'master' ? 'master' : ref.startsWith('v') ? ref : `v${ref}`;
+        const base = `${user}/${repo}@${branch}/${filePath}`;
+
+        return {
+          cdn: `https://cdn.jsdelivr.net/gh/${base}`,
+          fastly: `https://fastly.jsdelivr.net/gh/${base}`
+        };
+      } catch (e) {
+        alert('链接无效，请检查格式');
+        return null;
+      }
+    }
+
+    // 复制功能
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.target);
+        navigator.clipboard.writeText(target.textContent).then(() => {
+          const txt = btn.textContent;
+          btn.textContent = '已复制！';
+          setTimeout(() => btn.textContent = txt, 1500);
+        });
+      });
+    });
+
+    convertBtn.addEventListener('click', () => {
+      if (!input.value) {
+        alert('请输入 GitHub raw 链接');
+        return;
+      }
+
+      const result = convertUrl(input.value);
+      if (!result) return;
+
+      cdnUrlEl.textContent = result.cdn;
+      fastlyUrlEl.textContent = result.fastly;
+
+      results.style.display = 'block';
+      convertBtn.style.display = 'none';
+      resetBtn.style.display = 'block';
+    });
+
+    resetBtn.addEventListener('click', () => {
+      input.value = '';
+      results.style.display = 'none';
+      convertBtn.style.display = 'block';
+      resetBtn.style.display = 'none';
+    });
+
+    // 回车触发
+    input.addEventListener('keypress', e => {
+      if (e.key === 'Enter') convertBtn.click();
+    });
+  </script>
+
 </body>
 </html>
