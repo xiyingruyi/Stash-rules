@@ -2,18 +2,45 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>jsDelivr 加速器</title>
-  <meta name="description" content="将 GitHub raw 或任意静态资源链接转为 jsDelivr CDN 加速链接" />
-  <!-- 添加到主屏后显示为全屏应用 -->
+  <meta name="description" content="将 GitHub raw 链接转为 jsDelivr CDN 加速链接 | 极简 · 大气 · 苹果美学" />
+
+  <!-- Apple Web App 设置 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <!-- 图标（可替换为你自己的图标） -->
-  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/npm/@iconify/iconify@2/icons/simple-icons/github.svg" />
-  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@iconify/iconify@2/icons/simple-icons/jsdelivr.svg" />
+  <meta name="theme-color" content="#f7f9fc" />
+
+  <!-- 图标（使用 jsDelivr 官方 logo） -->
+  <link rel="icon" href="https://cdn.jsdelivr.net/npm/@iconify/iconify@2/icons/simple-icons/jsdelivr.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/npm/@iconify/iconify@2/icons/simple-icons/jsdelivr.svg" />
 
   <style>
+    :root {
+      --bg: #f7f9fc;
+      --card-bg: #ffffff;
+      --text: #1c1e21;
+      --text-light: #666;
+      --border: #e1e5e9;
+      --primary: #007aff;
+      --success: #34c759;
+      --danger: #ff3b30;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      --radius: 16px;
+      --transition: all 0.2s ease;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --card-bg: #1c1c1e;
+        --text: #f1f1f3;
+        --text-light: #8e8e93;
+        --border: #3a3a3c;
+      }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -21,70 +48,88 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background-color: #f7f9fc;
-      color: #1c1e21;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      padding: 20px;
-      max-width: 800px;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      max-width: 860px;
       margin: 0 auto;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      transition: background-color 0.3s;
     }
 
     h1 {
       text-align: center;
       font-size: 1.8rem;
-      margin: 30px 0 20px;
-      color: #2c3e50;
+      font-weight: 600;
+      margin: 32px 0 16px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 24px;
+      font-weight: 400;
     }
 
     .container {
       flex: 1;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
 
-    textarea {
+    textarea,
+    .result {
       width: 100%;
-      height: 100px;
-      padding: 12px 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       font-size: 1rem;
       resize: vertical;
-      background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background-color: var(--card-bg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: var(--transition);
     }
 
-    textarea:focus {
+    textarea:focus,
+    .result:focus {
       outline: none;
-      border-color: #4a90e2;
-      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary), var(--shadow);
+    }
+
+    textarea::placeholder {
+      color: var(--text-light);
     }
 
     .tip {
       font-size: 0.9rem;
-      color: #666;
-      padding: 10px 16px;
-      background-color: #f0f4f8;
-      border-radius: 8px;
-      margin-top: -10px;
+      color: var(--text-light);
+      padding: 14px 20px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: -8px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
     }
 
     .result {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background-color: #f8f9fa;
-      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+      font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
       color: #d63384;
-      min-height: 20px;
-      word-break: break-all;
+      min-height: 56px;
       display: none;
+      word-break: break-all;
+      white-space: pre-wrap;
     }
 
     .buttons {
@@ -95,63 +140,75 @@
 
     button {
       flex: 1;
-      padding: 12px;
+      padding: 14px 0;
       font-size: 1rem;
+      font-weight: 500;
       border: none;
-      border-radius: 8px;
+      border-radius: var(--radius);
       cursor: pointer;
-      transition: all 0.2s ease;
-      background-color: #4a90e2;
-      color: white;
-    }
-
-    button:hover {
-      opacity: 0.9;
+      transition: var(--transition);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
 
     button:active {
       transform: scale(0.98);
     }
 
-    button#clear {
-      background-color: #adb5bd;
+    #convert {
+      background-color: var(--primary);
+      color: white;
     }
 
-    button#copy {
-      background-color: #28a745;
+    #copy {
+      background-color: var(--success);
+      color: white;
+    }
+
+    #clear {
+      background-color: var(--border);
+      color: var(--text);
     }
 
     footer {
       margin-top: 40px;
       text-align: center;
       font-size: 0.85rem;
-      color: #aaa;
+      color: var(--text-light);
+      padding-bottom: 30px;
+    }
+
+    /* 按钮悬停增强 */
+    button:hover:not(:active) {
+      opacity: 0.92;
     }
   </style>
 </head>
 <body>
+
   <h1>jsDelivr 加速器</h1>
+  <p class="subtitle">一键转换 GitHub 链接</p>
 
   <div class="container">
-    <textarea id="input" placeholder="在此粘贴原始链接..."></textarea>
+    <textarea id="input" placeholder="粘贴 raw.githubusercontent.com 链接..."></textarea>
+
     <p class="tip">
       支持加速：<br>
       • GitHub raw 文件链接（自动替换）<br>
-      • 图片、JS、CSS、字体、JSON 等任意静态资源链接<br>
-      • 示例：https://raw.githubusercontent.com/user/repo/main/file.js
+      • JS、CSS、图片、字体等静态资源<br>
+      • 示例：<span style="color:var(--primary)">https://raw.githubusercontent.com/user/repo/main/file.js</span>
     </p>
 
     <div id="result" class="result"></div>
 
     <div class="buttons">
-      <button id="convert">开启转换</button>
-      <button id="copy">复制结果</button>
-      <button id="clear">清空</button>
+      <button id="convert">✨ 开启转换</button>
+      <button id="copy">📋 复制结果</button>
+      <button id="clear">🗑️ 清空</button>
     </div>
   </div>
 
   <footer>
-    使用 jsDelivr CDN 实现全球加速 | 可添加到桌面快捷使用
+    基于开源项目构建 | 可添加到主屏幕快捷使用
   </footer>
 
   <script>
@@ -161,65 +218,58 @@
     const copyBtn = document.getElementById('copy');
     const clearBtn = document.getElementById('clear');
 
-    // 转换逻辑
     function convert() {
       const url = input.value.trim();
       if (!url) {
-        alert("请输入有效的链接");
+        alert("请输入原始链接");
         return;
       }
 
       try {
         const parsed = new URL(url);
 
-        // 判断是否是 GitHub raw 链接
         if (parsed.hostname === 'raw.githubusercontent.com') {
-          // 格式: https://raw.githubusercontent.com/{user}/{repo}/{branch}/{path}
           const parts = parsed.pathname.slice(1).split('/');
           if (parts.length >= 4) {
             const user = parts[0];
             const repo = parts[1];
-            const ref = parts[2]; // branch or tag or commit
+            const ref = parts[2];
             const filePath = parts.slice(3).join('/');
             const cdnUrl = `https://cdn.jsdelivr.net/gh/${user}/${repo}@${ref}/${filePath}`;
             resultBox.textContent = cdnUrl;
             resultBox.style.display = 'block';
           } else {
-            throw new Error("Invalid GitHub raw URL structure");
+            throw new Error('路径不完整');
           }
-        } 
-        // 其他静态资源：直接通过 jsDelivr 的任意文件代理
-        else {
-          // 注意：jsDelivr 支持任意公开资源代理格式如下：
-          // https://cdn.jsdelivr.net/gh/[user]/[repo]@[ref]/[file] → 只适用于 GitHub
-          // 对于非 GitHub 资源，不能直接代理，但可以提示用户上传到 GitHub 再用
-          // 所以这里我们只处理 GitHub，其他给出提示或尝试通用方式（实际不支持）
-          
-          // 当前仅支持 GitHub 链接。如果是其他静态资源，建议用户自己托管到 GitHub。
-          alert("目前仅支持 GitHub raw 链接转换。\n请将你的静态资源放入 GitHub 仓库中使用 raw 链接进行转换。");
+        } else {
+          alert("请提供 GitHub raw 链接\n如需加速其他资源，请先上传至 GitHub");
           resultBox.style.display = 'none';
         }
       } catch (e) {
-        alert("链接格式无效，请输入正确的 URL");
+        alert("无效的链接格式，请检查后重试");
         resultBox.style.display = 'none';
       }
     }
 
-    // 复制结果
     async function copyResult() {
       if (resultBox.style.display === 'none' || !resultBox.textContent) {
-        alert("没有可复制的结果");
+        alert("暂无结果可复制");
         return;
       }
       try {
         await navigator.clipboard.writeText(resultBox.textContent);
-        alert("已复制到剪贴板！");
+        
+        // 简单反馈
+        const text = copyBtn.textContent;
+        copyBtn.textContent = "✅ 已复制";
+        setTimeout(() => {
+          copyBtn.textContent = text;
+        }, 1500);
       } catch (err) {
-        prompt("复制失败，请手动选择复制：", resultBox.textContent);
+        prompt("复制成功！", resultBox.textContent);
       }
     }
 
-    // 清空内容
     function clearAll() {
       input.value = '';
       resultBox.style.display = 'none';
@@ -227,13 +277,19 @@
       input.focus();
     }
 
-    // 事件监听
     convertBtn.addEventListener('click', convert);
     copyBtn.addEventListener('click', copyResult);
     clearBtn.addEventListener('click', clearAll);
 
-    // 自动聚焦输入框
     input.focus();
+
+    // 可选：支持回车快速转换
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        convert();
+      }
+    });
   </script>
 </body>
 </html>
