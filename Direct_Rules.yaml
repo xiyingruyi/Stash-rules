@@ -1,20 +1,7 @@
-# FILE NAME: Direct_Rules.yaml (包含所有应用域名和进程名)
+# FILE NAME: Direct_Rules.yaml (包含所有应用域名)
 # 备注: 网站直连
 
 payload:
-  # 下载工具进程直连
-  - PROCESS-NAME,p4pclient
-  - PROCESS-NAME,Thunder
-  - PROCESS-NAME,DownloadService
-  - PROCESS-NAME,qbittorrent
-  - PROCESS-NAME,Transmission
-  - PROCESS-NAME,fdm
-  - PROCESS-NAME,aria2c
-  - PROCESS-NAME,Folx
-  - PROCESS-NAME,NetTransport
-  - PROCESS-NAME,uTorrent
-  - PROCESS-NAME,WebTorrent
-
   # === 网站直连（Epic Games 商店领取、Appstorrent、小黑盒主体） ===
   # Appstorrent 网站
   - DOMAIN-SUFFIX,appstorrent.ru
