@@ -12,15 +12,18 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
 
-  <!-- 图标系统：优先使用本地 .ico，兼容性最强 -->
-  <!-- 主图标 -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <!-- 苹果设备图标 -->
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <!-- 🔥 内联图标：蓝色背景 + 白色“JDJS”文字（无需上传任何图片） -->
+  <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <rect width='100' height='100' rx='20' fill='%23007AFF'/>
+      <text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle'
+            font-size='40' font-family='sans-serif' font-weight='bold' fill='white'>
+        JDJS
+      </text>
+    </svg>" type="image/svg+xml">
 
-  <!-- 可选：PWA manifest.json（未来扩展用） -->
-  <!-- <link rel="manifest" href="/site.webmanifest"> -->
+  <!-- 可选 fallback：纯色图标（极少数浏览器需要） -->
+  <link rel="icon" href="data:image/x-icon;,">
 </head>
 <body>
   <h1>jsDelivr 加速器</h1>
