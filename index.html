@@ -12,7 +12,7 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
 
-  <!-- 🔥 内联图标：蓝色背景 + 白色“JDJS”文字（无需上传任何图片） -->
+  <!-- 🔥 内联图标：蓝色背景 + 白色"JDJS"文字（无需上传任何图片） -->
   <link rel="icon" href="data:image/svg+xml,
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
       <rect width='100' height='100' rx='20' fill='%23007AFF'/>
@@ -34,7 +34,7 @@
       支持加速：<br>
       • GitHub raw 文件链接（自动替换）<br>
       • JS、CSS、图片、字体等静态资源<br>
-      • 示例：<span style="color:var(--primary)">https://raw.githubusercontent.com/user/repo/main/file.js</span>
+      • 示例：<span style="color:var(--primary)">https://raw.githubusercontent.com/user/repo/main/very/long/path/to/your/file.js</span>
     </p>
     <div id="result" class="result"></div>
     <div class="buttons">
@@ -220,6 +220,9 @@
       border-radius: var(--radius);
       margin-top: -8px;
       box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      /* 关键修复：确保长链接自动换行 */
+      word-break: break-all;
+      overflow-wrap: break-word;
     }
     .result {
       font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
