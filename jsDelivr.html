@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GitHub Raw → jsDelivr 加速转换器</title>
+  <title>jsDelivr 加速转换器</title>
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Black/link.png" type="image/png">
   <style>
     * {
       margin: 0;
@@ -101,6 +102,26 @@
       font-size: 14px;
       line-height: 1.5;
     }
+    .icons-list {
+      margin-top: 20px;
+    }
+    .icons-list h3 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #e7f3ff;
+      border-radius: 6px;
+      font-size: 13px;
+      margin: 4px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .tag:hover {
+      background: #b3daff;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -119,14 +140,14 @@
 <body>
   <div class="container">
     <header>
-      <h1>🔗 GitHub Raw → jsDelivr 加速转换器</h1>
-      <p>将 raw.githubusercontent.com 链接秒变国内可高速访问的 CDN 链接</p>
+      <h1>🔗 jsDelivr 加速转换器</h1>
+      <p>将 raw.githubusercontent.com 链接转为国内高速 CDN 链接</p>
     </header>
 
     <main>
       <div class="form-group">
         <label for="input">输入原始链接（支持多行）：</label>
-        <textarea id="input" placeholder="https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OpenAI.png&#10;https://raw.githubusercontent.com/user/repo/main/folder/icon.png"></textarea>
+        <textarea id="input" placeholder="https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OpenAI.png"></textarea>
         <div class="tip">💡 支持单条或批量粘贴，每行一个链接</div>
       </div>
 
@@ -139,14 +160,63 @@
         <label>转换结果：</label>
         <pre id="output">等待输入...</pre>
       </div>
+
+      <!-- 自动加载的图标列表 -->
+      <div class="icons-list">
+        <h3>🎯 Qure 常用图标一键插入：</h3>
+        <div id="iconTags"></div>
+      </div>
     </main>
 
     <footer>
-      Powered by jsDelivr + Fastly | 适用于 Stash / Clash Verge / YACD 等工具
+      Powered by jsDelivr + Fastly | 适用于 Clash / Stash / YACD 等工具
     </footer>
   </div>
 
   <script>
+    // 要加载的图标分类（颜色）
+    const colors = ["Black", "Color", "White"];
+    const repo = "Koolson/Qure";
+    const basePath = "IconSet";
+
+    // 自动生成图标标签
+    function loadIconTags() {
+      const container = document.getElementById("iconTags");
+      container.innerHTML = "加载中...";
+
+      colors.forEach(color => {
+        fetch(`https://api.github.com/repos/${repo}/contents/${basePath}/${color}`)
+          .then(res => res.json())
+          .then(files => {
+            files
+              .filter(file => file.name.endsWith(".png") || file.name.endsWith(".jpg"))
+              .forEach(file => {
+                const name = file.name.replace(/\.(png|jpg|jpeg)$/i, "");
+                const tag = document.createElement("span");
+                tag.className = "tag";
+                tag.textContent = `${name} (${color})`;
+                tag.onclick = () => insertRawLink(file.download_url);
+                container.appendChild(tag);
+              });
+          })
+          .catch(err => {
+            console.error(`加载 ${color} 图标失败`, err);
+            if (container.innerText === "加载中...") {
+              container.innerHTML = '<span style="color:red;">加载图标列表失败，请检查网络</span>';
+            }
+          });
+      });
+    }
+
+    // 插入 raw 链接到输入框
+    function insertRawLink(url) {
+      const input = document.getElementById("input");
+      const shortUrl = url.replace("raw.githubusercontent.com", "raw.git");
+      input.value += (input.value ? "\n" : "") + url;
+      convert(); // 自动转换
+    }
+
+    // 转换 raw 链接为 jsDelivr 链接
     function convert() {
       const input = document.getElementById("input").value.trim();
       if (!input) {
@@ -178,22 +248,25 @@
       document.getElementById("output").textContent = outputText || "无有效链接";
     }
 
+    // 复制结果
     function copyResult() {
       const output = document.getElementById("output").textContent;
-      navigator.clipboard
-        .writeText(output)
-        .then(() => {
-          alert("✅ 已复制到剪贴板！");
-        })
-        .catch((err) => {
+      navigator.clipboard.writeText(output)
+        .then(() => alert("✅ 已复制到剪贴板！"))
+        .catch(err => {
           console.error("复制失败:", err);
           alert("❌ 复制失败，请手动选择复制。");
         });
     }
 
-    document.getElementById("input").value = `https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OpenAI.png
-https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Azure.png
-https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/LinkCube.png`;
+    // 页面加载完成后自动获取图标
+    window.onload = function () {
+      loadIconTags();
+
+      // 默认示例
+      document.getElementById("input").value = `https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OpenAI.png
+https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Azure.png`;
+    };
   </script>
 </body>
 </html>
