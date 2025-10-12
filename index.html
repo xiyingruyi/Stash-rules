@@ -29,7 +29,7 @@
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
-      • 支持每行一个链接，批量转换
+      • 支持每行一个链接，批量转换（Shift+Enter 换行，Enter 转换）
     </p>
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
@@ -146,6 +146,7 @@
         e.preventDefault();
         convert();
       }
+      // Shift+Enter 默认行为已允许换行，无需额外处理
     });
 
     input.focus();
@@ -201,7 +202,7 @@
       transition: var(--transition);
       word-break: break-all;
       overflow-wrap: anywhere;
-      overflow: hidden;
+      overflow: auto; /* 改为 auto 以支持滚动 */
       color: var(--text);
     }
     textarea:focus {
@@ -214,11 +215,11 @@
       opacity: 0.85;
       line-height: 1.5;
       white-space: pre-wrap;
-      text-align: center; /* 居中 placeholder */
+      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%; /* 确保垂直居中 */
+      height: 100%;
     }
     .tip {
       font-size: 0.9rem; color: var(--text-light); padding: 14px 20px;
@@ -230,9 +231,15 @@
     .result-card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 16px; box-shadow: var(--shadow);
+      overflow: hidden; /* 防止内容溢出卡片 */
     }
     .cdn-result { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--border); }
-    .label { font-weight: 600; margin-bottom: 6px; font-size: 1.05rem; }
+    .label {
+      font-weight: 600; margin-bottom: 6px; font-size: 1.05rem;
+      word-break: break-all; /* 原始链接自动换行 */
+      white-space: pre-wrap; /* 支持换行 */
+      overflow-wrap: anywhere;
+    }
     .result-url {
       font-family: 'SF Mono', Monaco, 'Courier New', monospace; 
       color: var(--url-color);
