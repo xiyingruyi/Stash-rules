@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>GitHub静态资源加速器</title>
-  <meta name="description" content="支持 GitHub raw 链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
+  <meta name="description" content="支持 GitHub 任何静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
   <!-- Apple Web App 设置 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -20,14 +20,15 @@
 </head>
 <body>
   <h1>GitHub静态资源加速器</h1>
-  <p class="subtitle">GitHub raw → 大陆可访问 CDN</p>
+  <p class="subtitle">GitHub 静态资源 → 大陆可访问 CDN</p>
   <div class="container">
     <div class="input-group">
-      <textarea id="input" placeholder="粘贴 GitHub raw 链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js"></textarea>
+      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;或 https://github.com/u/r/blob/main/file.js&#10;或 https://github.com/u/r/raw/main/file.js"></textarea>
     </div>
     <p class="tip">
       支持加速：<br>
-      • GitHub raw 链接 → 转 jsDelivr 全球加速（大陆推荐）
+      • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
+      • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）
     </p>
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
@@ -43,11 +44,11 @@
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
     const actionBtn = document.getElementById('actionBtn');
-    function isGitHubRaw(url) {
+    function isGitHubResource(url) {
       try {
         const parsed = new URL(url);
         return parsed.hostname === 'raw.githubusercontent.com' ||
-               (parsed.hostname === 'github.com' && /\/raw\//.test(parsed.pathname));
+               (parsed.hostname === 'github.com' && ( /\/raw\//.test(parsed.pathname) || /\/blob\//.test(parsed.pathname) ));
       } catch {
         return false;
       }
@@ -56,7 +57,10 @@
       try {
         const parsed = new URL(url);
         let pathname = parsed.pathname;
-        if (parsed.hostname === 'github.com') pathname = pathname.replace('/raw/', '/');
+        if (parsed.hostname === 'github.com') {
+          if (/\/raw\//.test(pathname)) pathname = pathname.replace('/raw/', '/');
+          if (/\/blob\//.test(pathname)) pathname = pathname.replace('/blob/', '/');
+        }
         const parts = pathname.slice(1).split('/');
         if (parts.length < 4) return null;
         const [user, repo, ref, ...filePath] = parts;
@@ -73,7 +77,7 @@
     function convert() {
       const url = input.value.trim();
       if (!url) return alert('请输入原始链接');
-      if (!isGitHubRaw(url)) return alert('仅支持 GitHub raw 链接，请检查格式');
+      if (!isGitHubResource(url)) return alert('仅支持 GitHub raw 或 blob 链接，请检查格式（适用于仓库静态资源）');
     
       const results = getJsDelivrUrls(url);
       if (!results || !results.length) return alert('无法解析 GitHub 链接，请检查格式');
