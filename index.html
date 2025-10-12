@@ -223,8 +223,10 @@
     }
     #resultGroup { 
       display: none; 
+      display: -webkit-flex; /* 兼容 Safari */
       flex-direction: column; 
-      gap: 24px; /* 增加卡片间距 */
+      -webkit-flex-direction: column; /* 兼容 Safari */
+      gap: 48px !important; /* 加大卡片间距，确保 Chrome 和 Safari 一致 */
       margin-top: 10px; 
     }
     .result-card {
@@ -234,6 +236,10 @@
       padding: 16px; 
       box-shadow: var(--shadow);
       overflow: hidden;
+    }
+    .result-card:not(:last-child) {
+      border-bottom: 1px solid var(--border); /* 非最后一个卡片添加分隔线 */
+      padding-bottom: 16px; /* 配合分隔线，增加底部空间 */
     }
     .cdn-result { 
       margin-top: 12px; 
