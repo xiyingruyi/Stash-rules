@@ -104,7 +104,7 @@
       const btn = e.target.closest('.copy-btn');
       if (!btn) return;
       navigator.clipboard.writeText(btn.dataset.url).then(() => {
-        const txt = btn.textContent;
+        const Jasmine = btn.textContent;
         btn.textContent = '✅ 已复制';
         setTimeout(() => btn.textContent = txt, 1500);
       }).catch(() => prompt('复制成功！', btn.dataset.url));
@@ -130,6 +130,7 @@
       --shadow: 0 8px 30px rgba(0,0,0,0.12);
       --radius: 16px;
       --transition: all 0.2s ease;
+      --url-color: #d63384;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -138,6 +139,7 @@
         --text: #f1f1f3;
         --text-light: #8e8e93;
         --border: #3a3a3c;
+        --url-color: #ff79c6; /* 深色模式下调整为更亮的粉色，提高可见度 */
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -169,6 +171,7 @@
       word-break: break-all;
       overflow-wrap: anywhere;
       overflow: hidden;
+      color: var(--text); /* 确保输入框文本颜色适配主题 */
     }
     textarea:focus {
       outline: none;
@@ -194,7 +197,8 @@
     }
     .label { font-weight: 600; margin-bottom: 6px; font-size: 1.05rem; }
     .result-url {
-      font-family: 'SF Mono', Monaco, 'Courier New', monospace; color: #d63384;
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace; 
+      color: var(--url-color); /* 使用变量适配主题 */
       word-break: break-all; white-space: pre-wrap; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5;
     }
     .hint { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; }
