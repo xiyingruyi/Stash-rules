@@ -103,8 +103,14 @@
       }
       if (!allResults.length) return;
 
-      resultGroup.innerHTML = allResults.map(({ cdnResults }, index) => `
-        <div class="result-card">
+      resultGroup.innerHTML = '';
+      allResults.forEach(({ cdnResults }, index) => {
+        const card = document.createElement('div');
+        card.classList.add('result-card');
+        if (allResults.length > 1 && index < allResults.length - 1) {
+          card.classList.add('result-card-with-separator');
+        }
+        card.innerHTML = `
           ${allResults.length > 1 ? `<div class="label">链接 ${index + 1}</div>` : ''}
           ${cdnResults.map(item => `
             <div class="cdn-result">
@@ -114,8 +120,9 @@
               <button class="copy-btn" data-url="${item.url}">📋 复制</button>
             </div>
           `).join('')}
-        </div>
-      `).join('');
+        `;
+        resultGroup.appendChild(card);
+      });
 
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
@@ -221,102 +228,102 @@
       margin-top: -8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05);
       word-break: break-all; overflow-wrap: break-word;
     }
-    #resultGroup { 
-      display: none; 
+    #resultGroup {
+      display: none;
       display: -webkit-flex; /* 兼容 Safari */
-      flex-direction: column; 
+      flex-direction: column;
       -webkit-flex-direction: column; /* 兼容 Safari */
-      gap: 48px !important; /* 加大卡片间距，确保 Chrome 和 Safari 一致 */
-      margin-top: 10px; 
+      gap: 64px !important; /* 加大卡片间距，确保 Chrome 和 Safari 一致 */
+      margin-top: 10px;
     }
     .result-card {
-      background: var(--card-bg); 
-      border: 1px solid var(--border); 
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px; 
+      padding: 16px;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .result-card:not(:last-child) {
+    .result-card-with-separator {
       border-bottom: 1px solid var(--border); /* 非最后一个卡片添加分隔线 */
       padding-bottom: 16px; /* 配合分隔线，增加底部空间 */
     }
-    .cdn-result { 
-      margin-top: 12px; 
-      padding-left: 12px; 
-      border-left: 2px solid var(--border); 
+    .cdn-result {
+      margin-top: 12px;
+      padding-left: 12px;
+      border-left: 2px solid var(--border);
     }
     .label {
-      font-weight: 600; 
-      margin-bottom: 6px; 
+      font-weight: 600;
+      margin-bottom: 6px;
       font-size: 1.05rem;
       word-break: break-all;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
     .result-url {
-      font-family: 'SF Mono', Monaco, 'Courier New', monospace; 
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
       color: var(--url-color);
-      word-break: break-all; 
-      white-space: pre-wrap; 
-      margin-bottom: 8px; 
-      font-size: 0.95rem; 
+      word-break: break-all;
+      white-space: pre-wrap;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
       line-height: 1.5;
     }
-    .hint { 
-      font-size: 0.9rem; 
-      color: var(--text-light); 
-      margin-bottom: 10px; 
+    .hint {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
     }
     .copy-btn {
-      background: var(--primary); 
-      color: white; 
-      border: none; 
+      background: var(--primary);
+      color: white;
+      border: none;
       padding: 6px 12px;
-      font-size: 0.9rem; 
-      border-radius: 8px; 
-      cursor: pointer; 
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
       transition: var(--transition);
     }
-    .copy-btn:active { 
-      transform: scale(0.96); 
+    .copy-btn:active {
+      transform: scale(0.96);
     }
-    .buttons { 
-      display: flex; 
-      gap: 12px; 
-      margin-top: 10px; 
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
     }
     button {
-      flex: 1; 
-      padding: 14px 0; 
-      font-size: 1rem; 
-      font-weight: 500; 
+      flex: 1;
+      padding: 14px 0;
+      font-size: 1rem;
+      font-weight: 500;
       border: none;
-      border-radius: var(--radius); 
-      cursor: pointer; 
+      border-radius: var(--radius);
+      cursor: pointer;
       transition: var(--transition);
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
-    button:active { 
-      transform: scale(0.98); 
+    button:active {
+      transform: scale(0.98);
     }
-    #convert { 
-      background: var(--primary); 
-      color: white; 
+    #convert {
+      background: var(--primary);
+      color: white;
     }
-    #actionBtn { 
-      background: var(--border); 
-      color: var(--text); 
+    #actionBtn {
+      background: var(--border);
+      color: var(--text);
     }
     footer {
-      margin-top: 40px; 
-      text-align: center; 
-      font-size: 0.85rem; 
-      color: var(--text-light); 
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
       padding-bottom: 30px;
     }
-    button:hover:not(:active) { 
-      opacity: 0.92; 
+    button:hover:not(:active) {
+      opacity: 0.92;
     }
   </style>
 </body>
