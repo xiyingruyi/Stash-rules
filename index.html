@@ -1,1 +1,264 @@
-https://1.811200.xyz/oosaka/3becb092170cb8f9da237e2337385e08
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>GitHub静态资源加速器</title>
+  <meta name="description" content="支持 GitHub 任何静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
+  <!-- Apple Web App 设置 -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#f7f9fc" />
+  <!-- iOS 主屏幕图标（火箭图标） -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" />
+  <!-- Mac Safari 书签图标 & 谷歌浏览器标签页图标（16x16 火箭） -->
+  <link rel="icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" sizes="16x16" type="image/png">
+  <link rel="shortcut icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" type="image/png">
+  <!-- 额外支持高 DPI（如 32x32） -->
+  <link rel="icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" sizes="32x32" type="image/png">
+</head>
+<body>
+  <h1>GitHub静态资源加速器</h1>
+  <p class="subtitle">GitHub 静态资源 → 大陆可访问 CDN</p>
+  <div class="container">
+    <div class="input-group">
+      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js"></textarea>
+    </div>
+    <p class="tip">
+      支持加速：<br>
+      • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
+      • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
+      • 支持每行一个链接，批量转换（移动端直接用回车键换行，点击按钮转换）
+    </p>
+    <div id="resultGroup" style="display:none;"></div>
+    <div class="buttons">
+      <button id="convert">✨ 智能转换</button>
+      <button id="actionBtn">🗑️ 清空</button>
+    </div>
+  </div>
+  <footer>
+    添加到主屏幕，离线使用 | 基于开源项目构建
+  </footer>
+  <script>
+    const input = document.getElementById('input');
+    const resultGroup = document.getElementById('resultGroup');
+    const convertBtn = document.getElementById('convert');
+    const actionBtn = document.getElementById('actionBtn');
+
+    function isGitHubResource(url) {
+      try {
+        const parsed = new URL(url);
+        return parsed.hostname === 'raw.githubusercontent.com' ||
+               (parsed.hostname === 'github.com' && ( /\/raw\//.test(parsed.pathname) || /\/blob\//.test(parsed.pathname) ));
+      } catch {
+        return false;
+      }
+    }
+
+    function getJsDelivrUrls(url) {
+      try {
+        const parsed = new URL(url);
+        let pathname = parsed.pathname;
+        if (parsed.hostname === 'github.com') {
+          if (/\/raw\//.test(pathname)) pathname = pathname.replace('/raw/', '/');
+          if (/\/blob\//.test(pathname)) pathname = pathname.replace('/blob/', '/');
+        }
+        const parts = pathname.slice(1).split('/');
+        if (parts.length < 4) return null;
+        const [user, repo, ref, ...filePath] = parts;
+        const base = `${user}/${repo}@${ref}/${filePath.join('/')}`;
+        return [
+          { label: '✅ fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
+          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快' },
+          { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' }
+        ];
+      } catch {
+        return null;
+      }
+    }
+
+    function convert() {
+      const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+      if (!urls.length) return alert('请输入至少一个链接');
+      
+      let allResults = [];
+      let invalidUrls = [];
+
+      urls.forEach((url, index) => {
+        if (!isGitHubResource(url)) {
+          invalidUrls.push(`链接 ${index + 1}: ${url}`);
+          return;
+        }
+        const results = getJsDelivrUrls(url);
+        if (!results || !results.length) {
+          invalidUrls.push(`链接 ${index + 1}: ${url}`);
+          return;
+        }
+        allResults.push({ cdnResults: results });
+      });
+
+      if (invalidUrls.length) {
+        alert(`以下链接格式错误，仅支持 GitHub raw 或 blob 链接：\n${invalidUrls.join('\n')}`);
+      }
+      if (!allResults.length) return;
+
+      resultGroup.innerHTML = allResults.map(({ cdnResults }, index) => `
+        <div class="result-card">
+          <div class="label">结果 ${index + 1}</div>
+          ${cdnResults.map(item => `
+            <div class="cdn-result">
+              <div class="label">${item.label}</div>
+              <div class="result-url">${item.url}</div>
+              <div class="hint">${item.hint}</div>
+              <button class="copy-btn" data-url="${item.url}">📋 复制</button>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+
+      resultGroup.style.display = 'block';
+      actionBtn.textContent = '↺ 重置';
+    }
+
+    function reset() {
+      input.value = '';
+      resultGroup.style.display = 'none';
+      resultGroup.innerHTML = '';
+      actionBtn.textContent = '🗑️ 清空';
+      input.focus();
+    }
+
+    resultGroup.addEventListener('click', e => {
+      const btn = e.target.closest('.copy-btn');
+      if (!btn) return;
+      navigator.clipboard.writeText(btn.dataset.url).then(() => {
+        const txt = btn.textContent;
+        btn.textContent = '✅ 已复制';
+        setTimeout(() => btn.textContent = txt, 1500);
+      }).catch(() => prompt('复制成功！', btn.dataset.url));
+    });
+
+    convertBtn.addEventListener('click', convert);
+    actionBtn.addEventListener('click', reset);
+
+    // 移除 keydown 事件监听，允许默认换行行为
+    input.focus();
+  </script>
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card-bg: #ffffff;
+      --text: #1c1e21;
+      --text-light: #666;
+      --border: #e1e5e9;
+      --primary: #007aff;
+      --shadow: 0 8px 30px rgba(0,0,0,0.12);
+      --radius: 16px;
+      --transition: all 0.2s ease;
+      --url-color: #d63384;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #000000;
+        --card-bg: #1c1c1e;
+        --text: #f1f1f3;
+        --text-light: #8e8e93;
+        --border: #3a3a3c;
+        --url-color: #ff79c6;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.6;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+      max-width: 860px; margin: 0 auto;
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    h1 { text-align: center; font-size: 1.8rem; font-weight: 600; margin: 32px 0 16px; letter-spacing: -0.02em; }
+    .subtitle { text-align: center; font-size: 1rem; color: var(--text-light); margin-bottom: 24px; }
+    .container { flex: 1; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 16px 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      line-height: 1.6;
+      resize: vertical;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: var(--transition);
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      overflow: auto;
+      color: var(--text);
+      white-space: pre-wrap;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary), var(--shadow);
+    }
+    textarea::placeholder {
+      color: var(--text-light);
+      opacity: 0.85;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .tip {
+      font-size: 0.9rem; color: var(--text-light); padding: 14px 20px;
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      margin-top: -8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      word-break: break-all; overflow-wrap: break-word;
+    }
+    #resultGroup { display: none; flex-direction: column; gap: 16px; margin-top: 10px; }
+    .result-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 16px; box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .cdn-result { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--border); }
+    .label {
+      font-weight: 600; margin-bottom: 6px; font-size: 1.05rem;
+      word-break: break-all;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .result-url {
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace; 
+      color: var(--url-color);
+      word-break: break-all; white-space: pre-wrap; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5;
+    }
+    .hint { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; }
+    .copy-btn {
+      background: var(--primary); color: white; border: none; padding: 6px 12px;
+      font-size: 0.9rem; border-radius: 8px; cursor: pointer; transition: var(--transition);
+    }
+    .copy-btn:active { transform: scale(0.96); }
+    .buttons { display: flex; gap: 12px; margin-top: 10px; }
+    button {
+      flex: 1; padding: 14px 0; font-size: 1rem; font-weight: 500; border: none;
+      border-radius: var(--radius); cursor: pointer; transition: var(--transition);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    button:active { transform: scale(0.98); }
+    #convert { background: var(--primary); color: white; }
+    #actionBtn { background: var(--border); color: var(--text); }
+    footer {
+      margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--text-light); padding-bottom: 30px;
+    }
+    button:hover:not(:active) { opacity: 0.92; }
+  </style>
+</body>
+</html>
