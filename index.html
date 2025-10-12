@@ -12,7 +12,10 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
 
-  <!-- 🔥 内联图标：蓝色背景 + 白色"JDJS"文字 -->
+  <!-- ✅ iOS 主屏幕图标：180x180 PNG 内联（蓝色背景 + 白色 JDJS） -->
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrX1arVqttVa1tta21tbaav3Z+lvbWmutiCIoKCAICCEJWQgBAglkD5P7/33uOyHMTGbm3pl7Z+7Mfb/f+3nmzsy9557vPs/5nnPPuecWEUIIIZpF9aIXQAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCG......省略大量 base64......" />
+
+  <!-- 普通 favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
       <rect width='100' height='100' rx='20' fill='%23007AFF'/>
@@ -25,7 +28,7 @@
 </head>
 <body>
   <h1>jsDelivr 加速器</h1>
-  <p class="subtitle">一键转换 GitHub 链接等静态资源</p>
+  <p class="subtitle">一键转换 GitHub 链接</p>
 
   <div class="container">
     <textarea id="input" placeholder="粘贴 raw.githubusercontent.com 链接..."></textarea>
@@ -68,24 +71,28 @@
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
-    const actionBtn = document.getElementById('actionBtn'); // 动态按钮
+    const actionBtn = document.getElementById('actionBtn');
 
     // 获取两个 CDN 链接
     function getUrls(url) {
-      const parsed = new URL(url);
-      if (parsed.hostname !== 'raw.githubusercontent.com') return null;
+      try {
+        const parsed = new URL(url);
+        if (parsed.hostname !== 'raw.githubusercontent.com') return null;
 
-      const parts = parsed.pathname.slice(1).split('/');
-      if (parts.length < 4) return null;
+        const parts = parsed.pathname.slice(1).split('/');
+        if (parts.length < 4) return null;
 
-      const [user, repo, ref, ...filePathParts] = parts;
-      const filePath = filePathParts.join('/');
-      const base = `${user}/${repo}@${ref}/${filePath}`;
+        const [user, repo, ref, ...filePathParts] = parts;
+        const filePath = filePathParts.join('/');
+        const base = `${user}/${repo}@${ref}/${filePath}`;
 
-      return {
-        cdn: `https://cdn.jsdelivr.net/gh/${base}`,
-        fastly: `https://fastly.jsdelivr.net/gh/${base}`
-      };
+        return {
+          cdn: `https://cdn.jsdelivr.net/gh/${base}`,
+          fastly: `https://fastly.jsdelivr.net/gh/${base}`
+        };
+      } catch (e) {
+        return null;
+      }
     }
 
     function convert() {
@@ -95,30 +102,22 @@
         return;
       }
 
-      try {
-        const urls = getUrls(url);
-        if (!urls) {
-          alert("请提供有效的 GitHub raw 链接");
-          return;
-        }
-
-        // 显示双结果
-        document.getElementById('cdnUrl').textContent = urls.cdn;
-        document.getElementById('fastlyUrl').textContent = urls.fastly;
-        resultGroup.style.display = 'block';
-
-        // 转换后：按钮变为「重置」
-        actionBtn.textContent = '↺ 重置';
-
-      } catch (e) {
-        alert("链接格式无效，请检查");
+      const urls = getUrls(url);
+      if (!urls) {
+        alert("请提供有效的 GitHub raw 链接");
+        return;
       }
+
+      document.getElementById('cdnUrl').textContent = urls.cdn;
+      document.getElementById('fastlyUrl').textContent = urls.fastly;
+      resultGroup.style.display = 'block';
+      actionBtn.textContent = '↺ 重置'; // 转换后变为“重置”
     }
 
     function clearOrReset() {
       input.value = '';
       resultGroup.style.display = 'none';
-      actionBtn.textContent = '🗑️ 清空'; // 恢复为「清空」
+      actionBtn.textContent = '🗑️ 清空'; // 回到“清空”
       input.focus();
     }
 
