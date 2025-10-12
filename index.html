@@ -3,64 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>通用静态资源加速器</title>
-  <meta name="description" content="支持 GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
-
+  <title>GitHub静态资源加速器</title>
+  <meta name="description" content="支持 GitHub raw 链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
   <!-- Apple Web App 设置 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
-
   <!-- iOS 主屏幕图标（内联 PNG） -->
   <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......" />
-
   <!-- Favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23007AFF'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='40' font-family='sans-serif' font-weight='bold' fill='white'>加速</text></svg>" type="image/svg+xml">
 </head>
 <body>
-  <h1>通用静态资源加速器</h1>
-  <p class="subtitle">GitHub + 任意链接 → 大陆可访问 CDN</p>
-
+  <h1>GitHub静态资源加速器</h1>
+  <p class="subtitle">GitHub raw → 大陆可访问 CDN</p>
   <div class="container">
     <div class="input-group">
-      <textarea id="input" placeholder="粘贴 GitHub raw 或任意静态资源链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;&#10;或：https://example.com/app.js"></textarea>
+      <textarea id="input" placeholder="粘贴 GitHub raw 链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js"></textarea>
     </div>
-
     <p class="tip">
       支持加速：<br>
-      • GitHub raw 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
-      • 其他外链 → 自动代理至国内友好服务
+      • GitHub raw 链接 → 转 jsDelivr 全球加速（大陆推荐）
     </p>
-
     <div id="resultGroup" style="display:none;"></div>
-
     <div class="buttons">
       <button id="convert">✨ 智能转换</button>
       <button id="actionBtn">🗑️ 清空</button>
     </div>
   </div>
-
   <footer>
     添加到主屏幕，离线使用 | 基于开源项目构建
   </footer>
-
   <script>
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
     const actionBtn = document.getElementById('actionBtn');
-
     function isGitHubRaw(url) {
       try {
         const parsed = new URL(url);
-        return parsed.hostname === 'raw.githubusercontent.com' || 
+        return parsed.hostname === 'raw.githubusercontent.com' ||
                (parsed.hostname === 'github.com' && /\/raw\//.test(parsed.pathname));
       } catch {
         return false;
       }
     }
-
     function getJsDelivrUrls(url) {
       try {
         const parsed = new URL(url);
@@ -72,41 +60,32 @@
         const base = `${user}/${repo}@${ref}/${filePath.join('/')}`;
         return [
           { label: '✅ cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' },
-          { label: '🌐 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' }
+          { label: '🌐 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
+          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快' }
         ];
       } catch {
         return null;
       }
     }
-
-    function getProxyUrls(url) {
-      return [
-        { label: '🇨🇳 jsDelivr China (实验)', url: `https://cdn.jsdelivr.net/gh/MinkeGit/static-proxy@main/proxy.php?url=${encodeURIComponent(url)}`, hint: '通过 GitHub 托管代理脚本中转（需自建）', warning: true },
-        { label: '📦 UNPKG 中文镜像', url: `https://unpkg.zhimg.com/proxy?url=${encodeURIComponent(url)}`, hint: '部分支持，适合小文件', warning: true },
-        { label: '💡 推荐做法', url: '', hint: '将文件上传到 GitHub → 获取 raw 链接 → 再用本工具转换为 CDN 加速地址', info: true }
-      ];
-    }
-
     function convert() {
       const url = input.value.trim();
       if (!url) return alert('请输入原始链接');
-      
-      const results = isGitHubRaw(url) ? getJsDelivrUrls(url) || [] : getProxyUrls(url);
-      if (isGitHubRaw(url) && !results.length) return alert('无法解析 GitHub 链接，请检查格式');
-
+      if (!isGitHubRaw(url)) return alert('仅支持 GitHub raw 链接，请检查格式');
+     
+      const results = getJsDelivrUrls(url);
+      if (!results || !results.length) return alert('无法解析 GitHub 链接，请检查格式');
       resultGroup.innerHTML = results.map(item => `
         <div class="result-card">
           <div class="label">${item.label}</div>
-          ${item.url ? `<div class="result-url">${item.url}</div>` : ''}
+          <div class="result-url">${item.url}</div>
           <div class="hint">${item.hint}</div>
-          ${item.url ? `<button class="copy-btn ${item.warning ? 'warn' : ''}" data-url="${item.url}">${item.warning ? '⚠️ 测试' : '📋 复制'}</button>` : ''}
+          <button class="copy-btn" data-url="${item.url}">📋 复制</button>
         </div>
       `).join('');
-      
+     
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
     }
-
     function reset() {
       input.value = '';
       resultGroup.style.display = 'none';
@@ -114,7 +93,6 @@
       actionBtn.textContent = '🗑️ 清空';
       input.focus();
     }
-
     resultGroup.addEventListener('click', e => {
       const btn = e.target.closest('.copy-btn');
       if (!btn) return;
@@ -124,7 +102,6 @@
         setTimeout(() => btn.textContent = txt, 1500);
       }).catch(() => prompt('复制成功！', btn.dataset.url));
     });
-
     convertBtn.addEventListener('click', convert);
     actionBtn.addEventListener('click', reset);
     input.addEventListener('keydown', e => {
@@ -133,10 +110,8 @@
         convert();
       }
     });
-
     input.focus();
   </script>
-
   <style>
     :root {
       --bg: #f7f9fc;
@@ -152,11 +127,10 @@
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #000000;
- Bronx;
         --card-bg: #1c1c1e;
         --text: #f1f1f3;
         --text-light: #8e8e93;
-        --border-border: #3a3a3c;
+        --border: #3a3a3c;
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -171,7 +145,6 @@
     h1 { text-align: center; font-size: 1.8rem; font-weight: 600; margin: 32px 0 16px; letter-spacing: -0.02em; }
     .subtitle { text-align: center; font-size: 1rem; color: var(--text-light); margin-bottom: 24px; }
     .container { flex: 1; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
-
     textarea {
       width: 100%;
       min-height: 140px;
@@ -201,14 +174,12 @@
       line-height: 1.5;
       white-space: pre-line;
     }
-
     .tip {
       font-size: 0.9rem; color: var(--text-light); padding: 14px 20px;
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
       margin-top: -8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05);
       word-break: break-all; overflow-wrap: break-word;
     }
-
     #resultGroup { display: none; flex-direction: column; gap: 16px; margin-top: 10px; }
     .result-card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
@@ -224,9 +195,7 @@
       background: var(--primary); color: white; border: none; padding: 6px 12px;
       font-size: 0.9rem; border-radius: 8px; cursor: pointer; transition: var(--transition);
     }
-    .copy-btn.warn { background: #ffa500; }
     .copy-btn:active { transform: scale(0.96); }
-
     .buttons { display: flex; gap: 12px; margin-top: 10px; }
     button {
       flex: 1; padding: 14px 0; font-size: 1rem; font-weight: 500; border: none;
