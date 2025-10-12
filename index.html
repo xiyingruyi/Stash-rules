@@ -62,9 +62,9 @@
         const [user, repo, ref, ...filePath] = parts;
         const base = `${user}/${repo}@${ref}/${filePath.join('/')}`;
         return [
-          { label: '✅ cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' },
-          { label: '🌐 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
-          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快' }
+          { label: '✅ fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
+          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快' },
+          { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' }
         ];
       } catch {
         return null;
@@ -74,7 +74,7 @@
       const url = input.value.trim();
       if (!url) return alert('请输入原始链接');
       if (!isGitHubRaw(url)) return alert('仅支持 GitHub raw 链接，请检查格式');
-     
+    
       const results = getJsDelivrUrls(url);
       if (!results || !results.length) return alert('无法解析 GitHub 链接，请检查格式');
       resultGroup.innerHTML = results.map(item => `
@@ -85,7 +85,7 @@
           <button class="copy-btn" data-url="${item.url}">📋 复制</button>
         </div>
       `).join('');
-     
+    
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
     }
