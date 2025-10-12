@@ -10,8 +10,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
-  <!-- iOS 主屏幕图标（内联 PNG） -->
-  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......" />
+  <!-- iOS 主屏幕图标（内联 PNG，180x180） -->
+  <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIsAAACKCAYAAACaRblaAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjYuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/P9b71AAAACXBIWXMAAA9hAAAPYQGoP6dpAAABZ0lEQVR4nO3SQQ0AIBDAMMC/58PCfoSkVbDH9szMguC8DuAfZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGRmITMLmVnIzEJmFjKzkJmFzCxkZiEzC5lZyMxCZhYys5CZhcwsZGYhMwuZWcjMQmYWMrOQmYXMLGQXpHkFEHCeqlcAAAAASUVORK5CYII=" />
   <!-- Favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23007AFF'/><text x='50%' y='50%' dominant-baseline='central' text-anchor='middle' font-size='40' font-family='sans-serif' font-weight='bold' fill='white'>加速</text></svg>" type="image/svg+xml">
 </head>
@@ -71,7 +71,7 @@
       const url = input.value.trim();
       if (!url) return alert('请输入原始链接');
       if (!isGitHubRaw(url)) return alert('仅支持 GitHub raw 链接，请检查格式');
-     
+    
       const results = getJsDelivrUrls(url);
       if (!results || !results.length) return alert('无法解析 GitHub 链接，请检查格式');
       resultGroup.innerHTML = results.map(item => `
@@ -82,7 +82,7 @@
           <button class="copy-btn" data-url="${item.url}">📋 复制</button>
         </div>
       `).join('');
-     
+    
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
     }
