@@ -12,9 +12,11 @@
   <meta name="theme-color" content="#f7f9fc" />
   <!-- iOS 主屏幕图标（火箭图标） -->
   <link rel="apple-touch-icon" sizes="180x180" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" />
-  <!-- Mac Safari 书签图标（16x16 PNG，蓝底白“+”） -->
-  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAYAAAA/I0V3AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjYuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/P9b71AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAAGklEQVR4nGP8////fwYSAROpGkY1jWoacpoAiAIEGobsBC4AAAAASUVORK5CYII=" sizes="16x16" type="image/png">
-  <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAPCAYAAAA/I0V3AAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjYuMywgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/P9b71AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAAGklEQVR4nGP8////fwYSAROpGkY1jWoacpoAiAIEGobsBC4AAAAASUVORK5CYII=" type="image/png">
+  <!-- Mac Safari 书签图标 & 谷歌浏览器标签页图标（16x16 火箭） -->
+  <link rel="icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" sizes="16x16" type="image/png">
+  <link rel="shortcut icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" type="image/png">
+  <!-- 额外支持高 DPI（如 32x32） -->
+  <link rel="icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" sizes="32x32" type="image/png">
 </head>
 <body>
   <h1>GitHub静态资源加速器</h1>
@@ -72,7 +74,7 @@
       const url = input.value.trim();
       if (!url) return alert('请输入原始链接');
       if (!isGitHubRaw(url)) return alert('仅支持 GitHub raw 链接，请检查格式');
-      
+     
       const results = getJsDelivrUrls(url);
       if (!results || !results.length) return alert('无法解析 GitHub 链接，请检查格式');
       resultGroup.innerHTML = results.map(item => `
@@ -83,7 +85,7 @@
           <button class="copy-btn" data-url="${item.url}">📋 复制</button>
         </div>
       `).join('');
-      
+     
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
     }
