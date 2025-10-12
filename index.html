@@ -95,7 +95,7 @@
           invalidUrls.push(`链接 ${index + 1}: ${url}`);
           return;
         }
-        allResults.push({ url, cdnResults: results });
+        allResults.push({ cdnResults: results });
       });
 
       if (invalidUrls.length) {
@@ -103,9 +103,9 @@
       }
       if (!allResults.length) return;
 
-      resultGroup.innerHTML = allResults.map(({ url, cdnResults }, index) => `
+      resultGroup.innerHTML = allResults.map(({ cdnResults }, index) => `
         <div class="result-card">
-          <div class="label">原始链接 ${index + 1}: ${url}</div>
+          <div class="label">结果 ${index + 1}</div>
           ${cdnResults.map(item => `
             <div class="cdn-result">
               <div class="label">${item.label}</div>
@@ -145,8 +145,14 @@
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         convert();
+      } else if (e.key === 'Enter' && e.shiftKey) {
+        // 显式允许 Shift+Enter 换行（在某些浏览器可能需要）
+        const start = input.selectionStart;
+        const end = input.selectionEnd;
+        input.value = input.value.substring(0, start) + '\n' + input.value.substring(end);
+        input.selectionStart = input.selectionEnd = start + 1;
+        e.preventDefault(); // 防止双换行
       }
-      // Shift+Enter 默认行为已允许换行，无需额外处理
     });
 
     input.focus();
@@ -202,8 +208,9 @@
       transition: var(--transition);
       word-break: break-all;
       overflow-wrap: anywhere;
-      overflow: auto; /* 改为 auto 以支持滚动 */
+      overflow: auto;
       color: var(--text);
+      white-space: pre-wrap; /* 确保换行正常显示 */
     }
     textarea:focus {
       outline: none;
@@ -231,13 +238,13 @@
     .result-card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 16px; box-shadow: var(--shadow);
-      overflow: hidden; /* 防止内容溢出卡片 */
+      overflow: hidden;
     }
     .cdn-result { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--border); }
     .label {
       font-weight: 600; margin-bottom: 6px; font-size: 1.05rem;
-      word-break: break-all; /* 原始链接自动换行 */
-      white-space: pre-wrap; /* 支持换行 */
+      word-break: break-all;
+      white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
     .result-url {
