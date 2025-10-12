@@ -29,11 +29,9 @@
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
-      • 支持每行一个链接，批量转换（回车键换行，点击按钮转换）
+      • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）
     </p>
-    <div id="resultGroup" style="display:none;">
-      <div id="resultOrderHint" style="display:none;" class="order-hint">生成结果按输入顺序排列</div>
-    </div>
+    <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
       <button id="convert">✨ 智能转换</button>
       <button id="actionBtn">🗑️ 清空</button>
@@ -45,7 +43,6 @@
   <script>
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
-    const resultOrderHint = document.getElementById('resultOrderHint');
     const convertBtn = document.getElementById('convert');
     const actionBtn = document.getElementById('actionBtn');
 
@@ -106,22 +103,19 @@
       }
       if (!allResults.length) return;
 
-      resultGroup.innerHTML = `
-        ${allResults.length > 1 ? '<div class="order-hint">生成结果按输入顺序排列</div>' : ''}
-        ${allResults.map(({ cdnResults }, index) => `
-          <div class="result-card">
-            ${allResults.length > 1 ? `<div class="label">链接 ${index + 1}</div>` : ''}
-            ${cdnResults.map(item => `
-              <div class="cdn-result">
-                <div class="label">${item.label}</div>
-                <div class="result-url">${item.url}</div>
-                <div class="hint">${item.hint}</div>
-                <button class="copy-btn" data-url="${item.url}">📋 复制</button>
-              </div>
-            `).join('')}
-          </div>
-        `).join('')}
-      `;
+      resultGroup.innerHTML = allResults.map(({ cdnResults }, index) => `
+        <div class="result-card">
+          ${allResults.length > 1 ? `<div class="label">链接 ${index + 1}</div>` : ''}
+          ${cdnResults.map(item => `
+            <div class="cdn-result">
+              <div class="label">${item.label}</div>
+              <div class="result-url">${item.url}</div>
+              <div class="hint">${item.hint}</div>
+              <button class="copy-btn" data-url="${item.url}">📋 复制</button>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
 
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
@@ -130,7 +124,7 @@
     function reset() {
       input.value = '';
       resultGroup.style.display = 'none';
-      resultGroup.innerHTML = '<div id="resultOrderHint" style="display:none;" class="order-hint">生成结果按输入顺序排列</div>';
+      resultGroup.innerHTML = '';
       actionBtn.textContent = '🗑️ 清空';
       input.focus();
     }
@@ -228,11 +222,6 @@
       word-break: break-all; overflow-wrap: break-word;
     }
     #resultGroup { display: none; flex-direction: column; gap: 16px; margin-top: 10px; }
-    .order-hint {
-      font-size: 0.9rem; color: var(--text-light); padding: 10px;
-      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
-      text-align: center;
-    }
     .result-card {
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 16px; box-shadow: var(--shadow);
