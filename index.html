@@ -221,15 +221,29 @@
       margin-top: -8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05);
       word-break: break-all; overflow-wrap: break-word;
     }
-    #resultGroup { display: none; flex-direction: column; gap: 16px; margin-top: 10px; }
+    #resultGroup { 
+      display: none; 
+      flex-direction: column; 
+      gap: 24px; /* 增加卡片间距 */
+      margin-top: 10px; 
+    }
     .result-card {
-      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 16px; box-shadow: var(--shadow);
+      background: var(--card-bg); 
+      border: 1px solid var(--border); 
+      border-radius: var(--radius);
+      padding: 16px; 
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
-    .cdn-result { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--border); }
+    .cdn-result { 
+      margin-top: 12px; 
+      padding-left: 12px; 
+      border-left: 2px solid var(--border); 
+    }
     .label {
-      font-weight: 600; margin-bottom: 6px; font-size: 1.05rem;
+      font-weight: 600; 
+      margin-bottom: 6px; 
+      font-size: 1.05rem;
       word-break: break-all;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
@@ -237,27 +251,67 @@
     .result-url {
       font-family: 'SF Mono', Monaco, 'Courier New', monospace; 
       color: var(--url-color);
-      word-break: break-all; white-space: pre-wrap; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5;
+      word-break: break-all; 
+      white-space: pre-wrap; 
+      margin-bottom: 8px; 
+      font-size: 0.95rem; 
+      line-height: 1.5;
     }
-    .hint { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; }
+    .hint { 
+      font-size: 0.9rem; 
+      color: var(--text-light); 
+      margin-bottom: 10px; 
+    }
     .copy-btn {
-      background: var(--primary); color: white; border: none; padding: 6px 12px;
-      font-size: 0.9rem; border-radius: 8px; cursor: pointer; transition: var(--transition);
+      background: var(--primary); 
+      color: white; 
+      border: none; 
+      padding: 6px 12px;
+      font-size: 0.9rem; 
+      border-radius: 8px; 
+      cursor: pointer; 
+      transition: var(--transition);
     }
-    .copy-btn:active { transform: scale(0.96); }
-    .buttons { display: flex; gap: 12px; margin-top: 10px; }
+    .copy-btn:active { 
+      transform: scale(0.96); 
+    }
+    .buttons { 
+      display: flex; 
+      gap: 12px; 
+      margin-top: 10px; 
+    }
     button {
-      flex: 1; padding: 14px 0; font-size: 1rem; font-weight: 500; border: none;
-      border-radius: var(--radius); cursor: pointer; transition: var(--transition);
+      flex: 1; 
+      padding: 14px 0; 
+      font-size: 1rem; 
+      font-weight: 500; 
+      border: none;
+      border-radius: var(--radius); 
+      cursor: pointer; 
+      transition: var(--transition);
       box-shadow: 0 1px 4px rgba(0,0,0,0.1);
     }
-    button:active { transform: scale(0.98); }
-    #convert { background: var(--primary); color: white; }
-    #actionBtn { background: var(--border); color: var(--text); }
-    footer {
-      margin-top: 40px; text-align: center; font-size: 0.85rem; color: var(--text-light); padding-bottom: 30px;
+    button:active { 
+      transform: scale(0.98); 
     }
-    button:hover:not(:active) { opacity: 0.92; }
+    #convert { 
+      background: var(--primary); 
+      color: white; 
+    }
+    #actionBtn { 
+      background: var(--border); 
+      color: var(--text); 
+    }
+    footer {
+      margin-top: 40px; 
+      text-align: center; 
+      font-size: 0.85rem; 
+      color: var(--text-light); 
+      padding-bottom: 30px;
+    }
+    button:hover:not(:active) { 
+      opacity: 0.92; 
+    }
   </style>
 </body>
 </html>
