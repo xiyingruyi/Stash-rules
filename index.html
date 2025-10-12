@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>通用静态资源加速器</title>
-  <meta name="description" content="支持 GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
+  <meta name="description" content="GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
 
-  <!-- Apple Web App 设置 -->
+  <!-- Apple Web App -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
 
-  <!-- iOS 主屏幕图标（内联 PNG） -->
-  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......（完整 base64 已包含）" />
+  <!-- iOS 主屏幕图标 -->
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIY......（完整 base64 已包含）" />
 
   <!-- Favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,
@@ -28,24 +28,24 @@
   <p class="subtitle">GitHub + 任意链接 → 大陆可访问 CDN</p>
 
   <div class="container">
-    <textarea id="input" placeholder="粘贴 GitHub raw 或任意静态资源链接...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;或：https://example.com/assets/app.js"></textarea>
+    <textarea id="input" placeholder="粘贴 GitHub raw 或任意静态资源链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;&#10;或：https://example.com/app.js"></textarea>
 
     <p class="tip">
       支持加速：<br>
-      • GitHub raw 链接 → 转 jsDelivr 全球加速<br>
-      • 任意公网 JS/CSS/图片等 → 自动代理到大陆可用 CDN
+      • GitHub raw 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
+      • 其他外链 → 自动代理至国内友好服务
     </p>
 
     <div id="resultGroup" style="display:none;"></div>
 
     <div class="buttons">
-      <button id="convert">✨ 转换</button>
+      <button id="convert">✨ 智能转换</button>
       <button id="actionBtn">🗑️ 清空</button>
     </div>
   </div>
 
   <footer>
-    基于开源项目构建 | 添加到主屏幕，离线使用
+    添加到主屏幕，离线使用 | 基于开源项目构建
   </footer>
 
   <script>
@@ -67,13 +67,12 @@
       }
     }
 
-    // 提取 GitHub 信息并生成 jsDelivr 链接
+    // 提取并生成 jsDelivr 链接
     function getJsDelivrUrls(url) {
       try {
         const parsed = new URL(url);
         let pathname = parsed.pathname;
 
-        // 统一处理 github.com/raw/ 格式
         if (parsed.hostname === 'github.com') {
           pathname = pathname.replace('/raw/', '/');
         }
@@ -86,21 +85,29 @@
         const base = `${user}/${repo}@${ref}/${path}`;
 
         return [
-          { label: '✅ cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '国内推荐，自动选择最优节点' },
-          { label: '🌐 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' }
+          { 
+            label: '✅ cdn.jsdelivr.net', 
+            url: `https://cdn.jsdelivr.net/gh/${base}`, 
+            hint: '中国大陆推荐，自动选择最优节点' 
+          },
+          { 
+            label: '🌐 fastly.jsdelivr.net', 
+            url: `https://fastly.jsdelivr.net/gh/${base}`, 
+            hint: '海外优选，国际线路更快' 
+          }
         ];
       } catch (e) {
         return null;
       }
     }
 
-    // 生成非 GitHub 链接的代理方案（使用中国大陆友好服务）
+    // 生成非 GitHub 链接的“代理”方案（确保大陆可访问）
     function getProxyUrls(url) {
       return [
         {
-          label: '🇨🇳 jsDelivr China',
+          label: '🇨🇳 jsDelivr China (实验)',
           url: `https://cdn.jsdelivr.net/gh/MinkeGit/static-proxy@main/proxy.php?url=${encodeURIComponent(url)}`,
-          hint: '通过中转服务代理（需自建）',
+          hint: '通过 GitHub 托管代理脚本中转（需自建）',
           warning: true
         },
         {
@@ -108,24 +115,15 @@
           url: `https://unpkg.zhimg.com/proxy?url=${encodeURIComponent(url)}`,
           hint: '部分支持，适合小文件',
           warning: true
+        },
+        {
+          label: '💡 推荐做法',
+          url: '',
+          hint: '将文件上传到 GitHub → 获取 raw 链接 → 再用本工具转换为 CDN 加速地址',
+          info: true
         }
       ];
     }
-
-    // ✅ 推荐你部署一个轻量级代理脚本（PHP 示例）
-    // proxy.php 内容：
-    /*
-    <?php
-    $url = $_GET['url'] ?? '';
-    if ($url && filter_var($url, FILTER_VALIDATE_URL)) {
-        header('Content-Type: application/javascript');
-        readfile($url);
-    } else {
-        http_response_code(400);
-        echo "Invalid URL";
-    }
-    ?>
-    */
 
     function convert() {
       const url = input.value.trim();
@@ -141,25 +139,12 @@
         if (urls) {
           results = urls;
         } else {
-          alert("无法解析 GitHub 链接，请检查格式");
+          alert("无法解析 GitHub 链接，请检查格式是否正确");
           return;
         }
       } else {
-        // 非 GitHub 链接 → 使用代理方案
-        results = [
-          {
-            label: '🔧 推荐做法',
-            url: '',
-            hint: '将文件上传至 GitHub → 获取 raw 链接 → 再转换为 CDN',
-            info: true
-          },
-          {
-            label: '☁️ 自建反向代理',
-            url: '',
-            hint: '用 Nginx/Vercel 函数做一层转发，确保大陆可访问',
-            info: true
-          }
-        ];
+        // 非 GitHub 链接 → 提供多种代理方案
+        results = getProxyUrls(url);
       }
 
       // 显示结果
@@ -233,8 +218,6 @@
       --text-light: #666;
       --border: #e1e5e9;
       --primary: #007aff;
-      --success: #34c759;
-      --danger: #ff3b30;
       --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       --radius: 16px;
       --transition: all 0.2s ease;
@@ -260,13 +243,23 @@
     h1 { text-align:center; font-size:1.8rem; font-weight:600; margin:32px 0 16px; letter-spacing:-0.02em; }
     .subtitle { text-align:center; font-size:1rem; color:var(--text-light); margin-bottom:24px; }
     .container { flex:1; padding:0 20px; display:flex; flex-direction:column; gap:20px; }
+    
     textarea {
-      width:100%; padding:16px 20px; border:1px solid var(--border); border-radius:var(--radius);
-      font-size:1rem; resize:vertical; background:var(--card-bg); box-shadow:var(--shadow);
-      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:var(--transition);
+      width: 100%;
+      min-height: 140px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      resize: vertical;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: var(--transition);
     }
     textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 1px var(--primary), var(--shadow); }
-    textarea::placeholder { color:var(--text-light); }
+    textarea::placeholder { color:var(--text-light); line-height:1.6; }
 
     .tip {
       font-size:0.9rem; color:var(--text-light); padding:14px 20px;
@@ -294,7 +287,7 @@
       background:var(--primary); color:white; border:none; padding:6px 12px;
       font-size:0.9rem; border-radius:8px; cursor:pointer; transition:var(--transition);
     }
-    .copy-btn.warn { background: #ffa500; }
+    .copy-btn.warn { background:#ffa500; }
     .copy-btn:active { transform:scale(0.96); }
 
     .buttons { display:flex; gap:12px; margin-top:10px; }
