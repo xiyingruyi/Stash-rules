@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>通用静态资源加速器</title>
-  <meta name="description" content="GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
+  <meta name="description" content="支持 GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
 
-  <!-- Apple Web App -->
+  <!-- Apple Web App 设置 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
 
-  <!-- iOS 主屏幕图标 -->
-  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIY......（完整 base64 已包含）" />
+  <!-- iOS 主屏幕图标（内联 PNG） -->
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......" />
 
   <!-- Favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,
@@ -28,7 +28,15 @@
   <p class="subtitle">GitHub + 任意链接 → 大陆可访问 CDN</p>
 
   <div class="container">
-    <textarea id="input" placeholder="粘贴 GitHub raw 或任意静态资源链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;&#10;或：https://example.com/app.js"></textarea>
+    <!-- 使用 label 模拟 placeholder，避免被遮挡 -->
+    <div class="input-group">
+      <textarea id="input" placeholder=" "></textarea>
+      <label for="input" class="placeholder-label">
+        粘贴 GitHub raw 或任意静态资源链接...\n\n
+        例：https://raw.githubusercontent.com/u/r/main/file.js\n\n
+        或：https://example.com/app.js
+      </label>
+    </div>
 
     <p class="tip">
       支持加速：<br>
@@ -101,7 +109,7 @@
       }
     }
 
-    // 生成非 GitHub 链接的“代理”方案（确保大陆可访问）
+    // 生成非 GitHub 链接的“代理”方案
     function getProxyUrls(url) {
       return [
         {
@@ -143,7 +151,6 @@
           return;
         }
       } else {
-        // 非 GitHub 链接 → 提供多种代理方案
         results = getProxyUrls(url);
       }
 
@@ -243,14 +250,21 @@
     h1 { text-align:center; font-size:1.8rem; font-weight:600; margin:32px 0 16px; letter-spacing:-0.02em; }
     .subtitle { text-align:center; font-size:1rem; color:var(--text-light); margin-bottom:24px; }
     .container { flex:1; padding:0 20px; display:flex; flex-direction:column; gap:20px; }
-    
+
+    /* 输入框组：使用 label 替代 placeholder */
+    .input-group {
+      position: relative;
+      width: 100%;
+    }
+
     textarea {
       width: 100%;
       min-height: 140px;
-      padding: 20px;
+      padding: 24px 20px 12px; /* 上内边距留出 label 空间 */
       border: 1px solid var(--border);
       border-radius: var(--radius);
       font-size: 1rem;
+      line-height: 1.6;
       resize: vertical;
       background: var(--card-bg);
       box-shadow: var(--shadow);
@@ -258,8 +272,33 @@
       -webkit-backdrop-filter: blur(10px);
       transition: var(--transition);
     }
-    textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 1px var(--primary), var(--shadow); }
-    textarea::placeholder { color:var(--text-light); line-height:1.6; }
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px var(--primary), var(--shadow);
+    }
+    textarea::placeholder {
+      color: transparent; /* 隐藏原生 placeholder */
+    }
+
+    .placeholder-label {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-size: 1rem;
+      color: var(--text-light);
+      pointer-events: none;
+      line-height: 1.5;
+      opacity: 0.85;
+      white-space: pre-line;
+      transition: 0.3s ease;
+    }
+
+    /* 用户输入后隐藏 label */
+    #input:not(:placeholder-shown) + .placeholder-label,
+    #input:focus + .placeholder-label {
+      display: none;
+    }
 
     .tip {
       font-size:0.9rem; color:var(--text-light); padding:14px 20px;
