@@ -23,12 +23,13 @@
   <p class="subtitle">GitHub 静态资源 → 大陆可访问 CDN</p>
   <div class="container">
     <div class="input-group">
-      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接...&#10;&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;或 https://github.com/u/r/blob/main/file.js&#10;或 https://github.com/u/r/raw/main/file.js"></textarea>
+      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js"></textarea>
     </div>
     <p class="tip">
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
-      • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）
+      • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
+      • 支持每行一个链接，批量转换
     </p>
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
@@ -44,6 +45,7 @@
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
     const actionBtn = document.getElementById('actionBtn');
+
     function isGitHubResource(url) {
       try {
         const parsed = new URL(url);
@@ -53,6 +55,7 @@
         return false;
       }
     }
+
     function getJsDelivrUrls(url) {
       try {
         const parsed = new URL(url);
@@ -74,25 +77,50 @@
         return null;
       }
     }
+
     function convert() {
-      const url = input.value.trim();
-      if (!url) return alert('请输入原始链接');
-      if (!isGitHubResource(url)) return alert('仅支持 GitHub raw 或 blob 链接，请检查格式（适用于仓库静态资源）');
-    
-      const results = getJsDelivrUrls(url);
-      if (!results || !results.length) return alert('无法解析 GitHub 链接，请检查格式');
-      resultGroup.innerHTML = results.map(item => `
+      const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+      if (!urls.length) return alert('请输入至少一个链接');
+      
+      let allResults = [];
+      let invalidUrls = [];
+
+      urls.forEach((url, index) => {
+        if (!isGitHubResource(url)) {
+          invalidUrls.push(`链接 ${index + 1}: ${url}`);
+          return;
+        }
+        const results = getJsDelivrUrls(url);
+        if (!results || !results.length) {
+          invalidUrls.push(`链接 ${index + 1}: ${url}`);
+          return;
+        }
+        allResults.push({ url, cdnResults: results });
+      });
+
+      if (invalidUrls.length) {
+        alert(`以下链接格式错误，仅支持 GitHub raw 或 blob 链接：\n${invalidUrls.join('\n')}`);
+      }
+      if (!allResults.length) return;
+
+      resultGroup.innerHTML = allResults.map(({ url, cdnResults }, index) => `
         <div class="result-card">
-          <div class="label">${item.label}</div>
-          <div class="result-url">${item.url}</div>
-          <div class="hint">${item.hint}</div>
-          <button class="copy-btn" data-url="${item.url}">📋 复制</button>
+          <div class="label">原始链接 ${index + 1}: ${url}</div>
+          ${cdnResults.map(item => `
+            <div class="cdn-result">
+              <div class="label">${item.label}</div>
+              <div class="result-url">${item.url}</div>
+              <div class="hint">${item.hint}</div>
+              <button class="copy-btn" data-url="${item.url}">📋 复制</button>
+            </div>
+          `).join('')}
         </div>
       `).join('');
-    
+
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
     }
+
     function reset() {
       input.value = '';
       resultGroup.style.display = 'none';
@@ -100,15 +128,17 @@
       actionBtn.textContent = '🗑️ 清空';
       input.focus();
     }
+
     resultGroup.addEventListener('click', e => {
       const btn = e.target.closest('.copy-btn');
       if (!btn) return;
       navigator.clipboard.writeText(btn.dataset.url).then(() => {
-        const Jasmine = btn.textContent;
+        const txt = btn.textContent;
         btn.textContent = '✅ 已复制';
         setTimeout(() => btn.textContent = txt, 1500);
       }).catch(() => prompt('复制成功！', btn.dataset.url));
     });
+
     convertBtn.addEventListener('click', convert);
     actionBtn.addEventListener('click', reset);
     input.addEventListener('keydown', e => {
@@ -117,6 +147,7 @@
         convert();
       }
     });
+
     input.focus();
   </script>
   <style>
@@ -139,7 +170,7 @@
         --text: #f1f1f3;
         --text-light: #8e8e93;
         --border: #3a3a3c;
-        --url-color: #ff79c6; /* 深色模式下调整为更亮的粉色，提高可见度 */
+        --url-color: #ff79c6;
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -171,7 +202,7 @@
       word-break: break-all;
       overflow-wrap: anywhere;
       overflow: hidden;
-      color: var(--text); /* 确保输入框文本颜色适配主题 */
+      color: var(--text);
     }
     textarea:focus {
       outline: none;
@@ -182,7 +213,12 @@
       color: var(--text-light);
       opacity: 0.85;
       line-height: 1.5;
-      white-space: pre-line;
+      white-space: pre-wrap;
+      text-align: center; /* 居中 placeholder */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%; /* 确保垂直居中 */
     }
     .tip {
       font-size: 0.9rem; color: var(--text-light); padding: 14px 20px;
@@ -195,10 +231,11 @@
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 16px; box-shadow: var(--shadow);
     }
+    .cdn-result { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--border); }
     .label { font-weight: 600; margin-bottom: 6px; font-size: 1.05rem; }
     .result-url {
       font-family: 'SF Mono', Monaco, 'Courier New', monospace; 
-      color: var(--url-color); /* 使用变量适配主题 */
+      color: var(--url-color);
       word-break: break-all; white-space: pre-wrap; margin-bottom: 8px; font-size: 0.95rem; line-height: 1.5;
     }
     .hint { font-size: 0.9rem; color: var(--text-light); margin-bottom: 10px; }
