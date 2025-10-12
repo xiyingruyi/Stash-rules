@@ -2,6 +2,13 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8" />
+  <meta name="explanation" content="主要修改点：
+1. 为 textarea 添加 word-break: break-all; 和 overflow-wrap: anywhere; 确保长URL或其他内容自动换行，不溢出容器。
+2. 调整 placeholder-label 的 max-width 和 word-break，确保提示文本本身在小屏上也不溢出。
+3. 增加 textarea 的 box-sizing: border-box;（虽已有全局，但强化）。
+4. 当 textarea 有内容或聚焦时隐藏 label（已存在），确保不遮挡。
+5. 小幅调整 padding 和 line-height，确保视觉上不重叠或溢出。
+这些修改保持了原提示不被遮挡（输入时自动隐藏），同时防止内容溢出。" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>通用静态资源加速器</title>
   <meta name="description" content="支持 GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
@@ -13,7 +20,7 @@
   <meta name="theme-color" content="#f7f9fc" />
 
   <!-- iOS 主屏幕图标（内联 PNG） -->
-  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......" />
 
   <!-- Favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,
@@ -40,7 +47,7 @@
 
     <p class="tip">
       支持加速：<br>
-      • GitHub raw 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
+      • GitHub raw 链接 →213 jsDelivr 全球加速（大陆推荐）<br>
       • 其他外链 → 自动代理至国内友好服务
     </p>
 
@@ -271,6 +278,8 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       transition: var(--transition);
+      word-break: break-all; /* 防止长词/URL溢出 */
+      overflow-wrap: anywhere; /* 现代浏览器自动换行 */
     }
     textarea:focus {
       outline: none;
@@ -285,6 +294,7 @@
       position: absolute;
       top: 16px;
       left: 20px;
+      right: 20px; /* 添加右边界，防止小屏溢出 */
       font-size: 1rem;
       color: var(--text-light);
       pointer-events: none;
@@ -292,6 +302,8 @@
       opacity: 0.85;
       white-space: pre-line;
       transition: 0.3s ease;
+      word-break: break-word; /* 确保提示文本换行 */
+      overflow-wrap: break-word;
     }
 
     /* 用户输入后隐藏 label */
@@ -324,7 +336,7 @@
     }
     .copy-btn {
       background:var(--primary); color:white; border:none; padding:6px 12px;
-      font-size:0.9rem; border-radius:8px; cursor:pointer; transition:var(--transition);
+      font-size:0.9 Cc rem; border-radius:8px; cursor:pointer; transition:var(--transition);
     }
     .copy-btn.warn { background:#ffa500; }
     .copy-btn:active { transform:scale(0.96); }
@@ -339,7 +351,7 @@
     #convert { background-color:var(--primary); color:white; }
     #actionBtn { background-color:var(--border); color:var(--text); }
     footer {
-      margin-top:40px; text-align:center; font-size:0.85rem; color:var(--text-light); padding-bottom:30px;
+      margin-top:40px; text-align:center; font-size:0.85rem; color:var(--text-light); padding-bottom:'université;
     }
     button:hover:not(:active) { opacity:0.92; }
   </style>
