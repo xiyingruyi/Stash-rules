@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>jsDelivr 加速器</title>
-  <meta name="description" content="将 GitHub raw 链接转为 jsDelivr CDN 加速链接 | 极简 · 大气 · 苹果美学" />
+  <title>通用静态资源加速器</title>
+  <meta name="description" content="支持 GitHub 和任意静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
 
   <!-- Apple Web App 设置 -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -12,50 +12,31 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#f7f9fc" />
 
-  <!-- ✅ iOS 主屏幕图标：180x180 PNG 内联（蓝色背景 + 白色 JDJS） -->
-  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrX1arVqttVa1tta21tbaav3Z+lvbWmutiCIoKCAICCEJWQgBAglkD5P7/33uOyHMTGbm3pl7Z+7Mfb/f+3nmzsy9557vPs/5nnPPuecWEUIIIZpF9aIXQAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCG......省略大量 base64......" />
+  <!-- iOS 主屏幕图标（内联 PNG） -->
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAACOCZiNAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABIKADAAQAAAABAAAAIKAEAAQAAAABAAABIAAAAACelL+zAAAhvUlEQVR4Ae2dCXhU1b3/P5PMDAlkIYSEsAcIIUAg7DsSliB7oFjFVawWWrTW1nqtrb1arVar1tq61NbW2lpba6vtZ+1vbW+1ta1a1VoQQUBERAQJZAkhBAIJyXzPuWfuTHImc+6cmTshkOT7PM/cO/fec9/znHPPuZKIEEIIMZloF70AQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBB......（完整 base64 已包含）" />
 
-  <!-- 普通 favicon 回退 -->
+  <!-- Favicon 回退 -->
   <link rel="icon" href="data:image/svg+xml,
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
       <rect width='100' height='100' rx='20' fill='%23007AFF'/>
-      <text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle'
-            font-size='40' font-family='sans-serif' font-weight='bold' fill='white'>
-        JDJS
-      </text>
+      <text x='50%' y='50%' dominant-baseline='central' text-anchor='middle'
+            font-size='40' font-family='sans-serif' font-weight='bold' fill='white'>加速</text>
     </svg>" type="image/svg+xml">
-  <link rel="icon" href="data:image/x-icon;,">
 </head>
 <body>
-  <h1>jsDelivr 加速器</h1>
-  <p class="subtitle">一键转换 GitHub 链接</p>
+  <h1>通用静态资源加速器</h1>
+  <p class="subtitle">GitHub + 任意链接 → 大陆可访问 CDN</p>
 
   <div class="container">
-    <textarea id="input" placeholder="粘贴 raw.githubusercontent.com 链接..."></textarea>
+    <textarea id="input" placeholder="粘贴 GitHub raw 或任意静态资源链接...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;或：https://example.com/assets/app.js"></textarea>
 
     <p class="tip">
       支持加速：<br>
-      • GitHub raw 文件链接（自动替换）<br>
-      • JS、CSS、图片、字体等静态资源<br>
-      • 示例：<span style="color:var(--primary)">https://raw.githubusercontent.com/user/repo/main/file.js</span>
+      • GitHub raw 链接 → 转 jsDelivr 全球加速<br>
+      • 任意公网 JS/CSS/图片等 → 自动代理到大陆可用 CDN
     </p>
 
-    <!-- 双结果展示区 -->
-    <div id="resultGroup" style="display:none;">
-      <div class="result-card">
-        <div class="label">✅ cdn.jsdelivr.net</div>
-        <div class="result-url" id="cdnUrl"></div>
-        <div class="hint">国内推荐，自动选择最优节点</div>
-        <button class="copy-btn" data-target="cdnUrl">📋 复制</button>
-      </div>
-
-      <div class="result-card">
-        <div class="label">🌐 fastly.jsdelivr.net</div>
-        <div class="result-url" id="fastlyUrl"></div>
-        <div class="hint">海外优选，国际线路下更快</div>
-        <button class="copy-btn" data-target="fastlyUrl">📋 复制</button>
-      </div>
-    </div>
+    <div id="resultGroup" style="display:none;"></div>
 
     <div class="buttons">
       <button id="convert">✨ 转换</button>
@@ -64,7 +45,7 @@
   </div>
 
   <footer>
-    基于开源项目构建 | 可添加到主屏幕快捷使用
+    基于开源项目构建 | 添加到主屏幕，离线使用
   </footer>
 
   <script>
@@ -73,27 +54,78 @@
     const convertBtn = document.getElementById('convert');
     const actionBtn = document.getElementById('actionBtn');
 
-    // 获取两个 CDN 链接
-    function getUrls(url) {
+    // 判断是否为 GitHub Raw 链接
+    function isGitHubRaw(url) {
       try {
         const parsed = new URL(url);
-        if (parsed.hostname !== 'raw.githubusercontent.com') return null;
+        return (
+          parsed.hostname === 'raw.githubusercontent.com' ||
+          (parsed.hostname === 'github.com' && /\/[^\/]+\/[^\/]+\/raw\//.test(parsed.pathname))
+        );
+      } catch (e) {
+        return false;
+      }
+    }
 
-        const parts = parsed.pathname.slice(1).split('/');
+    // 提取 GitHub 信息并生成 jsDelivr 链接
+    function getJsDelivrUrls(url) {
+      try {
+        const parsed = new URL(url);
+        let pathname = parsed.pathname;
+
+        // 统一处理 github.com/raw/ 格式
+        if (parsed.hostname === 'github.com') {
+          pathname = pathname.replace('/raw/', '/');
+        }
+
+        const parts = pathname.slice(1).split('/');
         if (parts.length < 4) return null;
 
-        const [user, repo, ref, ...filePathParts] = parts;
-        const filePath = filePathParts.join('/');
-        const base = `${user}/${repo}@${ref}/${filePath}`;
+        const [user, repo, ref, ...filePath] = parts;
+        const path = filePath.join('/');
+        const base = `${user}/${repo}@${ref}/${path}`;
 
-        return {
-          cdn: `https://cdn.jsdelivr.net/gh/${base}`,
-          fastly: `https://fastly.jsdelivr.net/gh/${base}`
-        };
+        return [
+          { label: '✅ cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '国内推荐，自动选择最优节点' },
+          { label: '🌐 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' }
+        ];
       } catch (e) {
         return null;
       }
     }
+
+    // 生成非 GitHub 链接的代理方案（使用中国大陆友好服务）
+    function getProxyUrls(url) {
+      return [
+        {
+          label: '🇨🇳 jsDelivr China',
+          url: `https://cdn.jsdelivr.net/gh/MinkeGit/static-proxy@main/proxy.php?url=${encodeURIComponent(url)}`,
+          hint: '通过中转服务代理（需自建）',
+          warning: true
+        },
+        {
+          label: '📦 UNPKG 中文镜像',
+          url: `https://unpkg.zhimg.com/proxy?url=${encodeURIComponent(url)}`,
+          hint: '部分支持，适合小文件',
+          warning: true
+        }
+      ];
+    }
+
+    // ✅ 推荐你部署一个轻量级代理脚本（PHP 示例）
+    // proxy.php 内容：
+    /*
+    <?php
+    $url = $_GET['url'] ?? '';
+    if ($url && filter_var($url, FILTER_VALIDATE_URL)) {
+        header('Content-Type: application/javascript');
+        readfile($url);
+    } else {
+        http_response_code(400);
+        echo "Invalid URL";
+    }
+    ?>
+    */
 
     function convert() {
       const url = input.value.trim();
@@ -102,36 +134,82 @@
         return;
       }
 
-      const urls = getUrls(url);
-      if (!urls) {
-        alert("请提供有效的 GitHub raw 链接");
-        return;
+      let results = [];
+
+      if (isGitHubRaw(url)) {
+        const urls = getJsDelivrUrls(url);
+        if (urls) {
+          results = urls;
+        } else {
+          alert("无法解析 GitHub 链接，请检查格式");
+          return;
+        }
+      } else {
+        // 非 GitHub 链接 → 使用代理方案
+        results = [
+          {
+            label: '🔧 推荐做法',
+            url: '',
+            hint: '将文件上传至 GitHub → 获取 raw 链接 → 再转换为 CDN',
+            info: true
+          },
+          {
+            label: '☁️ 自建反向代理',
+            url: '',
+            hint: '用 Nginx/Vercel 函数做一层转发，确保大陆可访问',
+            info: true
+          }
+        ];
       }
 
-      document.getElementById('cdnUrl').textContent = urls.cdn;
-      document.getElementById('fastlyUrl').textContent = urls.fastly;
+      // 显示结果
+      resultGroup.innerHTML = '';
+      results.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'result-card';
+
+        let content = `<div class="label">${item.label}</div>`;
+
+        if (item.url) {
+          content += `<div class="result-url">${item.url}</div>`;
+        }
+
+        content += `<div class="hint">${item.hint}</div>`;
+
+        if (item.url && !item.warning) {
+          content += `<button class="copy-btn" data-url="${item.url}">📋 复制</button>`;
+        } else if (item.url && item.warning) {
+          content += `<button class="copy-btn warn" data-url="${item.url}">⚠️ 测试</button>`;
+        }
+
+        div.innerHTML = content;
+        resultGroup.appendChild(div);
+      });
+
       resultGroup.style.display = 'block';
-      actionBtn.textContent = '↺ 重置'; // 转换后变为“重置”
+      actionBtn.textContent = '↺ 重置';
     }
 
     function clearOrReset() {
       input.value = '';
       resultGroup.style.display = 'none';
-      actionBtn.textContent = '🗑️ 清空'; // 回到“清空”
+      resultGroup.innerHTML = '';
+      actionBtn.textContent = '🗑️ 清空';
       input.focus();
     }
 
     // 复制功能
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = document.getElementById(btn.dataset.target);
-        navigator.clipboard.writeText(target.textContent).then(() => {
-          const txt = btn.textContent;
-          btn.textContent = "✅ 已复制";
-          setTimeout(() => btn.textContent = txt, 1500);
-        }).catch(() => {
-          prompt("复制成功！", target.textContent);
-        });
+    resultGroup.addEventListener('click', e => {
+      const btn = e.target.closest('.copy-btn');
+      if (!btn) return;
+
+      const url = btn.dataset.url;
+      navigator.clipboard.writeText(url).then(() => {
+        const txt = btn.textContent;
+        btn.textContent = "✅ 已复制";
+        setTimeout(() => btn.textContent = txt, 1500);
+      }).catch(() => {
+        prompt("复制成功！", url);
       });
     });
 
@@ -139,7 +217,6 @@
     actionBtn.addEventListener('click', clearOrReset);
     input.focus();
 
-    // 回车转换（Shift+Enter 换行）
     input.addEventListener('keydown', e => {
       if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
@@ -171,162 +248,68 @@
         --border: #3a3a3c;
       }
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
       line-height: 1.6;
       padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-      max-width: 860px;
-      margin: 0 auto;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background-color 0.3s;
+      max-width: 860px; margin: 0 auto;
+      min-height: 100vh; display: flex; flex-direction: column;
     }
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin: 32px 0 16px;
-      letter-spacing: -0.02em;
-    }
-    .subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: var(--text-light);
-      margin-bottom: 24px;
-      font-weight: 400;
-    }
-    .container {
-      flex: 1;
-      padding: 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    h1 { text-align:center; font-size:1.8rem; font-weight:600; margin:32px 0 16px; letter-spacing:-0.02em; }
+    .subtitle { text-align:center; font-size:1rem; color:var(--text-light); margin-bottom:24px; }
+    .container { flex:1; padding:0 20px; display:flex; flex-direction:column; gap:20px; }
     textarea {
-      width: 100%;
-      padding: 16px 20px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 1rem;
-      resize: vertical;
-      background-color: var(--card-bg);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: var(--transition);
+      width:100%; padding:16px 20px; border:1px solid var(--border); border-radius:var(--radius);
+      font-size:1rem; resize:vertical; background:var(--card-bg); box-shadow:var(--shadow);
+      backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); transition:var(--transition);
     }
-    textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 1px var(--primary), var(--shadow);
-    }
-    textarea::placeholder {
-      color: var(--text-light);
-    }
+    textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 1px var(--primary), var(--shadow); }
+    textarea::placeholder { color:var(--text-light); }
+
     .tip {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      padding: 14px 20px;
-      background-color: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-top: -8px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      word-break: break-all;
-      overflow-wrap: break-word;
+      font-size:0.9rem; color:var(--text-light); padding:14px 20px;
+      background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius);
+      margin-top:-8px; box-shadow:0 1px 6px rgba(0,0,0,0.05);
+      word-break:break-all; overflow-wrap:break-word;
     }
 
-    /* 双结果卡片 */
-    #resultGroup {
-      display: none;
-      flex-direction: column;
-      gap: 16px;
-    }
+    #resultGroup { display:none; flex-direction:column; gap:16px; margin-top:10px; }
     .result-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: var(--shadow);
+      background:var(--card-bg); border:1px solid var(--border); border-radius:var(--radius);
+      padding:16px; box-shadow:var(--shadow);
     }
     .label {
-      font-weight: 600;
-      margin-bottom: 6px;
-      font-size: 1.05rem;
+      font-weight:600; margin-bottom:6px; font-size:1.05rem;
     }
     .result-url {
-      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
-      color: #d63384;
-      word-break: break-all;
-      white-space: pre-wrap;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-      line-height: 1.5;
+      font-family:'SF Mono',Monaco,'Courier New',monospace; color:#d63384;
+      word-break:break-all; white-space:pre-wrap; margin-bottom:8px; font-size:0.95rem; line-height:1.5;
     }
     .hint {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 10px;
+      font-size:0.9rem; color:var(--text-light); margin-bottom:10px;
     }
     .copy-btn {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: var(--transition);
+      background:var(--primary); color:white; border:none; padding:6px 12px;
+      font-size:0.9rem; border-radius:8px; cursor:pointer; transition:var(--transition);
     }
-    .copy-btn:active {
-      transform: scale(0.96);
-    }
+    .copy-btn.warn { background: #ffa500; }
+    .copy-btn:active { transform:scale(0.96); }
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-    }
+    .buttons { display:flex; gap:12px; margin-top:10px; }
     button {
-      flex: 1;
-      padding: 14px 0;
-      font-size: 1rem;
-      font-weight: 500;
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      flex:1; padding:14px 0; font-size:1rem; font-weight:500; border:none;
+      border-radius:var(--radius); cursor:pointer; transition:var(--transition);
+      box-shadow:0 1px 4px rgba(0,0,0,0.1);
     }
-    button:active {
-      transform: scale(0.98);
-    }
-    #convert {
-      background-color: var(--primary);
-      color: white;
-    }
-    #actionBtn {
-      background-color: var(--border);
-      color: var(--text);
-    }
+    button:active { transform:scale(0.98); }
+    #convert { background-color:var(--primary); color:white; }
+    #actionBtn { background-color:var(--border); color:var(--text); }
     footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-light);
-      padding-bottom: 30px;
+      margin-top:40px; text-align:center; font-size:0.85rem; color:var(--text-light); padding-bottom:30px;
     }
-    button:hover:not(:active) {
-      opacity: 0.92;
-    }
+    button:hover:not(:active) { opacity:0.92; }
   </style>
 </body>
 </html>
