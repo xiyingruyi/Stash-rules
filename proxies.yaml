@@ -1,0 +1,900 @@
+proxies:
+  - name: 阿根廷
+    type: vless
+    server: time.is
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 澳大利亚
+    type: vless
+    server: icook.hk
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 澳大利亚-1
+    type: vless
+    server: 162.159.142.252
+    port: 2083
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 比利时
+    type: vless
+    server: 185.184.223.85
+    port: 8443
+    uuid: 0199def1-f1f2-d6a1-557d-c0609c2d6474
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets?ip=tw.tp81.netlib.re%3A81&nat64=6to4
+      headers:
+        Host: bpg.51haoka.top
+    servername: bpg.51haoka.top
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 巴西
+    type: vless
+    server: 104.18.94.238
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 智利
+    type: vless
+    server: wangcai197.cloudflare.182682.xyz
+    port: 8880
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: false
+    skip-cert-verify: true
+    ws-opts:
+      path: /freecodes%E8%8A%82%E7%82%B9%E7%8B%82%E9%AD%94/?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 哥伦比亚
+    type: vless
+    server: 45.38.145.70
+    port: 443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 哥伦比亚-1
+    type: vless
+    server: cloudflare.182682.xyz
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 丹麦
+    type: vless
+    server: bestcf.030101.xyz
+    port: 443
+    uuid: 1a25f8ad-cad2-4e93-b5bf-34e42bcac02a
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    ws-opts:
+      path: /?ed=2560&proxyip=ProxyIP.US.CMLiussss.net%3A443
+      headers:
+        Host: sni.111000.dynv6.net
+    servername: sni.111000.dynv6.net
+    encryption: none
+  - name: 埃及
+    type: vless
+    server: "[2606:4700:3036:0:a36a:3160:b566:8741]"
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 法国
+    type: ss
+    server: 45.87.175.155
+    port: 8080
+    cipher: chacha20-ietf-poly1305
+    password: k1dBOmOB4oqi7Ump37a1bQ
+  - name: 德国
+    type: vless
+    server: store.ubi.com
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-1
+    type: vmess
+    server: 47.250.159.134
+    port: 20522
+    uuid: 44827d8e-77b3-46ec-bb36-c2238e0677be
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-opts:
+      path: /telegram_@sswia
+  - name: 德国-2
+    type: vless
+    server: 104.19.150.163
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-3
+    type: vless
+    server: 154.211.8.18
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-4
+    type: vless
+    server: 27.50.48.102
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-5
+    type: vless
+    server: 141.94.205.161
+    port: 2053
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 德国-6
+    type: vless
+    server: staticdelivery.nexusmods.com
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-7
+    type: vless
+    server: zrf.cf.090227.xyz
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-8
+    type: vless
+    server: "[2606:4700:3036:ef:db9e:eecc:caef:9d4a]"
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 德国-9
+    type: vless
+    server: bestcf.030101.xyz
+    port: 443
+    uuid: ad9d8d2d-ccd3-413a-a7e6-d6d2b89aed91
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets/ip=tp50000.kr.proxyip.fgfw.eu.org%3A50000
+      headers:
+        Host: vless.hubp.de
+    servername: vless.hubp.de
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 香港
+    type: vless
+    server: 51.91.249.241
+    port: 443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 香港-1
+    type: vless
+    server: 51.91.249.241
+    port: 443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 香港-2
+    type: vless
+    server: 154.211.8.18
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 印度
+    type: trojan
+    server: baigou1.kkieo555.cn
+    port: 21869
+    password: 9619b906-a664-4daa-8174-da66ff455683
+    sni: douyin.com
+    skip-cert-verify: true
+  - name: 印度-1
+    type: trojan
+    server: baigou1.kkieo555.cn
+    port: 21866
+    password: 9619b906-a664-4daa-8174-da66ff455683
+    sni: douyin.com
+    skip-cert-verify: true
+  - name: 印度-2
+    type: vless
+    server: JOIN-RAIV2MMR-TELEGRAM.koyeb.app
+    port: 443
+    uuid: 5c9b6087-f955-4506-9c1d-67a5aae44bc9
+    network: ws
+    tls: true
+    servername: JOIN-RAIV2MMR-TELEGRAM.koyeb.app
+    client-fingerprint: chrome
+    alpn:
+      - h3
+      - h2
+      - http/1.1
+    ws-opts:
+      path: /%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr-%40Raiv2mmr
+  - name: 印尼
+    type: vmess
+    server: 216.167.51.187
+    port: 39291
+    uuid: 899c6711-18ff-409f-9b41-904b66f02a44
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-opts:
+      path: /arki?ed=2048
+  - name: 韩国
+    type: vless
+    server: 104.16.249.115
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 韩国-1
+    type: vless
+    server: 67.215.254.176
+    port: 443
+    uuid: 0199def1-f1f2-d6a1-557d-c0609c2d6474
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets?ip=tw.tp81.netlib.re%3A81&nat64=6to4
+      headers:
+        Host: bpg.51haoka.top
+    servername: bpg.51haoka.top
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 韩国-2
+    type: vless
+    server: 154.218.15.1
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 墨西哥
+    type: vless
+    server: 67.226.223.200
+    port: 443
+    uuid: 0199def1-f1f2-d6a1-557d-c0609c2d6474
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets?ip=tw.tp81.netlib.re%3A81&nat64=6to4
+      headers:
+        Host: bpg.51haoka.top
+    servername: bpg.51haoka.top
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 墨西哥-1
+    type: vless
+    server: 27.50.48.6
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 墨西哥-2
+    type: vmess
+    server: 8.211.164.215
+    port: 20522
+    uuid: 73193cce-7ca1-4b08-93ff-4ee8b0147374
+    alterId: 0
+    cipher: auto
+    network: ws
+    ws-opts:
+      path: /telegram_@sswia
+  - name: 墨西哥-3
+    type: vless
+    server: staticdelivery.nexusmods.com
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 菲律宾
+    type: vless
+    server: 141.94.205.161
+    port: 2053
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 俄罗斯
+    type: vless
+    server: 142.250.185.68
+    port: 443
+    uuid: cc658199-23dc-4e0e-a950-cfc486bc71cf
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    ws-opts:
+      path: /
+      headers:
+        Host: subscribe-565790097303.europe-west4.run.app
+    servername: google.com
+  - name: 俄罗斯-1
+    type: vless
+    server: store.ubi.com
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 俄罗斯-2
+    type: vless
+    server: 142.250.185.68
+    port: 443
+    uuid: cc658199-23dc-4e0e-a950-cfc486bc71cf
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: chrome
+    alpn:
+      - http/1.1
+    ws-opts:
+      path: /
+      headers:
+        Host: subscribe-565790097303.europe-west4.run.app
+    servername: google.com
+  - name: 新加坡
+    type: vless
+    server: 158.180.72.60
+    port: 443
+    uuid: 0199def1-f1f2-d6a1-557d-c0609c2d6474
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets?ip=tw.tp81.netlib.re%3A81&nat64=6to4
+      headers:
+        Host: bpg.51haoka.top
+    servername: bpg.51haoka.top
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 新加坡-1
+    type: vless
+    server: www.racknerd.com
+    port: 443
+    uuid: 6337837a-2b47-4e0d-a695-75c5a4a8ad51
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    ws-opts:
+      path: /lzjjjjjjj
+      headers:
+        Host: legendvps-sg.lzjnb.shop
+    servername: legendvps-sg.lzjnb.shop
+    encryption: none
+  - name: 斯洛伐克
+    type: vless
+    server: "[2606:4700:3036::ce:d6ea]"
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 南非
+    type: vless
+    server: 163.53.246.130
+    port: 443
+    uuid: 0199def1-f1f2-d6a1-557d-c0609c2d6474
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets?ip=tw.tp81.netlib.re%3A81&nat64=6to4
+      headers:
+        Host: bpg.51haoka.top
+    servername: bpg.51haoka.top
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 西班牙
+    type: vless
+    server: freeyx.cloudflare88.eu.org
+    port: 443
+    uuid: e2f29494-1b46-417e-ff67-2481c6faec4f
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    ws-opts:
+      path: /XYXY0721
+      headers:
+        Host: straight-processors-fiber-editorial.trycloudflare.com
+    encryption: none
+  - name: 西班牙-1
+    type: trojan
+    server: bestcf.030101.xyz
+    port: 443
+    password: 1a25f8ad-cad2-4e93-b5bf-34e42bcac02a
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - http/1.1
+    ws-opts:
+      path: /?ed=2560&proxyip=ProxyIP.US.CMLiussss.net%3A443
+      headers:
+        Host: sni.111000.dynv6.net
+    servername: sni.111000.dynv6.net
+  - name: 西班牙-2
+    type: vless
+    server: 209.38.46.172
+    port: 443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 瑞士
+    type: vless
+    server: 127.0.0.1
+    port: 1234
+    uuid: c288705b-d1e3-421e-a63c-3dcf91f7712a
+    network: ws
+    tls: false
+    encryption: none
+  - name: 台湾
+    type: vless
+    server: 135.181.21.43
+    port: 443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 英国
+    type: vless
+    server: 192.210.183.136
+    port: 36678
+    uuid: bf9b316d-31ac-42ee-b8a5-8dc795118917
+    network: tcp
+    tls: true
+    servername: swdist.apple.com
+    client-fingerprint: chrome
+    reality-opts:
+      public-key: rrGm0NemTtGQ8Vrd2AzB7pSoW_kYtqYvhRxsx_MtwG0
+      short-id: 5d20
+    flow: xtls-rprx-vision
+  - name: 英国-1
+    type: vless
+    server: 45.38.145.112
+    port: 443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 英国-2
+    type: vless
+    server: "[2606:4700:3036:ef:3f32:9601:b705:e94b]"
+    port: 443
+    uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: ym.ddff.me
+    servername: ym.ddff.me
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 美国
+    type: vless
+    server: 193.122.114.82
+    port: 443
+    uuid: 0199def1-f1f2-d6a1-557d-c0609c2d6474
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    client-fingerprint: random
+    alpn:
+      - h3
+    ws-opts:
+      path: /snippets?ip=tw.tp81.netlib.re%3A81&nat64=6to4
+      headers:
+        Host: bpg.51haoka.top
+    servername: bpg.51haoka.top
+    fragment:
+      type: tlshello
+      packets: "1,40-60,30-50,tlshello"
+    encryption: none
+  - name: 美国-1
+    type: vless
+    server: 147.79.20.47
+    port: 443
+    uuid: 0de36d61-ac9e-4105-92cd-8fe97921b48b
+    network: ws
+    tls: true
+    skip-cert-verify: true
+    ws-opts:
+      path: /
+      headers:
+        Host: swus.zyk.biz.id
+    encryption: none
+  - name: 美国-2
+    type: vless
+    server: fr.pixvpn.app
+    port: 8443
+    uuid: 8c9a7ef4-b692-41ee-90ca-669b04990ac5
+    network: grpc
+    tls: true
+    servername: jd.com
+    client-fingerprint: chrome
+    grpc-opts:
+      grpc-service-name: grpc-jd
+    reality-opts:
+      public-key: SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc
+      short-id: 41a4cee2c50c4fc3
+  - name: 越南
+    type: vless
+    server: 141.94.221.78
+    port: 8443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
+  - name: 卡塔尔
+    type: vless
+    server: 141.94.221.78
+    port: 8443
+    uuid: d2965257-0536-4811-a0d5-cdce54e90326
+    network: ws
+    tls: true
+    servername: fei.634676.xyz
+    client-fingerprint: chrome
+    ws-opts:
+      path: /?ed=2560
+      headers:
+        Host: fei.634676.xyz
