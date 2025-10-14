@@ -23,19 +23,20 @@
   <p class="subtitle">GitHub 静态资源 → 大陆可访问 CDN</p>
   <div class="container">
     <div class="input-group">
-      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js&#10;&#10;或粘贴 CDN 链接批量清除缓存：&#10;例：https://cdn.jsdelivr.net/gh/u/r@ref/file.js&#10;https://fastly.jsdelivr.net/gh/u/r@ref/file.js&#10;https://cdn.jsdmirror.com/gh/u/r@ref/file.js"></textarea>
+      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js&#10;&#10;或粘贴 CDN 链接刷新缓存：&#10;例：https://cdn.jsdelivr.net/gh/u/r@ref/file.js&#10;https://fastly.jsdelivr.net/gh/u/r@ref/file.js&#10;https://cdn.jsdmirror.com/gh/u/r@ref/file.js"></textarea>
     </div>
     <p class="tip">
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
       • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
+      • 刷新缓存：支持 jsDelivr (fastly/cdn.jsdelivr.net) 链接，国内镜像 (cdn.jsdmirror.com) 自动同步，无需手动<br>
       • <a href="https://www.jsdelivr.com/tools/purge" target="_blank" style="color: var(--primary); text-decoration: underline;">使用 jsDelivr 清除工具手动清除缓存</a>
     </p>
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
       <button id="convert">✨ 智能转换</button>
-      <button id="batchPurgeBtn">🧹 批量清除</button>
+      <button id="batchPurgeBtn">🔄 刷新缓存</button>
       <button id="purgeBtn" style="display: none;">🔄 刷新结果缓存</button>
       <button id="actionBtn">🗑️ 清空</button>
     </div>
@@ -131,32 +132,45 @@
         return;
       }
 
-      batchPurgeBtn.textContent = '⏳ 正在批量清除...';
+      batchPurgeBtn.textContent = '⏳ 正在刷新...';
       batchPurgeBtn.disabled = true;
 
       try {
         await Promise.all(purgePromises);
-        let msg = '批量清除完成！';
+        let msg = '刷新缓存完成！';
         if (skippedCount > 0) {
-          msg += `（${skippedCount} 个 jsdmirror 链接不支持手动清除，自动同步）`;
+          msg += `（${skippedCount} 个 jsdmirror 链接不支持手动刷新，自动同步）`;
         }
         alert(msg);
-        batchPurgeBtn.textContent = '✅ 已清除';
+        batchPurgeBtn.textContent = '✅ 已刷新';
         setTimeout(() => {
-          batchPurgeBtn.textContent = '🧹 批量清除';
+          batchPurgeBtn.textContent = '🔄 刷新缓存';
           batchPurgeBtn.disabled = false;
         }, 2000);
       } catch (err) {
-        alert('批量清除过程中出现错误，请检查控制台');
-        batchPurgeBtn.textContent = '🧹 批量清除';
+        alert('刷新过程中出现错误，请检查控制台');
+        batchPurgeBtn.textContent = '🔄 刷新缓存';
         batchPurgeBtn.disabled = false;
       }
     }
 
     async function batchPurge() {
       const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
-      if (!urls.length) return alert('请输入至少一个 CDN 链接');
-      await purgeUrls(urls);
+      if (!urls.length) return alert('请输入至少一个链接');
+      let supportedUrls = [];
+      let invalidUrls = [];
+      urls.forEach((url, index) => {
+        if (isJsDelivrUrl(url) || isJsdMirrorUrl(url)) {
+          supportedUrls.push(url);
+        } else {
+          invalidUrls.push(`链接 ${index + 1}: ${url}`);
+        }
+      });
+      if (invalidUrls.length) {
+        alert(`以下链接不是支持的类型（仅支持 jsDelivr & jsdmirror CDN 链接）:\n${invalidUrls.join('\n')}`);
+      }
+      if (!supportedUrls.length) return;
+      await purgeUrls(supportedUrls);
     }
 
     async function purgeAll() {
@@ -186,7 +200,7 @@
       });
 
       if (invalidUrls.length) {
-        alert(`以下链接格式错误，仅支持 GitHub raw 或 blob 链接：\n${invalidUrls.join('\n')}`);
+        alert(`以下链接不是支持的类型（仅支持 GitHub raw 或 blob 链接）:\n${invalidUrls.join('\n')}`);
       }
       if (!allResults.length) return;
 
@@ -420,7 +434,7 @@
       color: white;
     }
     #batchPurgeBtn {
-      background: #ff3b30;
+      background: #34c759;
       color: white;
     }
     #purgeBtn {
