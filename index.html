@@ -82,6 +82,10 @@
       try {
         const parsed = new URL(url);
         let pathname = parsed.pathname;
+        // 新增：自动移除 /refs/heads/ 部分（针对如 /refs/heads/main 的分支引用）
+        if (pathname.includes('/refs/heads/')) {
+          pathname = pathname.replace('/refs/heads/', '/');
+        }
         if (parsed.hostname === 'github.com') {
           if (/\/raw\//.test(pathname)) pathname = pathname.replace('/raw/', '/');
           if (/\/blob\//.test(pathname)) pathname = pathname.replace('/blob/', '/');
