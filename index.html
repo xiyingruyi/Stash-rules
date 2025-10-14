@@ -23,14 +23,14 @@
   <p class="subtitle">GitHub 静态资源 → 大陆可访问 CDN</p>
   <div class="container">
     <div class="input-group">
-      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js&#10;&#10;或粘贴 CDN 链接刷新缓存：&#10;例：https://cdn.jsdelivr.net/gh/u/r@ref/file.js&#10;https://fastly.jsdelivr.net/gh/u/r@ref/file.js&#10;https://cdn.jsdmirror.com/gh/u/r@ref/file.js"></textarea>
+      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js"></textarea>
     </div>
     <p class="tip">
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
       • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
-      • 刷新缓存：支持 jsDelivr (fastly/cdn.jsdelivr.net) 链接，国内镜像 (cdn.jsdmirror.com) 自动同步，无需手动<br>
+      • 支持批量清除fastly.jsdelivr.net、cdn.jsdmirror.com、cdn.jsdelivr.net 三个类型链接的缓存<br>
       • <a href="https://www.jsdelivr.com/tools/purge" target="_blank" style="color: var(--primary); text-decoration: underline;">使用 jsDelivr 清除工具手动清除缓存</a>
     </p>
     <div id="resultGroup" style="display:none;"></div>
@@ -167,7 +167,7 @@
         }
       });
       if (invalidUrls.length) {
-        alert(`以下链接不是支持的类型（仅支持 jsDelivr & jsdmirror CDN 链接）:\n${invalidUrls.join('\n')}`);
+        alert(`链接不是支持的类型:\n${invalidUrls.join('\n')}`);
       }
       if (!supportedUrls.length) return;
       await purgeUrls(supportedUrls);
@@ -200,7 +200,7 @@
       });
 
       if (invalidUrls.length) {
-        alert(`以下链接不是支持的类型（仅支持 GitHub raw 或 blob 链接）:\n${invalidUrls.join('\n')}`);
+        alert(`链接不是支持的类型:\n${invalidUrls.join('\n')}`);
       }
       if (!allResults.length) return;
 
