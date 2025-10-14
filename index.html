@@ -136,9 +136,6 @@
       try {
         await Promise.all(purgePromises);
         let msg = '刷新缓存完成！';
-        if (skippedCount > 0) {
-          msg += `（${skippedCount} 个 jsdmirror 链接不支持手动刷新，自动同步）`;
-        }
         alert(msg);
         purgeBtn.textContent = '✅ 已刷新';
         setTimeout(() => {
