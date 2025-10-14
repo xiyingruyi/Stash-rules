@@ -23,7 +23,7 @@
   <p class="subtitle">GitHub 静态资源 → 大陆可访问 CDN</p>
   <div class="container">
     <div class="input-group">
-      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js"></textarea>
+      <textarea id="input" placeholder="粘贴 GitHub 静态资源链接（每行一个）...&#10;例：https://raw.githubusercontent.com/u/r/main/file.js&#10;https://github.com/u/r/blob/main/file.js&#10;&#10;或粘贴 CDN 链接批量清除缓存：&#10;例：https://cdn.jsdelivr.net/gh/u/r@ref/file.js&#10;https://fastly.jsdelivr.net/gh/u/r@ref/file.js&#10;https://cdn.jsdmirror.com/gh/u/r@ref/file.js"></textarea>
     </div>
     <p class="tip">
       支持加速：<br>
@@ -35,7 +35,8 @@
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
       <button id="convert">✨ 智能转换</button>
-      <button id="purgeBtn" style="display: none;">🔄 刷新缓存</button>
+      <button id="batchPurgeBtn">🧹 批量清除</button>
+      <button id="purgeBtn" style="display: none;">🔄 刷新结果缓存</button>
       <button id="actionBtn">🗑️ 清空</button>
     </div>
   </div>
@@ -46,6 +47,7 @@
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
+    const batchPurgeBtn = document.getElementById('batchPurgeBtn');
     const purgeBtn = document.getElementById('purgeBtn');
     const actionBtn = document.getElementById('actionBtn');
 
@@ -54,6 +56,24 @@
         const parsed = new URL(url);
         return parsed.hostname === 'raw.githubusercontent.com' ||
                (parsed.hostname === 'github.com' && ( /\/raw\//.test(parsed.pathname) || /\/blob\//.test(parsed.pathname) ));
+      } catch {
+        return false;
+      }
+    }
+
+    function isJsDelivrUrl(url) {
+      try {
+        const parsed = new URL(url);
+        return parsed.hostname === 'cdn.jsdelivr.net' || parsed.hostname === 'fastly.jsdelivr.net';
+      } catch {
+        return false;
+      }
+    }
+
+    function isJsdMirrorUrl(url) {
+      try {
+        const parsed = new URL(url);
+        return parsed.hostname === 'cdn.jsdmirror.com';
       } catch {
         return false;
       }
@@ -82,48 +102,67 @@
       }
     }
 
-    async function purgeAll() {
-      const urlElements = document.querySelectorAll('.result-url');
-      const purgePromises = Array.from(urlElements).map(el => {
-        const url = el.textContent.trim();
-        if (url.includes('jsdelivr.net') && !url.includes('purge.jsdelivr.net')) {
+    async function purgeUrls(urls) {
+      let purgedCount = 0;
+      let skippedCount = 0;
+      const purgePromises = urls.map(url => {
+        if (isJsDelivrUrl(url) && !url.includes('purge.jsdelivr.net')) {
           const purgeUrl = url.replace(/^(https:\/\/(?:fastly|cdn)\.jsdelivr\.net)/, 'https://purge.jsdelivr.net');
           return fetch(purgeUrl, { method: 'GET' }).then(res => {
             if (res.ok) {
               console.log('Purged:', purgeUrl);
+              purgedCount++;
             } else {
               console.error('Purge failed for:', purgeUrl);
             }
           }).catch(err => {
             console.error('Purge error:', err);
           });
-        } else if (url.includes('jsdmirror.com')) {
-          console.log('Skipped purge for mirror (no API):', url);
+        } else if (isJsdMirrorUrl(url)) {
+          console.log('Skipped purge for jsdmirror (no public API):', url);
+          skippedCount++;
+          return Promise.resolve(); // 模拟完成
         }
         return null;
       }).filter(Boolean);
 
-      if (purgePromises.length === 0) {
-        alert('没有可刷新的 jsDelivr 缓存（镜像自动同步）');
+      if (purgePromises.length === 0 && skippedCount === 0) {
+        alert('没有可刷新的缓存（仅支持 jsdelivr.net 链接）');
         return;
       }
 
-      purgeBtn.textContent = '⏳ 正在刷新...';
-      purgeBtn.disabled = true;
+      batchPurgeBtn.textContent = '⏳ 正在批量清除...';
+      batchPurgeBtn.disabled = true;
 
       try {
         await Promise.all(purgePromises);
-        alert('jsDelivr 缓存刷新完成！（镜像无需手动）');
-        purgeBtn.textContent = '✅ 已刷新';
+        let msg = '批量清除完成！';
+        if (skippedCount > 0) {
+          msg += `（${skippedCount} 个 jsdmirror 链接不支持手动清除，自动同步）`;
+        }
+        alert(msg);
+        batchPurgeBtn.textContent = '✅ 已清除';
         setTimeout(() => {
-          purgeBtn.textContent = '🔄 刷新缓存';
-          purgeBtn.disabled = false;
+          batchPurgeBtn.textContent = '🧹 批量清除';
+          batchPurgeBtn.disabled = false;
         }, 2000);
       } catch (err) {
-        alert('刷新过程中出现错误，请检查控制台');
-        purgeBtn.textContent = '🔄 刷新缓存';
-        purgeBtn.disabled = false;
+        alert('批量清除过程中出现错误，请检查控制台');
+        batchPurgeBtn.textContent = '🧹 批量清除';
+        batchPurgeBtn.disabled = false;
       }
+    }
+
+    async function batchPurge() {
+      const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+      if (!urls.length) return alert('请输入至少一个 CDN 链接');
+      await purgeUrls(urls);
+    }
+
+    async function purgeAll() {
+      const urlElements = document.querySelectorAll('.result-url');
+      const urls = Array.from(urlElements).map(el => el.textContent.trim());
+      await purgeUrls(urls);
     }
 
     function convert() {
@@ -203,6 +242,7 @@
     });
 
     convertBtn.addEventListener('click', convert);
+    batchPurgeBtn.addEventListener('click', batchPurge);
     purgeBtn.addEventListener('click', purgeAll);
     actionBtn.addEventListener('click', reset);
 
@@ -356,11 +396,13 @@
     }
     .buttons {
       display: flex;
+      flex-wrap: wrap;
       gap: 12px;
       margin-top: 10px;
     }
     button {
       flex: 1;
+      min-width: 120px;
       padding: 14px 0;
       font-size: 1rem;
       font-weight: 500;
@@ -375,6 +417,10 @@
     }
     #convert {
       background: var(--primary);
+      color: white;
+    }
+    #batchPurgeBtn {
+      background: #ff3b30;
       color: white;
     }
     #purgeBtn {
@@ -394,6 +440,14 @@
     }
     button:hover:not(:active) {
       opacity: 0.92;
+    }
+    @media (max-width: 480px) {
+      .buttons {
+        flex-direction: column;
+      }
+      button {
+        flex: none;
+      }
     }
   </style>
 </body>
