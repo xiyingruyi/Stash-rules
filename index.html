@@ -29,7 +29,8 @@
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
-      • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）
+      • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
+      • <a href="https://purge.jsdelivr.net/" target="_blank" style="color: var(--primary); text-decoration: underline;">手动清除 jsDelivr 缓存</a>
     </p>
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
@@ -72,7 +73,7 @@
         const base = `${user}/${repo}@${ref}/${filePath.join('/')}`;
         return [
           { label: '✅ fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
-          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快' },
+          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快（无公共 purge API，自动同步）' },
           { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' },
           { label: '☁️ Cloudflare', url: `https://stash-rules.pages.dev/gh/${base}`, hint: 'Cloudflare 加速' }
         ];
@@ -96,12 +97,14 @@
           }).catch(err => {
             console.error('Purge error:', err);
           });
+        } else if (url.includes('jsdmirror.com')) {
+          console.log('Skipped purge for mirror (no API):', url);
         }
         return null;
       }).filter(Boolean);
 
       if (purgePromises.length === 0) {
-        alert('没有可刷新的 jsDelivr 缓存');
+        alert('没有可刷新的 jsDelivr 缓存（镜像自动同步）');
         return;
       }
 
@@ -110,14 +113,14 @@
 
       try {
         await Promise.all(purgePromises);
-        alert('缓存刷新完成！');
+        alert('jsDelivr 缓存刷新完成！（镜像无需手动）');
         purgeBtn.textContent = '✅ 已刷新';
         setTimeout(() => {
           purgeBtn.textContent = '🔄 刷新缓存';
           purgeBtn.disabled = false;
         }, 2000);
       } catch (err) {
-        alert('刷新过程中出现错误');
+        alert('刷新过程中出现错误，请检查控制台');
         purgeBtn.textContent = '🔄 刷新缓存';
         purgeBtn.disabled = false;
       }
@@ -163,12 +166,8 @@
               <div class="result-url">${item.url}</div>
               <div class="hint">${item.hint}</div>
               <button class="copy-btn" data-url="${item.url}">📋 复制</button>
+            </div>
           `;
-          if (item.url.includes('jsdelivr.net')) {
-            const purgeUrl = item.url.replace(/^(https:\/\/(?:fastly|cdn)\.jsdelivr\.net)/, 'https://purge.jsdelivr.net');
-            cdnHtml += `<a href="${purgeUrl}" target="_blank" class="purge-link" style="margin-left: 8px; padding: 6px 12px; background: #ff9500; color: white; text-decoration: none; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">🔄 Purge</a>`;
-          }
-          cdnHtml += `</div>`;
           cardHtml += cdnHtml;
         });
         card.innerHTML = cardHtml;
@@ -285,6 +284,12 @@
       background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
       margin-top: -8px; box-shadow: 0 1px 6px rgba(0,0,0,0.05);
       word-break: break-all; overflow-wrap: break-word;
+    }
+    .tip a {
+      font-weight: 500;
+    }
+    .tip a:hover {
+      text-decoration: underline;
     }
     #resultGroup {
       display: none;
