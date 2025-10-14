@@ -34,6 +34,7 @@
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
       <button id="convert">✨ 智能转换</button>
+      <button id="purgeBtn" style="display: none;">🔄 刷新缓存</button>
       <button id="actionBtn">🗑️ 清空</button>
     </div>
   </div>
@@ -44,6 +45,7 @@
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
+    const purgeBtn = document.getElementById('purgeBtn');
     const actionBtn = document.getElementById('actionBtn');
 
     function isGitHubResource(url) {
@@ -56,7 +58,7 @@
       }
     }
 
-    function getJsDelivrUrls(url) {
+    function getCdnUrls(url) {
       try {
         const parsed = new URL(url);
         let pathname = parsed.pathname;
@@ -71,10 +73,53 @@
         return [
           { label: '✅ fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
           { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快' },
-          { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' }
+          { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' },
+          { label: '☁️ Cloudflare', url: `https://stash-rules.pages.dev/gh/${base}`, hint: 'Cloudflare 加速' }
         ];
       } catch {
         return null;
+      }
+    }
+
+    async function purgeAll() {
+      const urlElements = document.querySelectorAll('.result-url');
+      const purgePromises = Array.from(urlElements).map(el => {
+        const url = el.textContent.trim();
+        if (url.includes('jsdelivr.net') && !url.includes('purge.jsdelivr.net')) {
+          const purgeUrl = url.replace(/^(https:\/\/(?:fastly|cdn)\.jsdelivr\.net)/, 'https://purge.jsdelivr.net');
+          return fetch(purgeUrl, { method: 'GET' }).then(res => {
+            if (res.ok) {
+              console.log('Purged:', purgeUrl);
+            } else {
+              console.error('Purge failed for:', purgeUrl);
+            }
+          }).catch(err => {
+            console.error('Purge error:', err);
+          });
+        }
+        return null;
+      }).filter(Boolean);
+
+      if (purgePromises.length === 0) {
+        alert('没有可刷新的 jsDelivr 缓存');
+        return;
+      }
+
+      purgeBtn.textContent = '⏳ 正在刷新...';
+      purgeBtn.disabled = true;
+
+      try {
+        await Promise.all(purgePromises);
+        alert('缓存刷新完成！');
+        purgeBtn.textContent = '✅ 已刷新';
+        setTimeout(() => {
+          purgeBtn.textContent = '🔄 刷新缓存';
+          purgeBtn.disabled = false;
+        }, 2000);
+      } catch (err) {
+        alert('刷新过程中出现错误');
+        purgeBtn.textContent = '🔄 刷新缓存';
+        purgeBtn.disabled = false;
       }
     }
 
@@ -90,7 +135,7 @@
           invalidUrls.push(`链接 ${index + 1}: ${url}`);
           return;
         }
-        const results = getJsDelivrUrls(url);
+        const results = getCdnUrls(url);
         if (!results || !results.length) {
           invalidUrls.push(`链接 ${index + 1}: ${url}`);
           return;
@@ -110,17 +155,23 @@
         if (allResults.length > 1 && index < allResults.length - 1) {
           card.classList.add('result-card-with-separator');
         }
-        card.innerHTML = `
-          ${allResults.length > 1 ? `<div class="label">链接 ${index + 1}</div>` : ''}
-          ${cdnResults.map(item => `
+        let cardHtml = allResults.length > 1 ? `<div class="label">链接 ${index + 1}</div>` : '';
+        cdnResults.forEach(item => {
+          let cdnHtml = `
             <div class="cdn-result">
               <div class="label">${item.label}</div>
               <div class="result-url">${item.url}</div>
               <div class="hint">${item.hint}</div>
               <button class="copy-btn" data-url="${item.url}">📋 复制</button>
-            </div>
-          `).join('')}
-        `;
+          `;
+          if (item.url.includes('jsdelivr.net')) {
+            const purgeUrl = item.url.replace(/^(https:\/\/(?:fastly|cdn)\.jsdelivr\.net)/, 'https://purge.jsdelivr.net');
+            cdnHtml += `<a href="${purgeUrl}" target="_blank" class="purge-link" style="margin-left: 8px; padding: 6px 12px; background: #ff9500; color: white; text-decoration: none; border-radius: 8px; font-size: 0.9rem; cursor: pointer;">🔄 Purge</a>`;
+          }
+          cdnHtml += `</div>`;
+          cardHtml += cdnHtml;
+        });
+        card.innerHTML = cardHtml;
         resultGroup.appendChild(card);
       });
 
@@ -130,6 +181,7 @@
 
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
+      purgeBtn.style.display = 'block';
     }
 
     function reset() {
@@ -137,6 +189,7 @@
       resultGroup.style.display = 'none';
       resultGroup.innerHTML = '';
       actionBtn.textContent = '🗑️ 清空';
+      purgeBtn.style.display = 'none';
       input.focus();
     }
 
@@ -151,6 +204,7 @@
     });
 
     convertBtn.addEventListener('click', convert);
+    purgeBtn.addEventListener('click', purgeAll);
     actionBtn.addEventListener('click', reset);
 
     input.focus();
@@ -316,6 +370,10 @@
     }
     #convert {
       background: var(--primary);
+      color: white;
+    }
+    #purgeBtn {
+      background: #34c759;
       color: white;
     }
     #actionBtn {
