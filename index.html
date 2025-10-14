@@ -36,8 +36,7 @@
     <div id="resultGroup" style="display:none;"></div>
     <div class="buttons">
       <button id="convert">✨ 智能转换</button>
-      <button id="batchPurgeBtn">🔄 刷新缓存</button>
-      <button id="purgeBtn" style="display: none;">🔄 刷新结果缓存</button>
+      <button id="purgeBtn">🔄 刷新缓存</button>
       <button id="actionBtn">🗑️ 清空</button>
     </div>
   </div>
@@ -48,7 +47,6 @@
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
     const convertBtn = document.getElementById('convert');
-    const batchPurgeBtn = document.getElementById('batchPurgeBtn');
     const purgeBtn = document.getElementById('purgeBtn');
     const actionBtn = document.getElementById('actionBtn');
 
@@ -132,8 +130,8 @@
         return;
       }
 
-      batchPurgeBtn.textContent = '⏳ 正在刷新...';
-      batchPurgeBtn.disabled = true;
+      purgeBtn.textContent = '⏳ 正在刷新...';
+      purgeBtn.disabled = true;
 
       try {
         await Promise.all(purgePromises);
@@ -142,40 +140,43 @@
           msg += `（${skippedCount} 个 jsdmirror 链接不支持手动刷新，自动同步）`;
         }
         alert(msg);
-        batchPurgeBtn.textContent = '✅ 已刷新';
+        purgeBtn.textContent = '✅ 已刷新';
         setTimeout(() => {
-          batchPurgeBtn.textContent = '🔄 刷新缓存';
-          batchPurgeBtn.disabled = false;
+          purgeBtn.textContent = '🔄 刷新缓存';
+          purgeBtn.disabled = false;
         }, 2000);
       } catch (err) {
         alert('刷新过程中出现错误，请检查控制台');
-        batchPurgeBtn.textContent = '🔄 刷新缓存';
-        batchPurgeBtn.disabled = false;
+        purgeBtn.textContent = '🔄 刷新缓存';
+        purgeBtn.disabled = false;
       }
     }
 
-    async function batchPurge() {
-      const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+    async function purge() {
+      let urls = [];
+      if (resultGroup.style.display === 'block') {
+        const urlElements = document.querySelectorAll('.result-url');
+        urls = Array.from(urlElements).map(el => el.textContent.trim());
+      } else {
+        urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+      }
       if (!urls.length) return alert('请输入至少一个链接');
-      let supportedUrls = [];
-      let invalidUrls = [];
-      urls.forEach((url, index) => {
-        if (isJsDelivrUrl(url) || isJsdMirrorUrl(url)) {
-          supportedUrls.push(url);
-        } else {
-          invalidUrls.push(`链接 ${index + 1}: ${url}`);
+      if (resultGroup.style.display !== 'block') {
+        let supportedUrls = [];
+        let invalidUrls = [];
+        urls.forEach((url, index) => {
+          if (isJsDelivrUrl(url) || isJsdMirrorUrl(url)) {
+            supportedUrls.push(url);
+          } else {
+            invalidUrls.push(`链接 ${index + 1}: ${url}`);
+          }
+        });
+        if (invalidUrls.length) {
+          alert(`链接不是支持的类型:\n${invalidUrls.join('\n')}`);
         }
-      });
-      if (invalidUrls.length) {
-        alert(`链接不是支持的类型:\n${invalidUrls.join('\n')}`);
+        if (!supportedUrls.length) return;
+        urls = supportedUrls;
       }
-      if (!supportedUrls.length) return;
-      await purgeUrls(supportedUrls);
-    }
-
-    async function purgeAll() {
-      const urlElements = document.querySelectorAll('.result-url');
-      const urls = Array.from(urlElements).map(el => el.textContent.trim());
       await purgeUrls(urls);
     }
 
@@ -233,7 +234,6 @@
 
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
-      purgeBtn.style.display = 'block';
     }
 
     function reset() {
@@ -241,7 +241,6 @@
       resultGroup.style.display = 'none';
       resultGroup.innerHTML = '';
       actionBtn.textContent = '🗑️ 清空';
-      purgeBtn.style.display = 'none';
       input.focus();
     }
 
@@ -256,8 +255,7 @@
     });
 
     convertBtn.addEventListener('click', convert);
-    batchPurgeBtn.addEventListener('click', batchPurge);
-    purgeBtn.addEventListener('click', purgeAll);
+    purgeBtn.addEventListener('click', purge);
     actionBtn.addEventListener('click', reset);
 
     input.focus();
@@ -431,10 +429,6 @@
     }
     #convert {
       background: var(--primary);
-      color: white;
-    }
-    #batchPurgeBtn {
-      background: #34c759;
       color: white;
     }
     #purgeBtn {
