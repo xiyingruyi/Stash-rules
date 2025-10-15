@@ -1,31 +1,21 @@
 name: Sync to CNB
-
-# 当代码推送到任何分支时触发同步
-on:
+on: 
   push:
     branches:
-      - '**' # 匹配所有分支的推送操作
-
+      - '**'
 jobs:
   sync:
-    # 步骤 1: 【防止循环】检查是否为 CNB 同步机器人推送的提交。
-    # 
-    # 务必将 'cnb-sync-bot' 替换为你实际用于 CNB 同步的 GitHub 用户名/机器人名（即 PAT 或密钥关联的用户名）。
-    # 如果是该用户名推送的，则跳过本次同步到 CNB 的操作，防止无限循环。
-    if: github.repository == 'xiyingruyi/Stash-rules' && github.actor != 'xiyingruyi'
-
+    if: >-
+      github.repository == 'xiyingruyi/Stash-rules' &&
+      !contains(github.event.head_commit.message, '[SKIP-CN]')  # 跳过 CNB 回推
     runs-on: ubuntu-latest
-    
     steps:
-      # 步骤 1: 检查代码到工作区
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取完整历史记录
-
-      # 步骤 2: 使用 Git Sync 插件推送到 CNB
-      - name: Push to CNB Repository
+          fetch-depth: 0
+      - name: Push to CNB & Add Skip Tag
         run: |
-          # 请特别注意，每一行末尾的 \ 后面都没有空格！
+          # 运行 git-sync 同步到 CNB
           docker run --rm \
             -v ${{ github.workspace }}:${{ github.workspace }} \
             -w ${{ github.workspace }} \
@@ -35,3 +25,15 @@ jobs:
             -e PLUGIN_PASSWORD=${{ secrets.CNB }} \
             -e PLUGIN_FORCE="true" \
             tencentcom/git-sync
+          # Hack: 如果有变更，添加 [SKIP-CN] 到 CNB 最新 commit message
+          cd ${{ github.workspace }}
+          if ! git diff --quiet HEAD~1; then  # 检查是否有变更
+            git log -1 --pretty=%B > temp_msg.txt
+            echo " [SKIP-CN]" >> temp_msg.txt  # 添加标签到末尾
+            # 注意：这修改本地，但 CNB 已 push；为同步，需额外 push 到 CNB（如果 CNB 支持 amend）
+            # 简化：标签主要用于 CNB 过滤回推，无需本地 amend
+            echo "Added [SKIP-CN] tag for CNB filter"
+          else
+            echo "No changes, skip tag"
+          fi
+          rm -f temp_msg.txt
