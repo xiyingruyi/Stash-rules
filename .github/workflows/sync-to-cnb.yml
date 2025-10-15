@@ -12,7 +12,7 @@ jobs:
     # 
     # 务必将 'cnb-sync-bot' 替换为你实际用于 CNB 同步的 GitHub 用户名/机器人名（即 PAT 或密钥关联的用户名）。
     # 如果是该用户名推送的，则跳过本次同步到 CNB 的操作，防止无限循环。
-    if: github.repository == 'xiyingruyi/Stash-rules' && github.actor != 'cnb-sync-bot'
+    if: github.repository == 'xiyingruyi/Stash-rules' && github.actor != 'xiyingruyi'
 
     runs-on: ubuntu-latest
     
