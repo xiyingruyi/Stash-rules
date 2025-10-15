@@ -1,22 +1,27 @@
 name: Sync to CNB
-on: 
+
+# 当代码推送到任何分支时触发同步
+on:
   push:
     branches:
       - '**' # 匹配所有分支的推送操作
+
 jobs:
   sync:
-    # 确保只在主仓库运行，且提交作者不是 CNB 同步机器人（防止循环）
-    if: >-
-      github.repository == 'xiyingruyi/Stash-rules' &&
-      github.event.head_commit.author.name != 'cnb-bot'
+    # 步骤 1: 【防止循环】检查是否为 CNB 同步机器人推送的提交。
+    # 
+    # 务必将 'cnb-sync-bot' 替换为你实际用于 CNB 同步的 GitHub 用户名/机器人名（即 PAT 或密钥关联的用户名）。
+    # 如果是该用户名推送的，则跳过本次同步到 CNB 的操作，防止无限循环。
+    if: github.repository == 'xiyingruyi/Stash-rules' && github.actor != 'cnb-sync-bot'
+
     runs-on: ubuntu-latest
     
     steps:
       # 步骤 1: 检查代码到工作区
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      
+          fetch-depth: 0 # 获取完整历史记录
+
       # 步骤 2: 使用 Git Sync 插件推送到 CNB
       - name: Push to CNB Repository
         run: |
