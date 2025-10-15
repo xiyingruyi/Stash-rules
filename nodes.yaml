@@ -531,6 +531,15 @@ proxies:
     path: /snippets?ip=ProxyIP.Oracle.cmliussss.net&nat64=6to4
     headers:
       Host: fd.ziluoluo.ggff.net
+- name: 🇨🇼 CW 库拉索 1
+  type: vless
+  server: 5.10.244.53
+  port: 443
+  uuid: 81becf5b-2391-4ded-af72-b711b6a2737b
+  network: xhttp
+  tls: true
+  skip-cert-verify: true
+  servername: xhttp.xiaozi.ggff.net
 - name: 🇨🇱 CL 智利 2
   type: vless
   server: cf.001315.xyz
@@ -1378,6 +1387,19 @@ proxies:
 - name: 🇪🇬 EG 埃及 1
   type: vless
   server: 2606:4700:3036:ef:92f:be51:8695:9fc5
+  port: 443
+  uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
+  network: ws
+  tls: true
+  skip-cert-verify: false
+  servername: ym.ddff.me
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: ym.ddff.me
+- name: 🇸🇰 SK 斯洛伐克 1
+  type: vless
+  server: 2606:4700:3036:0:a36a:4a23:4a60:9f3f
   port: 443
   uuid: 60a12955-d3c1-4be7-92a5-75b0e7f89ef0
   network: ws
