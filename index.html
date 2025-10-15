@@ -305,6 +305,7 @@
       overflow: auto;
       color: var(--text);
       white-space: pre-wrap;
+      position: relative;
     }
     textarea:focus {
       outline: none;
@@ -321,6 +322,14 @@
       align-items: center;
       justify-content: center;
       height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 16px 20px;
+      pointer-events: none;
     }
     .tip {
       font-size: 0.9rem; color: var(--text-light); padding: 14px 20px;
