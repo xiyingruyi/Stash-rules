@@ -1,50 +1,55 @@
 name: Sync to CNB
 
-# 当代码推送到任何分支时触发同步
 on:
   push:
-    branches:
-      - '**' # 匹配所有分支的推送操作
+    branches: ['*']  # 全部分支触发
 
 jobs:
   sync:
-    # 确保只在 GitHub 的主仓库运行
-    if: github.repository == 'xiyingruyi/Stash-rules'
     runs-on: ubuntu-latest
-    
     steps:
-      # 步骤 1: 检查代码到工作区（获取完整历史记录，这是 git-sync 的常见要求）
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0  # 获取完整历史
 
-      # 步骤 1.5: 【防止循环】检查提交信息是否包含CNB同步标记
-      - name: Check for CNB Sync Tag
-        id: check_sync
+      - name: Add CNB Remote and Fetch
         run: |
-          # 获取当前触发 Action 的 HEAD 提交信息
-          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
-          
-          # 核心判断：如果提交信息包含 [CNB:SYNC] 标记，则跳过本次同步
-          # 这个标记必须由 CNB 在同步到 GitHub 时加入
-          if [[ $COMMIT_MESSAGE == *"[CNB:SYNC]"* ]]; then
-            echo "::notice file=README.md::Commit message contains [CNB:SYNC]. Skipping sync to CNB to prevent loop."
-            echo "should_sync=false" >> $GITHUB_OUTPUT
-          else
-            echo "should_sync=true" >> $GITHUB_OUTPUT
-          fi
-          
-      # 步骤 2: 只有在不是 CNB 同步推送时，才执行同步到 CNB 的操作
-      - name: Push to CNB Repository
-        if: steps.check_sync.outputs.should_sync == 'true'
+          git remote add cnb https://xiyingruyi:${{ secrets.CNB_TOKEN }}@cnb.cool/xiyingruyi/Stash-rules.git || true
+          git fetch cnb '+refs/heads/*:refs/remotes/cnb/*'
+
+      - name: Sync All Branches
         run: |
-          # 请特别注意，每一行末尾的 \ 后面都没有空格！
-          docker run --rm \
-            -v ${{ github.workspace }}:${{ github.workspace }} \
-            -w ${{ github.workspace }} \
-            -e PLUGIN_TARGET_URL="https://cnb.cool/xiyingruyi/Stash-rules.git" \
-            -e PLUGIN_AUTH_TYPE="https" \
-            -e PLUGIN_USERNAME="cnb" \
-            -e PLUGIN_PASSWORD=${{ secrets.CNB }} \
-            -e PLUGIN_FORCE="true" \
-            tencentcom/git-sync
+          # 获取共同分支列表（去重）
+          GITHUB_BRANCHES=$(git ls-remote --heads origin | sed 's#^.*refs/heads/##')
+          CNB_BRANCHES=$(git ls-remote --heads cnb | sed 's#^.*refs/heads/##')
+          COMMON_BRANCHES=$(comm -12 <(echo "$GITHUB_BRANCHES" | sort) <(echo "$CNB_BRANCHES" | sort))
+          
+          SYNC_COUNT=0
+          while IFS= read -r BRANCH; do
+            if [ -z "$BRANCH" ]; then continue; fi
+            
+            # 获取时间戳
+            GITHUB_TIME=$(git log -1 --format=%ct refs/remotes/origin/$BRANCH 2>/dev/null || echo 0)
+            CNB_TIME=$(git log -1 --format=%ct refs/remotes/cnb/$BRANCH 2>/dev/null || echo 0)
+            
+            echo "分支 '$BRANCH': GitHub $GITHUB_TIME, CNB $CNB_TIME"
+            
+            if [ $GITHUB_TIME -gt $CNB_TIME ]; then
+              echo "GitHub 覆盖 CNB ($BRANCH)"
+              git push cnb $BRANCH:$BRANCH
+              ((SYNC_COUNT++))
+            elif [ $CNB_TIME -gt $GITHUB_TIME ]; then
+              echo "跳过：CNB 较新 ($BRANCH)"
+            else
+              echo "时间戳相同 ($BRANCH)"
+            fi
+          done <<< "$COMMON_BRANCHES"
+          
+          echo "更新 $SYNC_COUNT 个分支"
+        env:
+          GIT_USERNAME: ${{ github.actor }}
+          GIT_EMAIL: ${{ github.actor }}@users.noreply.github.com
+
+      - name: Optional Sync Tags
+        run: git push cnb --tags
