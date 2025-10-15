@@ -1,15 +1,14 @@
 name: Sync to CNB
-
-# 当代码推送到任何分支时触发同步
 on: 
   push:
     branches:
       - '**' # 匹配所有分支的推送操作
-
 jobs:
   sync:
-    # 确保只在 GitHub 的主仓库运行（防止同步循环）
-    if: github.repository == 'xiyingruyi/Stash-rules'
+    # 确保只在主仓库运行，且提交作者不是 CNB 同步机器人（防止循环）
+    if: >-
+      github.repository == 'xiyingruyi/Stash-rules' &&
+      github.event.head_commit.author.name != 'cnb-bot'
     runs-on: ubuntu-latest
     
     steps:
