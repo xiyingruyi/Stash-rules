@@ -1,5 +1,5 @@
 proxies:
-- name: 🇸🇦 SA 沙特阿拉伯 1
+- name: 🇸🇦 SA 沙特 1
   type: vless
   server: l-us.lzjnb.shop
   port: 9191
@@ -8,7 +8,7 @@ proxies:
   tls: false
   skip-cert-verify: true
   servername: icloud.cdn-apple.com
-- name: 🇸🇦 SA 沙特阿拉伯 2
+- name: 🇸🇦 SA 沙特 2
   type: trojan
   server: bestcf.030101.xyz
   port: 443
@@ -1163,7 +1163,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: ym.ddff.me
-- name: 🇮🇩 ID 印度尼西亚 1
+- name: 🇮🇩 ID 印尼 1
   type: vless
   server: time.is
   port: 443
