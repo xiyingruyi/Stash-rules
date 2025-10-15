@@ -1,0 +1,38 @@
+name: Sync to CNB
+
+# 当代码推送到任何分支时触发同步
+on: 
+  push:
+    branches:
+      - '**' # 匹配所有分支的推送操作
+
+jobs:
+  sync:
+    # 确保只在 GitHub 的主仓库运行（防止同步循环）
+    if: github.repository == 'xiyingruyi/Stash-rules'
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 步骤 1: 检查代码到工作区
+      # fetch-depth: 0 确保下载完整的 Git 历史，有助于同步
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      # 步骤 2: 使用 Git Sync 插件推送到 CNB
+      - name: Push to CNB Repository
+        run: |
+          # 使用 Docker 运行 Git Sync 插件进行同步
+          docker run --rm \
+            -v ${{ github.workspace }}:${{ github.workspace }} \
+            -w ${{ github.workspace }} \
+            # CNB 目标仓库地址（已替换）
+            -e PLUGIN_TARGET_URL="https://cnb.cool/xiyingruyi/Stash-rules.git" \
+            -e PLUGIN_AUTH_TYPE="https" \
+            # CNB Git Username（请确保 "cnb" 是正确的）
+            -e PLUGIN_USERNAME="cnb" \ 
+            # CNB 访问令牌，从 GitHub Secrets 中安全引用（已确认 Secret Name 为 CNB）
+            -e PLUGIN_PASSWORD=${{ secrets.CNB }} \
+            # 强制推送，确保 CNB 内容完全覆盖
+            -e PLUGIN_FORCE="true" \
+            tencentcom/git-sync
