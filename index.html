@@ -30,7 +30,7 @@
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
       • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
-      • 支持批量清除fastly.jsdelivr.net、cdn.jsdelivr.net 两个类型链接的缓存<br>
+      • 支持批量清除cdn.jsdelivr.net 类型链接的缓存 (fastly.jsdelivr.net 自动同步，无需手动清除)<br>
       • <a href="https://www.jsdelivr.com/tools/purge" target="_blank" style="color: var(--primary); text-decoration: underline;">使用 jsDelivr 清除工具手动清除缓存</a>
     </p>
     <div id="resultGroup" style="display:none;"></div>
@@ -49,7 +49,6 @@
     const convertBtn = document.getElementById('convert');
     const purgeBtn = document.getElementById('purgeBtn');
     const actionBtn = document.getElementById('actionBtn');
-
     function isGitHubResource(url) {
       try {
         const parsed = new URL(url);
@@ -59,7 +58,6 @@
         return false;
       }
     }
-
     function isJsDelivrUrl(url) {
       try {
         const parsed = new URL(url);
@@ -68,7 +66,6 @@
         return false;
       }
     }
-
     function isJsdMirrorUrl(url) {
       try {
         const parsed = new URL(url);
@@ -77,7 +74,6 @@
         return false;
       }
     }
-
     function getCdnUrls(url) {
       try {
         const parsed = new URL(url);
@@ -104,42 +100,47 @@
         return null;
       }
     }
-
     async function purgeUrls(urls) {
       let purgedCount = 0;
       let skippedCount = 0;
-      const purgePromises = urls.map(url => {
-        if (isJsDelivrUrl(url) && !url.includes('purge.jsdelivr.net')) {
-          const purgeUrl = url.replace(/^(https:\/\/(?:fastly|cdn)\.jsdelivr\.net)/, 'https://purge.jsdelivr.net');
-          return fetch(purgeUrl, { method: 'GET' }).then(res => {
-            if (res.ok) {
-              console.log('Purged:', purgeUrl);
-              purgedCount++;
-            } else {
-              console.error('Purge failed for:', purgeUrl);
-            }
-          }).catch(err => {
-            console.error('Purge error:', err);
-          });
-        } else if (isJsdMirrorUrl(url)) {
-          console.log('Skipped purge for jsdmirror (no public API):', url);
-          skippedCount++;
-          return Promise.resolve(); // 模拟完成
+      const purgePromises = [];
+      for (const url of urls) {
+        try {
+          const parsed = new URL(url);
+          if (parsed.hostname === 'cdn.jsdelivr.net' && !url.includes('purge.jsdelivr.net')) {
+            const purgeUrl = url.replace(/^(https:\/\/)cdn\.jsdelivr\.net/, '$1purge.jsdelivr.net');
+            const promise = fetch(purgeUrl, { method: 'GET' }).then(res => {
+              if (res.ok) {
+                console.log('Purged:', purgeUrl);
+                purgedCount++;
+              } else {
+                console.error('Purge failed for:', purgeUrl);
+              }
+            }).catch(err => {
+              console.error('Purge error:', err);
+            });
+            purgePromises.push(promise);
+          } else if (parsed.hostname === 'fastly.jsdelivr.net') {
+            console.log('Skipped purge for fastly.jsdelivr.net (purge API only supports cdn.jsdelivr.net format):', url);
+            skippedCount++;
+          } else if (isJsdMirrorUrl(url)) {
+            console.log('Skipped purge for jsdmirror (no public API):', url);
+            skippedCount++;
+          }
+        } catch (err) {
+          console.error('Invalid URL for purge:', url, err);
         }
-        return null;
-      }).filter(Boolean);
-
-      if (purgePromises.length === 0 && skippedCount === 0) {
-        alert('没有可刷新的缓存');
+      }
+      if (purgePromises.length === 0) {
+        let msg = skippedCount > 0 ? `无支持的缓存类型可刷新（已跳过 ${skippedCount} 个不支持的链接）` : '没有可刷新的缓存';
+        alert(msg);
         return;
       }
-
       purgeBtn.textContent = '⏳ 正在刷新...';
       purgeBtn.disabled = true;
-
       try {
         await Promise.all(purgePromises);
-        let msg = '刷新缓存完成！';
+        let msg = `刷新完成！已清除 ${purgedCount} 个缓存${skippedCount > 0 ? `（跳过 ${skippedCount} 个不支持的）` : ''}`;
         alert(msg);
         purgeBtn.textContent = '✅ 已刷新';
         setTimeout(() => {
@@ -152,7 +153,6 @@
         purgeBtn.disabled = false;
       }
     }
-
     async function purge() {
       let urls = [];
       if (resultGroup.style.display === 'block') {
@@ -180,14 +180,12 @@
       }
       await purgeUrls(urls);
     }
-
     function convert() {
       const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
       if (!urls.length) return alert('请输入至少一个链接');
-      
+     
       let allResults = [];
       let invalidUrls = [];
-
       urls.forEach((url, index) => {
         if (!isGitHubResource(url)) {
           invalidUrls.push(`链接 ${index + 1}: ${url}`);
@@ -200,12 +198,10 @@
         }
         allResults.push({ url, cdnResults: results });
       });
-
       if (invalidUrls.length) {
         alert(`链接不是支持的类型:\n${invalidUrls.join('\n')}`);
       }
       if (!allResults.length) return;
-
       resultGroup.innerHTML = '';
       allResults.forEach(({ cdnResults }, index) => {
         const card = document.createElement('div');
@@ -228,15 +224,12 @@
         card.innerHTML = cardHtml;
         resultGroup.appendChild(card);
       });
-
       // 强制样式更新
       resultGroup.getBoundingClientRect();
       console.log(`Generated ${allResults.length} result cards`);
-
       resultGroup.style.display = 'block';
       actionBtn.textContent = '↺ 重置';
     }
-
     function reset() {
       input.value = '';
       resultGroup.style.display = 'none';
@@ -244,7 +237,6 @@
       actionBtn.textContent = '🗑️ 清空';
       input.focus();
     }
-
     resultGroup.addEventListener('click', e => {
       const btn = e.target.closest('.copy-btn');
       if (!btn) return;
@@ -254,11 +246,9 @@
         setTimeout(() => btn.textContent = txt, 1500);
       }).catch(() => prompt('复制成功！', btn.dataset.url));
     });
-
     convertBtn.addEventListener('click', convert);
     purgeBtn.addEventListener('click', purge);
     actionBtn.addEventListener('click', reset);
-
     input.focus();
   </script>
   <style>
