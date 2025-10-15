@@ -289,6 +289,7 @@
     textarea {
       width: 100%;
       min-height: 140px;
+      height: 140px;
       padding: 16px 20px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -305,7 +306,6 @@
       overflow: auto;
       color: var(--text);
       white-space: pre-wrap;
-      position: relative;
     }
     textarea:focus {
       outline: none;
@@ -315,21 +315,24 @@
     textarea::placeholder {
       color: var(--text-light);
       opacity: 0.85;
-      line-height: 1.5;
-      white-space: pre-wrap;
       text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0;
-      padding: 16px 20px;
-      pointer-events: none;
+      line-height: 1.6;
+    }
+    #input::-webkit-input-placeholder {
+      height: 140px;
+      line-height: 140px;
+    }
+    #input:-moz-placeholder {
+      height: 140px;
+      line-height: 140px;
+    }
+    #input::-moz-placeholder {
+      height: 140px;
+      line-height: 140px;
+    }
+    #input:-ms-input-placeholder {
+      height: 140px;
+      line-height: 140px;
     }
     .tip {
       font-size: 0.9rem; color: var(--text-light); padding: 14px 20px;
