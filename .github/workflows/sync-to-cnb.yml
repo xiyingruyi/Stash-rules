@@ -1,80 +1,43 @@
-name: Mirror to CNB Repository
+name: Sync to CNB - All Branches
 
 on:
-  # 在 main 分支有推送时触发工作流
   push:
+    # 匹配所有分支的推送事件，不限制 specific branches
+    # ⚠️ 注意：这也会在创建新分支时触发
     branches:
-      - main
-  # 也可以添加定时触发，例如每天凌晨 3 点同步一次
-  schedule:
-    # 每天凌晨 3 点（UTC 时间）运行
-    - cron: '0 3 * * *'
-  # 也可以手动在 Actions 页面触发
-  workflow_dispatch:
+      - '**'
 
 jobs:
-  mirror_to_cnb:
+  sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Source Repository (GitHub)
-        # 使用 actions/checkout@v4 检出 GitHub 仓库代码
-        # 注意：此处不需要克隆到工作区，因为下一步是裸克隆
+      # 1. 检出 GitHub 仓库代码
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # 需要完整历史记录以便镜像推送
+          # 确保拉取所有历史记录
           fetch-depth: 0
+          # 确保拉取所有分支（通常不需要显式设置，但为了安全可以加上）
+          # fetch-depth: 0 已经包含了所有历史和分支信息
 
-      - name: Perform Mirror Sync to CNB
-        # 这一步执行实际的 Git 镜像同步操作
-        env:
-          # 从 GitHub Secrets 中获取 CNB 仓库的凭证
-          # 请确保您已在 GitHub 仓库设置中配置了以下 Secrets
-          CNB_USERNAME: ${{ secrets.CNB_USERNAME }}
-          CNB_PASSWORD: ${{ secrets.CNB_PASSWORD }} 
-        
+      # 2. 同步到 CNB 仓库
+      - name: Sync to CNB Repository
         run: |
-          # -----------------------------------------------------------
-          # 1. 变量设置
-          # -----------------------------------------------------------
-          # 源仓库 (GitHub 仓库的本地路径)
-          SOURCE_REPO_PATH=$(pwd)
+          # 获取当前触发工作流的分支名称
+          CURRENT_BRANCH_NAME="${{ github.ref_name }}"
+          echo "同步当前分支: $CURRENT_BRANCH_NAME 到 cnb.cool..."
           
-          # 目标 CNB 仓库 URL (使用环境变量中的凭证)
-          # 注意：请将 cnb.cool/xiyingruyi/Stash-rules.git 替换为您的 CNB 实际路径
-          CNB_URL="https://${CNB_USERNAME}:${CNB_PASSWORD}@cnb.cool/xiyingruyi/Stash-rules.git"
-
-          # -----------------------------------------------------------
-          # 2. 设置 Git 配置以允许推送
-          # -----------------------------------------------------------
-          git config --global user.email "ci-bot@github.com"
-          git config --global user.name "GitHub CI Bot"
-
-          # -----------------------------------------------------------
-          # 3. 执行镜像推送
-          # -----------------------------------------------------------
-          # Git Clone 默认创建的仓库不是裸仓库，为了安全和完整性，
-          # 切换到临时目录，创建一个裸仓库克隆，并进行镜像推送
-          
-          # 切换到一个临时目录
-          TEMP_DIR=$(mktemp -d)
-          cd $TEMP_DIR
-          
-          # 以镜像模式克隆当前 GitHub 仓库
-          echo "Cloning GitHub repository in mirror mode..."
-          git clone --mirror $SOURCE_REPO_PATH github_mirror.git
-          cd github_mirror.git
-
-          # 将目标 CNB 仓库设置为远程 origin (使用带认证的 URL)
-          echo "Setting CNB repository as remote origin..."
-          git remote set-url origin $CNB_URL
-          
-          # 执行镜像推送：将所有分支、标签、引用强制同步到 CNB
-          echo "Performing mirror push to CNB..."
-          git push --mirror
-          
-          # -----------------------------------------------------------
-          # 4. 清理 (可选, 因为是 Runner 上的临时目录，作业结束后会自动清理)
-          # -----------------------------------------------------------
-          cd $SOURCE_REPO_PATH
-          rm -rf $TEMP_DIR
+          # 运行 git-sync Docker 镜像进行同步
+          # PLUGIN_BRANCH 设置为 CURRENT_BRANCH_NAME，确保推送到同名分支
+          docker run --rm \
+            -v ${{ github.workspace }}:${{ github.workspace }} \
+            -w ${{ github.workspace }} \
+            -e PLUGIN_TARGET_URL="https://cnb.cool/xiyingruyi/Stash-rules.git" \
+            -e PLUGIN_AUTH_TYPE="https" \
+            -e PLUGIN_USERNAME="xiyingruyi" \
+            -e PLUGIN_PASSWORD="${{ secrets.CNB }}" \
+            -e PLUGIN_BRANCH="$CURRENT_BRANCH_NAME" \
+            tencentcom/git-sync
+        env:
+          # 引用你的 Secret 名称 CNB
+          CNB_ACCESS_TOKEN: ${{ secrets.CNB }}
