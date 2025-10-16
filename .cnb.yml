@@ -2,8 +2,6 @@ main:
   push:
     - services:
         - docker
-      imports:
-        - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml
       stages:
         - name: Sync to GitHub
           image: ubuntu:latest
@@ -16,14 +14,14 @@ main:
             echo "当前分支: $BRANCH"
             git status
             echo "检查密钥加载..."
-            if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: GIT_ACCESS_TOKEN 未设置！检查 imports 或 env.yml 路径/权限。"; exit 1; fi
+            if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: GIT_ACCESS_TOKEN 未设置！检查 CNB Secrets。"; exit 1; fi
             if [ -z "$GIT_USERNAME" ]; then echo "警告: GIT_USERNAME 未设置，使用默认 xiyingruyi。"; GIT_USERNAME="xiyingruyi"; fi
             echo "GIT_ACCESS_TOKEN 前缀: ${GIT_ACCESS_TOKEN:0:5}..."
             echo "GIT_USERNAME: $GIT_USERNAME"
             COMMITS_AHEAD=$(git rev-list --count origin/$BRANCH..$BRANCH 2>/dev/null || echo 0)
             echo "领先 commits 数: $COMMITS_AHEAD"
-            if [ $COMMITS_AHEAD -eq 0 ]; then echo "无变更需要同步（仓库已一致）。"; exit 0; fi
-            echo "领先 $COMMITS_AHEAD commits，正在同步到 GitHub..."
+            if [ $COMMITS_AHEAD -eq 0 ]; then echo "无变更需要同步。"; exit 0; fi
+            echo "领先 $COMMITS_AHEAD commits，正在同步..."
             docker run --rm \
               -v $(pwd):$(pwd) \
               -w $(pwd) \
