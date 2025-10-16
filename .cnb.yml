@@ -2,6 +2,9 @@ main:
   push:
     - services:
         - docker
+      # ⚠️ 确保 imports 字段与 services 字段缩进层级相同
+      imports:
+        - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yaml
       stages:
         - name: Sync to GitHub
           image: ubuntu:latest
