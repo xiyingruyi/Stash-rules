@@ -3,7 +3,10 @@ main:
     - services:
         - docker
       imports:
-        - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml
+        - source: cnb
+          repo: xiyingruyi/Secrets
+          path: env.yml
+          name: env
       stages:
         - name: Sync to GitHub
           image: ubuntu:latest
@@ -20,12 +23,9 @@ main:
             if [ -z "$GIT_USERNAME" ]; then echo "警告: GIT_USERNAME 未设置，使用默认 xiyingruyi。"; GIT_USERNAME="xiyingruyi"; fi
             echo "GIT_ACCESS_TOKEN 前缀: ${GIT_ACCESS_TOKEN:0:5}..."
             echo "GIT_USERNAME: $GIT_USERNAME"
-            git remote add github https://$GIT_USERNAME:$GIT_ACCESS_TOKEN@github.com/xiyingruyi/Stash-rules.git || true
-            git fetch github --no-tags || true
-            echo "git fetch 返回值: $?"
-            COMMITS_AHEAD=$(git rev-list --count github/$BRANCH..$BRANCH 2>/dev/null || echo 0)
+            COMMITS_AHEAD=$(git rev-list --count origin/$BRANCH..$BRANCH 2>/dev/null || echo 0)
             echo "领先 commits 数: $COMMITS_AHEAD"
-            if [ $COMMITS_AHEAD -eq 0 ]; then echo "无变更需要同步（仓库已一致或分支不匹配）。"; exit 0; fi
+            if [ $COMMITS_AHEAD -eq 0 ]; then echo "无变更需要同步（仓库已一致）。"; exit 0; fi
             echo "领先 $COMMITS_AHEAD commits，正在同步到 GitHub..."
             docker run --rm \
               -v $(pwd):$(pwd) \
