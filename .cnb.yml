@@ -1,0 +1,31 @@
+# 具体分支：main（替换为你的主要分支，或添加其他分支如 dev:）
+main:
+  push:
+    stages:
+      - name: Sync to GitHub
+        image: ubuntu:latest
+        environment:
+          - GITHUB_TOKEN
+        script: |
+          BRANCH=$(git branch --show-current)
+          echo "检查当前分支: $BRANCH 是否需要同步到 GitHub..."
+          git remote add github https://github.com/xiyingruyi/Stash-rules.git || true
+          git fetch github --no-tags
+          COMMITS_AHEAD=$(git rev-list --count github/$BRANCH..$BRANCH 2>/dev/null || echo 0)
+          if [ $COMMITS_AHEAD -eq 0 ]; then
+            echo "无变更需要同步（仓库已一致或分支不存在）。"
+            exit 0
+          fi
+          echo "当前分支领先 $COMMITS_AHEAD 个 commits，正在同步到 GitHub..."
+          docker run --rm \
+            -v $(pwd):$(pwd) \
+            -w $(pwd) \
+            -e PLUGIN_TARGET_URL="https://github.com/xiyingruyi/Stash-rules.git" \
+            -e PLUGIN_AUTH_TYPE="https" \
+            -e PLUGIN_USERNAME="xiyingruyi" \
+            -e PLUGIN_PASSWORD="$GITHUB_TOKEN" \
+            -e PLUGIN_BRANCH="$BRANCH" \
+            -e PLUGIN_FORCE="false" \
+            -e PLUGIN_PUSH_TAGS="false" \
+            tencentcom/git-sync
+        timeout: 10m
