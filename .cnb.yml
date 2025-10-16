@@ -1,23 +1,33 @@
-main:  # CNB 仓库的分支名；如有 dev，复制结构
+secrets:
+  - source: cnb
+    repo: xiyingruyi/Secrets
+    path: env.yml
+    name: env
+main:
   push:
     stages:
       - name: Sync to GitHub
-        image: alpine/git:latest  # 轻量 Git 镜像，CNB 支持
+        image: alpine/git:latest
         environment:
-          - GIT_ACCESS_TOKEN  # 匹配密钥仓库中的名称
+          - GIT_ACCESS_TOKEN
+          - GIT_USERNAME
         script:
           - echo "Pipeline 开始执行..."
           - BRANCH=$(git branch --show-current)
           - echo "当前分支: $BRANCH"
-          - git remote add github https://xiyingruyi:$GIT_ACCESS_TOKEN@github.com/xiyingruyi/Stash-rules.git || true
+          - echo "检查密钥加载..."
+          - if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: GIT_ACCESS_TOKEN 未设置！请检查 secrets 配置或 env.yml。"; exit 1; fi
+          - if [ -z "$GIT_USERNAME" ]; then echo "错误: GIT_USERNAME 未设置！默认使用 xiyingruyi。"; GIT_USERNAME="xiyingruyi"; fi
+          - echo "GIT_ACCESS_TOKEN 前缀: ${GIT_ACCESS_TOKEN:0:5}..."
+          - echo "GIT_USERNAME: $GIT_USERNAME"
+          - git remote add github https://$GIT_USERNAME:$GIT_ACCESS_TOKEN@github.com/xiyingruyi/Stash-rules.git || true
           - echo "git remote add 返回值: $?"
           - git fetch github --no-tags || true
           - echo "git fetch 返回值: $?"
           - COMMITS_AHEAD=$(git rev-list --count github/$BRANCH..$BRANCH 2>/dev/null || echo 0)
           - echo "领先 commits 数: $COMMITS_AHEAD"
-          - echo "GIT_ACCESS_TOKEN 前缀 (调试): ${GIT_ACCESS_TOKEN:0:5}..."
-          - if [ $COMMITS_AHEAD -eq 0 ]; then echo "无变更需要同步（仓库已一致或分支不存在）。"; exit 0; fi
-          - echo "领先 $COMMITS_AHEAD commits，正在同步到 GitHub..."
+          - if [ $COMMITS_AHEAD -eq 0 ]; then echo "无变更需要同步（仓库已一致）。"; exit 0; fi
+          - echo "领先 $COMMITS_AHEAD commits，正在同步..."
           - git push github $BRANCH
           - echo "git push 返回值: $?"
         timeout: 10m
