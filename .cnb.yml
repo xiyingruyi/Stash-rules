@@ -3,10 +3,7 @@ main:
     - services:
         - docker
       imports:
-        - source: cnb
-          repo: xiyingruyi/Secrets
-          path: env.yml
-          name: env
+        - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml
       stages:
         - name: Sync to GitHub
           image: ubuntu:latest
@@ -19,7 +16,7 @@ main:
             echo "当前分支: $BRANCH"
             git status
             echo "检查密钥加载..."
-            if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: GIT_ACCESS_TOKEN 未设置！检查 imports 或 env.yml。"; exit 1; fi
+            if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: GIT_ACCESS_TOKEN 未设置！检查 imports 或 env.yml 路径/权限。"; exit 1; fi
             if [ -z "$GIT_USERNAME" ]; then echo "警告: GIT_USERNAME 未设置，使用默认 xiyingruyi。"; GIT_USERNAME="xiyingruyi"; fi
             echo "GIT_ACCESS_TOKEN 前缀: ${GIT_ACCESS_TOKEN:0:5}..."
             echo "GIT_USERNAME: $GIT_USERNAME"
