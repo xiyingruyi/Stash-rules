@@ -2,7 +2,7 @@ main:
   push:
     - services:
         - docker
-      imports:
+      imports: # 引入密钥仓库文件
         - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml
       stages:
         - name: Sync to GitHub (Same Branch)
