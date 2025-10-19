@@ -35,12 +35,13 @@ jobs:
         # 安装 Puppeteer + 反检测插件
         npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
         
-        # Puppeteer 脚本：全自动等待 + 反 Cloudflare
+        # Puppeteer 脚本：访问主页面设置 cookie，然后用请求获取 API
         node -e "
         const puppeteer = require('puppeteer-extra');
         const StealthPlugin = require('puppeteer-extra-plugin-stealth');
         puppeteer.use(StealthPlugin());
         const fs = require('fs');
+        const https = require('https');
         (async () => {
           const browser = await puppeteer.launch({ 
             headless: true, 
@@ -53,7 +54,7 @@ jobs:
             window.chrome = { runtime: {} };
           });
           
-          console.log('Accessing initial page...');
+          console.log('Accessing initial page to set cookies...');
           await page.goto('https://www.bsbb.cc/sub/index.php', { 
             waitUntil: 'domcontentloaded',
             timeout: 30000 
@@ -74,31 +75,41 @@ jobs:
             process.exit(1);
           }
           
-          console.log('Fetching subscription from final URL...');
-          await page.goto(finalUrl, { 
-            waitUntil: 'networkidle2',
-            timeout: 30000 
-          });
-          
-          // 等待 Cloudflare 挑战解决（如果有）
-          await new Promise(resolve => setTimeout(resolve, 5000));
-          
-          // 获取纯文本内容（base64 订阅）
-          const subContent = await page.evaluate(() => document.body.textContent.trim());
-          
-          fs.writeFileSync('raw-sub.txt', subContent);
-          
-          const length = subContent.length;
-          if (length < 1000 || subContent.includes('Verify you are human')) {
-            console.log('Failed: Cloudflare detected or short content. Preview:', subContent.substring(0, 200));
-            await browser.close();
-            process.exit(1);
-          }
-          
-          console.log('Success! Fetched length:', length);
-          console.log('Preview:', subContent.substring(0, 50));
+          // 获取 cookie
+          const cookies = await page.cookies();
+          const cookieString = cookies.map(c => `${c.name}=${c.value}`).join('; ');
+          console.log('Cookies set, fetching with cookies...');
           
           await browser.close();
+          
+          // 用 https 请求 API，带 cookie
+          return new Promise((resolve, reject) => {
+            const req = https.request(finalUrl, {
+              method: 'GET',
+              headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Cookie': cookieString,
+                'Referer': 'https://www.bsbb.cc/sub/index.php'
+              }
+            }, (res) => {
+              let data = '';
+              res.on('data', chunk => data += chunk);
+              res.on('end', () => {
+                fs.writeFileSync('raw-sub.txt', data.trim());
+                const length = data.length;
+                if (length < 1000 || data.includes('访问受限') || data.includes('Verify')) {
+                  console.log('Failed: Restriction or short content. Preview:', data.substring(0, 200));
+                  reject(new Error('Content invalid'));
+                } else {
+                  console.log('Success! Fetched length:', length);
+                  console.log('Preview:', data.substring(0, 50));
+                  resolve();
+                }
+              });
+            });
+            req.on('error', reject);
+            req.end();
+          });
         })().catch(err => { 
           console.error('Error:', err.message);
           process.exit(1); 
