@@ -28,33 +28,70 @@ jobs:
     - name: Fetch subscription links
       id: fetch
       run: |
-        # 先获取初始页面 HTML
-        HTML=$(curl -s -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://www.bsbb.cc/sub/index.php)
+        # 安装 Node.js（Actions Ubuntu 支持）
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+        sudo apt-get install -y nodejs
         
-        # 提取 meta refresh 中的重定向 URL（e.g., content="10; url=https://www.bsbb.cc/api/sub.php?t=NEW_TOKEN"）
-        REDIRECT_URL=$(echo "$HTML" | grep -o 'content="[0-9]\+; url=.*"' | sed 's/content="[0-9]\+; url=//' | sed 's/"$//')
+        # 安装 Puppeteer
+        npm install puppeteer
         
-        # 检查是否提取成功（fallback 到静态 URL，如果需要）
-        if [ -z "$REDIRECT_URL" ] || ! echo "$REDIRECT_URL" | grep -q "api/sub.php\?t="; then
-          echo "Failed to extract redirect URL. Using fallback (update if needed)."
-          REDIRECT_URL="https://www.bsbb.cc/api/sub.php?t=cefcc1b46a5daecc824598207e9ff10a"  # 你的旧 token 作为 fallback
-        fi
-        
-        echo "Extracted redirect URL: $REDIRECT_URL"
-        
-        # 使用提取的 URL 获取订阅内容
-        SUB_CONTENT=$(curl -s "$REDIRECT_URL")
-        
-        # 保存原始内容
-        echo "$SUB_CONTENT" > raw-sub.txt
-        
-        # 检查是否为空
-        if [ -z "$SUB_CONTENT" ]; then
-          echo "Failed to fetch subscription (possible token issue). Exiting."
-          exit 1
-        fi
-        
-        echo "Fetched raw content length: ${#SUB_CONTENT}"
+        # Puppeteer 脚本：全自动等待 + 提取
+        node -e "
+        const puppeteer = require('puppeteer');
+        const fs = require('fs');
+        (async () => {
+          const browser = await puppeteer.launch({ 
+            headless: true, 
+            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+          });
+          const page = await browser.newPage();
+          await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+          
+          console.log('Accessing initial page...');
+          await page.goto('https://www.bsbb.cc/sub/index.php', { 
+            waitUntil: 'domcontentloaded',
+            timeout: 30000 
+          });
+          
+          console.log('Waiting 12 seconds for redirect...');
+          await page.waitForTimeout(12000);
+          
+          const finalUrl = page.url();
+          console.log('Final URL after wait:', finalUrl);
+          
+          if (!finalUrl.includes('/api/sub.php?t=') || finalUrl === 'https://www.bsbb.cc/sub/index.php') {
+            console.log('No valid redirect detected. Workflow failed.');
+            await browser.close();
+            process.exit(1);
+          }
+          
+          console.log('Fetching subscription from final URL...');
+          await page.goto(finalUrl, { 
+            waitUntil: 'networkidle2',
+            timeout: 30000 
+          });
+          
+          // 获取纯文本内容（base64 订阅）
+          const subContent = await page.evaluate(() => document.body.textContent.trim());
+          
+          fs.writeFileSync('raw-sub.txt', subContent);
+          
+          const length = subContent.length;
+          if (length < 1000) {
+            console.log('Failed: Content too short. Preview:', subContent.substring(0, 200));
+            await browser.close();
+            process.exit(1);
+          }
+          
+          console.log('Success! Fetched length:', length);
+          console.log('Preview:', subContent.substring(0, 50));
+          
+          await browser.close();
+        })().catch(err => { 
+          console.error('Error:', err.message);
+          process.exit(1); 
+        });
+        "
 
     - name: Decode and filter to input_nodes.txt (vless/Trojan only)
       run: |
