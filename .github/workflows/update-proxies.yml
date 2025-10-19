@@ -28,15 +28,29 @@ jobs:
     - name: Fetch subscription links
       id: fetch
       run: |
-        # curl 获取（跟随重定向，添加 UA 防反爬）
-        SUB_CONTENT=$(curl -L -s -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://www.bsbb.cc/sub/index.php)
+        # 先获取初始页面 HTML
+        HTML=$(curl -s -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://www.bsbb.cc/sub/index.php)
+        
+        # 提取 meta refresh 中的重定向 URL（e.g., content="10; url=https://www.bsbb.cc/api/sub.php?t=NEW_TOKEN"）
+        REDIRECT_URL=$(echo "$HTML" | grep -o 'content="[0-9]\+; url=.*"' | sed 's/content="[0-9]\+; url=//' | sed 's/"$//')
+        
+        # 检查是否提取成功（fallback 到静态 URL，如果需要）
+        if [ -z "$REDIRECT_URL" ] || ! echo "$REDIRECT_URL" | grep -q "api/sub.php\?t="; then
+          echo "Failed to extract redirect URL. Using fallback (update if needed)."
+          REDIRECT_URL="https://www.bsbb.cc/api/sub.php?t=cefcc1b46a5daecc824598207e9ff10a"  # 你的旧 token 作为 fallback
+        fi
+        
+        echo "Extracted redirect URL: $REDIRECT_URL"
+        
+        # 使用提取的 URL 获取订阅内容
+        SUB_CONTENT=$(curl -s "$REDIRECT_URL")
         
         # 保存原始内容
         echo "$SUB_CONTENT" > raw-sub.txt
         
         # 检查是否为空
         if [ -z "$SUB_CONTENT" ]; then
-          echo "Failed to fetch subscription. Exiting."
+          echo "Failed to fetch subscription (possible token issue). Exiting."
           exit 1
         fi
         
@@ -86,7 +100,9 @@ jobs:
                     f.write(f'{uri}#{name}\n')
         
         import os
-        print(f'Generated {sum(1 for line in open(\"input_nodes.txt\", \"r\", encoding=\"utf-8\") if line.strip())} vless/Trojan URIs to input_nodes.txt')
+        with open('input_nodes.txt', 'r', encoding='utf-8') as f:
+            num_lines = sum(1 for line in f if line.strip())
+        print(f'Generated {num_lines} vless/Trojan URIs to input_nodes.txt')
         "
 
     - name: Convert to Stash format and cover output
