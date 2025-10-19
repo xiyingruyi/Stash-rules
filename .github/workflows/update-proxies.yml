@@ -1,0 +1,122 @@
+name: Daily Proxy Update
+
+on:
+  schedule:
+    # 每天 UTC 0:00 和 12:00 运行（北京 08:00/20:00）
+    - cron: '0 0 * * *'
+    - cron: '0 12 * * *'
+  # 手动触发测试
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        pip install pyyaml
+
+    - name: Fetch subscription links
+      id: fetch
+      run: |
+        # curl 获取（跟随重定向，添加 UA 防反爬）
+        SUB_CONTENT=$(curl -L -s -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" https://www.bsbb.cc/sub/index.php)
+        
+        # 保存原始内容
+        echo "$SUB_CONTENT" > raw-sub.txt
+        
+        # 检查是否为空
+        if [ -z "$SUB_CONTENT" ]; then
+          echo "Failed to fetch subscription. Exiting."
+          exit 1
+        fi
+        
+        echo "Fetched raw content length: ${#SUB_CONTENT}"
+
+    - name: Decode and filter to input_nodes.txt (vless/Trojan only)
+      run: |
+        python -c "
+        import base64
+        import yaml
+        from urllib.parse import quote
+        
+        with open('raw-sub.txt', 'r') as f:
+            content = f.read().strip()
+        
+        # 假设 base64 编码，解码
+        try:
+            decoded = base64.b64decode(content).decode('utf-8')
+        except:
+            decoded = content  # 如果非 base64，直接用
+        
+        data = yaml.safe_load(decoded)
+        proxies = data.get('proxies', []) if data else []
+        
+        with open('input_nodes.txt', 'w', encoding='utf-8') as f:
+            for p in proxies:
+                if p['type'] in ['vless', 'trojan']:
+                    # 生成 URI (简化，基于 params)
+                    if p['type'] == 'vless':
+                        query_parts = []
+                        if 'network' in p: query_parts.append(f'type={p[\"network\"]}')
+                        if p.get('tls', False): query_parts.append('security=tls')
+                        if 'flow' in p: query_parts.append(f'flow={p[\"flow\"]}')
+                        if 'sni' in p: query_parts.append(f'sni={p[\"sni\"]}')
+                        if 'path' in p: query_parts.append(f'path={quote(p[\"path\"])}')
+                        query = '&'.join(query_parts)
+                        uri = f'vless://{quote(p[\"uuid\"])}@{p[\"server\"]}:{p[\"port\"]}?{query}' if query else f'vless://{quote(p[\"uuid\"])}@{p[\"server\"]}:{p[\"port\"]}'
+                    elif p['type'] == 'trojan':
+                        query_parts = []
+                        if 'sni' in p: query_parts.append(f'sni={p[\"sni\"]}')
+                        if 'network' in p: query_parts.append(f'type={p[\"network\"]}')
+                        if 'path' in p: query_parts.append(f'path={quote(p[\"path\"])}')
+                        query = '&'.join(query_parts)
+                        uri = f'trojan://{quote(p[\"password\"])}@{p[\"server\"]}:{p[\"port\"]}?{query}' if query else f'trojan://{quote(p[\"password\"])}@{p[\"server\"]}:{p[\"port\"]}'
+                    
+                    name = p.get('name', f'{p[\"type\"]} Unnamed')
+                    f.write(f'{uri}#{name}\n')
+        
+        import os
+        print(f'Generated {sum(1 for line in open(\"input_nodes.txt\", \"r\", encoding=\"utf-8\") if line.strip())} vless/Trojan URIs to input_nodes.txt')
+        "
+
+    - name: Convert to Stash format and cover output
+      run: |
+        # 运行脚本：输入 input_nodes.txt，输出覆盖 nodes.yaml
+        python node_converter.py input_nodes.txt nodes.yaml
+        
+        # 检查输出
+        if [ ! -s nodes.yaml ]; then
+          echo "Conversion failed. Exiting."
+          exit 1
+        fi
+
+    - name: Backup original (optional)
+      run: |
+        if [ -f nodes.yaml ]; then
+          cp nodes.yaml nodes.yaml.bak.$(date +'%Y%m%d-%H%M%S')
+        fi
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        
+        # 检查是否有变化（nodes.yaml 和 input_nodes.txt）
+        if git diff --quiet -- nodes.yaml input_nodes.txt; then
+          echo "No changes to commit."
+        else
+          git add nodes.yaml input_nodes.txt
+          git commit -m "Auto-update proxies from BSBB on $(date +'%Y-%m-%d %H:%M')"
+          git push
+          echo "Updated and pushed successfully!"
+        fi
