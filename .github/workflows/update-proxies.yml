@@ -77,8 +77,8 @@ jobs:
           
           // 获取 cookie
           const cookies = await page.cookies();
-          const cookieString = cookies.map(c => `${c.name}=${c.value}`).join('; ');
-          console.log('Cookies set, fetching with cookies...');
+          const cookieString = cookies.map(c => c.name + '=' + c.value).join('; ');
+          console.log('Cookies set (' + cookies.length + ' cookies), fetching with cookies...');
           
           await browser.close();
           
