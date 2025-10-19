@@ -87,22 +87,6 @@ def generate_node_name(country, seq):
     chinese = COUNTRY_MAP.get(country, '未知')
     return f"{emoji} {country} {chinese} {seq}"
 
-def print_country_stats(country_counts):
-    if not country_counts:
-        print("No countries found.")
-        return
-    print("\n国家统计:")
-    print("-" * 50)
-    countries = sorted(country_counts.keys())
-    max_country_len = max(len(c) for c in countries)
-    col_width = max_country_len + 10  # Padding
-    for country in countries:
-        count = country_counts[country]
-        emoji = COUNTRY_EMOJI_MAP.get(country, '🇺🇳')
-        chinese = COUNTRY_MAP.get(country, '未知')
-        item = f"{emoji} {country} {chinese}: {count}"
-        print(item.ljust(col_width * 2))  # Align
-
 def parse_vless_uri(base_uri):
     try:
         parsed = urlparse(base_uri)
@@ -232,8 +216,6 @@ def main(input_file, output_file):
     print(f"总节点 URI 数量 (过滤前): {len(lines)}")
     print(f"成功转换节点数: {len(proxies)}")
     print(f"因格式错误或不支持协议跳过数: {total_skipped_format}")
-    
-    print_country_stats(country_counts)
     
     print("\n---------------------------------------")
     print(f"已生成 Stash 纯节点源 YAML 文件: {output_file}")
