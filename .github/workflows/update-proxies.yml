@@ -2,8 +2,10 @@ name: Daily Proxy Update
 
 on:
   schedule:
+    # 每天 UTC 0:00 和 12:00 运行（北京 08:00/20:00）
     - cron: '0 0 * * *'
     - cron: '0 12 * * *'
+  # 手动触发测试
   workflow_dispatch:
 
 jobs:
@@ -33,13 +35,14 @@ jobs:
         # 安装 Puppeteer + 反检测插件
         npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
         
-        # 增强Puppeteer脚本：加重试、更多模拟、内容校验
+        # 增强Puppeteer脚本：加重试、更多模拟、内容校验 + zlib解压
         node -e "
         const puppeteer = require('puppeteer-extra');
         const StealthPlugin = require('puppeteer-extra-plugin-stealth');
         puppeteer.use(StealthPlugin());
         const fs = require('fs');
         const https = require('https');
+        const zlib = require('zlib');
         const MAX_RETRIES = 3;
         
         async function fetchWithRetry(retryCount = 0) {
@@ -113,7 +116,7 @@ jobs:
           
           await browser.close();
           
-          // 用 https 请求 API，增强headers
+          // 用 https 请求 API，增强headers + 手动解压
           return new Promise((resolve, reject) => {
             const req = https.request(finalUrl, {
               method: 'GET',
@@ -126,37 +129,70 @@ jobs:
                 'Connection': 'keep-alive'
               }
             }, (res) => {
-              let data = '';
-              res.on('data', chunk => data += chunk);
+              let chunks = [];
+              res.on('data', chunk => chunks.push(chunk));
               res.on('end', () => {
-                const trimmed = data.trim();
-                fs.writeFileSync('raw-sub.txt', trimmed);
-                const length = trimmed.length;
-                console.log('Fetched length:', length);
+                let buffer = Buffer.concat(chunks);
+                const encoding = res.headers['content-encoding'];
+                let trimmed;
                 
-                // 校验：非HTML、非短内容、非错误关键字
-                if (length < 1000 || trimmed.includes('<!DOCTYPE') || trimmed.includes('<html') || 
-                    trimmed.includes('访问受限') || trimmed.includes('Verify') || trimmed.includes('error')) {
-                  console.log('Invalid content detected. Preview:', trimmed.substring(0, 200));
-                  if (retryCount < MAX_RETRIES) {
-                    console.log('Retrying...');
-                    reject(new Error('Invalid content'));
-                    return;
-                  }
-                  reject(new Error('Content invalid after retries'));
-                } else {
-                  // 快速base64校验
-                  try {
-                    const decoded = Buffer.from(trimmed, 'base64').toString('utf-8');
-                    if (decoded.includes('proxies:') || decoded.includes('type: vless') || decoded.includes('type: trojan')) {
-                      console.log('Valid YAML detected after decode. Preview:', decoded.substring(0, 100));
-                      resolve();
-                    } else {
-                      throw new Error('No YAML structure');
+                // 手动解压
+                if (encoding === 'gzip') {
+                  zlib.gunzip(buffer, (err, decoded) => {
+                    if (err) {
+                      console.log('Gunzip error:', err.message);
+                      reject(err);
+                      return;
                     }
-                  } catch (e) {
-                    console.log('Not base64 or invalid decode. Assuming plain text YAML? Preview:', trimmed.substring(0, 100));
-                    if (trimmed.includes('proxies:')) resolve(); else throw new Error('Invalid format');
+                    trimmed = decoded.toString().trim();
+                    processDecompressed(trimmed);
+                  });
+                } else if (encoding === 'deflate') {
+                  zlib.inflate(buffer, (err, decoded) => {
+                    if (err) {
+                      console.log('Inflate error:', err.message);
+                      reject(err);
+                      return;
+                    }
+                    trimmed = decoded.toString().trim();
+                    processDecompressed(trimmed);
+                  });
+                } else {
+                  // 无压缩
+                  trimmed = buffer.toString().trim();
+                  processDecompressed(trimmed);
+                }
+                
+                function processDecompressed(data) {
+                  fs.writeFileSync('raw-sub.txt', data);
+                  const length = data.length;
+                  console.log('Fetched & decompressed length:', length);
+                  console.log('Preview:', data.substring(0, 100));
+                  
+                  // 校验：非HTML、非短内容、非错误关键字
+                  if (length < 1000 || data.includes('<!DOCTYPE') || data.includes('<html') || 
+                      data.includes('访问受限') || data.includes('Verify') || data.includes('error')) {
+                    console.log('Invalid content detected. Preview:', data.substring(0, 200));
+                    if (retryCount < MAX_RETRIES) {
+                      console.log('Retrying...');
+                      reject(new Error('Invalid content'));
+                      return;
+                    }
+                    reject(new Error('Content invalid after retries'));
+                  } else {
+                    // base64校验
+                    try {
+                      const decoded = Buffer.from(data, 'base64').toString('utf-8');
+                      if (decoded.includes('proxies:') || decoded.includes('\"type\": \"vless\"') || decoded.includes('\"type\": \"trojan\"')) {
+                        console.log('Valid YAML detected after decode. Preview:', decoded.substring(0, 100));
+                        resolve();
+                      } else {
+                        throw new Error('No YAML structure');
+                      }
+                    } catch (e) {
+                      console.log('Not base64 or invalid decode. Assuming plain YAML? Contains proxies:', data.includes('proxies:'));
+                      if (data.includes('proxies:')) resolve(); else reject(new Error('Invalid format'));
+                    }
                   }
                 }
               });
@@ -182,6 +218,99 @@ jobs:
         fi
         echo "raw-sub.txt validated OK (length: $(wc -c < raw-sub.txt) bytes)"
 
-    # 其余步骤不变：Decode...、Convert...、Backup...、Commit...
-    # （为简洁省略，但Commit步骤可加：如果all-proxies.yaml存在，用yq merge）
-    # 示例：需先pip install yq，然后在Convert后：yq e '.proxies += load("nodes.yaml").proxies' all-proxies.yaml -i
+    - name: Decode and filter to input_nodes.txt (vless/Trojan only)
+      run: |
+        python -c "
+        import base64
+        import yaml
+        from urllib.parse import quote
+        
+        with open('raw-sub.txt', 'r') as f:
+            content = f.read().strip()
+        
+        # 假设 base64 编码，解码
+        try:
+            decoded = base64.b64decode(content).decode('utf-8')
+        except:
+            decoded = content  # 如果非 base64，直接用
+        
+        data = yaml.safe_load(decoded)
+        proxies = data.get('proxies', []) if data else []
+        
+        with open('input_nodes.txt', 'w', encoding='utf-8') as f:
+            for p in proxies:
+                if p['type'] in ['vless', 'trojan']:
+                    # 生成 URI (简化，基于 params)
+                    if p['type'] == 'vless':
+                        query_parts = []
+                        if 'network' in p: query_parts.append(f'type={p[\"network\"]}')
+                        if p.get('tls', False): query_parts.append('security=tls')
+                        if 'flow' in p: query_parts.append(f'flow={p[\"flow\"]}')
+                        if 'sni' in p: query_parts.append(f'sni={p[\"sni\"]}')
+                        if 'path' in p: query_parts.append(f'path={quote(p[\"path\"])}')
+                        query = '&'.join(query_parts)
+                        uri = f'vless://{quote(p[\"uuid\"])}@{p[\"server\"]}:{p[\"port\"]}?{query}' if query else f'vless://{quote(p[\"uuid\"])}@{p[\"server\"]}:{p[\"port\"]}'
+                    elif p['type'] == 'trojan':
+                        query_parts = []
+                        if 'sni' in p: query_parts.append(f'sni={p[\"sni\"]}')
+                        if 'network' in p: query_parts.append(f'type={p[\"network\"]}')
+                        if 'path' in p: query_parts.append(f'path={quote(p[\"path\"])}')
+                        query = '&'.join(query_parts)
+                        uri = f'trojan://{quote(p[\"password\"])}@{p[\"server\"]}:{p[\"port\"]}?{query}' if query else f'trojan://{quote(p[\"password\"])}@{p[\"server\"]}:{p[\"port\"]}'
+                    
+                    name = p.get('name', f'{p[\"type\"]} Unnamed')
+                    f.write(f'{uri}#{name}\n')
+        
+        import os
+        with open('input_nodes.txt', 'r', encoding='utf-8') as f:
+            num_lines = sum(1 for line in f if line.strip())
+        print(f'Generated {num_lines} vless/Trojan URIs to input_nodes.txt')
+        "
+
+    - name: Convert to Stash format and cover output
+      run: |
+        # 运行脚本：输入 input_nodes.txt，输出覆盖 nodes.yaml
+        python node_converter.py input_nodes.txt nodes.yaml
+        
+        # 检查输出
+        if [ ! -s nodes.yaml ]; then
+          echo "Conversion failed. Exiting."
+          exit 1
+        fi
+
+    - name: Merge to all-proxies.yaml (if exists)
+      run: |
+        if [ -f all-proxies.yaml ]; then
+          # 安装 yq
+          sudo snap install yq
+          # Merge nodes into all-proxies (append to proxies array)
+          yq eval '.proxies += load(\"nodes.yaml\").proxies' all-proxies.yaml -i
+          echo "Merged nodes into all-proxies.yaml"
+        else
+          echo "all-proxies.yaml not found, using nodes.yaml as main output."
+          cp nodes.yaml all-proxies.yaml
+        fi
+
+    - name: Backup original (optional)
+      run: |
+        if [ -f nodes.yaml ]; then
+          cp nodes.yaml nodes.yaml.bak.$(date +'%Y%m%d-%H%M%S')
+        fi
+        if [ -f all-proxies.yaml ]; then
+          cp all-proxies.yaml all-proxies.yaml.bak.$(date +'%Y%m%d-%H%M%S')
+        fi
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        
+        # 检查是否有变化（nodes.yaml、input_nodes.txt 和 all-proxies.yaml）
+        if git diff --quiet -- nodes.yaml input_nodes.txt all-proxies.yaml; then
+          echo "No changes to commit."
+        else
+          git add nodes.yaml input_nodes.txt all-proxies.yaml
+          git commit -m "Auto-update proxies from BSBB on $(date +'%Y-%m-%d %H:%M')"
+          git push
+          echo "Updated and pushed successfully!"
+        fi
