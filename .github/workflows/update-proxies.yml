@@ -184,15 +184,23 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "xiyingruyi@163.com"  # 替换为您的实际 GitHub 邮箱
-          git config --local user.name "xiyingruyi"              # 您的用户名
-          git add nodes.txt proxies.yaml  # 添加两个文件
+          git config --local user.email "xiyingruyi@163.com"  # 您的 primary email
+          git config --local user.name "xiyingruyi"
+          
+          # 检查 PAT_TOKEN 是否设置
+          if [ -z "${{ secrets.PAT_TOKEN }}" ]; then
+            echo "Error: PAT_TOKEN secret not set. Cannot push."
+            exit 1
+          fi
+          
+          git add nodes.txt proxies.yaml
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update nodes.txt and proxies.yaml [Run ${{ github.run_id }} #${{ github.run_number }}] - $(date '+%Y-%m-%d %H:%M:%S UTC)"
+            git commit -m "Update nodes.txt and proxies.yaml - $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S CST')"
             # 用 PAT 强制（无 fallback）
             git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
             git push
+            echo "Push successful!"
           fi
