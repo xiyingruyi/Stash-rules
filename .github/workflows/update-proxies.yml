@@ -198,7 +198,10 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update nodes.txt and proxies.yaml - $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S CST')"
+            # 北京时间 commit 消息
+            COMMIT_MSG="Update nodes.txt and proxies.yaml - $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S CST')"
+            echo "Commit message: $COMMIT_MSG"  # 调试日志
+            git commit -m "$COMMIT_MSG"
             # 用 PAT 强制（无 fallback）
             git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
             git push
