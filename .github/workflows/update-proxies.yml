@@ -1,0 +1,198 @@
+name: Update Proxies
+
+on:
+  schedule:
+    - cron: '0 0,12 * * *'  # 每天 UTC 00:00 和 12:00 运行
+  workflow_dispatch:  # 支持手动触发
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN || github.token }}  # 优先 PAT 写权限
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer with Stealth
+        run: npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+
+      - name: Fetch subscription content with Puppeteer Stealth
+        run: |
+          cat << 'EOF' > fetch.js
+          const puppeteer = require('puppeteer-extra');
+          const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+          const fs = require('fs');
+          
+          puppeteer.use(StealthPlugin());
+          
+          (async () => {
+            const browser = await puppeteer.launch({
+              headless: 'new',
+              args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-accelerated-2d-canvas',
+                '--no-first-run',
+                '--no-zygote',
+                '--disable-gpu',
+                '--disable-web-security',
+                '--disable-features=VizDisplayCompositor'
+              ]
+            });
+            const page = await browser.newPage();
+            
+            const userAgents = [
+              'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'
+            ];
+            const randomUA = userAgents[Math.floor(Math.random() * userAgents.length)];
+            await page.setUserAgent(randomUA);
+            await page.setViewport({ width: 1920, height: 1080 });
+            await page.setExtraHTTPHeaders({
+              'Accept-Language': 'en-US,en;q=0.9',
+              'Accept-Encoding': 'gzip, deflate, br'
+            });
+            
+            let content = '';
+            
+            try {
+              page.on('response', async (response) => {
+                const url = response.url();
+                if (url.includes('/api/sub.php')) {
+                  try {
+                    const text = await response.text();
+                    if (text.length > 100 && !text.includes('Verify you are human')) {
+                      content = text.trim();
+                      console.log('Captured API response length:', content.length);
+                      console.log('Raw content preview (first 200 chars):', content.substring(0, 200));
+                    }
+                  } catch (e) {
+                    console.error('Failed to get response text:', e.message);
+                  }
+                }
+              });
+              
+              console.log('Navigating to index.php');
+              await page.goto('https://www.bsbb.cc/sub/index.php', { 
+                waitUntil: 'networkidle0',
+                timeout: 30000 
+              });
+              
+              await new Promise(resolve => setTimeout(resolve, 10000));
+              
+              const finalUrl = page.url();
+              console.log('Final URL after redirect:', finalUrl);
+              
+              await new Promise(resolve => setTimeout(resolve, 5000));
+              
+              if (content.length === 0) {
+                let targetUrl = finalUrl.includes('/api/sub.php') ? finalUrl : 'https://www.bsbb.cc/api/sub.php?t=cefcc1b46a5daecc824598207e9ff10a';
+                console.log('Fallback: Navigating to', targetUrl);
+                await page.goto(targetUrl, { 
+                  waitUntil: 'networkidle0',
+                  timeout: 30000 
+                });
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                
+                const responses = await page.evaluate(() => {
+                  return Array.from(document.querySelectorAll('pre, body')).map(el => el.innerText).filter(text => text.length > 100);
+                });
+                if (responses.length > 0) {
+                  content = responses[0].trim();
+                } else {
+                  content = await page.evaluate(() => document.body.innerText.trim());
+                }
+                console.log('Fallback content length:', content.length);
+              }
+              
+              if (content.includes('Verify you are human') || content.length < 1000) {
+                throw new Error('Detected challenge page or insufficient content');
+              }
+              
+              fs.writeFileSync('sub.txt', content);
+              console.log(`Final content length: ${content.length} characters, lines: ${content.split('\n').length}`);
+              
+            } catch (error) {
+              console.error('Error during fetch:', error.message);
+              fs.writeFileSync('sub.txt', '');  
+            } finally {
+              await browser.close();
+            }
+          })();
+          EOF
+          
+          node fetch.js
+          
+          if [ ! -s sub.txt ] || [ $(wc -c < sub.txt) -lt 1000 ]; then
+            echo "Failed to fetch sufficient content. Check Puppeteer logs above."
+            exit 1
+          fi
+          echo "Successfully fetched $(wc -l < sub.txt) lines"
+
+      - name: Decode and extract VLESS/Trojan links
+        run: |
+          if command -v base64 >/dev/null && base64 -d sub.txt > decoded.txt 2>/dev/null && [ $(wc -c < decoded.txt) -gt $(wc -c < sub.txt) ]; then
+            echo "Decoded Base64 content"
+          else
+            cp sub.txt decoded.txt
+            echo "Treated as plain text"
+          fi
+          
+          echo "Decoded content preview (first 5 lines):"
+          head -5 decoded.txt
+          
+          # 提取完整行（vless:// 或 trojan:// 开头），包括标签/延迟
+          grep -E '^(vless|trojan)://.*$' decoded.txt | sort -u > nodes.txt || true
+          
+          if [ ! -s nodes.txt ]; then
+            touch nodes.txt
+          fi
+          
+          rm -f sub.txt decoded.txt
+          
+          echo "Extracted $(wc -l < nodes.txt) nodes to nodes.txt"
+
+      - name: Setup Python and Convert nodes.txt to proxies.yaml
+        if: always()  # 即使前一步失败也运行，但检查nodes.txt
+        run: |
+          # 安装Python依赖
+          pip install pyyaml
+          
+          # 检查nodes.txt是否有效
+          if [ ! -s nodes.txt ] || [ $(wc -l < nodes.txt) -eq 0 ]; then
+            echo "nodes.txt is empty or invalid, skipping conversion."
+            exit 0
+          fi
+          
+          # 运行转换脚本
+          python convert_nodes.py
+          
+          # 检查proxies.yaml是否生成
+          if [ ! -s proxies.yaml ]; then
+            echo "Failed to generate proxies.yaml."
+            exit 1
+          fi
+          
+          echo "Successfully generated proxies.yaml with $(grep -c '^-' proxies.yaml) nodes."
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add nodes.txt proxies.yaml  # 添加两个文件
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update nodes.txt and proxies.yaml - $(date '+%Y-%m-%d %H:%M:%S')"
+            # 强制用 PAT 或默认 token 重设 remote（确保写权限）
+            git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN || github.token }}@github.com/${{ github.repository }}.git
+            git push
+          fi
