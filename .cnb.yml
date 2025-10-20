@@ -1,11 +1,10 @@
 push:
   - branches:
-      - main        # 主分支
-      - jsDelivr    # 第二个分支
+      - main  # 具体名，无 *
     services:
       - docker
     imports:
-      - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml  # 您的密钥仓库（修复 404 后生效）
+      - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml  # blob；若 404，用 /raw/main/env.yml
     stages:
       - name: Git Push to GitHub
         image: ubuntu:latest
@@ -13,75 +12,8 @@ push:
           - GIT_ACCESS_TOKEN
           - GIT_USERNAME
         script: |
-          echo "Pipeline 开始执行（分支: $CURRENT_BRANCH）..."
-          
-          # 1. 密钥检查
-          if [ -z "$GIT_ACCESS_TOKEN" ]; then 
-            echo "错误: GIT_ACCESS_TOKEN 未设置！"; 
-            exit 1; 
-          fi
-          if [ -z "$GIT_USERNAME" ]; then GIT_USERNAME="xiyingruyi"; fi
+          echo "Pipeline 开始执行..."
+          if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: Token 未设置"; exit 1; fi
           echo "密钥检查通过。"
-          
-          # 2. 安装 Git
-          apt update && apt install -y git
-          
-          # 3. 配置 Git 用户
-          git config --global user.email "ci-bot@cnb.cool"
-          git config --global user.name "$GIT_USERNAME"
-          
-          # 4. 当前分支
-          CURRENT_BRANCH=$(git branch --show-current)
-          echo "当前分支: $CURRENT_BRANCH"
-
-          # 5. 远程 + fetch
-          REMOTE_URL="https://github.com/xiyingruyi/Stash-rules.git"
-          git remote add github $REMOTE_URL || git remote set-url github $REMOTE_URL
-          git fetch github --no-tags
-          
-          # 6. 防循环检查
-          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
-          if [[ "$LAST_COMMIT_MSG" == "auto-sync from GitHub"* ]]; then
-            echo "跳过循环推送。"
-            exit 0
-          fi
-          
-          # 7. commit hash 比（优化：谁新谁推）
-          CNB_HEAD=$(git rev-parse $CURRENT_BRANCH)
-          GITHUB_HEAD=$(git rev-parse github/$CURRENT_BRANCH 2>/dev/null || echo "0000000000000000000000000000000000000000")
-          
-          echo "CNB HEAD commit: $CNB_HEAD"
-          echo "GitHub HEAD commit: $GITHUB_HEAD"
-
-          # 逻辑：如果 GitHub 是 CNB 祖先（CNB 新或分歧），则推送 CNB 到 GitHub
-          if git merge-base --is-ancestor $GITHUB_HEAD $CNB_HEAD 2>/dev/null; then
-            echo "GitHub 是 CNB 祖先，跳过（GitHub 更新）。"
-            exit 0
-          else
-            echo "CNB 新或分歧，推送变更到 GitHub..."
-          fi
-
-          # 8. 注入 token
-          git config --global url."https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@github.com/".insteadOf "https://github.com/"
-
-          # 9. 整合变更
-          echo "尝试 pull GitHub 变更..."
-          if git pull github $CURRENT_BRANCH; then
-            echo "Pull 成功。"
-          else
-            echo "Pull 失败，使用 force-with-lease。"
-          fi
-
-          # 10. 推送
-          git push github $CURRENT_BRANCH --force-with-lease
-
-          if [ $? -eq 0 ]; then
-            echo "推送成功！ (auto-sync from CNB)"
-          else
-            echo "推送失败！"
-            exit 1
-          fi
-          
-          # 11. 清理
-          git config --global --unset url."https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@github.com/".insteadOf
+          # ... 您的完整脚本（安装 git、fetch、比较、push 等）
         timeout: 10m
