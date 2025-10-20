@@ -1,12 +1,12 @@
-main: # 顶层结构
+main:
   push:
     - branches:
-        - main      # 触发器：main 分支推送
-        - jsDelivr  # 触发器：jsDelivr 分支推送
+        - main
+        - jsDelivr
       services:
         - docker
       imports:
-        - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml  # 密钥仓库
+        - https://cnb.cool/xiyingruyi/Secrets/-/blob/main/env.yml
       stages:
         - name: Git Push to GitHub
           image: ubuntu:latest
@@ -14,83 +14,50 @@ main: # 顶层结构
             - GIT_ACCESS_TOKEN
             - GIT_USERNAME
           script: |
-            echo "Pipeline 开始执行（分支: $CURRENT_BRANCH）..."
+            echo "Pipeline 开始执行，采用原生 Git 推送..."
             
             # 1. 密钥检查
-            if [ -z "$GIT_ACCESS_TOKEN" ]; then 
-              echo "错误: GIT_ACCESS_TOKEN 未设置！"; 
-              exit 1; 
-            fi
+            if [ -z "$GIT_ACCESS_TOKEN" ]; then echo "错误: GIT_ACCESS_TOKEN 未设置！"; exit 1; fi
             if [ -z "$GIT_USERNAME" ]; then GIT_USERNAME="xiyingruyi"; fi
             echo "密钥检查通过。"
             
             # 2. 安装 Git
-            apt update && apt install -y git
+            apt update
+            apt install -y git
             
-            # 3. 配置 Git 用户
+            # 3. 配置 Git 用户信息
             git config --global user.email "ci-bot@cnb.cool"
             git config --global user.name "$GIT_USERNAME"
             
-            # 4. 当前分支
-            CURRENT_BRANCH=$(git branch --show-current 2>/dev/null || echo "未检测到分支")
-            if [ "$CURRENT_BRANCH" = "未检测到分支" ]; then
-               echo "错误: 无法获取当前分支名。";
-               exit 1;
-            fi
-            echo "当前分支: $CURRENT_BRANCH" 
+            # 4. 动态获取当前分支
+            CURRENT_BRANCH=$(git branch --show-current)
+            echo "当前分支: $CURRENT_BRANCH"
 
-            # 5. 远程 + fetch
-            REMOTE_URL="https://github.com/xiyingruyi/Stash-rules.git"
+            # 5. 避免无限循环的逻辑
+            REMOTE_URL="https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@github.com/xiyingruyi/Stash-rules.git"
             git remote add github $REMOTE_URL || git remote set-url github $REMOTE_URL
             git fetch github --no-tags
             
-            # 6. 时间戳比较 (保留原逻辑，可能导致跳过)
-            CNB_TIME=$(git log -1 --format=%ct $CURRENT_BRANCH)
-            GITHUB_TIME=$(git log -1 --format=%ct github/$CURRENT_BRANCH 2>/dev/null || echo 0)
-
-            echo "CNB last commit time: $CNB_TIME"
-            echo "GitHub last commit time: $GITHUB_TIME"
-
-            # 如果 CNB 不新，skip
-            if [ $CNB_TIME -le $GITHUB_TIME ]; then
-              echo "GitHub 更新或一致，跳过推送。"
-              exit 0
+            COMMITS_AHEAD=$(git rev-list --count github/$CURRENT_BRANCH..$CURRENT_BRANCH 2>/dev/null || echo 0)
+            if [ $COMMITS_AHEAD -eq 0 ]; then 
+                echo "无变更需要同步（本地仓库已一致）。"; 
+                exit 0; 
             fi
+            echo "领先 $COMMITS_AHEAD commits，正在同步到 GitHub..."
 
-            echo "CNB 新，推送 $((CNB_TIME - GITHUB_TIME)) 秒的变更到 GitHub..."
-
-            # 7. 注入 token (保留原逻辑)
-            git config --global url."https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@github.com/".insteadOf "https://github.com/"
-
-            # 8. Fallback: 先 pull 整合
+            # 6. 稳健推送
             echo "尝试 pull GitHub 变更..."
-            if ! git pull github $CURRENT_BRANCH; then
-              echo "Pull 失败，使用 force-with-lease 覆盖。"
-            fi
-
-            # 9. 构造推送目标 (根据当前分支进行同步)
-            PUSH_REF="$CURRENT_BRANCH" # 默认推送到同名分支
-            
-            # 只有 main 分支需要同步到 jsDelivr
-            if [ "$CURRENT_BRANCH" = "main" ]; then
-                # main 分支的内容同步到 main 和 jsDelivr
-                PUSH_REF="$CURRENT_BRANCH jsDelivr"
-                echo "检测到 main 分支，内容将同步到 GitHub 的 main 和 jsDelivr。"
+            if git pull github $CURRENT_BRANCH; then
+              echo "Pull 成功。"
             else
-                # 其他分支（如 jsDelivr）只同步到自己的同名分支
-                echo "检测到 $CURRENT_BRANCH 分支，内容将只同步到 GitHub 的 $CURRENT_BRANCH。"
+              echo "Pull 失败，继续 force-with-lease。"
             fi
-
-            # 10. 推送
-            git push github $PUSH_REF --force-with-lease
+            git push github $CURRENT_BRANCH --force-with-lease
 
             if [ $? -eq 0 ]; then
-              echo "推送成功！同步目标: $PUSH_REF"
+                echo "Git 推送成功！ (auto-sync from CNB)"
             else
-              echo "推送失败！"
-              exit 1
+                echo "Git 推送失败！"
+                exit 1
             fi
-            
-            # 11. 清理
-            git config --global --unset url."https://${GIT_USERNAME}:${GIT_ACCESS_TOKEN}@github.com/".insteadOf
           timeout: 10m
