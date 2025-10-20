@@ -253,6 +253,9 @@ def main():
 
     proxies = []
     for country, node_list in nodes_by_country.items():
+        if country == 'CN':  # 新增：跳过中国节点
+            print(f"跳过中国 (CN) 节点: {len(node_list)} 个")
+            continue
         for seq, (base_uri, orig_name) in enumerate(node_list, 1):
             scheme = base_uri.split('://', 1)[0] if '://' in base_uri else ''
             params = None
@@ -279,7 +282,7 @@ def main():
     try:
         with open(output_file, 'w', encoding='utf-8') as f:
             yaml.dump(config, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
-        print(f"成功生成 {output_file}，包含 {len(proxies)} 个节点。")
+        print(f"成功生成 {output_file}，包含 {len(proxies)} 个节点（已过滤 CN）。")
     except Exception as e:
         print(f"写入 YAML 文件失败: {e}")
         return
