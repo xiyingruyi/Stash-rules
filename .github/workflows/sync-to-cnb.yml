@@ -20,6 +20,10 @@ jobs:
           CURRENT_BRANCH_NAME="${{ github.ref_name }}"
           echo "检查当前分支: $CURRENT_BRANCH_NAME 是否需要同步到 CNB..."
 
+          # 新增：设置 Git 用户身份（修复 rebase 身份错误）
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
           # 添加 CNB 远程仓库（不带凭证，避免暴露）
           git remote add cnb https://cnb.cool/xiyingruyi/Stash-rules.git || git remote set-url cnb https://cnb.cool/xiyingruyi/Stash-rules.git
           git fetch cnb --no-tags
@@ -40,10 +44,10 @@ jobs:
           fi
           git config --global url."https://xiyingruyi:${{ secrets.CNB }}@cnb.cool/".insteadOf "https://cnb.cool/"
 
-          # 新增：合并 CNB 远程变更（防 non-fast-forward 拒绝）
+          # 合并 CNB 远程变更（防 non-fast-forward 拒绝）
           echo "合并远程变更以确保 fast-forward..."
           if ! git merge-base --is-ancestor cnb/$CURRENT_BRANCH_NAME $CURRENT_BRANCH_NAME; then
-            git pull cnb $CURRENT_BRANCH_NAME --rebase
+            git pull cnb $CURRENT_BRANCH_NAME --rebase --no-edit  # 新增 --no-edit 跳过编辑器
             if [ $? -ne 0 ]; then
               echo "合并失败：冲突需手动解决。"
               exit 1
