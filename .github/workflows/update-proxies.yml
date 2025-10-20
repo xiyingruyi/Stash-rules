@@ -191,7 +191,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "Update nodes.txt and proxies.yaml - $(date '+%Y-%m-%d %H:%M:%S')"
+            git commit -m "Update nodes.txt and proxies.yaml [Run ${{ github.run_id }} #${{ github.run_number }}] - $(date '+%Y-%m-%d %H:%M:%S UTC)"
             # 用 PAT 强制（无 fallback）
             git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
             git push
