@@ -3,7 +3,7 @@ name: Sync to CNB - All Branches
 on:
   push:
     branches:
-      - '**'
+      - '**'  # 匹配所有分支
 
 jobs:
   sync:
@@ -12,60 +12,70 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # 拉取所有历史和分支
 
       - name: Sync to CNB Repository
         run: |
-          CURRENT_BRANCH_NAME="${{ github.ref_name }}"
-          echo "检查分支: $CURRENT_BRANCH_NAME"
-
-          # 设置 Git 用户
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # 添加 CNB 远程
-          git remote add cnb https://cnb.cool/xiyingruyi/Stash-rules.git || git remote set-url cnb https://cnb.cool/xiyingruyi/Stash-rules.git
-          git fetch cnb --no-tags
-
-          # 获取时间戳
-          GITHUB_TIME=$(git log -1 --format=%ct $CURRENT_BRANCH_NAME)
-          CNB_TIME=$(git log -1 --format=%ct cnb/$CURRENT_BRANCH_NAME 2>/dev/null || echo 0)
-
-          echo "GitHub last commit time: $GITHUB_TIME"
-          echo "CNB last commit time: $CNB_TIME"
-
-          # 如果 GitHub 不新，skip
-          if [ $GITHUB_TIME -le $CNB_TIME ]; then
-            echo "CNB 更新或一致，跳过推送。"
+          # 防循环：检查最后 commit 消息是否 CI 同步
+          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+          if [[ "$LAST_COMMIT_MSG" == "auto-sync from CNB"* ]]; then
+            echo "跳过 CI 同步循环。"
             exit 0
           fi
 
-          echo "GitHub 新，推送 $((GITHUB_TIME - CNB_TIME)) 秒的变更到 CNB..."
+          # 获取当前分支名称
+          CURRENT_BRANCH_NAME="${{ github.ref_name }}"
+          echo "检查当前分支: $CURRENT_BRANCH_NAME 是否需要同步到 CNB..."
 
-          # 注入 token
+          # 设置 Git 用户身份
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 添加 CNB 远程仓库（不带凭证）
+          git remote add cnb https://cnb.cool/xiyingruyi/Stash-rules.git || git remote set-url cnb https://cnb.cool/xiyingruyi/Stash-rules.git
+          git fetch cnb --no-tags
+
+          # 优化比较：用 commit hash 比（谁的 HEAD 新谁推）
+          GITHUB_HEAD=$(git rev-parse $CURRENT_BRANCH_NAME)
+          CNB_HEAD=$(git rev-parse cnb/$CURRENT_BRANCH_NAME 2>/dev/null || echo "0000000000000000000000000000000000000000")
+          
+          echo "GitHub HEAD commit: $GITHUB_HEAD"
+          echo "CNB HEAD commit: $CNB_HEAD"
+
+          # 如果 GitHub HEAD 不是 CNB 祖先（即 GitHub 新或分歧），推送
+          if git merge-base --is-ancestor $CNB_HEAD $GITHUB_HEAD 2>/dev/null; then
+            echo "CNB 是 GitHub 祖先，跳过（CNB 更新）。"
+            exit 0
+          fi
+
+          echo "GitHub 新或分歧，推送变更到 CNB..."
+
+          # 安全注入 CNB token
           if [ -z "${{ secrets.CNB }}" ]; then
-            echo "错误: CNB token 未设置！"
+            echo "错误: CNB token 未设置！请在 GitHub Secrets 中添加 CNB。"
             exit 1
           fi
           git config --global url."https://xiyingruyi:${{ secrets.CNB }}@cnb.cool/".insteadOf "https://cnb.cool/"
 
-          # Fallback: 先 pull 整合（简单 merge，防 non-fast-forward）
+          # 整合 CNB 远程变更（pull merge 解决 non-fast-forward）
           echo "尝试 pull CNB 变更..."
-          if ! git pull cnb $CURRENT_BRANCH_NAME; then
-            echo "Pull 失败，使用 force-with-lease 覆盖（安全）..."
+          if git pull cnb $CURRENT_BRANCH_NAME; then
+            echo "Pull 成功，历史整合。"
+          else
+            echo "Pull 失败，使用 force-with-lease 覆盖。"
           fi
 
-          # 推送
+          # 执行推送（--force-with-lease 安全）
           git push cnb $CURRENT_BRANCH_NAME --force-with-lease
 
           if [ $? -eq 0 ]; then
-            echo "同步成功！"
+            echo "同步到 CNB 成功！ (auto-sync from GitHub)"
           else
-            echo "推送失败！"
+            echo "同步失败！"
             exit 1
           fi
 
-          # 清理
+          # 清理临时 Git 配置
           git config --global --unset url."https://xiyingruyi:${{ secrets.CNB }}@cnb.cool/".insteadOf
         env:
-          CNB_TOKEN: ${{ secrets.CNB }}
+          CNB_TOKEN: ${{ secrets.CNB }}  # 可选：额外环境变量，便于调试
