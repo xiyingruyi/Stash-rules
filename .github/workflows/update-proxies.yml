@@ -184,15 +184,15 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "xiyingruyi@163.com"  # 替换为您的实际 GitHub 邮箱
+          git config --local user.name "xiyingruyi"              # 您的用户名
           git add nodes.txt proxies.yaml  # 添加两个文件
           
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Update nodes.txt and proxies.yaml - $(date '+%Y-%m-%d %H:%M:%S')"
-            # 强制用 PAT 或默认 token 重设 remote（确保写权限）
-            git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN || github.token }}@github.com/${{ github.repository }}.git
+            # 用 PAT 强制（无 fallback）
+            git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
             git push
           fi
