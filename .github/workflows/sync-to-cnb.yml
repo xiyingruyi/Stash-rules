@@ -3,7 +3,7 @@ name: Sync to CNB - All Branches
 on:
   push:
     branches:
-      - '**'  # 匹配所有分支
+      - '**'  # 匹配所有分支（GitHub 支持 *）
 
 jobs:
   sync:
@@ -42,13 +42,13 @@ jobs:
           echo "GitHub HEAD commit: $GITHUB_HEAD"
           echo "CNB HEAD commit: $CNB_HEAD"
 
-          # 如果 GitHub HEAD 不是 CNB 祖先（即 GitHub 新或分歧），推送
+          # 修正逻辑：如果 CNB 是 GitHub 祖先（GitHub 新或分歧），则推送 GitHub 到 CNB
           if git merge-base --is-ancestor $CNB_HEAD $GITHUB_HEAD 2>/dev/null; then
-            echo "CNB 是 GitHub 祖先，跳过（CNB 更新）。"
+            echo "GitHub 新或分歧，推送变更到 CNB..."  # 修正消息
+          else
+            echo "CNB 是 GitHub 祖先，跳过（CNB 更新）。"  # 原 skip 条件，现在反转
             exit 0
           fi
-
-          echo "GitHub 新或分歧，推送变更到 CNB..."
 
           # 安全注入 CNB token
           if [ -z "${{ secrets.CNB }}" ]; then
