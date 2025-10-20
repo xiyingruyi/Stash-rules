@@ -16,15 +16,22 @@ jobs:
 
       - name: Sync to CNB Repository
         run: |
+          # 防循环：检查最后 commit 消息是否 CI 同步
+          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
+          if [[ "$LAST_COMMIT_MSG" == "auto-sync from CNB"* ]]; then
+            echo "跳过 CI 同步循环。"
+            exit 0
+          fi
+
           # 获取当前分支名称
           CURRENT_BRANCH_NAME="${{ github.ref_name }}"
           echo "检查当前分支: $CURRENT_BRANCH_NAME 是否需要同步到 CNB..."
 
-          # 新增：设置 Git 用户身份（修复 rebase 身份错误）
+          # 设置 Git 用户身份
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # 添加 CNB 远程仓库（不带凭证，避免暴露）
+          # 添加 CNB 远程仓库（不带凭证）
           git remote add cnb https://cnb.cool/xiyingruyi/Stash-rules.git || git remote set-url cnb https://cnb.cool/xiyingruyi/Stash-rules.git
           git fetch cnb --no-tags
 
@@ -37,22 +44,27 @@ jobs:
 
           echo "当前分支领先 $commits_ahead 个 commits，正在同步到 CNB..."
 
-          # 安全注入 CNB token（从 Secrets 加载，避免 URL 嵌入）
+          # 安全注入 CNB token
           if [ -z "${{ secrets.CNB }}" ]; then
             echo "错误: CNB token 未设置！请在 GitHub Secrets 中添加 CNB。"
             exit 1
           fi
           git config --global url."https://xiyingruyi:${{ secrets.CNB }}@cnb.cool/".insteadOf "https://cnb.cool/"
 
-          # 合并 CNB 远程变更（防 non-fast-forward 拒绝）
+          # 合并 CNB 远程变更（防 non-fast-forward + 冲突处理）
           echo "合并远程变更以确保 fast-forward..."
           if ! git merge-base --is-ancestor cnb/$CURRENT_BRANCH_NAME $CURRENT_BRANCH_NAME; then
-            git pull cnb $CURRENT_BRANCH_NAME --rebase --no-edit  # 新增 --no-edit 跳过编辑器
-            if [ $? -ne 0 ]; then
-              echo "合并失败：冲突需手动解决。"
-              exit 1
+            echo "尝试 rebase..."
+            if ! git pull cnb $CURRENT_BRANCH_NAME --rebase --no-edit; then
+              echo "Rebase 冲突，fallback 到 merge（处理分歧如 nodes.txt）..."
+              if ! git pull cnb $CURRENT_BRANCH_NAME --no-edit; then  # merge fallback
+                echo "Merge 也失败：严重冲突需手动解决（e.g., nodes.txt 删除/更新不一致）。"
+                exit 1
+              fi
+              echo "远程变更已 merge 整合。"
+            else
+              echo "远程变更已 rebase 整合。"
             fi
-            echo "远程变更已 rebase 整合。"
           else
             echo "本地已是最新的，无需 pull。"
           fi
@@ -64,9 +76,8 @@ jobs:
             exit 0
           fi
 
-          # 执行推送（使用 --force-with-lease 安全 force，如果 rebase 后仍需）
+          # 执行推送（--force-with-lease 安全）
           git push cnb $CURRENT_BRANCH_NAME --force-with-lease
-
           if [ $? -eq 0 ]; then
             echo "同步到 CNB 成功！"
           else
@@ -77,4 +88,4 @@ jobs:
           # 清理临时 Git 配置
           git config --global --unset url."https://xiyingruyi:${{ secrets.CNB }}@cnb.cool/".insteadOf
         env:
-          CNB_TOKEN: ${{ secrets.CNB }}  # 可选：额外环境变量，便于调试
+          CNB_TOKEN: ${{ secrets.CNB }}  # 可选调试
