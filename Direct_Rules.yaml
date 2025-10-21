@@ -8,8 +8,9 @@ payload:
   - DOMAIN-SUFFIX,xiaoihe.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,api.xiaoheihe.cn,DIRECT,no-resolve
 
-  # === Appstorrent 网站 ===
+  # === 网站 ===
   - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,developer.apple.com,DIRECT
 
   # === Epic Games 商店主体 ===
   - DOMAIN-SUFFIX,epicgames.com,DIRECT,no-resolve
