@@ -28,6 +28,7 @@
     <p class="tip">
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
+      • 支持反向解析 CDN 链接（fastly.jsdelivr.net / cdn.jsdmirror.com / cdn.jsdelivr.net / stash-rules.pages.dev）回原 GitHub 地址<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
       • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
       • 支持批量清除cdn.jsdelivr.net 类型链接的缓存 (fastly.jsdelivr.net 自动同步，无需手动清除)<br>
@@ -49,7 +50,7 @@
     const convertBtn = document.getElementById('convert');
     const purgeBtn = document.getElementById('purgeBtn');
     const actionBtn = document.getElementById('actionBtn');
-    function isGitHubResource(url) {
+    function isGitHubInput(url) {
       try {
         const parsed = new URL(url);
         return parsed.hostname === 'raw.githubusercontent.com' ||
@@ -57,6 +58,18 @@
       } catch {
         return false;
       }
+    }
+    function isCdnInput(url) {
+      try {
+        const parsed = new URL(url);
+        return ['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname) ||
+               parsed.hostname === 'stash-rules.pages.dev';
+      } catch {
+        return false;
+      }
+    }
+    function isSupportedUrl(url) {
+      return isGitHubInput(url) || isCdnInput(url);
     }
     function isJsDelivrUrl(url) {
       try {
@@ -74,33 +87,88 @@
         return false;
       }
     }
-    function getCdnUrls(url) {
+    function parseGitHubParts(url) {
       try {
         const parsed = new URL(url);
         let pathname = parsed.pathname;
-        // 新增：自动移除 /refs/heads/ 部分（针对如 /refs/heads/main 的分支引用）
-        if (pathname.includes('/refs/heads/')) {
-          pathname = pathname.replace('/refs/heads/', '/');
-        }
         if (parsed.hostname === 'github.com') {
-          if (/\/raw\//.test(pathname)) pathname = pathname.replace('/raw/', '/');
-          if (/\/blob\//.test(pathname)) pathname = pathname.replace('/blob/', '/');
+          if (pathname.includes('/refs/heads/')) {
+            pathname = pathname.replace('/refs/heads/', '/');
+          }
+          if (/\/raw\//.test(pathname)) {
+            pathname = pathname.replace('/raw/', '/');
+          } else if (/\/blob\//.test(pathname)) {
+            pathname = pathname.replace('/blob/', '/');
+          } else {
+            return null;
+          }
         }
         const parts = pathname.slice(1).split('/');
         if (parts.length < 4) return null;
-        const [user, repo, ref, ...filePath] = parts;
-        const base = `${user}/${repo}@${ref}/${filePath.join('/')}`;
-        const fileName = filePath[filePath.length - 1]; // 提取文件名
-        const results = [
-          { label: '✅ fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
-          { label: '🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快（无公共 purge API，自动同步）' },
+        const [user, repo, ref, ...filePathArr] = parts;
+        if (!user || !repo || !ref || filePathArr.length === 0) return null;
+        return { user, repo, ref, filePathArr };
+      } catch (e) {
+        return null;
+      }
+    }
+    function parseCdnParts(url) {
+      try {
+        const parsed = new URL(url);
+        if (parsed.hostname === 'stash-rules.pages.dev') {
+          const fileName = parsed.pathname.slice(1);
+          if (!fileName) return null;
+          return { type: 'stash', fileName };
+        }
+        if (!['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname)) return null;
+        let pathname = parsed.pathname;
+        if (!pathname.startsWith('/gh/')) return null;
+        const ghParts = pathname.slice(4).split('/');
+        if (ghParts.length < 3) return null;
+        const user = ghParts[0];
+        const repoRef = ghParts[1];
+        const repoRefSplit = repoRef.split('@');
+        if (repoRefSplit.length !== 2) return null;
+        const [repo, ref] = repoRefSplit;
+        const filePathArr = ghParts.slice(2);
+        if (filePathArr.length === 0) return null;
+        return { user, repo, ref, filePathArr };
+      } catch (e) {
+        return null;
+      }
+    }
+    function generateCdnUrls(inputUrl) {
+      if (isGitHubInput(inputUrl)) {
+        const parts = parseGitHubParts(inputUrl);
+        if (!parts) return null;
+        const { user, repo, ref, filePathArr } = parts;
+        const fileName = filePathArr[filePathArr.length - 1];
+        const base = `${user}/${repo}@${ref}/${filePathArr.join('/')}`;
+        return [
+          { label: '✅ 🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快（无公共 purge API，自动同步）' },
+          { label: '🔥 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快' },
           { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点' },
           { label: '☁️ Cloudflare', url: `https://stash-rules.pages.dev/${fileName}`, hint: 'Cloudflare 加速（仅作者自己可用）' }
         ];
-        return results;
-      } catch {
-        return null;
+      } else if (isCdnInput(inputUrl)) {
+        const parts = parseCdnParts(inputUrl);
+        if (!parts) return null;
+        if (parts.type === 'stash') {
+          return [
+            { label: '☁️ Cloudflare Link', url: inputUrl, hint: '已经是 Cloudflare 加速（无法解析完整 GitHub 路径）' }
+          ];
+        }
+        const { user, repo, ref, filePathArr } = parts;
+        const rawPath = `${user}/${repo}/${ref}/${filePathArr.join('/')}`;
+        const rawUrl = `https://raw.githubusercontent.com/${rawPath}`;
+        const blobPath = filePathArr.join('/');
+        const blobUrl = `https://github.com/${user}/${repo}/blob/${ref}/${blobPath}`;
+        return [
+          { label: '📁 GitHub Raw', url: rawUrl, hint: '原始 Raw 链接' },
+          { label: '🔗 GitHub Blob', url: blobUrl, hint: '原始 Blob 查看链接' }
+        ];
       }
+      return null;
     }
     async function purgeUrls(urls) {
       let purgedCount = 0;
@@ -128,9 +196,12 @@
           } else if (isJsdMirrorUrl(url)) {
             console.log('Skipped purge for jsdmirror (no public API):', url);
             skippedCount++;
+          } else {
+            skippedCount++;
           }
         } catch (err) {
           console.error('Invalid URL for purge:', url, err);
+          skippedCount++;
         }
       }
       if (purgePromises.length === 0) {
@@ -189,30 +260,30 @@
       let allResults = [];
       let invalidUrls = [];
       urls.forEach((url, index) => {
-        if (!isGitHubResource(url)) {
+        if (!isSupportedUrl(url)) {
           invalidUrls.push(`链接 ${index + 1}: ${url}`);
           return;
         }
-        const results = getCdnUrls(url);
+        const results = generateCdnUrls(url);
         if (!results || !results.length) {
           invalidUrls.push(`链接 ${index + 1}: ${url}`);
           return;
         }
-        allResults.push({ url, cdnResults: results });
+        allResults.push({ results });
       });
       if (invalidUrls.length) {
-        alert(`链接不是支持的类型:\n${invalidUrls.join('\n')}`);
+        alert(`不支持的链接类型:\n${invalidUrls.join('\n')}`);
       }
       if (!allResults.length) return;
       resultGroup.innerHTML = '';
-      allResults.forEach(({ cdnResults }, index) => {
+      allResults.forEach(({ results }, index) => {
         const card = document.createElement('div');
         card.classList.add('result-card');
         if (allResults.length > 1 && index < allResults.length - 1) {
           card.classList.add('result-card-with-separator');
         }
         let cardHtml = allResults.length > 1 ? `<div class="label">链接 ${index + 1}</div>` : '';
-        cdnResults.forEach(item => {
+        results.forEach(item => {
           let cdnHtml = `
             <div class="cdn-result">
               <div class="label">${item.label}</div>
