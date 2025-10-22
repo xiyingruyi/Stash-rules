@@ -9,7 +9,7 @@ payload:
 
   # === 网站 ===
   - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,developer.apple.com,DIRECT
+  - DOMAIN-SUFFIX,developer.apple.com,DIRECT,no-resolve
 
   # === Epic Games 商店主体 ===
   - DOMAIN-SUFFIX,epicgames.com,DIRECT,no-resolve
