@@ -19,8 +19,7 @@ payload:
 
   # === Epic Games 下载与 CDN ===
   - DOMAIN-SUFFIX,epicgames-download1.akamaized.net,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,cdn1.unrealengine.com,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,cdn2.unrealengine.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,unrealengine.com,DIRECT,no-resolve
 
   # === 补充常用 CDN 边缘节点（防漏）===
   - DOMAIN-SUFFIX,cdn-fastly.epicgames.com,DIRECT,no-resolve
