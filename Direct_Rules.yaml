@@ -5,9 +5,6 @@ payload:
   # === 小黑盒 App 主体及 API ===
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,heyboxbj.max-c.com,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,imgheybox.max-c.com,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,imgheybox1.max-c.com,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,imgmax.max-c.com,DIRECT,no-resolve
 
   # === 网站 ===
   - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
