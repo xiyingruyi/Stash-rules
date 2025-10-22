@@ -6,6 +6,8 @@ payload:
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,heyboxbj.max-c.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,imgheybox.max-c.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,imgheybox.max1-c.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,imgmax.max-c.com,DIRECT,no-resolve
 
   # === 网站 ===
   - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
