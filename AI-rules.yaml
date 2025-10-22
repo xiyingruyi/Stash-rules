@@ -45,24 +45,24 @@ payload:
   # -----------------------------
   # Gemini (Google AI) 流量
   # -----------------------------
-  - DOMAIN-SUFFIX,gemini.google.com
-  - DOMAIN-SUFFIX,generativelanguage.googleapis.com
-  - DOMAIN-SUFFIX,bard.google.com
-  - DOMAIN-SUFFIX,ai.google.dev
-  - DOMAIN-SUFFIX,aistudio.google.com
-  - DOMAIN-SUFFIX,play.googleapis.com
-  - DOMAIN-SUFFIX,oauth2.googleapis.com
-  - DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com
-  - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
-  - DOMAIN-SUFFIX,notifications-pa.googleapis.com
-  - DOMAIN-SUFFIX,recordinguploader-pa.googleapis.com
-  - DOMAIN-SUFFIX,assistantembedded.googleapis.com
-  - DOMAIN-SUFFIX,speech.googleapis.com
-  - DOMAIN-SUFFIX,stt.googleapis.com
-  - DOMAIN-SUFFIX,tts.googleapis.com
-  - DOMAIN-KEYWORD,generativelanguage      # 智能捕获未来 Generative Language API 子域
-  - DOMAIN-KEYWORD,bard                    # 智能捕获未来 Bard 子域
-  - DOMAIN-KEYWORD,ai.google               # 智能捕获未来 Google AI 子域
+  - DOMAIN-SUFFIX,gemini.google.com,no-resolve
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,bard.google.com,no-resolve
+  - DOMAIN-SUFFIX,ai.google.dev,no-resolve
+  - DOMAIN-SUFFIX,aistudio.google.com,no-resolve
+  - DOMAIN-SUFFIX,play.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,oauth2.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,oauthaccountmanager.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,notifications-pa.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,recordinguploader-pa.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,assistantembedded.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,speech.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,stt.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,tts.googleapis.com,no-resolve
+  - DOMAIN-KEYWORD,generativelanguage,no-resolve      # 智能捕获未来 Generative Language API 子域
+  - DOMAIN-KEYWORD,bard,no-resolve                    # 智能捕获未来 Bard 子域
+  - DOMAIN-KEYWORD,gemini,no-resolve               # 智能捕获未来 Google AI 子域
 
   # -----------------------------
   # 🚀 可选扩展区（未来可用）
