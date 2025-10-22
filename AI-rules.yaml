@@ -8,21 +8,12 @@ payload:
   # -----------------------------
   # Grok (xAI) 流量
   # -----------------------------
-  - DOMAIN-SUFFIX,x.ai
-  - DOMAIN-SUFFIX,grok.x.ai
-  - DOMAIN-SUFFIX,api.x.ai
-  - DOMAIN-SUFFIX,grok.com
-  - DOMAIN-SUFFIX,api.grok.com
-  - DOMAIN-SUFFIX,beta.grok.com
-  - DOMAIN-SUFFIX,cdn.grok.com
-  - DOMAIN-SUFFIX,static.grok.com
-  - DOMAIN-SUFFIX,grokusercontent.com
-  - DOMAIN-SUFFIX,grokcdn.com
-  - DOMAIN-SUFFIX,api.grok.ai
-  - DOMAIN-SUFFIX,gateway.x.ai
-  - DOMAIN-SUFFIX,messaging.x.ai
-  - DOMAIN-SUFFIX,subscriptions.x.ai
-  - DOMAIN-KEYWORD,grok       # 智能捕获未知 Grok 子域
+  - DOMAIN-SUFFIX,x.ai,no-resolve
+  - DOMAIN-SUFFIX,grok.com,no-resolve
+  - DOMAIN-SUFFIX,grokusercontent.com,no-resolve
+  - DOMAIN-SUFFIX,grokcdn.com,no-resolve
+  - DOMAIN-SUFFIX,grok.ai,no-resolve
+  - DOMAIN-KEYWORD,grok,no-resolve       # 智能捕获未知 Grok 子域
 
   # -----------------------------
   # ChatGPT (OpenAI) 流量
