@@ -3,7 +3,6 @@
 # 适用: Epic Games 领取限免、小黑盒、Appstorrent 等
 payload:
   # === 小黑盒 App 主体及 API ===
-  - DOMAIN-SUFFIX,xiaoheiwu.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,xiaoihe.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,api.xiaoheihe.cn,DIRECT,no-resolve
