@@ -60,7 +60,7 @@ proxies:
       Host: google.com
   name: 🇺🇸 US 美国 1
 - type: vless
-  server: 104.16.2.57
+  server: 104.24.16.33
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -71,6 +71,18 @@ proxies:
     headers:
       Host: 3344.xmma.top
   name: 🇺🇸 US 美国 2
+- type: vless
+  server: icook.tw
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇺🇸 US 美国 3
 - type: vless
   server: 142.250.75.10
   port: 443
@@ -84,8 +96,8 @@ proxies:
       Host: google.com
   name: 🇬🇧 GB 英国 1
 - type: vless
-  server: stock.hostmonit.com
-  port: 8443
+  server: 18.143.66.189
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -95,6 +107,18 @@ proxies:
     headers:
       Host: 3344.xmma.top
   name: 🇬🇧 GB 英国 2
+- type: vless
+  server: download.yunzhongzhuan.com
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇬🇧 GB 英国 3
 - type: vless
   server: 216.58.215.33
   port: 443
@@ -108,8 +132,8 @@ proxies:
       Host: google.com
   name: 🇮🇳 IN 印度 1
 - type: vless
-  server: download.yunzhongzhuan.com
-  port: 2087
+  server: 104.18.58.80
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -2676,8 +2700,8 @@ proxies:
       Host: google.com
   name: 🇩🇪 DE 德国 1
 - type: vless
-  server: 172.64.150.218
-  port: 2087
+  server: 54.248.206.182
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -2688,331 +2712,7 @@ proxies:
       Host: 3344.xmma.top
   name: 🇩🇪 DE 德国 2
 - type: vless
-  server: 103.76.85.122
-  port: 30002
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇨🇿 CZ 捷克 1
-- type: vless
-  server: 104.16.205.125
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇲🇾 MY 马来西亚 1
-- type: vless
-  server: www.udacity.com
-  port: 8443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇲🇾 MY 马来西亚 2
-- type: vless
-  server: 104.16.207.77
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇩 ID 印尼 1
-- type: vless
-  server: 104.16.46.105
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇧🇬 BG 保加利亚 1
-- type: vless
-  server: 104.16.93.170
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇯🇵 JP 日本 1
-- type: vless
-  server: 104.17.244.81
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇯🇵 JP 日本 2
-- type: vless
-  server: 43.206.242.217
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇯🇵 JP 日本 3
-- type: vless
-  server: 104.17.190.9
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇧🇷 BR 巴西 1
-- type: vless
-  server: 108.162.196.93
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇧🇷 BR 巴西 2
-- type: vless
-  server: 162.159.5.60
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇧🇷 BR 巴西 3
-- type: vless
-  server: 104.17.47.185
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇨🇱 CL 智利 1
-- type: vless
-  server: 104.24.91.207
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇨🇱 CL 智利 2
-- type: vless
-  server: 172.67.158.40
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇨🇱 CL 智利 3
-- type: vless
-  server: 104.18.111.124
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇱 IL 以色列 1
-- type: vless
-  server: ip.164746.xyz
-  port: 2096
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇱 IL 以色列 2
-- type: vless
-  server: 104.18.191.74
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇵🇱 PL 波兰 1
-- type: vless
-  server: download.yunzhongzhuan.com
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇵🇱 PL 波兰 2
-- type: vless
-  server: 104.18.241.178
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇬🇷 GR 希腊 1
-- type: vless
-  server: 104.18.47.200
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇪 IE 爱尔兰 1
-- type: vless
-  server: 104.18.63.67
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇪 IE 爱尔兰 2
-- type: vless
-  server: 162.159.22.23
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇪 IE 爱尔兰 3
-- type: vless
-  server: icook.tw
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇪 IE 爱尔兰 4
-- type: vless
-  server: 104.18.58.80
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇹🇭 TH 泰国 1
-- type: vless
-  server: stock.hostmonit.com
-  port: 8443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇹🇭 TH 泰国 2
-- type: vless
-  server: 104.18.78.195
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇹🇼 TW 台湾 1
-- type: vless
-  server: 172.64.151.52
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇹🇼 TW 台湾 2
-- type: vless
-  server: 104.24.16.33
+  server: 104.16.2.57
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -3024,31 +2724,7 @@ proxies:
       Host: 3344.xmma.top
   name: 🇵🇹 PT 葡萄牙 1
 - type: vless
-  server: 104.24.38.213
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇰🇷 KR 韩国 1
-- type: vless
-  server: 104.24.88.63
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇻🇳 VN 越南 1
-- type: vless
-  server: linux.do
+  server: 162.159.0.204
   port: 2087
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -3058,81 +2734,9 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: 3344.xmma.top
-  name: 🇻🇳 VN 越南 2
+  name: 🇵🇹 PT 葡萄牙 2
 - type: vless
-  server: 108.162.193.32
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇸🇦 SA 沙特 1
-- type: vless
-  server: 172.64.158.8
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇸🇦 SA 沙特 2
-- type: vless
-  server: x.cf.090227.xyz
-  port: 2096
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇸🇦 SA 沙特 3
-- type: vless
-  server: 162.159.1.58
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇸🇪 SE 瑞典 1
-- type: vless
-  server: ip.sb
-  port: 8443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇸🇪 SE 瑞典 2
-- type: vless
-  server: 162.159.2.252
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇨🇴 CO 哥伦比亚 1
-- type: vless
-  server: 162.159.4.73
+  server: 104.16.207.193
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -3144,55 +2748,7 @@ proxies:
       Host: 3344.xmma.top
   name: 🇮🇹 IT 意大利 1
 - type: vless
-  server: icook.hk
-  port: 2096
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇮🇹 IT 意大利 2
-- type: vless
-  server: 162.159.42.17
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇦🇪 AE 阿联酋 1
-- type: vless
-  server: 172.64.35.116
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇦🇪 AE 阿联酋 2
-- type: vless
-  server: 172.64.152.66
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: 3344.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: 3344.xmma.top
-  name: 🇦🇷 AR 阿根廷 1
-- type: vless
-  server: 172.67.75.95
+  server: 104.17.244.81
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -3202,10 +2758,10 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: 3344.xmma.top
-  name: 🇪🇸 ES 西班牙 1
+  name: 🇭🇰 HK 香港 1
 - type: vless
-  server: 198.41.222.168
-  port: 2087
+  server: 104.17.254.201
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -3214,7 +2770,43 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: 3344.xmma.top
-  name: 🇨🇭 CH 瑞士 1
+  name: 🇲🇾 MY 马来西亚 1
+- type: vless
+  server: 104.19.223.222
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇲🇾 MY 马来西亚 2
+- type: vless
+  server: www.udacity.com
+  port: 8443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇲🇾 MY 马来西亚 3
+- type: vless
+  server: 104.17.47.185
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇮🇩 ID 印尼 1
 - type: vless
   server: ipdb.api.030101.xyz
   port: 8443
@@ -3226,10 +2818,94 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: 3344.xmma.top
-  name: 🇨🇭 CH 瑞士 2
+  name: 🇮🇩 ID 印尼 2
 - type: vless
-  server: www.shopify.com
+  server: 104.18.159.85
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇩🇰 DK 丹麦 1
+- type: vless
+  server: 172.64.150.45
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇩🇰 DK 丹麦 2
+- type: vless
+  server: icook.hk
+  port: 2096
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇩🇰 DK 丹麦 3
+- type: vless
+  server: 104.18.241.178
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇻🇳 VN 越南 1
+- type: vless
+  server: 162.159.21.74
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇻🇳 VN 越南 2
+- type: vless
+  server: 3.112.68.100
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇻🇳 VN 越南 3
+- type: vless
+  server: stock.hostmonit.com
   port: 8443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇻🇳 VN 越南 4
+- type: vless
+  server: 104.18.32.241
+  port: 2087
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -3240,7 +2916,7 @@ proxies:
       Host: 3344.xmma.top
   name: 🇫🇮 FI 芬兰 1
 - type: vless
-  server: www.visa.com.tw
+  server: 162.159.49.125
   port: 2087
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -3250,7 +2926,451 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: 3344.xmma.top
+  name: 🇫🇮 FI 芬兰 2
+- type: vless
+  server: 104.18.39.214
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇷 BR 巴西 1
+- type: vless
+  server: 162.159.4.73
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇷 BR 巴西 2
+- type: vless
+  server: 198.41.223.98
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇷 BR 巴西 3
+- type: vless
+  server: linux.do
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇷 BR 巴西 4
+- type: vless
+  server: 104.18.47.200
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇬 BG 保加利亚 1
+- type: vless
+  server: 104.18.93.169
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇹🇷 TR 土耳其 1
+- type: vless
+  server: 108.162.196.192
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇹🇷 TR 土耳其 2
+- type: vless
+  server: 162.159.5.60
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇹🇷 TR 土耳其 3
+- type: vless
+  server: 172.64.42.70
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇹🇷 TR 土耳其 4
+- type: vless
+  server: 104.19.253.128
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇮🇪 IE 爱尔兰 1
+- type: vless
+  server: 104.19.78.144
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇮🇪 IE 爱尔兰 2
+- type: vless
+  server: 172.67.174.74
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇮🇪 IE 爱尔兰 3
+- type: vless
+  server: 104.24.88.63
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇵🇱 PL 波兰 1
+- type: vless
+  server: 172.64.40.159
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇵🇱 PL 波兰 2
+- type: vless
+  server: 104.24.91.207
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇸🇦 SA 沙特 1
+- type: vless
+  server: 108.162.195.14
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇯🇵 JP 日本 1
+- type: vless
+  server: 162.159.1.58
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇯🇵 JP 日本 2
+- type: vless
+  server: 172.64.49.182
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇯🇵 JP 日本 3
+- type: vless
+  server: download.yunzhongzhuan.com
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇯🇵 JP 日本 4
+- type: vless
+  server: 116.206.93.200
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇵🇭 PH 菲律宾 1
+- type: vless
+  server: 13.115.249.234
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇪 BE 比利时 1
+- type: vless
+  server: stock.hostmonit.com
+  port: 8443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇧🇪 BE 比利时 2
+- type: vless
+  server: 13.158.131.198
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
   name: 🇿🇦 ZA 南非 1
+- type: vless
+  server: 172.64.146.96
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇿🇦 ZA 南非 2
+- type: vless
+  server: ip.164746.xyz
+  port: 2096
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇿🇦 ZA 南非 3
+- type: vless
+  server: 162.159.14.189
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇪🇸 ES 西班牙 1
+- type: vless
+  server: 162.159.19.4
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇭🇷 HR 克罗地亚 1
+- type: vless
+  server: 162.159.8.39
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇭🇷 HR 克罗地亚 2
+- type: vless
+  server: 172.64.149.31
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇭🇷 HR 克罗地亚 3
+- type: vless
+  server: 172.64.53.50
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇭🇷 HR 克罗地亚 4
+- type: vless
+  server: 54.249.48.190
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇭🇷 HR 克罗地亚 5
+- type: vless
+  server: 162.159.2.252
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇸🇪 SE 瑞典 1
+- type: vless
+  server: 172.67.75.95
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇸🇪 SE 瑞典 2
+- type: vless
+  server: 162.159.25.55
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇪🇬 EG 埃及 1
+- type: vless
+  server: 172.64.147.237
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇵🇰 PK 巴基斯坦 1
+- type: vless
+  server: 172.64.154.215
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇵🇰 PK 巴基斯坦 2
+- type: vless
+  server: 172.64.156.2
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇦🇷 AR 阿根廷 1
 - type: vless
   server: www.wto.org
   port: 8443
@@ -3262,4 +3382,88 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: 3344.xmma.top
-  name: 🇭🇷 HR 克罗地亚 1
+  name: 🇦🇷 AR 阿根廷 2
+- type: vless
+  server: 172.67.174.93
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇨🇴 CO 哥伦比亚 1
+- type: vless
+  server: 198.41.211.197
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇶🇦 QA 卡塔尔 1
+- type: vless
+  server: 198.41.222.122
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇨🇱 CL 智利 1
+- type: vless
+  server: ip.sb
+  port: 8443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇸🇮 SI 斯洛文尼亚 1
+- type: vless
+  server: www.shopify.com
+  port: 8443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇦🇺 AU 澳大利亚 1
+- type: vless
+  server: www.visa.com.tw
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇹🇭 TH 泰国 1
+- type: vless
+  server: x.cf.090227.xyz
+  port: 2096
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: 3344.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: 3344.xmma.top
+  name: 🇳🇱 NL 荷兰 1
