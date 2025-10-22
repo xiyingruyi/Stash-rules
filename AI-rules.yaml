@@ -18,39 +18,29 @@ payload:
   # -----------------------------
   # ChatGPT (OpenAI) 流量
   # -----------------------------
-  - DOMAIN-SUFFIX,openai.com
-  - DOMAIN-SUFFIX,chat.openai.com
-  - DOMAIN-SUFFIX,platform.openai.com
-  - DOMAIN-SUFFIX,api.openai.com
-  - DOMAIN-SUFFIX,beta.openai.com
-  - DOMAIN-SUFFIX,chatgpt.com
-  - DOMAIN-SUFFIX,oaiusercontent.com
-  - DOMAIN-SUFFIX,oaistatic.com
-  - DOMAIN-SUFFIX,cdn.oaistatic.com
-  - DOMAIN-SUFFIX,ai.com
-  - DOMAIN-SUFFIX,auth0.com
-  - DOMAIN-SUFFIX,auth0.openai.com
-  - DOMAIN-SUFFIX,edge.auth0.com
-  - DOMAIN-SUFFIX,cdn.auth0.com
-  - DOMAIN-SUFFIX,api.statsig.com
-  - DOMAIN-SUFFIX,events.statsig.com
-  - DOMAIN-SUFFIX,statsig.com
-  - DOMAIN-SUFFIX,intercom.io
-  - DOMAIN-SUFFIX,intercomcdn.com
-  - DOMAIN-SUFFIX,stripe.com
-  - DOMAIN-SUFFIX,hcaptcha.com
-  - DOMAIN-SUFFIX,talkjs.com
-  - DOMAIN-SUFFIX,pendo.io
-  - DOMAIN-SUFFIX,pendo-static.s3.amazonaws.com
-  - DOMAIN,openaiapi-site.azureedge.net
-  - DOMAIN-SUFFIX,chatgpt.livekit.cloud
-  - DOMAIN,browser-intake-datadoghq.com
-  - DOMAIN,static.cloudflareinsights.com
-  - DOMAIN-SUFFIX,challenges.cloudflare.com
-  - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com
-  - DOMAIN-SUFFIX,sentry.io
-  - DOMAIN-KEYWORD,openai     # 智能捕获未知 OpenAI 域
-  - DOMAIN-KEYWORD,chatgpt    # 智能捕获未知 ChatGPT 域
+  - DOMAIN-SUFFIX,openai.com,no-resolve
+  - DOMAIN-SUFFIX,chatgpt.com,no-resolve
+  - DOMAIN-SUFFIX,oaiusercontent.com,no-resolve
+  - DOMAIN-SUFFIX,oaistatic.com,no-resolve
+  - DOMAIN-SUFFIX,ai.com,no-resolve
+  - DOMAIN-SUFFIX,auth0.com,no-resolve
+  - DOMAIN-SUFFIX,statsig.com,no-resolve
+  - DOMAIN-SUFFIX,intercom.io,no-resolve
+  - DOMAIN-SUFFIX,intercomcdn.com,no-resolve
+  - DOMAIN-SUFFIX,stripe.com,no-resolve
+  - DOMAIN-SUFFIX,hcaptcha.com,no-resolve
+  - DOMAIN-SUFFIX,talkjs.com,no-resolve
+  - DOMAIN-SUFFIX,pendo.io,no-resolve
+  - DOMAIN-SUFFIX,pendo-static.s3.amazonaws.com,no-resolve
+  - DOMAIN,openaiapi-site.azureedge.net,no-resolve
+  - DOMAIN-SUFFIX,chatgpt.livekit.cloud,no-resolve
+  - DOMAIN,browser-intake-datadoghq.com,no-resolve
+  - DOMAIN,static.cloudflareinsights.com,no-resolve
+  - DOMAIN-SUFFIX,challenges.cloudflare.com,no-resolve
+  - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com,no-resolve
+  - DOMAIN-SUFFIX,sentry.io,no-resolve
+  - DOMAIN-KEYWORD,openai,no-resolve     # 智能捕获未知 OpenAI 域
+  - DOMAIN-KEYWORD,chatgpt,no-resolve    # 智能捕获未知 ChatGPT 域
 
   # -----------------------------
   # Gemini (Google AI) 流量
