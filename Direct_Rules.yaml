@@ -22,7 +22,6 @@ payload:
   - DOMAIN-SUFFIX,unrealengine.com,DIRECT,no-resolve
 
   # === 补充常用 CDN 边缘节点（防漏）===
-  - DOMAIN-SUFFIX,cdn-fastly.epicgames.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,dualstack.fastly.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,cloudfront.net,DIRECT,no-resolve
   - DOMAIN-SUFFIX,akamaiedge.net,DIRECT,no-resolve
