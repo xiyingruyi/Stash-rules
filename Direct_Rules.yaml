@@ -9,13 +9,15 @@ payload:
   - DOMAIN-SUFFIX,douyinvod.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,douyinstatic.com,DIRECT,no-resolve
 
+  # === 网站 ===
+  - DOMAIN-SUFFIX,cnb.cool,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,cnb.cdn-go.cn,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,developer.apple.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
+
   # === 小黑盒 App 主体及 API ===
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,heyboxbj.max-c.com,DIRECT,no-resolve
-
-  # === 网站 ===
-  - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,developer.apple.com,DIRECT,no-resolve
 
   # === Epic Games 商店主体 ===
   - DOMAIN-SUFFIX,epicgames.com,DIRECT,no-resolve
