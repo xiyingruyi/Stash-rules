@@ -6,7 +6,7 @@ payload:
   - DOMAIN-SUFFIX,douyin.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,douyinpic.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,douyincdn.com,DIRECT,no-resolve
-  - DOMAIN-SUFFIX,doouyinvod.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,douyinvod.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,douyinstatic.com,DIRECT,no-resolve
 
   # === 小黑盒 App 主体及 API ===
