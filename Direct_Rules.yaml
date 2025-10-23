@@ -2,6 +2,9 @@
 # 备注: 国内网站 & 游戏平台直连规则
 # 适用: Epic Games 领取限免、小黑盒、Appstorrent 等
 payload:
+  # === cdn.jsdmirror.com直连 ===
+  - DOMAIN-SUFFIX,cdn.jsdmirror.com,DIRECT,no-resolve
+
   # === 抖音 ===
   - DOMAIN-SUFFIX,douyin.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,douyinpic.com,DIRECT,no-resolve
