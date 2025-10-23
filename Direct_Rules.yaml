@@ -2,6 +2,13 @@
 # 备注: 国内网站 & 游戏平台直连规则
 # 适用: Epic Games 领取限免、小黑盒、Appstorrent 等
 payload:
+  # === 抖音 ===
+  - DOMAIN-SUFFIX,douyin.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,douyinpic.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,douyincdn.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,doouyinvod.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,douyinstatic.com,DIRECT,no-resolve
+
   # === 小黑盒 App 主体及 API ===
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,heyboxbj.max-c.com,DIRECT,no-resolve
