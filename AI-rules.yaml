@@ -10,9 +10,6 @@ payload:
   # -----------------------------
   - DOMAIN-SUFFIX,x.ai,no-resolve
   - DOMAIN-SUFFIX,grok.com,no-resolve
-  - DOMAIN-SUFFIX,grokusercontent.com,no-resolve
-  - DOMAIN-SUFFIX,grokcdn.com,no-resolve
-  - DOMAIN-SUFFIX,grok.ai,no-resolve
   - DOMAIN-KEYWORD,grok,no-resolve       # 智能捕获未知 Grok 子域
 
   # -----------------------------
