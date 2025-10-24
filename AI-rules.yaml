@@ -17,25 +17,6 @@ payload:
   # -----------------------------
   - DOMAIN-SUFFIX,openai.com,no-resolve
   - DOMAIN-SUFFIX,chatgpt.com,no-resolve
-  - DOMAIN-SUFFIX,oaiusercontent.com,no-resolve
-  - DOMAIN-SUFFIX,oaistatic.com,no-resolve
-  - DOMAIN-SUFFIX,ai.com,no-resolve
-  - DOMAIN-SUFFIX,auth0.com,no-resolve
-  - DOMAIN-SUFFIX,statsig.com,no-resolve
-  - DOMAIN-SUFFIX,intercom.io,no-resolve
-  - DOMAIN-SUFFIX,intercomcdn.com,no-resolve
-  - DOMAIN-SUFFIX,stripe.com,no-resolve
-  - DOMAIN-SUFFIX,hcaptcha.com,no-resolve
-  - DOMAIN-SUFFIX,talkjs.com,no-resolve
-  - DOMAIN-SUFFIX,pendo.io,no-resolve
-  - DOMAIN-SUFFIX,pendo-static.s3.amazonaws.com,no-resolve
-  - DOMAIN,openaiapi-site.azureedge.net,no-resolve
-  - DOMAIN-SUFFIX,chatgpt.livekit.cloud,no-resolve
-  - DOMAIN,browser-intake-datadoghq.com,no-resolve
-  - DOMAIN,static.cloudflareinsights.com,no-resolve
-  - DOMAIN-SUFFIX,challenges.cloudflare.com,no-resolve
-  - DOMAIN-SUFFIX,rum.browser-intake-datadoghq.com,no-resolve
-  - DOMAIN-SUFFIX,sentry.io,no-resolve
   - DOMAIN-KEYWORD,openai,no-resolve     # 智能捕获未知 OpenAI 域
   - DOMAIN-KEYWORD,chatgpt,no-resolve    # 智能捕获未知 ChatGPT 域
 
