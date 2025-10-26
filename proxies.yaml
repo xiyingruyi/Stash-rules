@@ -36,7 +36,7 @@ proxies:
       Host: google.com
   name: 🇩🇪 DE 德国 3
 - type: vless
-  server: x.cf.090227.xyz
+  server: www.visa.com.tw
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -2842,9 +2842,9 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇨🇿 CZ 捷克 1
+  name: 🇬🇷 GR 希腊 1
 - type: vless
-  server: www.visa.com.tw
+  server: x.cf.090227.xyz
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -2854,4 +2854,4 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇦🇺 AU 澳大利亚 1
+  name: 🇭🇰 HK 香港 1
