@@ -21,6 +21,8 @@ payload:
   # === 小黑盒 App 主体及 API ===
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,heyboxbj.max-c.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,imgheybox.max-c.com,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,imgheybox1.max-c.com,DIRECT,no-resolve  
 
   # === Epic Games 商店主体 ===
   - DOMAIN-SUFFIX,epicgames.com,DIRECT,no-resolve
