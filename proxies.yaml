@@ -190,7 +190,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇮🇳 IN 印度 1
+  name: 🇷🇴 RO 罗马尼亚 1
 - type: vless
   server: www.visa.com.tw
   port: 443
@@ -202,7 +202,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇰🇭 KH 柬埔寨 1
+  name: 🇨🇭 CH 瑞士 1
 - type: vless
   server: x.cf.090227.xyz
   port: 443
@@ -214,7 +214,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇵🇰 PK 巴基斯坦 1
+  name: 🇶🇦 QA 卡塔尔 1
 - type: vless
   server: 111.118.118.177
   port: 12319
