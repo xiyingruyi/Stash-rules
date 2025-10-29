@@ -10,7 +10,7 @@ proxies:
     path: /Telegram@freecodes/
     headers:
       Host: vless.pengjiajin.sbs
-  name: 🇯🇵 JP 日本 1
+  name: 🇮🇳 IN 印度 1
 - type: vless
   server: 64.110.106.47
   port: 443
@@ -22,19 +22,91 @@ proxies:
     path: /Telegram@freecodes/
     headers:
       Host: vless.pengjiajin.sbs
-  name: 🇯🇵 JP 日本 2
+  name: 🇮🇳 IN 印度 2
 - type: vless
-  server: x.cf.090227.xyz
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
+  server: 104.19.50.238
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   network: ws
   tls: true
-  servername: asdasd.xmma.top
+  servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    path: /X@节点狂魔/?ed=2560
     headers:
-      Host: asdasd.xmma.top
-  name: 🇯🇵 JP 日本 3
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 3
+- type: vless
+  server: 104.19.50.238
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 4
+- type: vless
+  server: 104.19.50.238
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 5
+- type: vless
+  server: 104.19.50.238
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 6
+- type: vless
+  server: 104.19.50.238
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 7
+- type: vless
+  server: 111.118.118.177
+  port: 12566
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 8
+- type: vless
+  server: 111.118.118.177
+  port: 36167
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 9
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -46,7 +118,7 @@ proxies:
     path: /节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 4
+  name: 🇮🇳 IN 印度 10
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -58,19 +130,7 @@ proxies:
     path: /Telegram@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 5
-- type: vless
-  server: 113.37.149.36
-  port: 12553
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 6
+  name: 🇮🇳 IN 印度 11
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -82,7 +142,7 @@ proxies:
     path: /Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 7
+  name: 🇮🇳 IN 印度 12
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -94,7 +154,7 @@ proxies:
     path: /Telegram@freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 8
+  name: 🇮🇳 IN 印度 13
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -106,7 +166,7 @@ proxies:
     path: /Telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 9
+  name: 🇮🇳 IN 印度 14
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -118,7 +178,7 @@ proxies:
     path: /X@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 10
+  name: 🇮🇳 IN 印度 15
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -130,7 +190,7 @@ proxies:
     path: /X@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 11
+  name: 🇮🇳 IN 印度 16
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -142,7 +202,7 @@ proxies:
     path: /X@freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 12
+  name: 🇮🇳 IN 印度 17
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -154,7 +214,7 @@ proxies:
     path: /freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 13
+  name: 🇮🇳 IN 印度 18
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -166,19 +226,7 @@ proxies:
     path: Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 14
-- type: vless
-  server: 113.37.149.36
-  port: 12553
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 15
+  name: 🇮🇳 IN 印度 19
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -190,7 +238,7 @@ proxies:
     path: X@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 16
+  name: 🇮🇳 IN 印度 20
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -202,7 +250,7 @@ proxies:
     path: freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 17
+  name: 🇮🇳 IN 印度 21
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -214,7 +262,7 @@ proxies:
     path: telegram@节点狂魔/=ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 18
+  name: 🇮🇳 IN 印度 22
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -226,7 +274,7 @@ proxies:
     path: telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 19
+  name: 🇮🇳 IN 印度 23
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -238,7 +286,7 @@ proxies:
     path: telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 20
+  name: 🇮🇳 IN 印度 24
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -250,7 +298,7 @@ proxies:
     path: telegram🇨🇳@wangcai2/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 21
+  name: 🇮🇳 IN 印度 25
 - type: vless
   server: 113.37.149.36
   port: 12553
@@ -262,7 +310,127 @@ proxies:
     path: x@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 22
+  name: 🇮🇳 IN 印度 26
+- type: vless
+  server: 114.34.202.224
+  port: 10004
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 27
+- type: vless
+  server: 114.34.202.224
+  port: 10004
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 28
+- type: vless
+  server: 115.40.244.240
+  port: 11211
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 29
+- type: vless
+  server: 115.40.244.240
+  port: 18888
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 30
+- type: vless
+  server: 116.93.199.28
+  port: 12136
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 31
+- type: vless
+  server: 118.141.64.192
+  port: 36619
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/=ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 32
+- type: vless
+  server: 118.91.78.76
+  port: 50001
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 33
+- type: vless
+  server: 118.91.78.76
+  port: 50001
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 34
+- type: vless
+  server: 119.65.139.101
+  port: 60001
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 35
+- type: vless
+  server: 119.65.139.101
+  port: 60001
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 36
 - type: vless
   server: 121.85.55.59
   port: 19842
@@ -274,7 +442,19 @@ proxies:
     path: /telegram@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 23
+  name: 🇮🇳 IN 印度 37
+- type: vless
+  server: 123.143.9.5
+  port: 14041
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 38
 - type: vless
   server: 139.162.106.22
   port: 443
@@ -286,7 +466,163 @@ proxies:
     path: /Telegram@freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 24
+  name: 🇮🇳 IN 印度 39
+- type: vless
+  server: 14.36.155.120
+  port: 21286
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 40
+- type: vless
+  server: 14.36.155.120
+  port: 21286
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 41
+- type: vless
+  server: 14.36.155.120
+  port: 21286
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 42
+- type: vless
+  server: 14.36.155.120
+  port: 21286
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 43
+- type: vless
+  server: 14.36.155.120
+  port: 21286
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 44
+- type: vless
+  server: 141.11.148.60
+  port: 8080
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 45
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 46
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 47
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 48
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 49
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 50
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 51
+- type: vless
+  server: 147.75.225.105
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 52
 - type: vless
   server: 153.121.45.101
   port: 443
@@ -298,7 +634,7 @@ proxies:
     path: /节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 25
+  name: 🇮🇳 IN 印度 53
 - type: vless
   server: 153.121.45.101
   port: 443
@@ -310,7 +646,7 @@ proxies:
     path: /节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 26
+  name: 🇮🇳 IN 印度 54
 - type: vless
   server: 153.121.45.101
   port: 443
@@ -322,7 +658,7 @@ proxies:
     path: /Telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 27
+  name: 🇮🇳 IN 印度 55
 - type: vless
   server: 153.121.45.101
   port: 443
@@ -334,7 +670,7 @@ proxies:
     path: /X@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 28
+  name: 🇮🇳 IN 印度 56
 - type: vless
   server: 153.121.45.101
   port: 443
@@ -346,7 +682,7 @@ proxies:
     path: /freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 29
+  name: 🇮🇳 IN 印度 57
 - type: vless
   server: 153.121.45.101
   port: 443
@@ -358,7 +694,7 @@ proxies:
     path: /x@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 30
+  name: 🇮🇳 IN 印度 58
 - type: vless
   server: 158.101.80.84
   port: 443
@@ -370,7 +706,7 @@ proxies:
     path: /telegram🇨🇳@wangcai2/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 31
+  name: 🇮🇳 IN 印度 59
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -382,7 +718,7 @@ proxies:
     path: /节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 32
+  name: 🇮🇳 IN 印度 60
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -394,7 +730,7 @@ proxies:
     path: /节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 33
+  name: 🇮🇳 IN 印度 61
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -406,7 +742,7 @@ proxies:
     path: /Telegram@freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 34
+  name: 🇮🇳 IN 印度 62
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -418,7 +754,7 @@ proxies:
     path: /Telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 35
+  name: 🇮🇳 IN 印度 63
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -430,7 +766,7 @@ proxies:
     path: /X@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 36
+  name: 🇮🇳 IN 印度 64
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -442,7 +778,7 @@ proxies:
     path: /X@freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 37
+  name: 🇮🇳 IN 印度 65
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -454,7 +790,7 @@ proxies:
     path: /freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 38
+  name: 🇮🇳 IN 印度 66
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -466,7 +802,7 @@ proxies:
     path: /freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 39
+  name: 🇮🇳 IN 印度 67
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -478,7 +814,7 @@ proxies:
     path: /x@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 40
+  name: 🇮🇳 IN 印度 68
 - type: vless
   server: 160.16.203.210
   port: 443
@@ -490,7 +826,19 @@ proxies:
     path: /x@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 41
+  name: 🇮🇳 IN 印度 69
+- type: vless
+  server: 167.179.27.92
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 70
 - type: vless
   server: 172.105.209.25
   port: 443
@@ -502,7 +850,7 @@ proxies:
     path: /Telegram@freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 42
+  name: 🇮🇳 IN 印度 71
 - type: vless
   server: 172.237.11.207
   port: 8443
@@ -514,7 +862,7 @@ proxies:
     path: /freecodes/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 43
+  name: 🇮🇳 IN 印度 72
 - type: vless
   server: 172.237.11.207
   port: 8443
@@ -526,7 +874,31 @@ proxies:
     path: Telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 44
+  name: 🇮🇳 IN 印度 73
+- type: vless
+  server: 175.211.35.161
+  port: 50003
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 74
+- type: vless
+  server: 183.101.243.99
+  port: 12576
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 75
 - type: vless
   server: 202.84.53.85
   port: 19999
@@ -538,7 +910,7 @@ proxies:
     path: /Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 45
+  name: 🇮🇳 IN 印度 76
 - type: vless
   server: 202.84.53.85
   port: 19999
@@ -550,7 +922,7 @@ proxies:
     path: /telegram@节点狂魔/=ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 46
+  name: 🇮🇳 IN 印度 77
 - type: vless
   server: 202.84.53.85
   port: 19999
@@ -562,7 +934,7 @@ proxies:
     path: Telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 47
+  name: 🇮🇳 IN 印度 78
 - type: vless
   server: 202.84.53.85
   port: 19999
@@ -574,7 +946,1051 @@ proxies:
     path: x@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 48
+  name: 🇮🇳 IN 印度 79
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 80
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 81
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 82
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 83
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 84
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 85
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 86
+- type: vless
+  server: 202.85.53.74
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 87
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 88
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 89
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 90
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 91
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 92
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 93
+- type: vless
+  server: 210.6.207.42
+  port: 18622
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 94
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 95
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 96
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 97
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 98
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: X@节点狂魔/=ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 99
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: freecodes/>ds=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 100
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 101
+- type: vless
+  server: 210.61.97.241
+  port: 81
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 102
+- type: vless
+  server: 211.197.161.123
+  port: 10041
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 103
+- type: vless
+  server: 211.197.161.123
+  port: 10041
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 104
+- type: vless
+  server: 211.219.241.28
+  port: 31337
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 105
+- type: vless
+  server: 211.219.241.28
+  port: 31337
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 106
+- type: vless
+  server: 211.219.241.28
+  port: 31337
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 107
+- type: vless
+  server: 211.229.77.184
+  port: 27443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 108
+- type: vless
+  server: 211.48.77.114
+  port: 12312
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 109
+- type: vless
+  server: 211.48.77.114
+  port: 12312
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 110
+- type: vless
+  server: 211.48.77.114
+  port: 12312
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 111
+- type: vless
+  server: 211.48.77.114
+  port: 12312
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 112
+- type: vless
+  server: 217.60.248.66
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 113
+- type: vless
+  server: 217.60.248.66
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 114
+- type: vless
+  server: 217.60.248.66
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 115
+- type: vless
+  server: 222.113.18.206
+  port: 10913
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 116
+- type: vless
+  server: 222.113.18.207
+  port: 10090
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 117
+- type: vless
+  server: 222.113.18.207
+  port: 10090
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 118
+- type: vless
+  server: 222.113.18.207
+  port: 10090
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 119
+- type: vless
+  server: 222.113.18.207
+  port: 16030
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 120
+- type: vless
+  server: 222.113.18.207
+  port: 32773
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 121
+- type: vless
+  server: 222.113.18.207
+  port: 32773
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 122
+- type: vless
+  server: 222.113.18.207
+  port: 32773
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 123
+- type: vless
+  server: 222.113.18.214
+  port: 10049
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 124
+- type: vless
+  server: 222.113.18.214
+  port: 12533
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 125
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 126
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 127
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 128
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 129
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 130
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 131
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram@节点狂魔/=ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 132
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 133
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 134
+- type: vless
+  server: 31.192.238.71
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 135
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 136
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 137
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 138
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 139
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 140
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 141
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 142
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@节点狂魔/=ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 143
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 144
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 145
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 146
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: X@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 147
+- type: vless
+  server: 36.50.90.241
+  port: 35951
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 148
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 149
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 150
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /X@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 151
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 152
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 153
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 154
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 155
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 156
+- type: vless
+  server: 36.50.90.241
+  port: 47790
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 157
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 158
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 159
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 160
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 161
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 162
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 163
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: 节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 164
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 165
+- type: vless
+  server: 47.76.218.163
+  port: 443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 166
 - type: vless
   server: 47.79.90.37
   port: 49153
@@ -586,7 +2002,7 @@ proxies:
     path: /X@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 49
+  name: 🇮🇳 IN 印度 167
 - type: vless
   server: 47.79.90.37
   port: 49153
@@ -598,7 +2014,7 @@ proxies:
     path: /telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 50
+  name: 🇮🇳 IN 印度 168
 - type: vless
   server: 47.79.90.37
   port: 49153
@@ -610,7 +2026,7 @@ proxies:
     path: /telegram@wangcai2/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 51
+  name: 🇮🇳 IN 印度 169
 - type: vless
   server: 47.79.91.168
   port: 443
@@ -622,7 +2038,7 @@ proxies:
     path: /X@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 52
+  name: 🇮🇳 IN 印度 170
 - type: vless
   server: 47.79.91.168
   port: 443
@@ -634,7 +2050,7 @@ proxies:
     path: 节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 53
+  name: 🇮🇳 IN 印度 171
 - type: vless
   server: 47.79.91.168
   port: 443
@@ -646,7 +2062,7 @@ proxies:
     path: Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 54
+  name: 🇮🇳 IN 印度 172
 - type: vless
   server: 47.79.91.168
   port: 443
@@ -658,7 +2074,379 @@ proxies:
     path: telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇯🇵 JP 日本 55
+  name: 🇮🇳 IN 印度 173
+- type: vless
+  server: 5.42.220.253
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 174
+- type: vless
+  server: 5.42.220.253
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 175
+- type: vless
+  server: 5.42.220.253
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 176
+- type: vless
+  server: 5.42.220.253
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 177
+- type: vless
+  server: 5.42.220.253
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 178
+- type: vless
+  server: 5.42.220.253
+  port: 8443
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 179
+- type: vless
+  server: 61.83.202.17
+  port: 10042
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 180
+- type: vless
+  server: 61.85.1.77
+  port: 12247
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 181
+- type: vless
+  server: 61.85.1.77
+  port: 12247
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 182
+- type: vless
+  server: 61.85.1.77
+  port: 12389
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 183
+- type: vless
+  server: 61.85.1.77
+  port: 17001
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram@节点狂魔/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 184
+- type: vless
+  server: wangcai12.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 185
+- type: vless
+  server: wangcai12.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 186
+- type: vless
+  server: wangcai24.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 187
+- type: vless
+  server: wangcai241.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 188
+- type: vless
+  server: wangcai241.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 189
+- type: vless
+  server: wangcai242.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 190
+- type: vless
+  server: wangcai248.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 191
+- type: vless
+  server: wangcai248.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 192
+- type: vless
+  server: wangcai250.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 193
+- type: vless
+  server: wangcai250.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 194
+- type: vless
+  server: wangcai252.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 195
+- type: vless
+  server: wangcai252.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 196
+- type: vless
+  server: wangcai254.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram@freecodes/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 197
+- type: vless
+  server: wangcai254.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 198
+- type: vless
+  server: wangcai254.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 199
+- type: vless
+  server: wangcai255.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 200
+- type: vless
+  server: wangcai255.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 201
+- type: vless
+  server: wangcai7.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 202
+- type: vless
+  server: wangcai93.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 203
+- type: vless
+  server: wangcai93.cloudflare.182682.xyz
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /telegram🇨🇳@wangcai2/?ed=2560
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇮🇳 IN 印度 204
 - type: vless
   server: acxxrp.460110.xyz
   port: 443
@@ -694,79 +2482,7 @@ proxies:
     path: /http://37.187.124.25:8187/
     headers:
       Host: ayanamirei.11160321.xyz
-  name: 🇺🇸 US 美国 1
-- type: vless
-  server: 104.19.50.238
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇺🇸 US 美国 2
-- type: vless
-  server: 104.19.50.238
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇺🇸 US 美国 3
-- type: vless
-  server: 104.19.50.238
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇺🇸 US 美国 4
-- type: vless
-  server: 104.19.50.238
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇺🇸 US 美国 5
-- type: vless
-  server: 104.19.50.238
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇺🇸 US 美国 6
-- type: vless
-  server: 195.13.45.253
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇺🇸 US 美国 7
+  name: 🇩🇰 DK 丹麦 1
 - type: vless
   server: alhilal.com
   port: 443
@@ -778,7 +2494,7 @@ proxies:
     path: /ws
     headers:
       Host: rAyAn-cOnFiG-pl-1.pArSa.dPdNs.oRg
-  name: 🇮🇩 ID 印尼 1
+  name: 🇿🇦 ZA 南非 1
 - type: vless
   server: hj.xmm1993.top
   port: 443
@@ -790,7 +2506,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇶🇦 QA 卡塔尔 1
+  name: 🇵🇰 PK 巴基斯坦 1
 - type: vless
   server: icook.hk
   port: 443
@@ -802,91 +2518,79 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇨🇭 CH 瑞士 1
+  name: 🇷🇴 RO 罗马尼亚 1
 - type: vless
-  server: 111.118.118.177
-  port: 12566
+  server: x.cf.090227.xyz
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdasd.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: asdasd.xmma.top
+  name: 🇫🇮 FI 芬兰 1
+- type: vless
+  server: 113.37.149.36
+  port: 12553
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   network: ws
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: Telegram@freecodes/?ed=2560
+    path: /Telegram@节点狂魔/
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 1
+  name: 🇯🇵 JP 日本 1
 - type: vless
-  server: 111.118.118.177
-  port: 36167
+  server: 113.37.149.36
+  port: 12553
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   network: ws
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: Telegram@freecodes/?ed=2560
+    path: X@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 2
+  name: 🇯🇵 JP 日本 2
 - type: vless
-  server: 115.40.244.240
-  port: 11211
+  server: 114.34.202.224
+  port: 10004
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   network: ws
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
+    path: freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 3
+  name: 🇹🇼 TW 台湾 1
 - type: vless
-  server: 115.40.244.240
-  port: 18888
+  server: 210.61.97.241
+  port: 81
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   network: ws
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
+    path: telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 4
+  name: 🇹🇼 TW 台湾 2
 - type: vless
-  server: 116.93.199.28
-  port: 12136
+  server: 210.61.97.241
+  port: 81
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
   network: ws
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: x@节点狂魔/?ed=2560
+    path: telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 5
-- type: vless
-  server: 118.91.78.76
-  port: 50001
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 6
-- type: vless
-  server: 118.91.78.76
-  port: 50001
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 7
+  name: 🇹🇼 TW 台湾 3
 - type: vless
   server: 118.91.78.76
   port: 50001
@@ -898,187 +2602,7 @@ proxies:
     path: telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 8
-- type: vless
-  server: 119.65.139.101
-  port: 60001
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 9
-- type: vless
-  server: 119.65.139.101
-  port: 60001
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 10
-- type: vless
-  server: 123.143.9.5
-  port: 14041
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 11
-- type: vless
-  server: 14.36.155.120
-  port: 21286
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 12
-- type: vless
-  server: 14.36.155.120
-  port: 21286
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 13
-- type: vless
-  server: 14.36.155.120
-  port: 21286
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 14
-- type: vless
-  server: 14.36.155.120
-  port: 21286
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 15
-- type: vless
-  server: 14.36.155.120
-  port: 21286
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 16
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 17
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 18
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 19
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 20
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 21
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 22
-- type: vless
-  server: 147.75.225.105
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 23
+  name: 🇰🇷 KR 韩国 1
 - type: vless
   server: 175.208.202.41
   port: 20583
@@ -1090,151 +2614,7 @@ proxies:
     path: telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 24
-- type: vless
-  server: 175.211.35.161
-  port: 50003
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 25
-- type: vless
-  server: 183.101.243.99
-  port: 12576
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 26
-- type: vless
-  server: 211.197.161.123
-  port: 10041
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 27
-- type: vless
-  server: 211.197.161.123
-  port: 10041
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 28
-- type: vless
-  server: 211.219.241.28
-  port: 31337
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 29
-- type: vless
-  server: 211.219.241.28
-  port: 31337
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 30
-- type: vless
-  server: 211.219.241.28
-  port: 31337
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 31
-- type: vless
-  server: 211.229.77.184
-  port: 27443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 32
-- type: vless
-  server: 211.48.77.114
-  port: 12312
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 33
-- type: vless
-  server: 211.48.77.114
-  port: 12312
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 34
-- type: vless
-  server: 211.48.77.114
-  port: 12312
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 35
-- type: vless
-  server: 211.48.77.114
-  port: 12312
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 36
+  name: 🇰🇷 KR 韩国 2
 - type: vless
   server: 211.48.77.114
   port: 12312
@@ -1246,115 +2626,7 @@ proxies:
     path: Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 37
-- type: vless
-  server: 222.113.18.206
-  port: 10913
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 38
-- type: vless
-  server: 222.113.18.207
-  port: 10090
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 39
-- type: vless
-  server: 222.113.18.207
-  port: 10090
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 40
-- type: vless
-  server: 222.113.18.207
-  port: 10090
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 41
-- type: vless
-  server: 222.113.18.207
-  port: 16030
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 42
-- type: vless
-  server: 222.113.18.207
-  port: 32773
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 43
-- type: vless
-  server: 222.113.18.207
-  port: 32773
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 44
-- type: vless
-  server: 222.113.18.207
-  port: 32773
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 45
-- type: vless
-  server: 222.113.18.214
-  port: 10049
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 46
+  name: 🇰🇷 KR 韩国 3
 - type: vless
   server: 222.113.18.214
   port: 12533
@@ -1366,859 +2638,7 @@ proxies:
     path: /Telegram@节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 47
-- type: vless
-  server: 222.113.18.214
-  port: 12533
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 48
-- type: vless
-  server: 61.83.202.17
-  port: 10042
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 49
-- type: vless
-  server: 61.85.1.77
-  port: 12247
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 50
-- type: vless
-  server: 61.85.1.77
-  port: 12247
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 51
-- type: vless
-  server: 61.85.1.77
-  port: 12389
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 52
-- type: vless
-  server: 61.85.1.77
-  port: 17001
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇰🇷 KR 韩国 53
-- type: vless
-  server: 114.34.202.224
-  port: 10004
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 1
-- type: vless
-  server: 114.34.202.224
-  port: 10004
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 2
-- type: vless
-  server: 114.34.202.224
-  port: 10004
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 3
-- type: vless
-  server: 167.179.27.92
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 4
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 5
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 6
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 7
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 8
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: X@节点狂魔/=ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 9
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: freecodes/>ds=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 10
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 11
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 12
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 13
-- type: vless
-  server: 210.61.97.241
-  port: 81
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇹🇼 TW 台湾 14
-- type: vless
-  server: 118.141.64.192
-  port: 36619
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/=ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 1
-- type: vless
-  server: 141.11.148.60
-  port: 8080
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 2
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 3
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 4
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 5
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 6
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 7
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 8
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 9
-- type: vless
-  server: 202.85.53.74
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 10
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 11
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 12
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 13
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 14
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 15
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 16
-- type: vless
-  server: 210.6.207.42
-  port: 18622
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 17
-- type: vless
-  server: 217.60.248.66
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 18
-- type: vless
-  server: 217.60.248.66
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 19
-- type: vless
-  server: 217.60.248.66
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 20
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 21
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 22
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 23
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 24
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 25
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 26
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 27
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram@节点狂魔/=ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 28
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 29
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 30
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 31
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: X@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 32
-- type: vless
-  server: 36.50.90.241
-  port: 35951
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 33
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 34
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 35
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /X@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 36
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 37
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 38
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 39
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 40
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 41
-- type: vless
-  server: 36.50.90.241
-  port: 47790
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 42
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 43
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 44
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 45
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 46
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 47
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 48
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: 节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 49
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 50
-- type: vless
-  server: 47.76.218.163
-  port: 443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇭🇰 HK 香港 51
+  name: 🇰🇷 KR 韩国 4
 - type: vless
   server: 188.42.145.253
   port: 2096
@@ -2232,6 +2652,18 @@ proxies:
       Host: gaosir.unfeeling.sbs
   name: 🇳🇱 NL 荷兰 1
 - type: vless
+  server: 195.13.45.253
+  port: 2096
+  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
+  network: ws
+  tls: true
+  servername: gaosir.unfeeling.sbs
+  ws-opts:
+    path: /x@节点狂魔/
+    headers:
+      Host: gaosir.unfeeling.sbs
+  name: 🇺🇸 US 美国 1
+- type: vless
   server: 31.192.238.71
   port: 8443
   uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
@@ -2239,7 +2671,7 @@ proxies:
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: /Telegram@节点狂魔/?ed=2560
+    path: /Telegram@freecodes/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
   name: 🇸🇬 SG 新加坡 1
@@ -2251,439 +2683,7 @@ proxies:
   tls: true
   servername: gaosir.unfeeling.sbs
   ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 2
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 3
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 4
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 5
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
     path: 节点狂魔/?ed=2560
     headers:
       Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 6
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 7
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 8
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@节点狂魔/=ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 9
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram@节点狂魔/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 10
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 11
-- type: vless
-  server: 31.192.238.71
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇸🇬 SG 新加坡 12
-- type: vless
-  server: 5.42.220.253
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇷🇺 RU 俄罗斯 1
-- type: vless
-  server: 5.42.220.253
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇷🇺 RU 俄罗斯 2
-- type: vless
-  server: 5.42.220.253
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇷🇺 RU 俄罗斯 3
-- type: vless
-  server: 5.42.220.253
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /x@节点狂魔/
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇷🇺 RU 俄罗斯 4
-- type: vless
-  server: 5.42.220.253
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇷🇺 RU 俄罗斯 5
-- type: vless
-  server: 5.42.220.253
-  port: 8443
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇷🇺 RU 俄罗斯 6
-- type: vless
-  server: wangcai12.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 1
-- type: vless
-  server: wangcai12.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 2
-- type: vless
-  server: wangcai24.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 3
-- type: vless
-  server: wangcai241.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 4
-- type: vless
-  server: wangcai241.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 5
-- type: vless
-  server: wangcai242.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 6
-- type: vless
-  server: wangcai248.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 7
-- type: vless
-  server: wangcai248.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 8
-- type: vless
-  server: wangcai250.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 9
-- type: vless
-  server: wangcai250.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 10
-- type: vless
-  server: wangcai252.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 11
-- type: vless
-  server: wangcai252.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 12
-- type: vless
-  server: wangcai254.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram@freecodes/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 13
-- type: vless
-  server: wangcai254.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 14
-- type: vless
-  server: wangcai254.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 15
-- type: vless
-  server: wangcai255.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 16
-- type: vless
-  server: wangcai255.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 17
-- type: vless
-  server: wangcai7.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 18
-- type: vless
-  server: wangcai93.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 19
-- type: vless
-  server: wangcai93.cloudflare.182682.xyz
-  port: 2096
-  uuid: f61a4285-7264-4d07-9408-7b9ba1922c26
-  network: ws
-  tls: true
-  servername: gaosir.unfeeling.sbs
-  ws-opts:
-    path: /telegram🇨🇳@wangcai2/?ed=2560
-    headers:
-      Host: gaosir.unfeeling.sbs
-  name: 🇮🇳 IN 印度 20
+  name: 🇸🇬 SG 新加坡 2
