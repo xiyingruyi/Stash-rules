@@ -98,18 +98,6 @@ proxies:
       Host: om1.omidsuccess.uk
   name: 🇺🇸 US 美国 4
 - type: vless
-  server: hj.xmm1993.top
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdasd.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: asdasd.xmma.top
-  name: 🇺🇸 US 美国 5
-- type: vless
   server: wolf565.royalmt.life
   port: 24467
   uuid: 14ba01de-0de4-48b4-9327-d6a2f7797764
@@ -119,7 +107,7 @@ proxies:
     path: /
     headers:
       Host: wolf565.royalmt.life
-  name: 🇻🇳 VN 越南 1
+  name: 🇮🇹 IT 意大利 1
 - type: vless
   server: cnamefuckxxs.yuchen.icu
   port: 443
@@ -131,7 +119,18 @@ proxies:
     path: /
     headers:
       Host: 1.3.3.a.0.4.2.0.0.0.7.4.0.1.0.0.2.ip6.arpa
-  name: 🇸🇮 SI 斯洛文尼亚 1
+  name: 🇹🇭 TH 泰国 1
+- type: vless
+  server: cnamefuckxxs.yuchen.icu
+  port: 80
+  uuid: 35eadbea-7ee0-41f4-99d1-26f9f9d309bd
+  network: ws
+  tls: false
+  ws-opts:
+    path: /
+    headers:
+      Host: cnamefuckxxs.yuchen.icu
+  name: 🇩🇰 DK 丹麦 1
 - type: vless
   server: freeyx.cloudflare88.eu.org
   port: 443
@@ -143,7 +142,7 @@ proxies:
     path: /
     headers:
       Host: 1.3.3.a.0.4.2.0.0.0.7.4.0.1.0.0.2.ip6.arpa
-  name: 🇵🇹 PT 葡萄牙 1
+  name: 🇸🇦 SA 沙特 1
 - type: vless
   server: wwwopensignalcom-goodspeed-8xx.pages.dev.
   port: 443
@@ -155,7 +154,7 @@ proxies:
     path: //
     headers:
       Host: WwW.OPENSIgnaL.cOm.NaynaY09.dynv6.nET
-  name: 🇨🇿 CZ 捷克 1
+  name: 🇫🇮 FI 芬兰 1
 - type: vless
   server: 89.221.224.149
   port: 8880
@@ -429,6 +428,18 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 16
 - type: vless
+  server: hj.xmm1993.top
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdasd.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: asdasd.xmma.top
+  name: 🇵🇹 PT 葡萄牙 1
+- type: vless
   server: icook.hk
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
@@ -439,7 +450,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇪🇸 ES 西班牙 1
+  name: 🇯🇵 JP 日本 1
 - type: vless
   server: x.cf.090227.xyz
   port: 443
@@ -451,4 +462,4 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇮🇹 IT 意大利 1
+  name: 🇭🇰 HK 香港 1
