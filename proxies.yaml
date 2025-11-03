@@ -107,7 +107,7 @@ proxies:
     path: /
     headers:
       Host: wolf565.royalmt.life
-  name: 🇮🇹 IT 意大利 1
+  name: 🇳🇴 NO 挪威 1
 - type: vless
   server: cnamefuckxxs.yuchen.icu
   port: 443
@@ -119,7 +119,7 @@ proxies:
     path: /
     headers:
       Host: 1.3.3.a.0.4.2.0.0.0.7.4.0.1.0.0.2.ip6.arpa
-  name: 🇹🇭 TH 泰国 1
+  name: 🇻🇳 VN 越南 1
 - type: vless
   server: cnamefuckxxs.yuchen.icu
   port: 80
@@ -130,7 +130,7 @@ proxies:
     path: /
     headers:
       Host: cnamefuckxxs.yuchen.icu
-  name: 🇩🇰 DK 丹麦 1
+  name: 🇮🇹 IT 意大利 1
 - type: vless
   server: freeyx.cloudflare88.eu.org
   port: 443
@@ -142,7 +142,7 @@ proxies:
     path: /
     headers:
       Host: 1.3.3.a.0.4.2.0.0.0.7.4.0.1.0.0.2.ip6.arpa
-  name: 🇸🇦 SA 沙特 1
+  name: 🇦🇷 AR 阿根廷 1
 - type: vless
   server: wwwopensignalcom-goodspeed-8xx.pages.dev.
   port: 443
@@ -438,7 +438,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇵🇹 PT 葡萄牙 1
+  name: 🇧🇪 BE 比利时 1
 - type: vless
   server: icook.hk
   port: 443
@@ -450,7 +450,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇯🇵 JP 日本 1
+  name: 🇹🇼 TW 台湾 1
 - type: vless
   server: x.cf.090227.xyz
   port: 443
@@ -462,4 +462,4 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇭🇰 HK 香港 1
+  name: 🇵🇭 PH 菲律宾 1
