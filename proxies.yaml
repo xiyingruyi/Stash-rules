@@ -6,18 +6,6 @@ proxies:
   sni: dingding-doc.com
   network: tcp
   name: 🇮🇳 IN 印度 1
-- type: vless
-  server: x.cf.090227.xyz
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdasd.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: asdasd.xmma.top
-  name: 🇮🇳 IN 印度 2
 - type: trojan
   server: 58.152.53.42
   port: 443
@@ -284,7 +272,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 9
 - type: vless
-  server: 86.104.74.62
+  server: 86.104.74.76
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -300,7 +288,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 11
 - type: vless
-  server: 86.104.74.76
+  server: 95.164.45.119
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -316,7 +304,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 13
 - type: vless
-  server: 95.164.45.119
+  server: 95.164.45.27
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -332,7 +320,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 15
 - type: vless
-  server: 95.164.45.27
+  server: 95.164.45.62
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -348,7 +336,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 17
 - type: vless
-  server: 95.164.45.62
+  server: 95.164.6.183
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -364,7 +352,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 19
 - type: vless
-  server: 95.164.6.183
+  server: 95.164.6.211
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -380,7 +368,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 21
 - type: vless
-  server: 95.164.6.211
+  server: 95.164.6.22
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -396,7 +384,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 23
 - type: vless
-  server: 95.164.6.22
+  server: 95.164.6.244
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -412,7 +400,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 25
 - type: vless
-  server: 95.164.6.244
+  server: 95.164.6.7
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -428,7 +416,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 27
 - type: vless
-  server: 95.164.6.7
+  server: 95.164.6.82
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -444,7 +432,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 29
 - type: vless
-  server: 95.164.6.82
+  server: 95.164.6.97
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -459,14 +447,6 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇫🇷 FR 法国 31
-- type: vless
-  server: 95.164.6.97
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇫🇷 FR 法国 32
 - type: vless
   server: 45.12.150.134
   port: 8880
@@ -490,7 +470,15 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇮🇪 IE 爱尔兰 1
+  name: 🇫🇮 FI 芬兰 1
+- type: vless
+  server: 638971077544307182.oslo-blkaft-aaav.info
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇷🇴 RO 罗马尼亚 1
 - type: vless
   server: 89.221.224.149
   port: 8880
@@ -726,7 +714,7 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇨🇦 CA 加拿大 1
+  name: 🇶🇦 QA 卡塔尔 1
 - type: vless
   server: icook.hk
   port: 443
@@ -738,4 +726,16 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇸🇰 SK 斯洛伐克 1
+  name: 🇪🇬 EG 埃及 1
+- type: vless
+  server: x.cf.090227.xyz
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdasd.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: asdasd.xmma.top
+  name: 🇿🇦 ZA 南非 1
