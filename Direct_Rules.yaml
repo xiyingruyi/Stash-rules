@@ -17,6 +17,7 @@ payload:
   - DOMAIN-SUFFIX,cnb.cdn-go.cn,DIRECT,no-resolve
   - DOMAIN-SUFFIX,developer.apple.com,DIRECT,no-resolve
   - DOMAIN-SUFFIX,appstorrent.ru,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,piqsels.com,DIRECT,no-resolve
 
   # === 小黑盒 App 主体及 API ===
   - DOMAIN-SUFFIX,xiaoheihe.cn,DIRECT,no-resolve
