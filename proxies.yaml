@@ -472,7 +472,7 @@ proxies:
   grpc-opts: {}
   name: 🇪🇸 ES 西班牙 2
 - type: vless
-  server: hj.xmm1993.top
+  server: x.cf.090227.xyz
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -490,7 +490,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇵🇰 PK 巴基斯坦 1
+  name: 🇪🇬 EG 埃及 1
 - type: vless
   server: 638971077544307182.oslo-blkaft-aaav.info
   port: 8880
@@ -498,7 +498,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇸🇪 SE 瑞典 1
+  name: 🇵🇹 PT 葡萄牙 1
 - type: vless
   server: 89.221.224.149
   port: 8880
@@ -724,6 +724,18 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 28
 - type: vless
+  server: hj.xmm1993.top
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdasd.xmma.top
+  ws-opts:
+    path: /proxyip=proxyip.fxxk.dedyn.io:443
+    headers:
+      Host: asdasd.xmma.top
+  name: 🇯🇵 JP 日本 1
+- type: vless
   server: icook.hk
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
@@ -734,16 +746,4 @@ proxies:
     path: /proxyip=proxyip.fxxk.dedyn.io:443
     headers:
       Host: asdasd.xmma.top
-  name: 🇭🇷 HR 克罗地亚 1
-- type: vless
-  server: x.cf.090227.xyz
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdasd.xmma.top
-  ws-opts:
-    path: /proxyip=proxyip.fxxk.dedyn.io:443
-    headers:
-      Host: asdasd.xmma.top
-  name: 🇻🇳 VN 越南 1
+  name: 🇳🇿 NZ 新西兰 1
