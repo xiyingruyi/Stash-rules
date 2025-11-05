@@ -13,196 +13,20 @@ proxies:
   sni: www.nintendogames.net
   network: tcp
   name: 🇭🇰 HK 香港 1
-- type: trojan
-  server: 104.18.34.247
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
+- type: vless
+  server: 216.133.148.215
+  port: 36987
+  uuid: 0f4f3a75-ae36-4992-8cb5-6638f45afcb2
+  network: tcp
+  tls: false
   name: 🇺🇸 US 美国 1
-- type: trojan
-  server: 104.18.39.122
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
+- type: vless
+  server: 216.133.148.215
+  port: 36987
+  uuid: 0f4f3a75-ae36-4992-8cb5-6638f45afcb2
+  network: tcp
+  tls: false
   name: 🇺🇸 US 美国 2
-- type: trojan
-  server: 104.19.43.220
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 3
-- type: trojan
-  server: 104.19.46.222
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 4
-- type: trojan
-  server: 104.19.55.58
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 5
-- type: trojan
-  server: 104.19.57.239
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 6
-- type: trojan
-  server: 104.26.2.10
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 7
-- type: trojan
-  server: 108.162.198.41
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 8
-- type: trojan
-  server: 108.162.198.82
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 9
-- type: trojan
-  server: 162.159.44.147
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 10
-- type: trojan
-  server: 172.64.228.121
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 11
-- type: trojan
-  server: 172.64.229.148
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 12
-- type: trojan
-  server: 198.41.223.160
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 13
-- type: trojan
-  server: 198.41.223.241
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 14
-- type: trojan
-  server: 8.35.210.207
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 15
-- type: trojan
-  server: 8.35.211.27
-  port: 443
-  password: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
-  sni: v20.x9527x.xyz
-  network: ws
-  ws-opts:
-    path: /proxyip=ProxyIP.JP.CMLiussss.net:443
-    headers:
-      Host: v20.x9527x.xyz
-  name: 🇺🇸 US 美国 16
-- type: vless
-  server: 216.133.148.215
-  port: 36987
-  uuid: 0f4f3a75-ae36-4992-8cb5-6638f45afcb2
-  network: tcp
-  tls: false
-  name: 🇺🇸 US 美国 17
-- type: vless
-  server: 216.133.148.215
-  port: 36987
-  uuid: 0f4f3a75-ae36-4992-8cb5-6638f45afcb2
-  network: tcp
-  tls: false
-  name: 🇺🇸 US 美国 18
 - type: vless
   server: 104.18.26.90
   port: 2053
@@ -214,7 +38,7 @@ proxies:
     path: /containers/de
     headers:
       Host: om3.omidsuccess.uk
-  name: 🇺🇸 US 美国 19
+  name: 🇺🇸 US 美国 3
 - type: vless
   server: us6.candyfans.win
   port: 443
@@ -226,7 +50,7 @@ proxies:
     path: /nmzuws
     headers:
       Host: us6.candyfans.win
-  name: 🇺🇸 US 美国 20
+  name: 🇺🇸 US 美国 4
 - type: vless
   server: us8.candyfans.win
   port: 443
@@ -238,7 +62,7 @@ proxies:
     path: /zonnws
     headers:
       Host: us8.candyfans.win
-  name: 🇺🇸 US 美国 21
+  name: 🇺🇸 US 美国 5
 - type: vless
   server: 199.34.230.114
   port: 2053
@@ -250,7 +74,7 @@ proxies:
     path: /containers/de
     headers:
       Host: om1.omidsuccess.uk
-  name: 🇺🇸 US 美国 22
+  name: 🇺🇸 US 美国 6
 - type: vless
   server: 199.34.230.114
   port: 2053
@@ -262,7 +86,7 @@ proxies:
     path: /containers/de
     headers:
       Host: om1.omidsuccess.uk
-  name: 🇺🇸 US 美国 23
+  name: 🇺🇸 US 美国 7
 - type: vless
   server: 103.35.189.45
   port: 8880
@@ -270,7 +94,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇺🇸 US 美国 24
+  name: 🇺🇸 US 美国 8
 - type: vless
   server: 103.35.189.91
   port: 8880
@@ -278,7 +102,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇺🇸 US 美国 25
+  name: 🇺🇸 US 美国 9
 - type: vless
   server: 103.35.189.91
   port: 8880
@@ -286,7 +110,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇺🇸 US 美国 26
+  name: 🇺🇸 US 美国 10
 - type: vless
   server: 103.214.23.121
   port: 443
@@ -335,6 +159,17 @@ proxies:
     headers:
       Host: gaosir.unfeeling.sbs
   name: 🇸🇬 SG 新加坡 4
+- type: vless
+  port: 443
+  uuid: c5f5f5c1-468a-4e9e-71dc-6c8684e70120
+  network: ws
+  tls: true
+  servername: v20.x9527x.xyz
+  ws-opts:
+    path: /proxyip=all.ai9527.top:443
+    headers:
+      Host: v20.x9527x.xyz
+  name: 🇨🇭 CH 瑞士 1
 - type: vless
   server: 185.138.164.186
   port: 8880
@@ -592,7 +427,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 27
 - type: vless
-  server: 95.164.6.82
+  server: 95.164.6.7
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -608,7 +443,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 29
 - type: vless
-  server: 95.164.6.97
+  server: 95.164.6.82
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -623,6 +458,14 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇫🇷 FR 法国 31
+- type: vless
+  server: 95.164.6.97
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇫🇷 FR 法国 32
 - type: vless
   server: 45.12.150.134
   port: 8880
@@ -646,7 +489,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇯🇵 JP 日本 1
+  name: 🇵🇱 PL 波兰 1
 - type: vless
   server: 638971077544307182.oslo-blkaft-aaav.info
   port: 8880
@@ -654,7 +497,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇰🇭 KH 柬埔寨 1
+  name: 🇵🇱 PL 波兰 2
 - type: vless
   server: 89.221.224.149
   port: 8880
