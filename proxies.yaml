@@ -49,7 +49,7 @@ proxies:
   grpc-opts: {}
   name: 🇬🇧 GB 英国 1
 - type: vless
-  server: 185.138.164.186
+  server: 185.138.164.67
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -64,14 +64,6 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇬🇧 GB 英国 3
-- type: vless
-  server: 185.138.164.67
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇬🇧 GB 英国 4
 - type: vless
   server: 185.231.205.219
   port: 8880
@@ -319,7 +311,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇪🇸 ES 西班牙 1
+  name: 🇯🇵 JP 日本 1
 - type: vless
   server: 89.221.224.149
   port: 8880
@@ -393,7 +385,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 9
 - type: vless
-  server: 89.221.224.211
+  server: 89.221.224.213
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -409,7 +401,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 11
 - type: vless
-  server: 89.221.224.213
+  server: 89.221.224.214
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -417,7 +409,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 12
 - type: vless
-  server: 89.221.224.214
+  server: 89.221.224.215
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -433,7 +425,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 14
 - type: vless
-  server: 89.221.224.215
+  server: 89.221.224.219
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -449,7 +441,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 16
 - type: vless
-  server: 89.221.224.219
+  server: 89.221.224.220
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -465,7 +457,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 18
 - type: vless
-  server: 89.221.224.220
+  server: 89.221.224.225
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -481,7 +473,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 20
 - type: vless
-  server: 89.221.224.225
+  server: 89.221.224.228
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -497,7 +489,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 22
 - type: vless
-  server: 89.221.224.228
+  server: 89.221.224.232
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -512,11 +504,3 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 24
-- type: vless
-  server: 89.221.224.232
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇮🇸 IS 冰岛 25
