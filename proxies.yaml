@@ -49,7 +49,7 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: 3h-kAzakhStan1.09vPn.cOm.
-  name: 🇯🇵 JP 日本 1
+  name: 🇧🇪 BE 比利时 1
 - type: vless
   server: 81.91.179.17
   port: 8880
@@ -351,9 +351,17 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇫🇷 FR 法国 1
+  name: 🇦🇷 AR 阿根廷 1
 - type: vless
   server: 95.164.45.119
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇫🇷 FR 法国 1
+- type: vless
+  server: 95.164.45.27
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -369,7 +377,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 3
 - type: vless
-  server: 95.164.45.27
+  server: 95.164.45.62
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -385,7 +393,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 5
 - type: vless
-  server: 95.164.45.62
+  server: 95.164.6.244
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -401,7 +409,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 7
 - type: vless
-  server: 95.164.6.244
+  server: 95.164.6.7
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -417,7 +425,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 9
 - type: vless
-  server: 95.164.6.7
+  server: 95.164.6.82
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -433,7 +441,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 11
 - type: vless
-  server: 95.164.6.82
+  server: 95.164.6.97
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -448,11 +456,3 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇫🇷 FR 法国 13
-- type: vless
-  server: 95.164.6.97
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇫🇷 FR 法国 14
