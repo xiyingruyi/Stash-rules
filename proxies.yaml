@@ -49,7 +49,7 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: 3h-kAzakhStan1.09vPn.cOm.
-  name: 🇮🇹 IT 意大利 1
+  name: 🇰🇷 KR 韩国 1
 - type: vless
   server: 81.91.179.17
   port: 8880
@@ -456,3 +456,14 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇫🇷 FR 法国 14
+- type: vless
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: xxx.x9527x.top
+  ws-opts:
+    path: /proxyip=ProxyIP.KR.CMLiussss.net:443?ed=2560
+    headers:
+      Host: xxx.x9527x.top
+  name: 🇸🇬 SG 新加坡 1
