@@ -49,7 +49,7 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: 3h-kAzakhStan1.09vPn.cOm.
-  name: 🇻🇳 VN 越南 1
+  name: 🇪🇸 ES 西班牙 1
 - type: vless
   server: 81.91.179.17
   port: 8880
@@ -80,6 +80,14 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇺🇸 US 美国 1
+- type: vless
+  server: 103.35.189.107
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇺🇸 US 美国 2
 - type: vless
   server: 185.138.164.186
   port: 8880
