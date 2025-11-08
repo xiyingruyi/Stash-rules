@@ -14,6 +14,18 @@ proxies:
   network: tcp
   name: 🇮🇳 IN 印度 2
 - type: vless
+  server: ip.sb
+  port: 8443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdoh.askjdh.xmmsyy.asia
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: asdoh.askjdh.xmmsyy.asia
+  name: 🇮🇳 IN 印度 3
+- type: vless
   server: whatismyipaddress.com
   port: 80
   uuid: 18ff277a-3b9a-46a0-842e-290f2b0661d2
@@ -49,7 +61,19 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: 3h-kAzakhStan1.09vPn.cOm.
-  name: 🇫🇮 FI 芬兰 1
+  name: 🇹🇷 TR 土耳其 1
+- type: vless
+  server: download.yunzhongzhuan.com
+  port: 2087
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdoh.askjdh.xmmsyy.asia
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: asdoh.askjdh.xmmsyy.asia
+  name: 🇹🇷 TR 土耳其 2
 - type: vless
   server: 81.91.179.17
   port: 8880
@@ -89,7 +113,7 @@ proxies:
   grpc-opts: {}
   name: 🇺🇸 US 美国 2
 - type: vless
-  server: 104.16.46.103
+  server: 104.16.13.122
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -101,7 +125,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 3
 - type: vless
-  server: 104.16.62.115
+  server: 104.16.239.197
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -113,7 +137,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 4
 - type: vless
-  server: 104.17.173.158
+  server: 104.17.29.234
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -125,7 +149,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 5
 - type: vless
-  server: 104.17.238.150
+  server: 104.18.239.57
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -137,7 +161,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 6
 - type: vless
-  server: 104.17.31.226
+  server: 104.18.77.104
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -149,7 +173,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 7
 - type: vless
-  server: 104.17.47.64
+  server: 104.19.158.111
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -161,7 +185,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 8
 - type: vless
-  server: 104.17.94.47
+  server: 104.19.173.48
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -173,8 +197,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 9
 - type: vless
-  server: 162.159.1.35
-  port: 2087
+  server: 104.19.173.67
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -185,8 +209,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 10
 - type: vless
-  server: 162.159.18.252
-  port: 2087
+  server: 104.19.175.212
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -197,8 +221,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 11
 - type: vless
-  server: 162.159.43.65
-  port: 2087
+  server: 104.21.237.64
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -208,114 +232,6 @@ proxies:
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇺🇸 US 美国 12
-- type: vless
-  server: 162.159.48.54
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 13
-- type: vless
-  server: 162.159.61.191
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 14
-- type: vless
-  server: 162.159.62.37
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 15
-- type: vless
-  server: 172.64.148.5
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 16
-- type: vless
-  server: 172.64.157.159
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 17
-- type: vless
-  server: 172.66.45.207
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 18
-- type: vless
-  server: 172.67.157.77
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 19
-- type: vless
-  server: 172.67.173.27
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 20
-- type: vless
-  server: download.yunzhongzhuan.com
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇺🇸 US 美国 21
 - type: vless
   server: 185.138.164.186
   port: 8880
@@ -348,6 +264,18 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇬🇧 GB 英国 4
+- type: vless
+  server: x.cf.090227.xyz
+  port: 2096
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdoh.askjdh.xmmsyy.asia
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: asdoh.askjdh.xmmsyy.asia
+  name: 🇬🇧 GB 英国 5
 - type: vless
   server: 89.221.224.149
   port: 8880
@@ -685,8 +613,20 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 14
 - type: vless
-  server: 103.30.78.148
-  port: 666
+  server: hj.xmm1993.top
+  port: 2096
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdoh.askjdh.xmmsyy.asia
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: asdoh.askjdh.xmmsyy.asia
+  name: 🇫🇷 FR 法国 15
+- type: vless
+  server: 101.32.12.79
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -696,54 +636,6 @@ proxies:
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇭🇰 HK 香港 1
-- type: vless
-  server: 149.104.26.240
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 2
-- type: vless
-  server: 149.104.26.241
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 3
-- type: vless
-  server: 149.104.28.139
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 4
-- type: vless
-  server: 149.104.28.229
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 5
 - type: vless
   server: 149.104.28.236
   port: 443
@@ -755,9 +647,33 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 6
+  name: 🇭🇰 HK 香港 2
 - type: vless
-  server: 149.104.30.236
+  server: 47.239.150.78
+  port: 84
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdoh.askjdh.xmmsyy.asia
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: asdoh.askjdh.xmmsyy.asia
+  name: 🇭🇰 HK 香港 3
+- type: vless
+  server: 47.57.190.228
+  port: 8388
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: asdoh.askjdh.xmmsyy.asia
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: asdoh.askjdh.xmmsyy.asia
+  name: 🇭🇰 HK 香港 4
+- type: vless
+  server: 83.229.126.199
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -767,81 +683,9 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 7
+  name: 🇭🇰 HK 香港 5
 - type: vless
-  server: 149.104.30.244
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 8
-- type: vless
-  server: 34.92.187.216
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 9
-- type: vless
-  server: 34.96.156.188
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 10
-- type: vless
-  server: 45.136.12.76
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 11
-- type: vless
-  server: 83.229.121.78
-  port: 8443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 12
-- type: vless
-  server: 83.229.123.87
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇭🇰 HK 香港 13
-- type: vless
-  server: 13.115.249.234
+  server: 13.158.131.198
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -853,7 +697,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 1
 - type: vless
-  server: 13.231.27.179
+  server: 13.231.124.166
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -865,8 +709,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 2
 - type: vless
-  server: 151.242.165.220
-  port: 8080
+  server: 154.12.190.136
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -877,7 +721,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 3
 - type: vless
-  server: 154.12.190.136
+  server: 18.178.17.183
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -889,7 +733,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 4
 - type: vless
-  server: 154.31.117.215
+  server: 18.183.169.174
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -901,7 +745,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 5
 - type: vless
-  server: 18.179.8.0
+  server: 18.183.89.240
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -913,7 +757,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 6
 - type: vless
-  server: 18.181.147.120
+  server: 3.112.178.95
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -925,7 +769,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 7
 - type: vless
-  server: 18.183.172.12
+  server: 35.72.6.137
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -937,7 +781,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 8
 - type: vless
-  server: 185.184.223.55
+  server: 35.73.93.31
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -949,8 +793,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 9
 - type: vless
-  server: 45.66.130.58
-  port: 51002
+  server: 35.75.103.199
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -961,8 +805,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 10
 - type: vless
-  server: 45.66.217.145
-  port: 50007
+  server: 35.77.89.180
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -973,7 +817,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 11
 - type: vless
-  server: 47.79.34.179
+  server: 43.207.176.121
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -985,8 +829,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 12
 - type: vless
-  server: 47.79.35.195
-  port: 12443
+  server: 52.68.92.88
+  port: 10021
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -997,8 +841,8 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 13
 - type: vless
-  server: 47.79.37.119
-  port: 1012
+  server: 54.150.255.106
+  port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -1009,7 +853,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 14
 - type: vless
-  server: 47.79.84.221
+  server: 54.168.69.207
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -1021,7 +865,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 15
 - type: vless
-  server: 52.192.82.166
+  server: 54.249.251.1
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -1033,7 +877,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 16
 - type: vless
-  server: 52.193.249.207
+  server: 54.64.40.27
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -1045,7 +889,7 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 17
 - type: vless
-  server: 52.198.141.70
+  server: 54.95.241.68
   port: 443
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
@@ -1057,90 +901,6 @@ proxies:
       Host: asdoh.askjdh.xmmsyy.asia
   name: 🇯🇵 JP 日本 18
 - type: vless
-  server: 54.238.208.64
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇯🇵 JP 日本 19
-- type: vless
-  server: 54.250.41.124
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇯🇵 JP 日本 20
-- type: vless
-  server: 54.65.179.131
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇯🇵 JP 日本 21
-- type: vless
-  server: 34.143.159.175
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇸🇬 SG 新加坡 1
-- type: vless
-  server: 8.222.185.236
-  port: 443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇸🇬 SG 新加坡 2
-- type: vless
-  server: hj.xmm1993.top
-  port: 2096
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇸🇮 SI 斯洛文尼亚 1
-- type: vless
-  server: www.shopify.com
-  port: 8443
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇸🇮 SI 斯洛文尼亚 2
-- type: vless
   server: icook.hk
   port: 2096
   uuid: e258977b-e413-4718-a3af-02d75492c349
@@ -1151,19 +911,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇲🇾 MY 马来西亚 1
-- type: vless
-  server: icook.tw
-  port: 2087
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇵🇭 PH 菲律宾 1
+  name: 🇧🇬 BG 保加利亚 1
 - type: vless
   server: ip.164746.xyz
   port: 2096
@@ -1175,10 +923,10 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇶🇦 QA 卡塔尔 1
+  name: 🇧🇬 BG 保加利亚 2
 - type: vless
-  server: ip.sb
-  port: 8443
+  server: icook.tw
+  port: 2087
   uuid: e258977b-e413-4718-a3af-02d75492c349
   network: ws
   tls: true
@@ -1187,7 +935,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇸🇦 SA 沙特 1
+  name: 🇮🇪 IE 爱尔兰 1
 - type: vless
   server: ipdb.api.030101.xyz
   port: 8443
@@ -1199,7 +947,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇪🇬 EG 埃及 1
+  name: 🇮🇪 IE 爱尔兰 2
 - type: vless
   server: linux.do
   port: 2087
@@ -1211,7 +959,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇻🇳 VN 越南 1
+  name: 🇭🇷 HR 克罗地亚 1
 - type: vless
   server: stock.hostmonit.com
   port: 8443
@@ -1223,7 +971,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇰🇷 KR 韩国 1
+  name: 🇭🇷 HR 克罗地亚 2
 - type: vless
   server: www.udacity.com
   port: 8443
@@ -1235,7 +983,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇦🇷 AR 阿根廷 1
+  name: 🇭🇺 HU 匈牙利 1
 - type: vless
   server: www.wto.org
   port: 8443
@@ -1247,16 +995,4 @@ proxies:
     path: /?ed=2560
     headers:
       Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇮🇪 IE 爱尔兰 1
-- type: vless
-  server: x.cf.090227.xyz
-  port: 2096
-  uuid: e258977b-e413-4718-a3af-02d75492c349
-  network: ws
-  tls: true
-  servername: asdoh.askjdh.xmmsyy.asia
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: asdoh.askjdh.xmmsyy.asia
-  name: 🇿🇦 ZA 南非 1
+  name: 🇵🇱 PL 波兰 1
