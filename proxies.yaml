@@ -49,7 +49,7 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: 3h-kAzakhStan1.09vPn.cOm.
-  name: 🇻🇳 VN 越南 1
+  name: 🇬🇷 GR 希腊 1
 - type: vless
   server: 81.91.179.17
   port: 8880
@@ -161,7 +161,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 5
 - type: vless
-  server: 89.221.224.209
+  server: 89.221.224.207
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -177,7 +177,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 7
 - type: vless
-  server: 89.221.224.210
+  server: 89.221.224.209
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -193,7 +193,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 9
 - type: vless
-  server: 89.221.224.211
+  server: 89.221.224.210
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -209,7 +209,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 11
 - type: vless
-  server: 89.221.224.213
+  server: 89.221.224.211
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -225,7 +225,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 13
 - type: vless
-  server: 89.221.224.214
+  server: 89.221.224.213
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -241,7 +241,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 15
 - type: vless
-  server: 89.221.224.215
+  server: 89.221.224.214
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -257,7 +257,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 17
 - type: vless
-  server: 89.221.224.219
+  server: 89.221.224.215
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -273,7 +273,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 19
 - type: vless
-  server: 89.221.224.220
+  server: 89.221.224.219
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -289,7 +289,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 21
 - type: vless
-  server: 89.221.224.225
+  server: 89.221.224.220
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -305,7 +305,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 23
 - type: vless
-  server: 89.221.224.228
+  server: 89.221.224.225
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -321,7 +321,7 @@ proxies:
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 25
 - type: vless
-  server: 89.221.224.232
+  server: 89.221.224.228
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -336,6 +336,14 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇮🇸 IS 冰岛 27
+- type: vless
+  server: 89.221.224.232
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇮🇸 IS 冰岛 28
 - type: vless
   server: 95.164.45.119
   port: 8880
@@ -409,7 +417,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 9
 - type: vless
-  server: 95.164.6.7
+  server: 95.164.6.82
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -425,7 +433,7 @@ proxies:
   grpc-opts: {}
   name: 🇫🇷 FR 法国 11
 - type: vless
-  server: 95.164.6.82
+  server: 95.164.6.97
   port: 8880
   uuid: df0680ca-e43c-498d-ed86-8e196eedd012
   network: grpc
@@ -440,11 +448,3 @@ proxies:
   tls: false
   grpc-opts: {}
   name: 🇫🇷 FR 法国 13
-- type: vless
-  server: 95.164.6.97
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇫🇷 FR 法国 14
