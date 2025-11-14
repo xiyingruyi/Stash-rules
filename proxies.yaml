@@ -176,13 +176,13 @@ proxies:
       Host: joss.dus.biz.id
   name: 🇺🇸 US 美国 16
 - type: trojan
-  server: 94.177.199.119
-  port: 8443
-  password: d5a49621-b25c-4684-aea8-8389f3a8afaf
+  server: 77.221.141.207
+  port: 443
+  password: edeff73d-065d-4b0a-b848-aad9d3380223
   sni: joss.dus.biz.id
   network: ws
   ws-opts:
-    path: /Free-VPN-CF-Geo-Project/94.177.199.119=8443
+    path: /Free-VPN-CF-Geo-Project/77.221.141.207=443
     headers:
       Host: joss.dus.biz.id
   name: 🇺🇸 US 美国 17
@@ -197,17 +197,6 @@ proxies:
     headers:
       Host: joss.dus.biz.id
   name: 🇺🇸 US 美国 18
-- type: trojan
-  server: 77.221.141.207
-  port: 443
-  password: edeff73d-065d-4b0a-b848-aad9d3380223
-  sni: joss.dus.biz.id
-  network: ws
-  ws-opts:
-    path: /Free-VPN-CF-Geo-Project/77.221.141.207=443
-    headers:
-      Host: joss.dus.biz.id
-  name: 🇺🇸 US 美国 19
 - type: vless
   server: www.speedtest.net
   port: 80
@@ -218,15 +207,7 @@ proxies:
     path: /@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy----@Shh_Proxy
     headers:
       Host: www.speedtest.net
-  name: 🇺🇸 US 美国 20
-- type: vless
-  server: 185.138.164.67
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇺🇸 US 美国 21
+  name: 🇺🇸 US 美国 19
 - type: trojan
   server: 58.152.110.9
   port: 443
@@ -241,14 +222,17 @@ proxies:
   sni: dingding-doc.com
   network: tcp
   name: 🇮🇳 IN 印度 2
-- type: vless
-  server: xg.wanfeng88.top
-  port: 59336
-  uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
-  network: tcp
-  tls: false
-  servername: google.com
-  name: 🇮🇳 IN 印度 3
+- type: trojan
+  server: 94.177.199.119
+  port: 8443
+  password: d5a49621-b25c-4684-aea8-8389f3a8afaf
+  sni: joss.dus.biz.id
+  network: ws
+  ws-opts:
+    path: /Free-VPN-CF-Geo-Project/94.177.199.119=8443
+    headers:
+      Host: joss.dus.biz.id
+  name: 🇮🇹 IT 意大利 1
 - type: vless
   server: 104.21.31.4
   port: 8880
@@ -261,13 +245,21 @@ proxies:
       Host: 104.21.31.4
   name: 🇩🇪 DE 德国 1
 - type: vless
+  server: 185.138.164.67
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇩🇪 DE 德国 2
+- type: vless
   server: xg.wanfeng88.top
   port: 59336
   uuid: a6f4adcb-fbb4-48ea-b938-9910828e2743
   network: tcp
   tls: false
   servername: google.com
-  name: 🇸🇰 SK 斯洛伐克 1
+  name: 🇹🇷 TR 土耳其 1
 - type: vless
   server: 45.12.150.144
   port: 8880
@@ -275,15 +267,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇸🇰 SK 斯洛伐克 2
-- type: vless
-  server: 45.12.150.144
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇸🇰 SK 斯洛伐克 3
+  name: 🇹🇷 TR 土耳其 2
 - type: vless
   server: 103.53.81.119
   port: 59951
@@ -309,18 +293,6 @@ proxies:
       Host: vless3.datatestvless.click
   name: 🇪🇸 ES 西班牙 2
 - type: vless
-  server: 210.87.111.61
-  port: 39738
-  uuid: aa7f42cc-616f-4550-9a87-4b85bb409121
-  network: ws
-  tls: true
-  servername: vless3.datatestvless.click
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: vless3.datatestvless.click
-  name: 🇪🇸 ES 西班牙 3
-- type: vless
   server: 103.53.81.119
   port: 59951
   uuid: aa7f42cc-616f-4550-9a87-4b85bb409121
@@ -331,7 +303,27 @@ proxies:
     path: /?ed=2560&Telegram🇨🇳@WangCai2
     headers:
       Host: vless3.datatestvless.click
-  name: 🇯🇵 JP 日本 1
+  name: 🇪🇸 ES 西班牙 3
+- type: vless
+  server: 210.87.111.61
+  port: 39738
+  uuid: aa7f42cc-616f-4550-9a87-4b85bb409121
+  network: ws
+  tls: true
+  servername: vless3.datatestvless.click
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: vless3.datatestvless.click
+  name: 🇪🇸 ES 西班牙 4
+- type: vless
+  server: 185.138.164.186
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇪🇸 ES 西班牙 5
 - type: vless
   server: www.speedtest.net
   port: 80
@@ -342,7 +334,7 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: www.speedtest.net
-  name: 🇫🇷 FR 法国 1
+  name: 🇲🇽 MX 墨西哥 1
 - type: vless
   server: 45.144.52.23
   port: 443
@@ -422,15 +414,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇧🇬 BG 保加利亚 1
-- type: vless
-  server: 185.138.164.186
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇨🇦 CA 加拿大 1
+  name: 🇸🇰 SK 斯洛伐克 1
 - type: vless
   server: 185.138.164.67
   port: 8880
@@ -438,7 +422,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇻🇳 VN 越南 1
+  name: 🇧🇷 BR 巴西 1
 - type: vless
   server: 45.12.133.176
   port: 8880
@@ -446,7 +430,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇵🇰 PK 巴基斯坦 1
+  name: 🇧🇬 BG 保加利亚 1
 - type: vless
   server: 45.12.133.176
   port: 8880
@@ -454,4 +438,20 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇸🇬 SG 新加坡 1
+  name: 🇭🇷 HR 克罗地亚 1
+- type: vless
+  server: 45.12.150.144
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇵🇱 PL 波兰 1
+- type: vless
+  server: xg.wanfeng88.top
+  port: 59336
+  uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
+  network: tcp
+  tls: false
+  servername: google.com
+  name: 🇸🇪 SE 瑞典 1
