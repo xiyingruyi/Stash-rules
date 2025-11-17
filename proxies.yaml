@@ -219,6 +219,14 @@ proxies:
     headers:
       Host: www.speedtest.net
   name: 🇺🇸 US 美国 20
+- type: vless
+  server: 185.138.164.67
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇺🇸 US 美国 21
 - type: trojan
   server: 58.152.110.9
   port: 443
@@ -247,19 +255,11 @@ proxies:
 - type: vless
   server: xg.wanfeng88.top
   port: 59336
-  uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
-  network: tcp
-  tls: false
-  servername: google.com
-  name: 🇩🇪 DE 德国 2
-- type: vless
-  server: xg.wanfeng88.top
-  port: 59336
   uuid: a6f4adcb-fbb4-48ea-b938-9910828e2743
   network: tcp
   tls: false
   servername: google.com
-  name: 🇦🇷 AR 阿根廷 1
+  name: 🇵🇱 PL 波兰 1
 - type: vless
   server: 103.53.81.119
   port: 59951
@@ -318,7 +318,7 @@ proxies:
     path: /vless/?JoinBede--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY--ELiV2RAY?ed=2560
     headers:
       Host: www.speedtest.net
-  name: 🇹🇭 TH 泰国 1
+  name: 🇸🇪 SE 瑞典 1
 - type: vless
   server: 45.144.52.23
   port: 443
@@ -398,7 +398,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇲🇽 MX 墨西哥 1
+  name: 🇮🇩 ID 印尼 1
 - type: vless
   server: 185.138.164.186
   port: 8880
@@ -406,7 +406,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇶🇦 QA 卡塔尔 1
+  name: 🇹🇭 TH 泰国 1
 - type: vless
   server: 185.138.164.67
   port: 8880
@@ -414,23 +414,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇬🇷 GR 希腊 1
-- type: vless
-  server: 185.138.164.67
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇬🇷 GR 希腊 2
-- type: vless
-  server: 45.12.150.144
-  port: 8880
-  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇬🇷 GR 希腊 3
+  name: 🇸🇬 SG 新加坡 1
 - type: vless
   server: 45.12.133.176
   port: 8880
@@ -438,7 +422,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇧🇬 BG 保加利亚 1
+  name: 🇨🇴 CO 哥伦比亚 1
 - type: vless
   server: 45.12.133.176
   port: 8880
@@ -446,7 +430,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇹🇼 TW 台湾 1
+  name: 🇭🇺 HU 匈牙利 1
 - type: vless
   server: 45.12.150.144
   port: 8880
@@ -454,4 +438,20 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇸🇦 SA 沙特 1
+  name: 🇨🇿 CZ 捷克 1
+- type: vless
+  server: 45.12.150.144
+  port: 8880
+  uuid: df0680ca-e43c-498d-ed86-8e196eedd012
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇲🇾 MY 马来西亚 1
+- type: vless
+  server: xg.wanfeng88.top
+  port: 59336
+  uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
+  network: tcp
+  tls: false
+  servername: google.com
+  name: 🇳🇱 NL 荷兰 1
