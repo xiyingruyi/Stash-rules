@@ -24,31 +24,12 @@ payload:
   # Gemini (Google AI) 流量
   # -----------------------------
   - DOMAIN-SUFFIX,www.googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,ssl.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,fonts.googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,play.google.com,no-resolve
-  - DOMAIN-SUFFIX,ogs.google.com,no-resolve
   - DOMAIN-SUFFIX,apis.google.com,no-resolve
   - DOMAIN-SUFFIX,jnn-pa.googleapis.com,no-resolve
   - DOMAIN-SUFFIX,waa-pa.clients6.google.com,no-resolve
-  - DOMAIN-SUFFIX,maps.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,ogads-pa.clients6.google.com,no-resolve
   - DOMAIN-SUFFIX,csp.withgoogle.com,no-resolve
-  - DOMAIN-SUFFIX,www.googletagmanager.com,no-resolve
-  - DOMAIN-SUFFIX,fonts.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,maps.googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,static.doubleclick.net,no-resolve
-  - DOMAIN-SUFFIX,www.gstatic.com,no-resolve
   - DOMAIN-SUFFIX,gemini.google.com,no-resolve
-  - DOMAIN-SUFFIX,td.doubleclick.net,no-resolve
-  - DOMAIN-SUFFIX,googleads.g.doubleclick.net,no-resolve
-  - DOMAIN-SUFFIX,www.google-analytics.com,no-resolve
   - DOMAIN-SUFFIX,optimizationguide-pa.googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,encrypted-tbn0.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,encrypted-tbn1.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,encrypted-tbn2.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,encrypted-tbn3.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,streetviewpixels-pa.googleapis.com,no-resolve
   - DOMAIN-SUFFIX,content-autofill.googleapis.com,no-resolve
   - DOMAIN-KEYWORD,gemini,no-resolve               # 智能捕获未来 Google AI 子域
 
