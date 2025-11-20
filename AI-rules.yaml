@@ -23,7 +23,6 @@ payload:
   # -----------------------------
   # Gemini (Google AI) 流量
   # -----------------------------
-  - DOMAIN-SUFFIX,lh5.googleusercontent.com,no-resolve
   - DOMAIN-SUFFIX,www.googleapis.com,no-resolve
   - DOMAIN-SUFFIX,ssl.gstatic.com,no-resolve
   - DOMAIN-SUFFIX,fonts.googleapis.com,no-resolve
@@ -32,10 +31,7 @@ payload:
   - DOMAIN-SUFFIX,apis.google.com,no-resolve
   - DOMAIN-SUFFIX,jnn-pa.googleapis.com,no-resolve
   - DOMAIN-SUFFIX,waa-pa.clients6.google.com,no-resolve
-  - DOMAIN-SUFFIX,yt3.ggpht.com,no-resolve
-  - DOMAIN-SUFFIX,lh3.googleusercontent.com,no-resolve
   - DOMAIN-SUFFIX,maps.gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,lh3.google.com,no-resolve
   - DOMAIN-SUFFIX,ogads-pa.clients6.google.com,no-resolve
   - DOMAIN-SUFFIX,csp.withgoogle.com,no-resolve
   - DOMAIN-SUFFIX,www.googletagmanager.com,no-resolve
