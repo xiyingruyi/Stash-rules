@@ -39,7 +39,7 @@ proxies:
   network: grpc
   tls: false
   grpc-opts: {}
-  name: 🇮🇹 IT 意大利 1
+  name: 🇬🇧 GB 英国 1
 - type: vless
   server: blackshadow.dpdns.org
   port: 443
@@ -51,15 +51,7 @@ proxies:
     path: /44.209.52.7-443
     headers:
       Host: blackshadow.dpdns.org
-  name: 🇨🇴 CO 哥伦比亚 1
-- type: vless
-  server: xg.wanfeng88.top
-  port: 59336
-  uuid: a6f4adcb-fbb4-48ea-b938-9910828e2743
-  network: tcp
-  tls: false
-  servername: google.com
-  name: 🇨🇴 CO 哥伦比亚 2
+  name: 🇰🇭 KH 柬埔寨 1
 - type: vless
   server: usa1.tunnelx.space
   port: 2087
@@ -520,6 +512,14 @@ proxies:
       Host: feng4.l1ut8bi9.workers.dev
   name: 🇩🇪 DE 德国 2
 - type: vless
+  server: xg.wanfeng88.top
+  port: 59336
+  uuid: a6f4adcb-fbb4-48ea-b938-9910828e2743
+  network: tcp
+  tls: false
+  servername: google.com
+  name: 🇸🇦 SA 沙特 1
+- type: vless
   server: 210.87.111.61
   port: 39738
   uuid: aa7f42cc-616f-4550-9a87-4b85bb409121
@@ -544,6 +544,15 @@ proxies:
       Host: vless3.datatestvless.click
   name: 🇸🇬 SG 新加坡 2
 - type: vless
+  server: cloud.whitenet.online
+  port: 443
+  uuid: cloud1163
+  network: tcp
+  tls: false
+  flow: xtls-rprx-vision
+  servername: eh.vk.com
+  name: 🇸🇬 SG 新加坡 3
+- type: vless
   server: 46.3.193.56
   port: 9999
   uuid: e258977b-e413-4718-a3af-02d75492c349
@@ -554,7 +563,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: ww2.x-aniu-sg.netlib.re
-  name: 🇸🇬 SG 新加坡 3
+  name: 🇸🇬 SG 新加坡 4
 - type: vless
   server: www.udacity.com
   port: 8443
@@ -566,7 +575,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: ww2.x-aniu-sg.netlib.re
-  name: 🇸🇬 SG 新加坡 4
+  name: 🇸🇬 SG 新加坡 5
 - type: vless
   server: x.cf.090227.xyz
   port: 2096
@@ -578,7 +587,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: ww2.x-aniu-sg.netlib.re
-  name: 🇸🇬 SG 新加坡 5
+  name: 🇸🇬 SG 新加坡 6
 - type: vless
   server: tgju.org
   port: 8080
@@ -603,22 +612,13 @@ proxies:
       Host: 14.102.228.75
   name: 🇨🇿 CZ 捷克 1
 - type: vless
-  server: cloud.whitenet.online
-  port: 443
-  uuid: cloud1163
-  network: tcp
-  tls: false
-  flow: xtls-rprx-vision
-  servername: eh.vk.com
-  name: 🇵🇹 PT 葡萄牙 1
-- type: vless
   server: xg.wanfeng88.top
   port: 59336
   uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
   network: tcp
   tls: false
   servername: google.com
-  name: 🇹🇭 TH 泰国 1
+  name: 🇦🇺 AU 澳大利亚 1
 - type: vless
   server: 101.32.72.125
   port: 443
