@@ -23,14 +23,18 @@ payload:
   # -----------------------------
   # Gemini (Google AI) 流量
   # -----------------------------
-  - DOMAIN-SUFFIX,www.googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,apis.google.com,no-resolve
-  - DOMAIN-SUFFIX,jnn-pa.googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,waa-pa.clients6.google.com,no-resolve
-  - DOMAIN-SUFFIX,csp.withgoogle.com,no-resolve
   - DOMAIN-SUFFIX,gemini.google.com,no-resolve
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,no-resolve  # 免费 API
+  - DOMAIN-SUFFIX,aiplatform.googleapis.com,no-resolve         # Vertex AI
+  - DOMAIN-SUFFIX,clients6.google.com,no-resolve               # waa-pa / ogads-pa / jnn-pa
+  - DOMAIN-SUFFIX,jnn-pa.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,ogs.google.com,no-resolve
   - DOMAIN-SUFFIX,optimizationguide-pa.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,csp.withgoogle.com,no-resolve
   - DOMAIN-SUFFIX,content-autofill.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,cloudaicompanion.googleapis.com,no-resolve
+  - DOMAIN-SUFFIX,www.googleapis.com,no-resolve                # 核心 API
+  - DOMAIN-SUFFIX,apis.google.com,no-resolve
   - DOMAIN-KEYWORD,gemini,no-resolve               # 智能捕获未来 Google AI 子域
 
   # -----------------------------
