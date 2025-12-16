@@ -70,8 +70,8 @@
             // 1. Raw content link (ghfast.top 支持 raw.githubusercontent.com)
             if (parsed.hostname === 'raw.githubusercontent.com') return true;
             
-            // 2. Gist link (ghfast.top 支持 gist.github.com)
-            if (parsed.hostname === 'gist.github.com') return true;
+            // 2. Gist link (ghfast.top 支持 gist.github.com AND gist.githubusercontent.com)
+            if (parsed.hostname === 'gist.github.com' || parsed.hostname === 'gist.githubusercontent.com') return true;
             
             // 3. General GitHub repository links (ghfast.top 支持 Releases, Archives, files, repos)
             if (parsed.hostname === 'github.com') {
@@ -98,6 +98,7 @@
     
     // 检查是否为支持转换/反向解析的 URL (用于 convert() 函数的初步过滤)
     function isSupportedUrl(url) {
+      // **修复 Gist 链接问题：** 如果 Gist 链接是 Raw 格式 (gist.githubusercontent.com)，它会被 isGhfastSupportedUrl 捕获。
       return isJsDelivrSupportedGitHubInput(url) || isGhfastSupportedUrl(url) || isCdnInput(url);
     }
     
@@ -177,7 +178,7 @@
       }
     }
 
-    // ------------------ URL 生成函数 (已优化逻辑) ------------------
+    // ------------------ URL 生成函数 ------------------
 
     function generateCdnUrls(inputUrl) {
       const results = [];
@@ -237,7 +238,7 @@
       return null;
     }
     
-    // ------------------ Purge/Convert/Reset 逻辑 (微调) ------------------
+    // ------------------ Purge/Convert/Reset 逻辑 (保持不变) ------------------
 
     async function purgeUrls(urls) {
       let purgedCount = 0;
