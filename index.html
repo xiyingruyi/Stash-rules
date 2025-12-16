@@ -24,8 +24,8 @@
     <p class="tip">
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
-      • **🆕 GitHub 完整链接 (仓库, Releases, Archive, Gist, Raw 文件) → 转 ghfast.top 代理加速**<br>
-      • 支持反向解析 CDN 链接（fastly.jsdelivr.net / cdn.jsdmirror.com / cdn.jsdelivr.net / stash-rules.pages.dev）回原 GitHub 地址<br>
+      • **🆕 GitHub 完整链接 (仓库, Releases, Archive, Gist, Raw 文件, Pages) → 转 ghfast.top 代理加速**<br>
+      • 支持反向解析 CDN 链接（fastly.jsdelivr.net / cdn.jsdmirror.com / cdn.jsdelivr.net）回原 GitHub 地址<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
       • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
       • 支持批量清除cdn.jsdelivr.net 类型链接的缓存 (fastly.jsdelivr.net 自动同步，无需手动清除)<br>
@@ -62,23 +62,29 @@
       }
     }
 
-    // 检查是否为 ghfast.top 支持的 GitHub/Gist 链接
+    // 检查是否为 ghfast.top 支持的 GitHub/Gist/Pages 链接
     function isGhfastSupportedUrl(url) {
         try {
             const parsed = new URL(url);
             
-            // 1. Raw content link (ghfast.top 支持 raw.githubusercontent.com)
+            // 1. Raw content link (raw.githubusercontent.com)
             if (parsed.hostname === 'raw.githubusercontent.com') return true;
             
-            // 2. Gist link (ghfast.top 支持 gist.github.com AND gist.githubusercontent.com)
+            // 2. Gist link (gist.github.com AND gist.githubusercontent.com)
             if (parsed.hostname === 'gist.github.com' || parsed.hostname === 'gist.githubusercontent.com') return true;
             
-            // 3. General GitHub repository links (ghfast.top 支持 Releases, Archives, files, repos)
+            // 3. General GitHub repository links (github.com)
             if (parsed.hostname === 'github.com') {
                 const pathname = parsed.pathname;
                 // 必须至少有 /user/repo
                 return /\/[^/]+\/[^/]+/.test(pathname);
             }
+
+            // 4. GitHub Pages link (.github.io)
+            if (parsed.hostname.endsWith('.github.io')) {
+                 return true; 
+            }
+
             return false;
         } catch {
             return false;
@@ -89,8 +95,8 @@
     function isCdnInput(url) {
       try {
         const parsed = new URL(url);
-        return ['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname) ||
-               parsed.hostname === 'stash-rules.pages.dev';
+        // 已移除对 stash-rules.pages.dev 的检查
+        return ['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname);
       } catch {
         return false;
       }
@@ -98,7 +104,6 @@
     
     // 检查是否为支持转换/反向解析的 URL (用于 convert() 函数的初步过滤)
     function isSupportedUrl(url) {
-      // **修复 Gist 链接问题：** 如果 Gist 链接是 Raw 格式 (gist.githubusercontent.com)，它会被 isGhfastSupportedUrl 捕获。
       return isJsDelivrSupportedGitHubInput(url) || isGhfastSupportedUrl(url) || isCdnInput(url);
     }
     
@@ -155,11 +160,8 @@
       // 现有逻辑：解析 CDN 链接，用于反向解析
       try {
         const parsed = new URL(url);
-        if (parsed.hostname === 'stash-rules.pages.dev') {
-          const fileName = parsed.pathname.slice(1);
-          if (!fileName) return null;
-          return { type: 'stash', fileName };
-        }
+        // 已移除对 stash-rules.pages.dev 的解析逻辑
+        
         if (!['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname)) return null;
         let pathname = parsed.pathname;
         if (!pathname.startsWith('/gh/')) return null;
@@ -187,23 +189,17 @@
       if (isCdnInput(inputUrl)) {
         const parts = parseCdnParts(inputUrl);
         if (parts) {
-            if (parts.type === 'stash') {
-                // Cloudflare 自用链接，无法反向解析完整路径
-                results.push(
-                    { label: '☁️ Cloudflare Link', url: inputUrl, hint: '已经是 Cloudflare 加速（无法解析完整 GitHub 路径）', type: 'cdn' }
-                );
-            } else {
-                const { user, repo, ref, filePathArr } = parts;
-                const rawPath = `${user}/${repo}/${ref}/${filePathArr.join('/')}`;
-                const rawUrl = `https://raw.githubusercontent.com/${rawPath}`;
-                const blobPath = filePathArr.join('/');
-                const blobUrl = `https://github.com/${user}/${repo}/blob/${ref}/${blobPath}`;
-                // GitHub 原始链接
-                results.push(
-                    { label: '📁 GitHub Raw', url: rawUrl, hint: '原始 Raw 链接 (jsDelivr / JsdMirror 对应)', type: 'github' },
-                    { label: '🔗 GitHub Blob', url: blobUrl, hint: '原始 Blob 查看链接 (jsDelivr / JsdMirror 对应)', type: 'github' }
-                );
-            }
+            // 已移除对 stash-rules.pages.dev (type === 'stash') 的处理
+            const { user, repo, ref, filePathArr } = parts;
+            const rawPath = `${user}/${repo}/${ref}/${filePathArr.join('/')}`;
+            const rawUrl = `https://raw.githubusercontent.com/${rawPath}`;
+            const blobPath = filePathArr.join('/');
+            const blobUrl = `https://github.com/${user}/${repo}/blob/${ref}/${blobPath}`;
+            // GitHub 原始链接
+            results.push(
+                { label: '📁 GitHub Raw', url: rawUrl, hint: '原始 Raw 链接 (jsDelivr / JsdMirror 对应)', type: 'github' },
+                { label: '🔗 GitHub Blob', url: blobUrl, hint: '原始 Blob 查看链接 (jsDelivr / JsdMirror 对应)', type: 'github' }
+            );
         }
         return results.length > 0 ? results : null;
       }
@@ -213,23 +209,23 @@
         const parts = parseGitHubParts(inputUrl);
         if (parts) {
             const { user, repo, ref, filePathArr } = parts;
-            const fileName = filePathArr[filePathArr.length - 1];
+            // const fileName = filePathArr[filePathArr.length - 1]; // 移除，因为不再需要生成 Cloudflare 链接
             const base = `${user}/${repo}@${ref}/${filePathArr.join('/')}`;
             // jsDelivr 链接
             results.push(
                 { label: '✅ 🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像，速度更快（无公共 purge API，自动同步）', type: 'cdn' },
                 { label: '🔥 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选，国际线路更快', type: 'cdn' },
-                { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点', type: 'cdn' },
-                { label: '☁️ Cloudflare (作者自用)', url: `https://stash-rules.pages.dev/${fileName}`, hint: 'Cloudflare 加速（仅作者自己可用，URL可能不完整）', type: 'cdn' }
+                { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐，自动选择最优节点', type: 'cdn' }
+                // 已移除 { label: '☁️ Cloudflare (作者自用)' }
             );
         }
       }
 
-      // 3. 如果是 ghfast.top 支持的 GitHub/Gist 链接 (与 jsDelivr 结果合并或独立存在)
+      // 3. 如果是 ghfast.top 支持的 GitHub/Gist/Pages 链接 (与 jsDelivr 结果合并或独立存在)
       if (isGhfastSupportedUrl(inputUrl)) {
           // ghfast.top 链接（直接代理）
           results.push(
-              { label: '🚀 ghfast.top 代理', url: `https://ghfast.top/${inputUrl}`, hint: '适用于仓库、Releases、Archive、Gist、Raw 文件等加速下载', type: 'ghfast' }
+              { label: '🚀 ghfast.top 代理', url: `https://ghfast.top/${inputUrl}`, hint: '适用于仓库、Releases、Archive、Gist、Raw 文件、Pages 等加速下载', type: 'ghfast' }
           );
       }
       
