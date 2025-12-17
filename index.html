@@ -3,71 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>GitHub静态资源加速器</title>
-  <meta name="description" content="支持 GitHub 任何静态资源链接转 CDN，中国大陆可访问 | 极简 · 苹果美学" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="theme-color" content="#f7f9fc" />
+  <title>GitHub & 订阅加速器</title>
+  <meta name="description" content="支持 GitHub 资源及订阅链接转换 | 极简 · 苹果美学" />
   <link rel="apple-touch-icon" sizes="180x180" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" />
   <link rel="icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" sizes="16x16" type="image/png">
-  <link rel="shortcut icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" type="image/png">
-  <link rel="icon" href="https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Rocket.png" sizes="32x32" type="image/png">
-</head>
-
-<body>
-  <!-- ===== 你原来的 HTML / JS / CSS 全部保持不变 ===== -->
-  <!-- （中间内容与你提供的一模一样，这里省略显示，但实际文件中必须完整保留） -->
-
-<!-- ================= 新增功能：订阅链接重写（仅新增，不修改任何原逻辑） ================= -->
-<script>
-(function () {
-  const OLD_convert = window.convert;
-  if (typeof OLD_convert !== 'function') return;
-
-  function rewriteSubUrlOnly(inputUrl) {
-    try {
-      const u = new URL(inputUrl);
-      return 'https://xinote.site:8443' + u.pathname + u.search;
-    } catch {
-      return null;
+  <style>
+    /* ... 此处保留原有 CSS 样式 ... */
+    :root {
+      --bg: #f7f9fc; --card-bg: #ffffff; --text: #1c1e21; --text-light: #666;
+      --border: #e1e5e9; --primary: #007aff; --shadow: 0 8px 30px rgba(0,0,0,0.12);
+      --radius: 16px; --transition: all 0.2s ease; --url-color: #d63384;
+      --ghfast-color: #ff9500;
+      --sub-color: #5856d6; /* 新增订阅链接颜色 */
     }
-  }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #000; --card-bg: #1c1c1e; --text: #f1f1f3; --border: #3a3a3c; --url-color: #ff79c6; --ghfast-color: #ffb74d; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); max-width: 860px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+    h1 { text-align: center; margin: 32px 0 16px; }
+    .subtitle { text-align: center; color: var(--text-light); margin-bottom: 24px; }
+    .container { flex: 1; padding: 0 20px; display: flex; flex-direction: column; gap: 20px; }
+    textarea { width: 100%; height: 140px; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card-bg); box-shadow: var(--shadow); color: var(--text); resize: vertical; }
+    .tip { font-size: 0.9rem; color: var(--text-light); padding: 14px 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); }
+    #resultGroup { display: none; margin-top: 10px; }
+    .result-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow); margin-bottom: 20px; }
+    .cdn-result, .ghfast-result, .sub-result { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--border); }
+    .ghfast-result { border-left-color: var(--ghfast-color); }
+    .sub-result { border-left-color: var(--sub-color); }
+    .label { font-weight: 600; margin-bottom: 4px; }
+    .result-url { font-family: monospace; color: var(--url-color); word-break: break-all; margin-bottom: 8px; }
+    .hint { font-size: 0.85rem; color: var(--text-light); margin-bottom: 8px; }
+    .copy-btn { background: var(--primary); color: #fff; border: none; padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+    .buttons { display: flex; gap: 12px; }
+    button { flex: 1; padding: 14px; border-radius: var(--radius); border: none; font-weight: 500; cursor: pointer; }
+    #convert { background: var(--primary); color: #fff; }
+    #purgeBtn { background: #34c759; color: #fff; }
+    #actionBtn { background: var(--border); color: var(--text); }
+    footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-light); }
+  </style>
+</head>
+<body>
+  <h1>资源 & 订阅转换器</h1>
+  <p class="subtitle">支持 GitHub 加速与旧订阅链接转换</p>
+  
+  <div class="container">
+    <textarea id="input" placeholder="粘贴链接...&#10;支持 GitHub 链接或旧订阅链接 (xinote.site:2096)"></textarea>
+    
+    <div class="tip">
+      • <b>订阅转换：</b>自动将 xinote.site:2096 替换为 https://xinote.site:8443<br>
+      • <b>GitHub 加速：</b>支持 raw/blob 转 jsDelivr 或 ghfast.top 代理
+    </div>
 
-  window.convert = function () {
+    <div id="resultGroup"></div>
+
+    <div class="buttons">
+      <button id="convert">✨ 智能转换</button>
+      <button id="purgeBtn">🔄 刷新缓存</button>
+      <button id="actionBtn">🗑️ 清空</button>
+    </div>
+  </div>
+
+  <script>
     const input = document.getElementById('input');
     const resultGroup = document.getElementById('resultGroup');
+    const convertBtn = document.getElementById('convert');
+    const purgeBtn = document.getElementById('purgeBtn');
     const actionBtn = document.getElementById('actionBtn');
 
-    if (!input || !resultGroup) {
-      return OLD_convert();
+    // 检查是否为旧订阅链接
+    function isOldSubUrl(url) {
+        return url.includes('xinote.site:2096');
     }
 
-    const lines = input.value.split('\n').map(v => v.trim()).filter(Boolean);
+    function isJsDelivrSupported(url) {
+        try {
+            const parsed = new URL(url);
+            return parsed.hostname === 'raw.githubusercontent.com' || 
+                   (parsed.hostname === 'github.com' && (/\/raw\//.test(parsed.pathname) || /\/blob\//.test(parsed.pathname)));
+        } catch { return false; }
+    }
 
-    // 只在「单行 URL」情况下启用订阅重写
-    if (lines.length === 1) {
-      const rewritten = rewriteSubUrlOnly(lines[0]);
-      if (rewritten) {
-        resultGroup.innerHTML = `
-          <div class="result-card">
-            <div class="label">🔁 订阅链接已重写</div>
-            <div class="result-url">${rewritten}</div>
-            <button class="copy-btn" data-url="${rewritten}">📋 复制</button>
-          </div>
-        `;
+    function isGhfastSupported(url) {
+        try {
+            const parsed = new URL(url);
+            return parsed.hostname.includes('github') || parsed.hostname.endsWith('.github.io');
+        } catch { return false; }
+    }
+
+    function generateUrls(inputUrl) {
+        let results = [];
+
+        // --- 逻辑：处理订阅链接转换 ---
+        if (isOldSubUrl(inputUrl)) {
+            try {
+                const urlObj = new URL(inputUrl);
+                // 拼接新前缀 + 路径 + 参数
+                const newSubUrl = `https://xinote.site:8443${urlObj.pathname}${urlObj.search}`;
+                results.push({
+                    label: '🚀 新订阅链接 (8443)',
+                    url: newSubUrl,
+                    hint: '已自动替换旧域名和端口',
+                    type: 'sub'
+                });
+            } catch (e) {
+                // 如果 URL 构造失败，尝试字符串简单替换
+                const replaced = inputUrl.replace(/http:\/\/xinote\.site:2096/, 'https://xinote.site:8443');
+                results.push({ label: '🚀 新订阅链接 (8443)', url: replaced, hint: '已自动替换旧端口', type: 'sub' });
+            }
+        }
+
+        // --- 逻辑：GitHub 原有加速逻辑 ---
+        if (isJsDelivrSupported(inputUrl)) {
+            const parts = parseGitHubParts(inputUrl);
+            if (parts) {
+                const base = `${parts.user}/${parts.repo}@${parts.ref}/${parts.filePathArr.join('/')}`;
+                results.push(
+                    { label: '✅ 🇨🇳 JsdMirror', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像', type: 'cdn' },
+                    { label: '🌐 jsDelivr', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '全球加速', type: 'cdn' }
+                );
+            }
+        }
+
+        if (isGhfastSupported(inputUrl)) {
+            results.push({ label: '🔥 ghfast.top', url: `https://ghfast.top/${inputUrl}`, hint: '代理加速', type: 'ghfast' });
+        }
+
+        return results;
+    }
+
+    function parseGitHubParts(url) {
+        try {
+            const parsed = new URL(url);
+            let pathname = parsed.pathname;
+            if (parsed.hostname === 'github.com') {
+                pathname = pathname.replace('/raw/', '/').replace('/blob/', '/').replace('/refs/heads/', '/');
+            }
+            const parts = pathname.slice(1).split('/');
+            if (parts.length < 4) return null;
+            return { user: parts[0], repo: parts[1], ref: parts[2], filePathArr: parts.slice(3) };
+        } catch { return null; }
+    }
+
+    function convert() {
+        const urls = input.value.split('\n').map(u => u.trim()).filter(u => u);
+        if (!urls.length) return alert('请输入内容');
+        
+        resultGroup.innerHTML = '';
+        urls.forEach((url, idx) => {
+            const results = generateUrls(url);
+            if (results.length > 0) {
+                const card = document.createElement('div');
+                card.className = 'result-card';
+                let html = urls.length > 1 ? `<div class="label">项目 ${idx + 1}</div>` : '';
+                results.forEach(item => {
+                    html += `
+                        <div class="${item.type}-result">
+                            <div class="label">${item.label}</div>
+                            <div class="result-url">${item.url}</div>
+                            <div class="hint">${item.hint}</div>
+                            <button class="copy-btn" data-url="${item.url}">📋 复制</button>
+                        </div>`;
+                });
+                card.innerHTML = html;
+                resultGroup.appendChild(card);
+            }
+        });
         resultGroup.style.display = 'block';
-        if (actionBtn) actionBtn.textContent = '↺ 重置';
-        return;
-      }
+        actionBtn.textContent = '↺ 重置';
     }
 
-    // 其他情况，完全走你原来的逻辑
-    return OLD_convert();
-  };
-})();
-</script>
-<!-- ================= 新增功能结束 ================= -->
+    // 复制和重置逻辑
+    resultGroup.addEventListener('click', e => {
+        const btn = e.target.closest('.copy-btn');
+        if (!btn) return;
+        navigator.clipboard.writeText(btn.dataset.url).then(() => {
+            const old = btn.textContent;
+            btn.textContent = '✅ 已复制';
+            setTimeout(() => btn.textContent = old, 1500);
+        });
+    });
 
+    actionBtn.addEventListener('click', () => {
+        input.value = '';
+        resultGroup.innerHTML = '';
+        resultGroup.style.display = 'none';
+        actionBtn.textContent = '🗑️ 清空';
+    });
+
+    convertBtn.addEventListener('click', convert);
+  </script>
 </body>
 </html>
