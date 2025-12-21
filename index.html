@@ -25,7 +25,6 @@
       支持加速：<br>
       • GitHub raw 或 blob 链接 → 转 jsDelivr 全球加速（大陆推荐）<br>
       • **🆕 GitHub 完整链接 (仓库, Releases, Archive, Gist, Raw 文件, Pages) → 转 ghfast.top 代理加速**<br>
-      • **🆕 订阅链接转换：自动将 xinote.site:2096 替换为 https://xinote.site:8443**<br>
       • 支持反向解析 CDN 链接（fastly.jsdelivr.net / cdn.jsdmirror.com / cdn.jsdelivr.net）回原 GitHub 地址<br>
       • 适用于仓库中的任何静态文件（如 JS、CSS、图像等）<br>
       • 支持每行一个链接，批量转换（回车键换行，点击按钮转换，结果按输入顺序排列）<br>
@@ -80,13 +79,8 @@
       } catch { return false; }
     }
     
-    // 新增：检查是否为订阅链接
-    function isSubscriptionUrl(url) {
-      return url.includes('xinote.site:2096');
-    }
-    
     function isSupportedUrl(url) {
-      return isJsDelivrSupportedGitHubInput(url) || isGhfastSupportedUrl(url) || isCdnInput(url) || isSubscriptionUrl(url);
+      return isJsDelivrSupportedGitHubInput(url) || isGhfastSupportedUrl(url) || isCdnInput(url);
     }
     
     function isJsDelivrUrl(url) {
@@ -147,24 +141,7 @@
     function generateCdnUrls(inputUrl) {
       const results = [];
       
-      // 1. 新增功能：订阅链接转换
-      if (isSubscriptionUrl(inputUrl)) {
-          try {
-              const urlObj = new URL(inputUrl);
-              const newSubUrl = `https://xinote.site:8443${urlObj.pathname}${urlObj.search}`;
-              results.push({ 
-                  label: '🚀 新订阅链接', 
-                  url: newSubUrl, 
-                  hint: '已自动切换至 8443 端口', 
-                  type: 'ghfast' // 借用样式
-              });
-          } catch(e) {
-              const fallback = inputUrl.replace(/http:\/\/xinote\.site:2096/, 'https://xinote.site:8443');
-              results.push({ label: '🚀 新订阅链接', url: fallback, hint: '已自动切换至 8443 端口', type: 'ghfast' });
-          }
-      }
-
-      // 2. 如果是 CDN 链接 (反向解析)
+      // 1. 如果是 CDN 链接 (反向解析)
       if (isCdnInput(inputUrl)) {
         const parts = parseCdnParts(inputUrl);
         if (parts) {
@@ -179,7 +156,7 @@
         return results.length > 0 ? results : null;
       }
 
-      // 3. GitHub 静态资源转换
+      // 2. GitHub 静态资源转换
       if (isJsDelivrSupportedGitHubInput(inputUrl)) {
         const parts = parseGitHubParts(inputUrl);
         if (parts) {
@@ -193,7 +170,7 @@
         }
       }
 
-      // 4. ghfast.top 代理
+      // 3. ghfast.top 代理
       if (isGhfastSupportedUrl(inputUrl)) {
           results.push({ label: '🚀 ghfast.top 代理', url: `https://ghfast.top/${inputUrl}`, hint: '全能加速代理', type: 'ghfast' });
       }
@@ -202,7 +179,6 @@
       return null;
     }
     
-    // Purge/Convert/Reset 逻辑保持原样
     async function purgeUrls(urls) {
       let purgedCount = 0; let skippedCount = 0; const purgePromises = [];
       for (const url of urls) {
