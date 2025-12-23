@@ -1,23 +1,39 @@
-// 统一替换服务器地址 + 名称直接改为协议类型
-
 function operator(proxies) {
-  return proxies.map(p => {
-    if (p.type === "hysteria2") {
-      p.server = "hy2.xinote.site";
-      p.name = "hysteria2";
-    } else if (p.type === "trojan") {
-      p.server = "trojan.xinote.site";
-      p.name = "trojan";
-    } else if (p.type === "vless" && p.tls && p.flow === "xtls-rprx-vision" && p["reality-opts"]) {
-      p.server = "reality.xinote.site";
-      p.name = "reality";
-    } else if (p.type === "vless" && p.network === "ws" && p["ws-opts"] && p["ws-opts"].headers && p["ws-opts"].headers["v2ray-http-upgrade"] === "true") {
-      p.server = "vless.xinote.site";
-      p.name = "vless-upgrade";
-    } else if (p.type === "vless" && p.network === "ws") {
-      p.server = "ws.xinote.site";
-      p.name = "vless-ws";
+  return proxies.map((proxy) => {
+    // Hy2：Hysteria2 类型
+    if (proxy.type === 'hysteria2') {
+      proxy.server = 'hy2.xinote.site';
     }
-    return p;
+    
+    // Reality：VLESS + Reality 类型（有 reality-opts）
+    else if (proxy.type === 'vless' && proxy['reality-opts']) {
+      proxy.server = 'reality.xinote.site';
+    }
+    
+    // Trojan 类型
+    else if (proxy.type === 'trojan') {
+      proxy.server = 'trojan.xinote.site';
+    }
+    
+    // vless-upgrade：VLESS + WS + v2ray-http-upgrade
+    else if (
+      proxy.type === 'vless' &&
+      proxy.network === 'ws' &&
+      proxy['ws-opts'] &&
+      proxy['ws-opts']['v2ray-http-upgrade'] === true
+    ) {
+      proxy.server = 'vless.xinote.site';
+    }
+    
+    // vless-ws：普通 VLESS + WS（无 upgrade）
+    else if (
+      proxy.type === 'vless' &&
+      proxy.network === 'ws' &&
+      (!proxy['ws-opts'] || proxy['ws-opts']['v2ray-http-upgrade'] !== true)
+    ) {
+      proxy.server = 'ws.xinote.site';
+    }
+    
+    return proxy;
   });
 }
