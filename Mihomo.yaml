@@ -1,10 +1,12 @@
+# ==================== 全局基础设置 ====================
 mixed-port: 7890
-allow-lan: true
+allow-lan: true                  # 局域网设备需要访问面板时保持 true
 mode: rule
 log-level: info
 external-controller: 0.0.0.0:9090
-secret: ""
+secret: ""                       # 需要面板密码时填写
 
+# ==================== 策略组 ====================
 proxy-groups:
   - name: 选择代理
     type: select
@@ -23,29 +25,24 @@ proxy-groups:
 
   - name: 自动选择
     type: url-test
-    include-all-proxies: true         # ← 自动包含所有本地节点（不管名字怎么变）
+    include-all-proxies: true       # ← 自动包含所有节点，名字随便改都没事
     icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    # exclude-filter: '备用|测试'     # 可选：排除名字含这些词的节点
 
   - name: 手动选择
     type: select
-    include-all-proxies: true         # ← 同上，手动组显示所有节点
+    include-all-proxies: true       # ← 同上，所有节点自动显示
     icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Static.png
-
-  - name: 直连分流
-    type: select
-    proxies:
-      - DIRECT
 
   - name: 广告拦截
     type: select
+    icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
     proxies:
       - REJECT
 
-# rule-providers 和 rules、dns 保持你原来的（已修正版）
+# ==================== 规则集 ====================
 rule-providers:
   AWAvenue-Ads-Rule:
     type: http
@@ -54,18 +51,13 @@ rule-providers:
     path: ./rules/AWAvenue-Ads-Rule.yaml
     interval: 86400
 
-  Direct_Rules:
-    type: http
-    behavior: classical
-    url: https://cnb.cool/xiyingruyi/Stash-rules/-/git/raw/main/Direct_Rules.yaml
-    path: ./rules/Direct_Rules.yaml
-    interval: 86400
-
+# ==================== 规则 ====================
 rules:
   - PROCESS-NAME,v2ray,DIRECT
   - PROCESS-NAME,Surge,DIRECT
   - PROCESS-NAME,Clash,DIRECT
   - PROCESS-NAME,ClashMeta,DIRECT
+  - PROCESS-NAME,mihomo,DIRECT
   - PROCESS-NAME,trojan,DIRECT
   - RULE-SET,AWAvenue-Ads-Rule,广告拦截
   - IP-CIDR,107.172.252.29/32,DIRECT,no-resolve
@@ -75,7 +67,6 @@ rules:
   - DOMAIN-SUFFIX,push.apple.com,DIRECT
   - GEOSITE,microsoft@cn,DIRECT
   - GEOSITE,steam@cn,DIRECT
-  - RULE-SET,Direct_Rules,直连分流
   - PROCESS-NAME,BaiduNetdisk,DIRECT
   - PROCESS-NAME,Aliyundrive.exe,DIRECT
   - PROCESS-NAME,Quark,DIRECT
@@ -87,8 +78,6 @@ rules:
   - IP-CIDR,192.168.1.0/24,DIRECT
   - GEOSITE,youtube,选择代理
   - DOMAIN-SUFFIX,vk.com,选择代理
-  - DOMAIN-SUFFIX,userapi.com,选择代理
-  - DST-PORT,443,DIRECT,udp  # 替代 QUIC 直连
   - MATCH,默认
 
 dns:
@@ -102,4 +91,4 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-
+ 
