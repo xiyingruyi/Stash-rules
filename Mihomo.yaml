@@ -63,7 +63,6 @@ rule-providers:
     behavior: classical
     interval: 86400
     path: ./rules/Google.yaml
-    interval: 86400
 
 # ==================== 规则 ====================
 rules:
