@@ -35,6 +35,12 @@ proxy-groups:
     type: select
     include-all-proxies: true       # ← 同上，所有节点自动显示
     icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Static.png
+  
+  - name: Google 分流
+    icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png
+    type: select 
+    proxies: 
+      - 选择代理
 
   - name: 广告拦截
     type: select
@@ -49,6 +55,14 @@ rule-providers:
     behavior: classical
     url: https://cdn.jsdmirror.com/gh/TG-Twilight/AWAvenue-Ads-Rule@main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml
     path: ./rules/AWAvenue-Ads-Rule.yaml
+    interval: 86400
+
+  Google:
+    type: http
+    url: "https://cnb.cool/xiyingruyi/Stash-rules/-/git/raw/main/Google.yaml" # Google 服务规则集链接
+    behavior: classical
+    interval: 86400
+    path: ./rules/Google.yaml
     interval: 86400
 
 # ==================== 规则 ====================
@@ -76,6 +90,7 @@ rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - IP-CIDR,192.168.1.0/24,DIRECT
+  - RULE-SET,Google,Google 分流 # 引用外部规则集，匹配的域名走 'Google' 组 
   - GEOSITE,youtube,选择代理
   - DOMAIN-SUFFIX,vk.com,选择代理
   - MATCH,默认
@@ -91,4 +106,3 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
- 
