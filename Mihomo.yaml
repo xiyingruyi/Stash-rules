@@ -96,12 +96,20 @@ rules:
 
 dns:
   enable: true
-  ipv6: true # <--- 修正：开启 DNS 的 IPv6 解析
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  default-nameserver:
-    - 223.5.5.5
-    - 114.114.114.114
+  listen: 0.0.0.0:53
+  ipv6: true  # 必须开启，支持双栈
+
+  # 国内 DNS：解析国内网站，延迟低、稳定
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
+    - 223.5.5.5
+    - 223.6.6.6
+    - 114.114.114.114
+
+  # 国外 DNS（DoH）：解析国外域名，干净可靠
+  # 建议通过代理访问，避免国内网络阻断
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+
+  # 系统 DNS 兜底：极端情况备用
+  default-nameserver:
+    - system
