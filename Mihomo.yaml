@@ -42,6 +42,12 @@ proxy-groups:
     proxies: 
       - 选择代理
 
+  - name: 直连分流
+    icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Available_1.png
+    type: select
+    proxies:
+      - DIRECT      
+
   - name: 广告拦截
     type: select
     icon: https://cdn.jsdmirror.com/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
@@ -63,6 +69,14 @@ rule-providers:
     behavior: classical
     interval: 86400
     path: ./rules/Google.yaml
+
+  Direct_Rules:
+    type: http  
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/China/China_Classical.yaml" # 强制直连规则集链接
+    behavior: classical
+    path: ./rules/Direct_Rules.yaml
+    interval: 86400
+    format: yaml
 
 # ==================== 规则 ====================
 rules:
@@ -89,6 +103,7 @@ rules:
   - GEOIP,LAN,DIRECT
   - GEOIP,CN,DIRECT,no-resolve
   - IP-CIDR,192.168.1.0/24,DIRECT
+  - RULE-SET,Direct_Rules,直连分流,no-resolve # 引用外部直连规则集，走 '直连分流' 组  
   - RULE-SET,Google,Google 分流 # 引用外部规则集，匹配的域名走 'Google' 组 
   - GEOSITE,youtube,选择代理
   - DOMAIN-SUFFIX,vk.com,选择代理
