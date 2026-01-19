@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub资源加速器 - 让访问更快更稳定</title>
+  <meta name="description" content="一键将GitHub静态资源链接转换为高速CDN链接，专为中国大陆用户优化 | 现代简约设计" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#6366f1" />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  
+  <style>
+    :root {
+      /* 主色调 - 紫色主题 */
+      --primary-50: #f5f3ff;
+      --primary-100: #ede9fe;
+      --primary-200: #ddd6fe;
+      --primary-300: #c4b5fd;
+      --primary-400: #a78bfa;
+      --primary-500: #8b5cf6;
+      --primary-600: #7c3aed;
+      --primary-700: #6d28d9;
+      --primary-800: #5b21b6;
+      --primary-900: #4c1d95;
+      
+      /* 中性色 */
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      
+      /* 状态色 */
+      --success-500: #10b981;
+      --warning-500: #f59e0b;
+      --error-500: #ef4444;
+      --info-500: #3b82f6;
+      
+      /* 渐变色 */
+      --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+      --gradient-secondary: linear-gradient(135deg, #8b5cf6, #ec4899);
+      --gradient-success: linear-gradient(135deg, #10b981, #059669);
+      
+      /* 阴影 */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      
+      /* 圆角 */
+      --radius-xs: 0.125rem;
+      --radius-sm: 0.25rem;
+      --radius-md: 0.375rem;
+      --radius-lg: 0.5rem;
+      --radius-xl: 0.75rem;
+      --radius-2xl: 1rem;
+      --radius-3xl: 1.5rem;
+      
+      /* 过渡动画 */
+      --transition-all: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* 断点 */
+      --breakpoint-sm: 640px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 1024px;
+      --breakpoint-xl: 1280px;
+    }
+
+    /* 深色模式支持 */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --gray-50: #111827;
+        --gray-100: #1f2937;
+        --gray-200: #374151;
+        --gray-300: #4b5563;
+        --gray-400: #6b7280;
+        --gray-500: #9ca3af;
+        --gray-600: #d1d5db;
+        --gray-700: #e5e7eb;
+        --gray-800: #f3f4f6;
+        --gray-900: #f9fafb;
+      }
+    }
+
+    /* 基础重置 */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--gray-800);
+      /* 使用第二版的背景颜色 */
+      background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #e0f2fe 100%);
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      background-attachment: fixed;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+        color: var(--gray-200);
+      }
+    }
+
+    /* 容器布局 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      min-height: 100vh;
+    }
+
+    /* 头部区域 */
+    .header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* 主要内容区域 */
+    .main-content {
+      background: white;
+      border-radius: var(--radius-3xl);
+      box-shadow: var(--shadow-xl);
+      padding: 2.5rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .main-content {
+        background: var(--gray-800);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: var(--radius-2xl);
+        max-width: none;
+      }
+    }
+
+    /* 输入区域 */
+    .input-section {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--gray-800);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .section-title {
+        color: var(--gray-200);
+      }
+    }
+
+    .input-wrapper {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .input-field {
+      width: 100%;
+      min-height: 150px;
+      padding: 1.25rem;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      font-family: 'Inter', monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      transition: var(--transition-all);
+      resize: vertical;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .input-field {
+        background: var(--gray-700);
+        border-color: var(--gray-600);
+        color: var(--gray-200);
+      }
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--primary-500);
+      box-shadow: 0 0 0 3px var(--primary-100);
+      background: white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .input-field:focus {
+        background: var(--gray-800);
+        box-shadow: 0 0 0 3px var(--primary-900);
+      }
+    }
+
+    .input-placeholder {
+      color: var(--gray-400);
+      font-style: italic;
+    }
+
+    /* 按钮区域 */
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 3rem auto;
+      max-width: 1000px;
+      padding: 0 2.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .button-group {
+        flex-direction: column;
+      }
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 140px;
+      padding: 0.875rem 1.5rem;
+      border: none;
+      border-radius: var(--radius-lg);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition-all);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-success {
+      background: var(--gradient-success);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-success:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: var(--gray-100);
+      color: var(--gray-700);
+      border: 1px solid var(--gray-200);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .btn-secondary {
+        background: var(--gray-700);
+        color: var(--gray-200);
+        border-color: var(--gray-600);
+      }
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--gray-200);
+      transform: translateY(-1px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .btn-secondary:hover:not(:disabled) {
+        background: var(--gray-600);
+      }
+    }
+
+    /* 特性网格样式 - 简单的网格布局 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin: 5rem auto;
+      max-width: 1000px;
+    }
+
+    @media (max-width: 768px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: var(--radius-2xl);
+        max-width: none;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 0.75rem;
+        padding: 1.25rem;
+      }
+      
+      .feature-item {
+        padding: 1.5rem;
+        min-height: 140px;
+      }
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 2rem;
+      background: var(--gray-50);
+      border-radius: var(--radius-2xl);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition-all);
+      min-height: 160px;
+    }
+    
+    @media (max-width: 768px) {
+      .button-group {
+        margin: 1rem;
+        padding: 0 1.5rem;
+        max-width: none;
+      }
+      
+      .feature-item {
+        align-items: center;
+        padding: 1.5rem;
+        min-height: 140px;
+      }
+      
+      .feature-icon {
+        font-size: 1.125rem;
+        margin-top: 0;
+      }
+      
+      .feature-content {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+    
+    .feature-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .feature-item:hover .feature-content h4 {
+      color: var(--primary-600);
+    }
+    
+    .feature-item:hover .feature-content p {
+      color: var(--primary-500);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .feature-item {
+        background: var(--gray-600);
+      }
+    }
+
+    .feature-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .feature-content h4 {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: var(--gray-800);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .feature-content h4 {
+        color: var(--gray-200);
+      }
+    }
+
+    .feature-content p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+    
+    /* 苹果风格 modal + 背景虚化 */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: white;
+      border-radius: var(--radius-2xl);
+      max-width: 500px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-xl);
+      padding: 2.5rem;
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .modal-overlay.show .modal-card { transform: scale(1); }
+
+    @media (prefers-color-scheme: dark) {
+      .modal-card { background: var(--gray-800); color: var(--gray-200); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: var(--gray-500);
+      line-height: 1;
+    }
+
+    .modal-close:hover { color: var(--gray-800); }
+
+    @media (prefers-color-scheme: dark) {
+      .modal-close:hover { color: var(--gray-200); }
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--primary-700);
+    }
+
+    .modal-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--gray-700);
+    }
+
+    .modal-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .modal-content li {
+      margin: 0.8rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .modal-content li::before {
+      content: "•";
+      position: absolute;
+      left: 0.2rem;
+      color: var(--primary-500);
+      font-size: 1.5rem;
+    }
+
+    /* 特性卡片 + 号 */
+    .expand-icon {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .feature-item:hover .expand-icon { color: var(--primary-600); }
+
+    @media (prefers-color-scheme: dark) {
+      .expand-icon { color: var(--gray-400); }
+      .feature-item:hover .expand-icon { color: var(--primary-400); }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .feature-content p {
+        color: var(--gray-400);
+      }
+    }
+
+    /* 结果区域 */
+    .results-section {
+      display: none;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .results-section {
+        border-top-color: var(--gray-600);
+      }
+    }
+
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .results-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .results-title {
+        color: var(--gray-200);
+      }
+    }
+
+    .results-count {
+      background: var(--primary-100);
+      color: var(--primary-700);
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .results-count {
+        background: var(--primary-900);
+        color: var(--primary-300);
+      }
+    }
+
+    .result-card {
+      background: var(--gray-50);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--gray-200);
+      transition: var(--transition-all);
+    }
+    
+    .result-card:hover {
+      border-color: var(--primary-400);
+      box-shadow: var(--shadow-md);
+      background: var(--gray-100);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-card {
+        background: var(--gray-700);
+        border-color: var(--gray-600);
+      }
+    }
+
+    .result-card:hover {
+      border-color: var(--primary-300);
+      box-shadow: var(--shadow-md);
+    }
+
+    .result-original {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px dashed var(--gray-300);
+      word-break: break-all;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-original {
+        color: var(--gray-400);
+        border-bottom-color: var(--gray-600);
+      }
+    }
+
+    .result-item {
+      margin-bottom: 1.25rem;
+      padding: 1rem;
+      background: white;
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--primary-500);
+      border: 1px solid var(--gray-200);
+      transition: var(--transition-all);
+    }
+    
+    .result-item:hover {
+      border-color: var(--primary-400);
+      background: var(--primary-50);
+      transform: translateX(4px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-item {
+        background: var(--gray-600);
+      }
+    }
+
+    .result-label {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-800);
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-label {
+        color: var(--gray-200);
+      }
+    }
+
+    .result-url {
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+      font-size: 0.875rem;
+      background: var(--gray-50);
+      padding: 0.75rem;
+      border-radius: var(--radius-md);
+      margin-bottom: 0.75rem;
+      word-break: break-all;
+      border: 1px solid var(--gray-200);
+      color: var(--primary-700);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+    
+    .result-item:hover .result-url {
+      background: white;
+      border-color: var(--primary-300);
+      color: var(--primary-800);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-url {
+        background: var(--gray-700);
+        border-color: var(--gray-600);
+        color: var(--primary-300);
+      }
+    }
+
+    .result-url:hover {
+      background: var(--gray-100);
+      border-color: var(--primary-300);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-url:hover {
+        background: var(--gray-600);
+        border-color: var(--primary-400);
+      }
+    }
+
+    .result-hint {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .result-hint {
+        color: var(--gray-400);
+      }
+    }
+
+    /* 行内复制按钮样式 */
+    .result-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      padding-right: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .result-header-line {
+        align-items: flex-start;
+      }
+    }
+    
+    .result-label-with-hint {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .result-name {
+      font-weight: 600;
+      color: var(--gray-800);
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+    
+    .result-item:hover .result-name {
+      color: var(--primary-700);
+    }
+    
+    .result-hint-inline {
+      color: var(--gray-500);
+      font-size: 0.875rem;
+      font-style: normal;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+    
+    .result-item:hover .result-hint-inline {
+      color: var(--primary-600);
+    }
+    
+    .copy-button-inline {
+      background: transparent;
+      color: var(--primary-600);
+      border: 1px solid var(--primary-300);
+      padding: 0.375rem 0.75rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    .copy-button-inline:hover:not(:disabled) {
+      background: var(--primary-500);
+      color: white;
+      border-color: var(--primary-500);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
+    }
+    
+    .result-item:hover .copy-button-inline {
+      color: var(--primary-700);
+      border-color: var(--primary-400);
+    }
+    
+    .copy-button-inline:disabled {
+      background: var(--gray-400);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .copy-button-inline.success {
+      background: var(--success-500);
+      color: white;
+      border-color: var(--success-500);
+    }
+    
+    /* 保持原有的复制按钮样式以兼容其他地方 */
+    .copy-button {
+      background: transparent;
+      color: var(--primary-600);
+      border: 1px solid var(--primary-300);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .copy-button:hover:not(:disabled) {
+      background: var(--primary-500);
+      color: white;
+      border-color: var(--primary-500);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+    }
+
+    .copy-button:disabled {
+      background: var(--gray-400);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .copy-button.success {
+      background: var(--success-500);
+      color: white;
+      border-color: var(--success-500);
+    }
+
+    /* 通知系统 */
+    .notification {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      font-weight: 500;
+      z-index: 1000;
+      transform: translateX(120%);
+      transition: var(--transition-all);
+      max-width: 300px;
+    }
+
+    .notification.show {
+      transform: translateX(0);
+    }
+
+    .notification.info {
+      background: var(--info-500);
+      color: white;
+    }
+
+    .notification.success {
+      background: var(--success-500);
+      color: white;
+    }
+
+    .notification.warning {
+      background: var(--warning-500);
+      color: white;
+    }
+
+    .notification.error {
+      background: var(--error-500);
+      color: white;
+    }
+
+    /* 页脚 */
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--gray-500);
+      font-size: 0.875rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .footer {
+        color: var(--gray-400);
+      }
+    }
+
+    .footer a {
+      color: var(--primary-500);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 加载动画 */
+    .loading {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .header {
+        padding: 2rem 1rem 1.5rem;
+      }
+      
+      .logo {
+        font-size: 2.5rem;
+      }
+      
+      .title {
+        font-size: 2rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .main-content {
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: var(--radius-2xl);
+      }
+      
+      .section-title {
+        font-size: 1.125rem;
+      }
+      
+      .input-field {
+        min-height: 120px;
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+      
+      .button-group {
+        gap: 0.75rem;
+      }
+      
+      .btn {
+        min-width: auto;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+      }
+      
+
+      
+      .feature-item {
+        padding: 0.875rem;
+      }
+      
+      .feature-content h4 {
+        font-size: 1rem;
+      }
+      
+      .feature-content p {
+        font-size: 0.875rem;
+      }
+      
+      .results-header {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      
+      .results-title {
+        font-size: 1.125rem;
+      }
+      
+      .result-card {
+        padding: 1.25rem;
+      }
+      
+      .result-original {
+        font-size: 0.8125rem;
+      }
+      
+      .result-item {
+        padding: 0.875rem;
+      }
+      
+      .result-header-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .result-label-with-hint {
+        width: 100%;
+      }
+      
+      .result-name {
+        font-size: 0.95rem;
+      }
+      
+      .result-hint-inline {
+        font-size: 0.8125rem;
+      }
+      
+      .copy-button-inline {
+        align-self: flex-start;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8125rem;
+      }
+      
+      .result-url {
+        font-size: 0.8125rem;
+        padding: 0.625rem;
+      }
+      
+      .notification {
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.75rem;
+      }
+      
+      .header {
+        padding: 1.5rem 0.75rem 1rem;
+      }
+      
+      .logo {
+        font-size: 2rem;
+      }
+      
+      .title {
+        font-size: 1.75rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .main-content {
+        margin: 0.75rem;
+        padding: 1.25rem;
+      }
+      
+      .input-field {
+        min-height: 100px;
+        padding: 0.875rem;
+        font-size: 0.875rem;
+      }
+      
+      .button-group {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 0.75rem;
+        padding: 0 1.25rem;
+        max-width: none;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+      }
+      
+      .features-grid {
+        gap: 0.5rem;
+      }
+      
+      .feature-item {
+        padding: 0.75rem;
+      }
+      
+
+      
+      .feature-content h4 {
+        font-size: 0.95rem;
+      }
+      
+      .feature-content p {
+        font-size: 0.8125rem;
+      }
+      
+      .result-card {
+        padding: 1rem;
+      }
+      
+      .result-item {
+        padding: 0.75rem;
+      }
+      
+      .result-name {
+        font-size: 0.9rem;
+      }
+      
+      .result-hint-inline {
+        font-size: 0.75rem;
+      }
+      
+      .copy-button-inline {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem;
+      }
+      
+      .result-url {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+      }
+      
+      .footer {
+        padding: 1.5rem 0.75rem;
+        font-size: 0.8125rem;
+      }
+    }
+
+    /* 工具类 */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .rounded-full {
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 头部区域 -->
+  <header class="header">
+    <div class="logo">🚀</div>
+    <h1 class="title">GitHub资源加速器</h1>
+    <p class="subtitle">一键将GitHub静态资源链接转换为高速CDN链接，让访问更快更稳定</p>
+  </header>
+
+  <!-- 主要内容 -->
+  <main class="container">
+    <div class="main-content">
+      <!-- 输入区域 -->
+      <section class="input-section">
+        <h2 class="section-title">
+          <span>🔗</span>
+          输入GitHub链接
+        </h2>
+        <div class="input-wrapper">
+          <textarea 
+            id="input" 
+            class="input-field" 
+            placeholder="粘贴 GitHub 静态资源或完整链接（每行一个）...
+示例：
+https://raw.githubusercontent.com/user/repo/main/file.js
+https://github.com/user/repo/blob/main/file.js
+https://gist.github.com/user/id"
+          ></textarea>
+        </div>
+      </section>
+
+      <!-- 结果展示区域 -->
+      <section id="resultGroup" class="results-section">
+        <div class="results-header">
+          <h2 class="results-title">转换结果</h2>
+          <div class="results-count" id="resultCount">0个结果</div>
+        </div>
+        <div id="resultsContainer"></div>
+      </section>
+    </div>
+
+    <!-- 操作按钮 -->
+    <div class="button-group">
+      <button id="convert" class="btn btn-primary">
+        <span>✨</span>
+        智能转换
+      </button>
+      <button id="purgeBtn" class="btn btn-success">
+        <span>🔄</span>
+        刷新缓存
+      </button>
+      <button id="actionBtn" class="btn btn-secondary">
+        <span>🗑️</span>
+        清空
+      </button>
+    </div>
+
+    <!-- 功能特性卡片（独立区域） -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-content">
+          <h4>CDN加速转换</h4>
+          <p>将GitHub原始链接转为全球CDN加速链接</p>
+        </div>
+        <span class="expand-icon">+</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h4>反向解析</h4>
+          <p>CDN链接可还原为原始GitHub地址</p>
+        </div>
+        <span class="expand-icon">+</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h4>批量处理</h4>
+          <p>支持同时处理多个链接，提高效率</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-content">
+          <h4>缓存清理</h4>
+          <p>一键刷新CDN缓存，获取最新内容</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal-overlay" id="featureModal">
+      <div class="modal-card">
+        <span class="modal-close" id="modalClose">×</span>
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>🚀 GitHub资源加速器 - 让开源更便捷 | 基于开源项目构建</p>
+    <p>建议添加到主屏幕以获得更好的使用体验</p>
+  </footer>
+
+  <script>
+    // DOM元素引用
+    const input = document.getElementById('input');
+    const resultGroup = document.getElementById('resultGroup');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const resultCount = document.getElementById('resultCount');
+    const convertBtn = document.getElementById('convert');
+    const purgeBtn = document.getElementById('purgeBtn');
+    const actionBtn = document.getElementById('actionBtn');
+
+    // 显示通知函数
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification ${type}`;
+      notification.textContent = message;
+      
+      document.body.appendChild(notification);
+      
+      // 触发显示动画
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 10);
+      
+      // 自动隐藏
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+          }
+        }, 300);
+      }, 3000);
+    }
+
+    // ------------------ URL 类型检查 ------------------
+    function isJsDelivrSupportedGitHubInput(url) {
+      try {
+        const parsed = new URL(url);
+        return parsed.hostname === 'raw.githubusercontent.com' ||
+               (parsed.hostname === 'github.com' && ( /\/raw\//.test(parsed.pathname) || /\/blob\//.test(parsed.pathname) ));
+      } catch { return false; }
+    }
+
+    function isGhfastSupportedUrl(url) {
+        try {
+            const parsed = new URL(url);
+            if (parsed.hostname === 'raw.githubusercontent.com') return true;
+            if (parsed.hostname === 'gist.github.com' || parsed.hostname === 'gist.githubusercontent.com') return true;
+            if (parsed.hostname === 'github.com') {
+                const pathname = parsed.pathname;
+                return /\/[^/]+\/[^/]+/.test(pathname);
+            }
+            if (parsed.hostname.endsWith('.github.io')) return true; 
+            return false;
+        } catch { return false; }
+    }
+
+    function isCdnInput(url) {
+      try {
+        const parsed = new URL(url);
+        return ['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname);
+      } catch { return false; }
+    }
+    
+    function isSupportedUrl(url) {
+      return isJsDelivrSupportedGitHubInput(url) || isGhfastSupportedUrl(url) || isCdnInput(url);
+    }
+    
+    function isJsDelivrUrl(url) {
+      try {
+        const parsed = new URL(url);
+        return parsed.hostname === 'cdn.jsdelivr.net' || parsed.hostname === 'fastly.jsdelivr.net';
+      } catch { return false; }
+    }
+
+    function isJsdMirrorUrl(url) {
+      try {
+        const parsed = new URL(url);
+        return parsed.hostname === 'cdn.jsdmirror.com';
+      } catch { return false; }
+    }
+
+    // ------------------ 解析函数 ------------------
+    function parseGitHubParts(url) {
+      try {
+        const parsed = new URL(url);
+        let pathname = parsed.pathname;
+        if (parsed.hostname === 'github.com') {
+          if (pathname.includes('/refs/heads/')) pathname = pathname.replace('/refs/heads/', '/');
+          if (/\/raw\//.test(pathname)) pathname = pathname.replace('/raw/', '/');
+          else if (/\/blob\//.test(pathname)) pathname = pathname.replace('/blob/', '/');
+          else return null;
+        }
+        const parts = pathname.slice(1).split('/');
+        if (parts.length < 4) return null; 
+        const [user, repo, ref, ...filePathArr] = parts;
+        if (!user || !repo || !ref || filePathArr.length === 0) return null;
+        return { user, repo, ref, filePathArr };
+      } catch (e) { return null; }
+    }
+
+    function parseCdnParts(url) {
+      try {
+        const parsed = new URL(url);
+        if (!['cdn.jsdelivr.net', 'fastly.jsdelivr.net', 'cdn.jsdmirror.com'].includes(parsed.hostname)) return null;
+        let pathname = parsed.pathname;
+        if (!pathname.startsWith('/gh/')) return null;
+        const ghParts = pathname.slice(4).split('/');
+        if (ghParts.length < 3) return null;
+        const user = ghParts[0];
+        const repoRef = ghParts[1];
+        const repoRefSplit = repoRef.split('@');
+        if (repoRefSplit.length !== 2) return null;
+        const [repo, ref] = repoRefSplit;
+        const filePathArr = ghParts.slice(2);
+        if (filePathArr.length === 0) return null;
+        return { user, repo, ref, filePathArr };
+      } catch (e) { return null; }
+    }
+
+    // ------------------ URL 生成函数 ------------------
+    function generateCdnUrls(inputUrl) {
+      const results = [];
+      
+      // 1. 如果是 CDN 链接 (反向解析)
+      if (isCdnInput(inputUrl)) {
+        const parts = parseCdnParts(inputUrl);
+        if (parts) {
+            const { user, repo, ref, filePathArr } = parts;
+            const rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/${ref}/${filePathArr.join('/')}`;
+            const blobUrl = `https://github.com/${user}/${repo}/blob/${ref}/${filePathArr.join('/')}`;
+            results.push(
+                { label: '📁 GitHub Raw', url: rawUrl, hint: '原始 Raw 链接', type: 'github' },
+                { label: '🔗 GitHub Blob', url: blobUrl, hint: '原始 Blob 查看链接', type: 'github' }
+            );
+        }
+        return results.length > 0 ? results : null;
+      }
+
+      // 2. GitHub 静态资源转换
+      if (isJsDelivrSupportedGitHubInput(inputUrl)) {
+        const parts = parseGitHubParts(inputUrl);
+        if (parts) {
+            const { user, repo, ref, filePathArr } = parts;
+            const base = `${user}/${repo}@${ref}/${filePathArr.join('/')}`;
+            results.push(
+                { label: '✅ 🇨🇳 cdn.jsdmirror.com', url: `https://cdn.jsdmirror.com/gh/${base}`, hint: '国内镜像', type: 'cdn' },
+                { label: '🔥 fastly.jsdelivr.net', url: `https://fastly.jsdelivr.net/gh/${base}`, hint: '海外优选', type: 'cdn' },
+                { label: '🌐 cdn.jsdelivr.net', url: `https://cdn.jsdelivr.net/gh/${base}`, hint: '中国大陆推荐', type: 'cdn' }
+            );
+        }
+      }
+
+      // 3. ghfast.top 代理
+      if (isGhfastSupportedUrl(inputUrl)) {
+          results.push({ label: '🚀 ghfast.top 代理', url: `https://ghfast.top/${inputUrl}`, hint: '全能加速代理', type: 'ghfast' });
+      }
+      
+      if (results.length > 0) return results;
+      return null;
+    }
+    
+    async function purgeUrls(urls) {
+      let purgedCount = 0; let skippedCount = 0; const purgePromises = [];
+      for (const url of urls) {
+        try {
+          const parsed = new URL(url);
+          if (parsed.hostname === 'cdn.jsdelivr.net' && !url.includes('purge.jsdelivr.net')) {
+            const purgeUrl = url.replace(/^(https:\/\/)cdn\.jsdelivr\.net/, '$1purge.jsdelivr.net');
+            const promise = fetch(purgeUrl, { method: 'GET' }).then(res => { if (res.ok) purgedCount++; });
+            purgePromises.push(promise);
+          } else { skippedCount++; }
+        } catch (err) { skippedCount++; }
+      }
+      if (purgePromises.length === 0) {
+        showNotification(skippedCount > 0 ? `无支持缓存类型（跳过 ${skippedCount} 个）` : '没有可刷新缓存', 'warning');
+        return;
+      }
+      
+      purgeBtn.innerHTML = '<span class="loading"></span> 正在刷新...';
+      purgeBtn.disabled = true;
+      
+      try {
+        await Promise.all(purgePromises);
+        showNotification(`刷新完成！已清除 ${purgedCount} 个缓存${skippedCount > 0 ? `（跳过 ${skippedCount} 个）` : ''}`, 'success');
+      } catch (error) {
+        showNotification('刷新缓存时出错', 'error');
+      } finally {
+        purgeBtn.innerHTML = '<span>🔄</span> 刷新缓存';
+        purgeBtn.disabled = false;
+      }
+    }
+    
+    async function purge() {
+      let urls = [];
+      if (resultGroup.style.display === 'block') {
+        const urlElements = document.querySelectorAll('.result-url');
+        urls = Array.from(urlElements).map(el => el.textContent.trim()).filter(url => isJsDelivrUrl(url) || isJsdMirrorUrl(url));
+      } else {
+        urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+      }
+      if (!urls.length) {
+        showNotification('请输入至少一个链接', 'warning');
+        return;
+      }
+      let supportedUrls = urls.filter(url => isJsDelivrUrl(url) || isJsdMirrorUrl(url));
+      if (!supportedUrls.length) {
+        showNotification('没有可刷新的缓存链接', 'warning');
+        return;
+      }
+      await purgeUrls(supportedUrls);
+    }
+    
+    function convert() {
+      const urls = input.value.split('\n').map(url => url.trim()).filter(url => url);
+      if (!urls.length) {
+        showNotification('请输入至少一个链接', 'warning');
+        return;
+      }
+      
+      let allResults = []; 
+      let invalidUrls = [];
+      
+      urls.forEach((url, index) => {
+        if (!isSupportedUrl(url)) { 
+          invalidUrls.push(`链接 ${index + 1}: ${url}`); 
+          return; 
+        }
+        const results = generateCdnUrls(url);
+        if (results) allResults.push({ originalUrl: url, results });
+        else invalidUrls.push(`链接 ${index + 1}: ${url}`);
+      });
+      
+      if (invalidUrls.length) {
+        showNotification(`发现 ${invalidUrls.length} 个不支持的链接类型`, 'warning');
+      }
+      
+      if (!allResults.length) {
+        showNotification('没有有效的链接可以转换', 'error');
+        return;
+      }
+      
+      // 清空之前的結果
+      resultsContainer.innerHTML = '';
+      
+      // 生成新的結果
+      allResults.forEach(({ originalUrl, results }, index) => {
+        const resultCard = document.createElement('div');
+        resultCard.className = 'result-card';
+        
+        let cardHtml = '';
+        
+        // 如果有多個鏈接，顯示原始鏈接
+        if (allResults.length > 1) {
+          cardHtml += `<div class="result-original">${originalUrl}</div>`;
+        }
+        
+        // 生成每個轉換結果
+        results.forEach(item => {
+          cardHtml += `
+            <div class="result-item">
+              <div class="result-header-line">
+                <div class="result-label-with-hint">
+                  <span class="result-name">${getNameFromLabel(item.label)}</span>
+                  <span class="result-hint-inline">(${item.hint})</span>
+                </div>
+                <button class="copy-button-inline" onclick="copyUrl('${item.url}', this)">
+                  <span>📋</span>
+                  复制链接
+                </button>
+              </div>
+              <div class="result-url" onclick="copyUrl('${item.url}')">${item.url}</div>
+            </div>
+          `;
+        });
+        
+        resultCard.innerHTML = cardHtml;
+        resultsContainer.appendChild(resultCard);
+      });
+      
+      // 更新統計信息和顯示結果
+      resultCount.textContent = `${allResults.length}个结果`;
+      resultGroup.style.display = 'block';
+      actionBtn.innerHTML = '<span>↺</span> 重置';
+      
+      // 滾動到結果區域
+      resultGroup.scrollIntoView({ behavior: 'smooth' });
+      
+      showNotification(`✅ 成功转换 ${allResults.length} 个链接`, 'success');
+    }
+    
+    function reset() {
+      input.value = '';
+      resultGroup.style.display = 'none';
+      resultsContainer.innerHTML = '';
+      actionBtn.innerHTML = '<span>🗑️</span> 清空';
+      input.focus();
+      showNotification('🔄 已清空所有内容', 'info');
+    }
+
+    // 从标签中提取名称函数
+    function getNameFromLabel(label) {
+      // 移除emoji和特殊符号，只保留域名部分
+      return label.replace(/[✅🇨🇳🔥🌐🚀]/g, '').trim();
+    }
+    
+    // 复制URL函数
+    async function copyUrl(url, button) {
+      try {
+        await navigator.clipboard.writeText(url);
+        showNotification('📋 链接已复制到剪贴板', 'success');
+        
+        if (button) {
+          const originalText = button.innerHTML;
+          button.innerHTML = '<span>✅</span> 已复制';
+          button.classList.add('success');
+          
+          setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('success');
+          }, 2000);
+        }
+      } catch (err) {
+        showNotification('❌ 复制失败，请手动选择复制', 'error');
+      }
+    }
+
+    // 事件监听器
+    convertBtn.addEventListener('click', convert);
+    purgeBtn.addEventListener('click', purge);
+    actionBtn.addEventListener('click', reset);
+    
+    // 键盘快捷键
+    document.addEventListener('keydown', (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        switch (e.key) {
+          case 'Enter':
+            e.preventDefault();
+            convert();
+            break;
+          case 'k':
+            e.preventDefault();
+            reset();
+            break;
+        }
+      }
+    });
+
+    // modal 部分（来自 1_副本.html）
+    const modalOverlay = document.getElementById('featureModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const modalClose = document.getElementById('modalClose');
+
+    const featureData = [
+      {
+        title: "CDN加速转换",
+        content: `
+          <div style="font-weight:600; margin-bottom:1rem; color:var(--primary-600);">支持的链接类型：</div>
+          <ul>
+            <li>✅ raw.githubusercontent.com 原始文件</li>
+            <li>✅ github.com/*/raw/* 直接文件</li>
+            <li>✅ github.com/*/blob/* 文件浏览</li>
+            <li>✅ gist.github.com 代码片段</li>
+            <li>✅ 转换为 jsDelivr/ghfast/jsdmirror</li>
+          </ul>
+        `
+      },
+      {
+        title: "反向解析",
+        content: `
+          <div style="font-weight:600; margin-bottom:1rem; color:var(--primary-600);">支持的CDN链接：</div>
+          <ul>
+            <li>🔄 cdn.jsdelivr.net 标准CDN链接</li>
+            <li>🔄 fastly.jsdelivr.net 快速CDN链接</li>
+            <li>🔄 cdn.jsdmirror.com 国内镜像</li>
+            <li>🔄 ghfast.top 代理加速链接</li>
+            <li>🔄 还原为GitHub原始地址</li>
+          </ul>
+        `
+      }
+    ];
+
+    document.querySelectorAll('.feature-item .expand-icon').forEach((icon, index) => {
+      icon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const data = featureData[index];
+        if (data) {
+          modalTitle.textContent = data.title;
+          modalContent.innerHTML = data.content;
+          modalOverlay.classList.add('show');
+        }
+      });
+    });
+
+    modalClose.addEventListener('click', () => modalOverlay.classList.remove('show'));
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) modalOverlay.classList.remove('show');
+    });
+
+    // 页面加载完成后聚焦输入框
+    window.addEventListener('load', () => {
+      input.focus();
+      showNotification('欢迎使用GitHub资源加速器！', 'info');
+    });
+  </script>
+</body>
+</html>
