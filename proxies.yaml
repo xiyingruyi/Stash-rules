@@ -7,33 +7,29 @@ proxies:
   network: tcp
   name: 🇯🇵 JP 日本 1
 - type: vless
-  server: 104.19.48.10
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
+  server: plcdn14.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
   tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
+  servername: plcdn14.suio.me
   name: 🇯🇵 JP 日本 2
 - type: vless
-  server: 104.19.48.83
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  server: 162.159.16.63
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
   network: ws
   tls: true
-  servername: yd.bsbb.cc
+  servername: l.ayovo.netlib.re
   ws-opts:
-    path: /cf
+    path: /x-aniu/?ed=2560
     headers:
-      Host: yd.bsbb.cc
+      Host: l.ayovo.netlib.re
   name: 🇯🇵 JP 日本 3
 - type: vless
-  server: 172.67.64.47
+  server: 172.67.64.1
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -43,9 +39,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇯🇵 JP 日本 4
 - type: vless
-  server: 198.41.223.43
+  server: 172.67.64.66
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -54,6 +50,18 @@ proxies:
     headers:
       Host: yd.bsbb.cc
   name: 🇯🇵 JP 日本 5
+- type: vless
+  server: 198.41.223.28
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇯🇵 JP 日本 6
 - type: vless
   server: 45.135.160.57
   port: 443
@@ -65,7 +73,7 @@ proxies:
     path: /?ed=2560
     headers:
       Host: ww4.xaniujp1.qzz.io
-  name: 🇯🇵 JP 日本 6
+  name: 🇯🇵 JP 日本 7
 - type: trojan
   server: 109.234.211.66
   port: 8443
@@ -76,146 +84,175 @@ proxies:
     path: /
     headers:
       Host: store.timimi.dpdns.org
-  name: 🇵🇹 PT 葡萄牙 1
+  name: 🇬🇧 GB 英国 1
 - type: vless
-  server: ficdn19.suio.me
+  server: 57.129.4.20
+  port: 2053
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇬🇧 GB 英国 2
+- type: vless
+  server: 104.18.32.16
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇬🇧 GB 英国 3
+- type: vless
+  server: 104.19.32.92
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇬🇧 GB 英国 4
+- type: vless
+  server: 162.159.152.8
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇬🇧 GB 英国 5
+- type: vless
+  server: 8.39.125.52
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇬🇧 GB 英国 6
+- type: vless
+  server: 8.39.125.80
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇬🇧 GB 英国 7
+- type: vless
+  server: 43.165.190.11
+  port: 42841
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  tls: true
+  servername: mot.morisi.ggff.net
+  ws-opts:
+    path: /@Marisa_kristi
+    headers:
+      Host: mot.morisi.ggff.net
+  name: 🇸🇮 SI 斯洛文尼亚 1
+- type: vless
+  server: xg.wanfeng88.top
+  port: 59336
+  uuid: a6f4adcb-fbb4-48ea-b938-9910828e2743
+  network: tcp
+  tls: false
+  servername: google.com
+  name: 🇸🇮 SI 斯洛文尼亚 2
+- type: vless
+  server: 104.19.48.54
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇮 SI 斯洛文尼亚 3
+- type: vless
+  server: 144.31.0.228
   port: 443
   uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
   network: tcp
   tls: true
-  servername: ficdn19.suio.me
-  name: 🇵🇹 PT 葡萄牙 2
+  servername: plcdn5.suio.me
+  name: 🇮🇱 IL 以色列 1
 - type: vless
-  server: 104.21.227.134
+  server: 104.19.48.11
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇱 IL 以色列 2
+- type: vless
+  server: 162.159.152.15
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇱 IL 以色列 3
+- type: vless
+  server: 172.67.64.54
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇱 IL 以色列 4
+- type: vless
+  server: 173.245.58.40
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇱 IL 以色列 5
+- type: vless
+  server: 144.31.0.64
   port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
   tls: true
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: 104.21.227.134
-  name: 🇵🇹 PT 葡萄牙 3
-- type: vless
-  server: 173.245.58.56
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇵🇹 PT 葡萄牙 4
-- type: vless
-  server: 43.165.190.11
-  port: 42841
-  uuid: 00000000-0000-4000-8000-000000000000
-  network: ws
-  tls: true
-  servername: mot.morisi.ggff.net
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: mot.morisi.ggff.net
-  name: 🇭🇺 HU 匈牙利 1
-- type: vless
-  server: 162.159.16.63
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /x-aniu/?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇭🇺 HU 匈牙利 2
-- type: vless
-  server: 104.26.0.86
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇺 HU 匈牙利 3
-- type: vless
-  server: 162.159.32.55
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇺 HU 匈牙利 4
-- type: vless
-  server: 162.159.32.66
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇺 HU 匈牙利 5
-- type: vless
-  server: 172.64.144.11
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇺 HU 匈牙利 6
-- type: vless
-  server: 172.64.144.8
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇺 HU 匈牙利 7
-- type: vless
-  server: 8.35.211.43
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇺 HU 匈牙利 8
-- type: vless
-  server: 43.165.190.11
-  port: 42841
-  uuid: 00000000-0000-4000-8000-000000000000
-  network: ws
-  tls: true
-  servername: mot.morisi.ggff.net
-  ws-opts:
-    path: /@Marisa_kristi
-    headers:
-      Host: mot.morisi.ggff.net
-  name: 🇵🇭 PH 菲律宾 1
+  servername: plcdn1.suio.me
+  name: 🇻🇳 VN 越南 1
 - type: vless
   server: 104.17.25.173
   port: 443
@@ -224,14 +261,14 @@ proxies:
   tls: true
   servername: l.ayovo.netlib.re
   ws-opts:
-    path: /x-aniu/?ed=2560
+    path: /?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇵🇭 PH 菲律宾 2
+  name: 🇻🇳 VN 越南 2
 - type: vless
-  server: 172.64.144.82
+  server: 104.18.32.67
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -239,11 +276,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇵🇭 PH 菲律宾 3
+  name: 🇻🇳 VN 越南 3
 - type: vless
-  server: 172.67.64.41
+  server: 104.19.48.86
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -251,27 +288,7 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇵🇭 PH 菲律宾 4
-- type: vless
-  server: 173.245.58.29
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇵🇭 PH 菲律宾 5
-- type: vless
-  server: 144.31.0.228
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn5.suio.me
-  name: 🇨🇿 CZ 捷克 1
+  name: 🇻🇳 VN 越南 4
 - type: vless
   server: 144.31.1.127
   port: 443
@@ -279,672 +296,7 @@ proxies:
   network: tcp
   tls: true
   servername: plcdn13.suio.me
-  name: 🇨🇿 CZ 捷克 2
-- type: vless
-  server: plcdn1.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn1.suio.me
-  name: 🇨🇿 CZ 捷克 3
-- type: vless
-  server: 104.18.32.97
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇿 CZ 捷克 4
-- type: vless
-  server: 104.19.32.87
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇿 CZ 捷克 5
-- type: vless
-  server: 172.67.64.1
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇿 CZ 捷克 6
-- type: vless
-  server: 172.67.64.20
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇿 CZ 捷克 7
-- type: vless
-  server: 144.31.0.64
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn1.suio.me
-  name: 🇩🇪 DE 德国 1
-- type: vless
-  server: plcdn14.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn14.suio.me
-  name: 🇩🇪 DE 德国 2
-- type: vless
-  server: plcdn5.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn5.suio.me
-  name: 🇩🇪 DE 德国 3
-- type: vless
-  server: 104.19.47.178
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 4
-- type: vless
-  server: 104.19.49.169
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 5
-- type: vless
-  server: 104.19.51.69
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 6
-- type: vless
-  server: 104.19.60.248
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 7
-- type: vless
-  server: 162.159.152.43
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 8
-- type: vless
-  server: 162.159.152.7
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 9
-- type: vless
-  server: 162.159.46.48
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 10
-- type: vless
-  server: bestcf.030101.xyz
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 11
-- type: vless
-  server: cloudflare.182682.xyz
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 12
-- type: vless
-  server: icook.hk
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 13
-- type: vless
-  server: icook.tw
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 14
-- type: vless
-  server: store.ubi.com
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 15
-- type: vless
-  server: time.is
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 16
-- type: vless
-  server: www.shopify.com
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 17
-- type: vless
-  server: www.visa.cn
-  port: 443
-  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
-  network: ws
-  tls: true
-  servername: snip.zrfs.indevs.in
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: snip.zrfs.indevs.in
-  name: 🇩🇪 DE 德国 18
-- type: vless
-  server: 104.21.31.4
-  port: 8880
-  uuid: 0a5ab719-2407-4398-b507-8437ef365023
-  network: ws
-  tls: false
-  ws-opts:
-    path: /FCHANNEL---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY
-    headers:
-      Host: 104.21.31.4
-  name: 🇩🇪 DE 德国 19
-- type: vless
-  server: 104.19.32.51
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇩🇪 DE 德国 20
-- type: vless
-  server: 104.19.48.58
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇩🇪 DE 德国 21
-- type: vless
-  server: 172.64.144.15
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇩🇪 DE 德国 22
-- type: vless
-  server: 198.41.223.26
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇩🇪 DE 德国 23
-- type: vless
-  server: 8.39.125.53
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇩🇪 DE 德国 24
-- type: vless
-  server: 104.18.15.19
-  port: 80
-  uuid: a2af6e7c-a792-4e51-9460-fff4bd74fbfc
-  network: ws
-  tls: false
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: 104.18.15.19
-  name: 🇩🇪 DE 德国 25
-- type: vless
-  server: www.visa.com
-  port: 80
-  uuid: a2af6e7c-a792-4e51-9460-fff4bd74fbfc
-  network: ws
-  tls: false
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: www.visa.com
-  name: 🇩🇪 DE 德国 26
-- type: vless
-  server: 144.31.1.167
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn14.suio.me
-  name: 🇮🇳 IN 印度 1
-- type: vless
-  server: 162.159.152.81
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇳 IN 印度 2
-- type: vless
-  server: 162.159.152.8
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇳 IN 印度 3
-- type: vless
-  server: 144.31.2.127
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn20.suio.me
-  name: 🇦🇺 AU 澳大利亚 1
-- type: vless
-  server: 104.21.227.134
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇦🇺 AU 澳大利亚 2
-- type: vless
-  server: 104.18.32.89
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇦🇺 AU 澳大利亚 3
-- type: vless
-  server: 104.19.32.30
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇦🇺 AU 澳大利亚 4
-- type: vless
-  server: 162.159.152.32
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇦🇺 AU 澳大利亚 5
-- type: vless
-  server: xg.wanfeng88.top
-  port: 59336
-  uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
-  network: tcp
-  tls: false
-  servername: google.com
-  name: 🇦🇺 AU 澳大利亚 6
-- type: vless
-  server: 144.31.90.215
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: ficdn19.suio.me
-  name: 🇲🇽 MX 墨西哥 1
-- type: vless
-  server: plcdn13.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  name: 🇲🇽 MX 墨西哥 2
-- type: vless
-  server: plcdn1.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  name: 🇷🇺 RU 俄罗斯 1
-- type: vless
-  server: 104.19.32.75
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇺 RU 俄罗斯 2
-- type: vless
-  server: 104.19.48.80
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇺 RU 俄罗斯 3
-- type: vless
-  server: 162.159.32.2
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇺 RU 俄罗斯 4
-- type: vless
-  server: 162.159.32.4
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇺 RU 俄罗斯 5
-- type: vless
-  server: 172.64.228.45
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇺 RU 俄罗斯 6
-- type: vless
-  server: 198.41.223.76
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇺 RU 俄罗斯 7
-- type: vless
-  server: plcdn13.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  servername: plcdn13.suio.me
-  name: 🇸🇬 SG 新加坡 1
-- type: vless
-  server: 162.159.152.67
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇬 SG 新加坡 2
-- type: vless
-  server: 162.159.152.69
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇬 SG 新加坡 3
-- type: vless
-  server: 173.245.58.92
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇬 SG 新加坡 4
-- type: vless
-  server: 8.39.125.72
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇬 SG 新加坡 5
-- type: vless
-  server: plcdn14.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  name: 🇿🇦 ZA 南非 1
-- type: vless
-  server: 162.159.16.63
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: 162.159.16.63
-  name: 🇿🇦 ZA 南非 2
-- type: vless
-  server: 162.159.45.232
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇿🇦 ZA 南非 3
-- type: vless
-  server: 104.19.32.52
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇿🇦 ZA 南非 4
-- type: vless
-  server: 172.64.144.20
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇿🇦 ZA 南非 5
-- type: vless
-  server: 8.35.211.54
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇿🇦 ZA 南非 6
+  name: 🇵🇱 PL 波兰 1
 - type: vless
   server: plcdn20.suio.me
   port: 443
@@ -952,50 +304,7 @@ proxies:
   network: tcp
   tls: true
   servername: plcdn20.suio.me
-  name: 🇨🇴 CO 哥伦比亚 1
-- type: vless
-  server: 104.19.32.69
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇴 CO 哥伦比亚 2
-- type: vless
-  server: 104.19.32.92
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇴 CO 哥伦比亚 3
-- type: vless
-  server: 8.35.211.80
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇴 CO 哥伦比亚 4
-- type: vless
-  server: plcdn20.suio.me
-  port: 443
-  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
-  network: tcp
-  tls: true
-  name: 🇦🇷 AR 阿根廷 1
+  name: 🇵🇱 PL 波兰 2
 - type: vless
   server: cloudflare.182682.xyz
   port: 443
@@ -1006,11 +315,11 @@ proxies:
     path: /?ed=2560
     headers:
       Host: cloudflare.182682.xyz
-  name: 🇦🇷 AR 阿根廷 2
+  name: 🇵🇱 PL 波兰 3
 - type: vless
-  server: 162.159.32.53
+  server: 104.26.0.73
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1018,11 +327,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇦🇷 AR 阿根廷 3
+  name: 🇵🇱 PL 波兰 4
 - type: vless
-  server: 173.245.58.35
+  server: 172.64.228.98
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1030,11 +339,283 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇦🇷 AR 阿根廷 4
+  name: 🇵🇱 PL 波兰 5
+- type: vless
+  server: 172.67.64.71
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇱 PL 波兰 6
+- type: vless
+  server: 8.39.125.62
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇱 PL 波兰 7
+- type: vless
+  server: 144.31.1.167
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn14.suio.me
+  name: 🇸🇰 SK 斯洛伐克 1
+- type: vless
+  server: 162.159.44.142
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇸🇰 SK 斯洛伐克 2
+- type: vless
+  server: 104.26.0.83
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇰 SK 斯洛伐克 3
+- type: vless
+  server: 173.245.58.92
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇰 SK 斯洛伐克 4
+- type: vless
+  server: 198.41.223.71
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇰 SK 斯洛伐克 5
+- type: vless
+  server: 198.41.223.76
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇰 SK 斯洛伐克 6
+- type: vless
+  server: 144.31.2.127
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn20.suio.me
+  name: 🇮🇪 IE 爱尔兰 1
+- type: vless
+  server: 104.16.250.22
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇮🇪 IE 爱尔兰 2
+- type: vless
+  server: 104.18.32.15
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇪 IE 爱尔兰 3
+- type: vless
+  server: 104.19.32.35
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇪 IE 爱尔兰 4
+- type: vless
+  server: 8.39.125.54
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇪 IE 爱尔兰 5
+- type: vless
+  server: 144.31.90.215
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: ficdn19.suio.me
+  name: 🇰🇭 KH 柬埔寨 1
+- type: vless
+  server: 104.18.185.26
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇰🇭 KH 柬埔寨 2
+- type: vless
+  server: 212.52.1.143
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇰🇭 KH 柬埔寨 3
+- type: vless
+  server: 104.18.32.62
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇰🇭 KH 柬埔寨 4
+- type: vless
+  server: 104.19.32.42
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇰🇭 KH 柬埔寨 5
+- type: vless
+  server: 104.19.32.95
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇰🇭 KH 柬埔寨 6
+- type: vless
+  server: 172.64.228.76
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇰🇭 KH 柬埔寨 7
+- type: vless
+  server: 172.64.228.87
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇰🇭 KH 柬埔寨 8
+- type: vless
+  server: ficdn19.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: ficdn19.suio.me
+  name: 🇩🇰 DK 丹麦 1
+- type: vless
+  server: 104.18.185.26
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /x-aniu/?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇩🇰 DK 丹麦 2
+- type: vless
+  server: 104.21.224.5
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /x-aniu/?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇩🇰 DK 丹麦 3
 - type: vless
   server: 8.39.125.78
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1042,18 +623,258 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇦🇷 AR 阿根廷 5
+  name: 🇩🇰 DK 丹麦 4
 - type: vless
-  server: 25.129.197.138
-  port: 2096
-  uuid: 0e0bf934-1942-4379-9c98-5cd9aa93140a
+  server: plcdn1.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn1.suio.me
+  name: 🇹🇷 TR 土耳其 1
+- type: vless
+  server: 162.159.44.142
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
   network: ws
   tls: true
-  servername: speed1.best-cloud.ir
   ws-opts:
-    path: /
+    path: /?ed=2560
     headers:
-      Host: speed1.best-cloud.ir
+      Host: 162.159.44.142
+  name: 🇹🇷 TR 土耳其 2
+- type: vless
+  server: 173.242.112.215
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇹🇷 TR 土耳其 3
+- type: vless
+  server: 104.19.48.29
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 4
+- type: vless
+  server: 172.64.144.81
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 5
+- type: vless
+  server: 198.41.223.27
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 6
+- type: vless
+  server: 198.41.223.2
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 7
+- type: vless
+  server: 8.35.211.22
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 8
+- type: vless
+  server: 8.35.211.7
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 9
+- type: vless
+  server: 8.39.125.14
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇷 TR 土耳其 10
+- type: vless
+  server: plcdn1.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  name: 🇭🇺 HU 匈牙利 1
+- type: vless
+  server: 172.64.228.70
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇺 HU 匈牙利 2
+- type: vless
+  server: 172.67.64.26
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇺 HU 匈牙利 3
+- type: vless
+  server: plcdn13.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn13.suio.me
+  name: 🇮🇩 ID 印尼 1
+- type: vless
+  server: 139.162.133.162
+  port: 25351
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇮🇩 ID 印尼 2
+- type: vless
+  server: 104.26.0.14
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇩 ID 印尼 3
+- type: vless
+  server: 172.64.144.41
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇩 ID 印尼 4
+- type: vless
+  server: 172.64.228.31
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇩 ID 印尼 5
+- type: vless
+  server: 8.39.125.53
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇩 ID 印尼 6
+- type: vless
+  server: plcdn13.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  name: 🇨🇦 CA 加拿大 1
+- type: vless
+  server: 172.64.144.8
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇦 CA 加拿大 2
+- type: vless
+  server: 172.67.64.47
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇦 CA 加拿大 3
+- type: vless
+  server: plcdn14.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
   name: 🇪🇸 ES 西班牙 1
 - type: vless
   server: 25.129.197.138
@@ -1075,7 +896,7 @@ proxies:
   tls: true
   servername: speed1.best-cloud.ir
   ws-opts:
-    path: /?ed=2048
+    path: /
     headers:
       Host: speed1.best-cloud.ir
   name: 🇪🇸 ES 西班牙 3
@@ -1092,53 +913,29 @@ proxies:
       Host: speed1.best-cloud.ir
   name: 🇪🇸 ES 西班牙 4
 - type: vless
-  server: 104.18.32.46
+  server: 25.129.197.138
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: 0e0bf934-1942-4379-9c98-5cd9aa93140a
   network: ws
   tls: true
-  servername: yd.bsbb.cc
+  servername: speed1.best-cloud.ir
   ws-opts:
-    path: /cf
+    path: /?ed=2048
     headers:
-      Host: yd.bsbb.cc
+      Host: speed1.best-cloud.ir
   name: 🇪🇸 ES 西班牙 5
 - type: vless
-  server: 104.26.0.39
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  server: 193.32.148.13
+  port: 23331
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
   network: ws
   tls: true
-  servername: yd.bsbb.cc
+  servername: snippet.fgfw.cc.cd
   ws-opts:
-    path: /cf
+    path: /danfeng?ed=2560
     headers:
-      Host: yd.bsbb.cc
+      Host: snippet.fgfw.cc.cd
   name: 🇪🇸 ES 西班牙 6
-- type: vless
-  server: 172.64.144.61
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇪🇸 ES 西班牙 7
-- type: vless
-  server: 8.39.125.7
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇪🇸 ES 西班牙 8
 - type: vless
   server: tgju.org
   port: 8080
@@ -1150,34 +947,11 @@ proxies:
     path: /eyJqdW5rIjoiQm5nNGZUVWwiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6WyIyMTMuMTcwLjE1Ny4xIl19?ed=2560&join-hallakechiVPN---join-hallakechiVPN---join-hallakechiVPN---join-hallakechiVPN---join-hallakechiVPN---join-hallakechiVPN---
     headers:
       Host: www.speedtest.net
-  name: 🇪🇸 ES 西班牙 9
+  name: 🇪🇸 ES 西班牙 7
 - type: vless
-  server: 104.16.250.22
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇻🇳 VN 越南 1
-- type: vless
-  server: cloudflare.182682.xyz
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: cloudflare.182682.xyz
-  name: 🇻🇳 VN 越南 2
-- type: vless
-  server: 162.159.32.74
+  server: 104.19.32.87
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1185,7 +959,499 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇻🇳 VN 越南 3
+  name: 🇪🇸 ES 西班牙 8
+- type: vless
+  server: 104.26.0.86
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇪🇸 ES 西班牙 9
+- type: vless
+  server: plcdn20.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  name: 🇭🇷 HR 克罗地亚 1
+- type: vless
+  server: 185.212.113.8
+  port: 2051
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇭🇷 HR 克罗地亚 2
+- type: vless
+  server: 194.247.187.244
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇭🇷 HR 克罗地亚 3
+- type: vless
+  server: 104.18.32.26
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 4
+- type: vless
+  server: 104.19.32.11
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 5
+- type: vless
+  server: 104.19.32.94
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 6
+- type: vless
+  server: 162.159.152.11
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 7
+- type: vless
+  server: 173.245.58.45
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 8
+- type: vless
+  server: 198.41.223.20
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 9
+- type: vless
+  server: 198.41.223.41
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 10
+- type: vless
+  server: 8.39.125.3
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇭🇷 HR 克罗地亚 11
+- type: vless
+  server: plcdn5.suio.me
+  port: 443
+  uuid: 02fb468f-21f2-460e-bfa1-ef52ae5e627f
+  network: tcp
+  tls: true
+  servername: plcdn5.suio.me
+  name: 🇷🇴 RO 罗马尼亚 1
+- type: vless
+  server: 46.101.207.148
+  port: 2053
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇷🇴 RO 罗马尼亚 2
+- type: vless
+  server: 104.19.32.55
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 3
+- type: vless
+  server: 104.26.0.23
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 4
+- type: vless
+  server: 162.159.152.41
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 5
+- type: vless
+  server: 162.159.32.40
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 6
+- type: vless
+  server: 172.64.144.42
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 7
+- type: vless
+  server: 198.41.223.26
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 8
+- type: vless
+  server: 8.35.211.40
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇴 RO 罗马尼亚 9
+- type: vless
+  server: 104.19.47.178
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 1
+- type: vless
+  server: 104.19.49.169
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 2
+- type: vless
+  server: 104.19.51.69
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 3
+- type: vless
+  server: 104.19.60.248
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 4
+- type: vless
+  server: 162.159.152.43
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 5
+- type: vless
+  server: 162.159.152.7
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 6
+- type: vless
+  server: 162.159.46.48
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 7
+- type: vless
+  server: bestcf.030101.xyz
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 8
+- type: vless
+  server: cloudflare.182682.xyz
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 9
+- type: vless
+  server: icook.hk
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 10
+- type: vless
+  server: icook.tw
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 11
+- type: vless
+  server: store.ubi.com
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 12
+- type: vless
+  server: time.is
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 13
+- type: vless
+  server: www.shopify.com
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 14
+- type: vless
+  server: www.visa.cn
+  port: 443
+  uuid: 0582626b-615b-49bc-aaea-5a88d3c6d03d
+  network: ws
+  tls: true
+  servername: snip.zrfs.indevs.in
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: snip.zrfs.indevs.in
+  name: 🇩🇪 DE 德国 15
+- type: vless
+  server: 104.21.31.4
+  port: 8880
+  uuid: 0a5ab719-2407-4398-b507-8437ef365023
+  network: ws
+  tls: false
+  ws-opts:
+    path: /FCHANNEL---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY
+    headers:
+      Host: 104.21.31.4
+  name: 🇩🇪 DE 德国 16
+- type: vless
+  server: 104.18.15.19
+  port: 80
+  uuid: a2af6e7c-a792-4e51-9460-fff4bd74fbfc
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: 104.18.15.19
+  name: 🇩🇪 DE 德国 17
+- type: vless
+  server: www.visa.com
+  port: 80
+  uuid: a2af6e7c-a792-4e51-9460-fff4bd74fbfc
+  network: ws
+  tls: false
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: www.visa.com
+  name: 🇩🇪 DE 德国 18
+- type: vless
+  server: 104.19.32.40
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇩🇪 DE 德国 19
+- type: vless
+  server: 104.26.0.39
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇩🇪 DE 德国 20
+- type: vless
+  server: 172.64.228.41
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇩🇪 DE 德国 21
 - type: vless
   server: 104.16.250.22
   port: 443
@@ -1197,11 +1463,11 @@ proxies:
     path: /x-aniu/?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇵🇱 PL 波兰 1
+  name: 🇵🇹 PT 葡萄牙 1
 - type: vless
-  server: 172.64.144.86
+  server: 162.159.152.100
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1209,7 +1475,67 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇵🇱 PL 波兰 2
+  name: 🇵🇹 PT 葡萄牙 2
+- type: vless
+  server: 172.64.144.17
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇹 PT 葡萄牙 3
+- type: vless
+  server: 198.41.223.75
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇹 PT 葡萄牙 4
+- type: vless
+  server: 198.41.223.7
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇹 PT 葡萄牙 5
+- type: vless
+  server: 8.35.211.78
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇹 PT 葡萄牙 6
+- type: vless
+  server: 8.35.211.96
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇹 PT 葡萄牙 7
 - type: vless
   server: 104.17.25.173
   port: 443
@@ -1218,26 +1544,14 @@ proxies:
   tls: true
   servername: l.ayovo.netlib.re
   ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇮🇩 ID 印尼 1
-- type: vless
-  server: cloudflare.182682.xyz
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
     path: /x-aniu/?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇮🇩 ID 印尼 2
+  name: 🇹🇭 TH 泰国 1
 - type: vless
-  server: 104.26.0.73
+  server: 104.19.48.17
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1245,11 +1559,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇮🇩 ID 印尼 3
+  name: 🇹🇭 TH 泰国 2
 - type: vless
-  server: 172.64.228.24
+  server: 104.19.48.9
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1257,11 +1571,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇮🇩 ID 印尼 4
+  name: 🇹🇭 TH 泰国 3
 - type: vless
-  server: 172.67.64.4
+  server: 104.26.0.84
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1269,11 +1583,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇮🇩 ID 印尼 5
+  name: 🇹🇭 TH 泰国 4
 - type: vless
-  server: 198.41.223.75
+  server: 173.245.58.13
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1281,11 +1595,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇮🇩 ID 印尼 6
+  name: 🇹🇭 TH 泰国 5
 - type: vless
-  server: 8.39.125.32
+  server: 173.245.58.47
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1293,9 +1607,21 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇮🇩 ID 印尼 7
+  name: 🇹🇭 TH 泰国 6
 - type: vless
-  server: 104.18.185.26
+  server: 8.35.211.8
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇭 TH 泰国 7
+- type: vless
+  server: 104.21.224.5
   port: 443
   uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
   network: ws
@@ -1305,11 +1631,23 @@ proxies:
     path: /?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇸🇮 SI 斯洛文尼亚 1
+  name: 🇦🇷 AR 阿根廷 1
 - type: vless
-  server: 104.19.48.16
+  server: 104.21.227.134
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇦🇷 AR 阿根廷 2
+- type: vless
+  server: 104.19.48.49
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1317,71 +1655,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 2
-- type: vless
-  server: 162.159.152.89
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 3
-- type: vless
-  server: 172.64.144.23
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 4
-- type: vless
-  server: 173.245.58.10
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 5
-- type: vless
-  server: 198.41.223.10
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 6
-- type: vless
-  server: 8.39.125.3
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 7
+  name: 🇦🇷 AR 阿根廷 3
 - type: vless
   server: 8.39.125.5
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1389,127 +1667,7 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇸🇮 SI 斯洛文尼亚 8
-- type: vless
-  server: 104.18.185.26
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /x-aniu/?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇸🇦 SA 沙特 1
-- type: vless
-  server: cloudflare.182682.xyz
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /x-aniu/?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇸🇦 SA 沙特 2
-- type: vless
-  server: 162.159.32.6
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇦 SA 沙特 3
-- type: vless
-  server: 104.21.224.5
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇳🇱 NL 荷兰 1
-- type: vless
-  server: 104.19.48.53
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇱 NL 荷兰 2
-- type: vless
-  server: 162.159.152.78
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇱 NL 荷兰 3
-- type: vless
-  server: 172.64.228.41
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇱 NL 荷兰 4
-- type: vless
-  server: 104.21.224.5
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /x-aniu/?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
-  name: 🇪🇬 EG 埃及 1
-- type: vless
-  server: 162.159.32.91
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇪🇬 EG 埃及 2
-- type: vless
-  server: 173.245.58.48
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇪🇬 EG 埃及 3
+  name: 🇦🇷 AR 阿根廷 4
 - type: vless
   server: 104.21.224.5
   port: 443
@@ -1520,11 +1678,11 @@ proxies:
     path: /?ed=2560
     headers:
       Host: 104.21.224.5
-  name: 🇧🇪 BE 比利时 1
+  name: 🇬🇷 GR 希腊 1
 - type: vless
-  server: 172.64.228.84
+  server: 104.19.32.80
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1532,11 +1690,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇧🇪 BE 比利时 2
+  name: 🇬🇷 GR 希腊 2
 - type: vless
-  server: 173.245.58.94
+  server: 162.159.152.69
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1544,11 +1702,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇧🇪 BE 比利时 3
+  name: 🇬🇷 GR 希腊 3
 - type: vless
-  server: 8.35.211.46
+  server: 172.67.64.4
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1556,7 +1714,19 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇧🇪 BE 比利时 4
+  name: 🇬🇷 GR 希腊 4
+- type: vless
+  server: 8.39.125.10
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇬🇷 GR 希腊 5
 - type: vless
   server: 104.21.227.134
   port: 443
@@ -1568,355 +1738,7 @@ proxies:
     path: /x-aniu/?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇺🇸 US 美国 1
-- type: vless
-  server: 104.18.32.63
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 2
-- type: vless
-  server: 104.18.32.87
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 3
-- type: vless
-  server: 104.19.32.24
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 4
-- type: vless
-  server: 104.19.32.58
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 5
-- type: vless
-  server: 104.19.48.66
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 6
-- type: vless
-  server: 104.26.0.24
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 7
-- type: vless
-  server: 104.26.0.28
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 8
-- type: vless
-  server: 104.26.0.79
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 9
-- type: vless
-  server: 104.26.0.96
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 10
-- type: vless
-  server: 162.159.152.52
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 11
-- type: vless
-  server: 162.159.152.74
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 12
-- type: vless
-  server: 162.159.32.11
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 13
-- type: vless
-  server: 162.159.32.15
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 14
-- type: vless
-  server: 162.159.32.59
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 15
-- type: vless
-  server: 162.159.32.67
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 16
-- type: vless
-  server: 162.159.32.72
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 17
-- type: vless
-  server: 162.159.32.90
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 18
-- type: vless
-  server: 172.64.144.3
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 19
-- type: vless
-  server: 172.64.144.75
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 20
-- type: vless
-  server: 172.67.64.38
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 21
-- type: vless
-  server: 172.67.64.56
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 22
-- type: vless
-  server: 172.67.64.75
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 23
-- type: vless
-  server: 173.245.58.67
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 24
-- type: vless
-  server: 173.245.58.75
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 25
-- type: vless
-  server: 198.41.223.20
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 26
-- type: vless
-  server: 198.41.223.27
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 27
-- type: vless
-  server: 198.41.223.34
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 28
-- type: vless
-  server: 198.41.223.83
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 29
-- type: vless
-  server: 8.35.211.7
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇺🇸 US 美国 30
+  name: 🇨🇴 CO 哥伦比亚 1
 - type: vless
   server: 162.159.16.63
   port: 443
@@ -1928,11 +1750,11 @@ proxies:
     path: /?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇩🇰 DK 丹麦 1
+  name: 🇨🇴 CO 哥伦比亚 2
 - type: vless
-  server: 104.19.48.94
+  server: 104.18.32.46
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1940,11 +1762,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇩🇰 DK 丹麦 2
+  name: 🇨🇴 CO 哥伦比亚 3
 - type: vless
-  server: 162.159.32.65
+  server: 104.19.48.39
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1952,11 +1774,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇩🇰 DK 丹麦 3
+  name: 🇨🇴 CO 哥伦比亚 4
 - type: vless
-  server: 172.67.64.66
+  server: 104.26.0.55
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1964,11 +1786,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇩🇰 DK 丹麦 4
+  name: 🇨🇴 CO 哥伦比亚 5
 - type: vless
-  server: 173.245.58.1
+  server: 104.26.0.79
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1976,11 +1798,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇩🇰 DK 丹麦 5
+  name: 🇨🇴 CO 哥伦比亚 6
 - type: vless
-  server: 173.245.58.4
+  server: 162.159.152.14
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -1988,9 +1810,40 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇩🇰 DK 丹麦 6
+  name: 🇨🇴 CO 哥伦比亚 7
 - type: vless
-  server: 162.159.44.142
+  server: 172.64.144.71
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇴 CO 哥伦比亚 8
+- type: vless
+  server: xg.wanfeng88.top
+  port: 59336
+  uuid: df7b1ee6-6b31-4102-85ac-6da8739d2722
+  network: tcp
+  tls: false
+  servername: google.com
+  name: 🇨🇴 CO 哥伦比亚 9
+- type: vless
+  server: 104.21.227.134
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: 104.21.227.134
+  name: 🇨🇭 CH 瑞士 1
+- type: vless
+  server: 162.159.45.232
   port: 443
   uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
   network: ws
@@ -2000,11 +1853,11 @@ proxies:
     path: /?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇲🇾 MY 马来西亚 1
+  name: 🇨🇭 CH 瑞士 2
 - type: vless
-  server: 104.19.32.37
+  server: 104.19.32.34
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2012,11 +1865,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇲🇾 MY 马来西亚 2
+  name: 🇨🇭 CH 瑞士 3
 - type: vless
-  server: 162.159.152.87
+  server: 172.64.144.69
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2024,7 +1877,122 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇲🇾 MY 马来西亚 3
+  name: 🇨🇭 CH 瑞士 4
+- type: vless
+  server: 172.64.228.37
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇭 CH 瑞士 5
+- type: vless
+  server: 173.245.58.90
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇭 CH 瑞士 6
+- type: vless
+  server: 8.39.125.77
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇭 CH 瑞士 7
+- type: vless
+  server: 62.182.192.232
+  port: 8080
+  uuid: d44175ee-d3e2-45d3-b16a-ea2705cbfe7b
+  network: grpc
+  tls: false
+  grpc-opts: {}
+  name: 🇨🇭 CH 瑞士 8
+- type: vless
+  server: 162.159.16.63
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: 162.159.16.63
+  name: 🇹🇼 TW 台湾 1
+- type: vless
+  server: 162.159.32.55
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇼 TW 台湾 2
+- type: vless
+  server: 172.64.144.84
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇼 TW 台湾 3
+- type: vless
+  server: 172.64.228.63
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇼 TW 台湾 4
+- type: vless
+  server: 173.245.58.58
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇼 TW 台湾 5
+- type: vless
+  server: 198.41.223.15
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇹🇼 TW 台湾 6
 - type: vless
   server: 162.159.44.142
   port: 443
@@ -2036,11 +2004,23 @@ proxies:
     path: /x-aniu/?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇶🇦 QA 卡塔尔 1
+  name: 🇳🇿 NZ 新西兰 1
 - type: vless
-  server: 104.26.0.54
+  server: 46.151.31.91
+  port: 8443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇳🇿 NZ 新西兰 2
+- type: vless
+  server: 104.19.32.75
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2048,11 +2028,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇶🇦 QA 卡塔尔 2
+  name: 🇳🇿 NZ 新西兰 3
 - type: vless
-  server: 172.64.144.41
+  server: 104.26.0.20
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2060,11 +2040,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇶🇦 QA 卡塔尔 3
+  name: 🇳🇿 NZ 新西兰 4
 - type: vless
-  server: 173.245.58.47
+  server: 198.41.223.83
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2072,30 +2052,7 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇶🇦 QA 卡塔尔 4
-- type: vless
-  server: 162.159.44.142
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: 162.159.44.142
-  name: 🇫🇮 FI 芬兰 1
-- type: vless
-  server: 8.35.211.70
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇫🇮 FI 芬兰 2
+  name: 🇳🇿 NZ 新西兰 5
 - type: vless
   server: 162.159.45.232
   port: 443
@@ -2107,115 +2064,7 @@ proxies:
     path: /x-aniu/?ed=2560
     headers:
       Host: l.ayovo.netlib.re
-  name: 🇸🇰 SK 斯洛伐克 1
-- type: vless
-  server: 172.64.228.34
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇰 SK 斯洛伐克 2
-- type: vless
-  server: 172.67.64.87
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇰 SK 斯洛伐克 3
-- type: vless
-  server: 173.245.58.58
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇰 SK 斯洛伐克 4
-- type: vless
-  server: 8.35.211.89
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇰 SK 斯洛伐克 5
-- type: vless
-  server: cloudflare.182682.xyz
-  port: 443
-  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
-  network: ws
-  tls: true
-  servername: l.ayovo.netlib.re
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: l.ayovo.netlib.re
   name: 🇫🇷 FR 法国 1
-- type: vless
-  server: 104.19.48.39
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇫🇷 FR 法国 2
-- type: vless
-  server: 104.26.0.26
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇫🇷 FR 法国 3
-- type: vless
-  server: 162.159.152.61
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇫🇷 FR 法国 4
-- type: vless
-  server: 162.159.152.7
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇫🇷 FR 法国 5
 - type: vless
   server: 13.192.25.197
   port: 443
@@ -2227,11 +2076,59 @@ proxies:
     path: /proxyip=sjc.o00o.ooo
     headers:
       Host: ss.cloudfront.ccwu.cc
+  name: 🇫🇷 FR 法国 2
+- type: vless
+  server: 104.19.32.97
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇫🇷 FR 法国 3
+- type: vless
+  server: 104.26.0.28
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇫🇷 FR 法国 4
+- type: vless
+  server: 104.26.0.72
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇫🇷 FR 法国 5
+- type: vless
+  server: 162.159.152.66
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
   name: 🇫🇷 FR 法国 6
 - type: vless
-  server: 104.18.32.33
+  server: 8.35.211.91
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2239,591 +2136,23 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇹🇭 TH 泰国 1
+  name: 🇫🇷 FR 法国 7
 - type: vless
-  server: 104.18.32.91
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  server: cloudflare.182682.xyz
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
   network: ws
   tls: true
-  servername: yd.bsbb.cc
+  servername: l.ayovo.netlib.re
   ws-opts:
-    path: /cf
+    path: /?ed=2560
     headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇭 TH 泰国 2
-- type: vless
-  server: 172.64.144.17
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇭 TH 泰国 3
-- type: vless
-  server: 104.18.32.58
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 1
-- type: vless
-  server: 104.19.48.54
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 2
-- type: vless
-  server: 162.159.152.79
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 3
-- type: vless
-  server: 172.64.228.72
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 4
-- type: vless
-  server: 172.67.64.48
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 5
-- type: vless
-  server: 198.41.223.78
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 6
-- type: vless
-  server: 8.35.211.12
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇨🇦 CA 加拿大 7
-- type: vless
-  server: 62.182.192.232
-  port: 8080
-  uuid: d44175ee-d3e2-45d3-b16a-ea2705cbfe7b
-  network: grpc
-  tls: false
-  grpc-opts: {}
-  name: 🇨🇦 CA 加拿大 8
-- type: vless
-  server: 104.18.32.67
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇷 HR 克罗地亚 1
-- type: vless
-  server: 162.159.152.14
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇷 HR 克罗地亚 2
-- type: vless
-  server: 162.159.32.38
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇷 HR 克罗地亚 3
-- type: vless
-  server: 173.245.58.11
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇷 HR 克罗地亚 4
-- type: vless
-  server: 104.18.32.69
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇪 SE 瑞典 1
-- type: vless
-  server: 198.41.223.13
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇸🇪 SE 瑞典 2
-- type: vless
-  server: 104.19.32.21
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇧 GB 英国 1
-- type: vless
-  server: 8.39.125.24
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇧 GB 英国 2
-- type: vless
-  server: 104.19.32.40
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇵🇰 PK 巴基斯坦 1
-- type: vless
-  server: 162.159.152.65
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇵🇰 PK 巴基斯坦 2
-- type: vless
-  server: 198.41.223.69
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇵🇰 PK 巴基斯坦 3
-- type: vless
-  server: 8.39.125.54
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇵🇰 PK 巴基斯坦 4
-- type: vless
-  server: 104.19.32.54
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇪 IE 爱尔兰 1
-- type: vless
-  server: 104.19.32.94
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇪 IE 爱尔兰 2
-- type: vless
-  server: 162.159.32.9
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇪 IE 爱尔兰 3
-- type: vless
-  server: 104.19.48.11
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇴 NO 挪威 1
-- type: vless
-  server: 172.64.144.76
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇴 NO 挪威 2
-- type: vless
-  server: 172.64.144.98
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇴 NO 挪威 3
-- type: vless
-  server: 172.64.228.6
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇴 NO 挪威 4
-- type: vless
-  server: 104.19.48.29
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇷 TR 土耳其 1
-- type: vless
-  server: 172.64.228.98
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇷 TR 土耳其 2
-- type: vless
-  server: 8.39.125.46
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇷 TR 土耳其 3
-- type: vless
-  server: 104.19.48.59
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇱 IL 以色列 1
-- type: vless
-  server: 104.19.48.9
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇮🇱 IL 以色列 2
-- type: vless
-  server: 104.19.48.62
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇧🇷 BR 巴西 1
-- type: vless
-  server: 162.159.152.11
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇧🇷 BR 巴西 2
-- type: vless
-  server: 162.159.32.64
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇧🇷 BR 巴西 3
-- type: vless
-  server: 198.41.223.62
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇧🇷 BR 巴西 4
-- type: vless
-  server: 198.41.223.8
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇧🇷 BR 巴西 5
-- type: vless
-  server: 104.19.48.68
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇰🇭 KH 柬埔寨 1
-- type: vless
-  server: 172.64.228.40
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇰🇭 KH 柬埔寨 2
-- type: vless
-  server: 8.39.125.10
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇰🇭 KH 柬埔寨 3
-- type: vless
-  server: xg.wanfeng88.top
-  port: 59336
-  uuid: a6f4adcb-fbb4-48ea-b938-9910828e2743
-  network: tcp
-  tls: false
-  servername: google.com
-  name: 🇰🇭 KH 柬埔寨 4
-- type: vless
-  server: 104.26.0.18
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇷 GR 希腊 1
-- type: vless
-  server: 172.64.144.42
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇷 GR 希腊 2
-- type: vless
-  server: 172.64.228.57
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇷 GR 希腊 3
-- type: vless
-  server: 173.245.58.45
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇷 GR 希腊 4
-- type: vless
-  server: 8.39.125.71
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇬🇷 GR 希腊 5
-- type: vless
-  server: 104.26.0.20
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
+      Host: l.ayovo.netlib.re
   name: 🇰🇷 KR 韩国 1
 - type: vless
-  server: 173.245.58.42
+  server: 162.159.152.52
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2833,9 +2162,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇰🇷 KR 韩国 2
 - type: vless
-  server: 198.41.223.84
+  server: 172.67.64.78
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2845,9 +2174,69 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇰🇷 KR 韩国 3
 - type: vless
+  server: cloudflare.182682.xyz
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /x-aniu/?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇸🇪 SE 瑞典 1
+- type: vless
+  server: 104.19.48.92
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇪 SE 瑞典 2
+- type: vless
+  server: 172.64.144.33
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇪 SE 瑞典 3
+- type: vless
+  server: 172.64.144.88
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇪 SE 瑞典 4
+- type: vless
+  server: 172.64.228.62
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇪 SE 瑞典 5
+- type: vless
   server: 8.39.125.30
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2855,11 +2244,23 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇰🇷 KR 韩国 4
+  name: 🇸🇪 SE 瑞典 6
 - type: vless
-  server: 104.26.0.27
+  server: cloudflare.182682.xyz
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  servername: l.ayovo.netlib.re
+  ws-opts:
+    path: /x-aniu/?ed=2560
+    headers:
+      Host: l.ayovo.netlib.re
+  name: 🇸🇬 SG 新加坡 1
+- type: vless
+  server: 104.19.32.47
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2867,11 +2268,142 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
+  name: 🇸🇬 SG 新加坡 2
+- type: vless
+  server: 104.19.32.49
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇬 SG 新加坡 3
+- type: vless
+  server: 162.159.152.74
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇬 SG 新加坡 4
+- type: vless
+  server: 162.159.32.58
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇬 SG 新加坡 5
+- type: vless
+  server: 8.39.125.72
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇸🇬 SG 新加坡 6
+- type: vless
+  server: cloudflare.182682.xyz
+  port: 443
+  uuid: 3e2e3c21-3fc8-468f-9ab5-e782bdf5bf97
+  network: ws
+  tls: true
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: cloudflare.182682.xyz
+  name: 🇪🇬 EG 埃及 1
+- type: vless
+  server: 194.87.240.67
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇪🇬 EG 埃及 2
+- type: vless
+  server: 162.159.152.12
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇪🇬 EG 埃及 3
+- type: vless
+  server: 162.159.32.18
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇪🇬 EG 埃及 4
+- type: vless
+  server: 162.159.32.53
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇪🇬 EG 埃及 5
+- type: vless
+  server: 173.245.58.87
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇪🇬 EG 埃及 6
+- type: vless
+  server: 154.26.188.12
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
   name: 🇦🇪 AE 阿联酋 1
 - type: vless
-  server: 198.41.223.95
+  server: 104.19.32.19
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2881,9 +2413,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇦🇪 AE 阿联酋 2
 - type: vless
-  server: 8.39.125.31
+  server: 162.159.152.32
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2893,9 +2425,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇦🇪 AE 阿联酋 3
 - type: vless
-  server: 104.26.0.47
+  server: 172.67.64.56
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2903,11 +2435,551 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇹🇼 TW 台湾 1
+  name: 🇦🇪 AE 阿联酋 4
+- type: vless
+  server: 198.41.223.92
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇦🇪 AE 阿联酋 5
+- type: vless
+  server: 154.59.110.104
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇮🇳 IN 印度 1
+- type: vless
+  server: 104.18.32.33
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 2
+- type: vless
+  server: 104.19.48.16
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 3
+- type: vless
+  server: 104.19.48.84
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 4
+- type: vless
+  server: 162.159.32.6
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 5
+- type: vless
+  server: 172.64.144.75
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 6
+- type: vless
+  server: 173.245.58.67
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 7
+- type: vless
+  server: 198.41.223.34
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇳 IN 印度 8
+- type: vless
+  server: 38.38.251.157
+  port: 443
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.chinam.us.ci
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.chinam.us.ci
+  name: 🇺🇸 US 美国 1
+- type: vless
+  server: 172.64.144.87
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇺🇸 US 美国 2
+- type: vless
+  server: 8.35.211.82
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇺🇸 US 美国 3
+- type: vless
+  server: 94.23.78.200
+  port: 2053
+  uuid: a2a396c3-f40e-4dee-bdbb-b1201f12dc1c
+  network: ws
+  tls: true
+  servername: snippet.fgfw.cc.cd
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.fgfw.cc.cd
+  name: 🇵🇰 PK 巴基斯坦 1
+- type: vless
+  server: 104.26.0.94
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇰 PK 巴基斯坦 2
+- type: vless
+  server: 162.159.152.87
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇰 PK 巴基斯坦 3
+- type: vless
+  server: 104.18.32.17
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇾 MY 马来西亚 1
+- type: vless
+  server: 8.39.125.46
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇾 MY 马来西亚 2
+- type: vless
+  server: 104.18.32.51
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 1
+- type: vless
+  server: 104.19.32.69
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 2
+- type: vless
+  server: 104.26.0.54
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 3
+- type: vless
+  server: 162.159.152.67
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 4
+- type: vless
+  server: 162.159.152.9
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 5
+- type: vless
+  server: 162.159.32.54
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 6
+- type: vless
+  server: 172.67.64.58
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇿🇦 ZA 南非 7
+- type: vless
+  server: 104.18.32.55
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇭 PH 菲律宾 1
+- type: vless
+  server: 104.19.32.54
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇵🇭 PH 菲律宾 2
+- type: vless
+  server: 104.18.32.69
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇿 CZ 捷克 1
+- type: vless
+  server: 104.26.0.47
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇿 CZ 捷克 2
+- type: vless
+  server: 172.64.228.69
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇿 CZ 捷克 3
+- type: vless
+  server: 104.18.32.70
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇽 MX 墨西哥 1
+- type: vless
+  server: 162.159.32.56
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇽 MX 墨西哥 2
+- type: vless
+  server: 172.67.64.17
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇽 MX 墨西哥 3
+- type: vless
+  server: 172.67.64.80
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇽 MX 墨西哥 4
+- type: vless
+  server: 8.39.125.88
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇲🇽 MX 墨西哥 5
+- type: vless
+  server: 104.18.32.93
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇪 BE 比利时 1
+- type: vless
+  server: 104.19.32.52
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇪 BE 比利时 2
+- type: vless
+  server: 104.26.0.68
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇪 BE 比利时 3
+- type: vless
+  server: 173.245.58.64
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇪 BE 比利时 4
+- type: vless
+  server: 104.18.32.95
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇷 BR 巴西 1
+- type: vless
+  server: 104.26.0.24
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇷 BR 巴西 2
+- type: vless
+  server: 172.67.64.38
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇧🇷 BR 巴西 3
+- type: vless
+  server: 104.19.32.21
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇶🇦 QA 卡塔尔 1
+- type: vless
+  server: 104.26.0.96
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇶🇦 QA 卡塔尔 2
+- type: vless
+  server: 104.19.32.31
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇫🇮 FI 芬兰 1
+- type: vless
+  server: 104.19.48.62
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇫🇮 FI 芬兰 2
 - type: vless
   server: 162.159.152.21
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2915,11 +2987,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇹🇼 TW 台湾 2
+  name: 🇫🇮 FI 芬兰 3
 - type: vless
-  server: 172.64.144.4
+  server: 172.67.64.25
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2927,35 +2999,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇹🇼 TW 台湾 3
+  name: 🇫🇮 FI 芬兰 4
 - type: vless
-  server: 173.245.58.24
+  server: 104.19.32.57
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇼 TW 台湾 4
-- type: vless
-  server: 198.41.223.81
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇹🇼 TW 台湾 5
-- type: vless
-  server: 104.26.0.55
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2965,9 +3013,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇧🇬 BG 保加利亚 1
 - type: vless
-  server: 198.41.223.90
+  server: 172.64.228.52
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2977,9 +3025,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇧🇬 BG 保加利亚 2
 - type: vless
-  server: 104.26.0.69
+  server: 8.39.125.37
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -2987,11 +3035,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇨🇭 CH 瑞士 1
+  name: 🇧🇬 BG 保加利亚 3
 - type: vless
-  server: 162.159.152.12
+  server: 104.19.32.58
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3001,9 +3049,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇨🇱 CL 智利 1
 - type: vless
-  server: 173.245.58.13
+  server: 104.19.48.53
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3013,9 +3061,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇨🇱 CL 智利 2
 - type: vless
-  server: 8.35.211.82
+  server: 162.159.152.78
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3025,9 +3073,93 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇨🇱 CL 智利 3
 - type: vless
-  server: 162.159.152.54
+  server: 162.159.32.14
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇱 CL 智利 4
+- type: vless
+  server: 172.67.64.63
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇱 CL 智利 5
+- type: vless
+  server: 173.245.58.94
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇱 CL 智利 6
+- type: vless
+  server: 8.35.211.49
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇨🇱 CL 智利 7
+- type: vless
+  server: 104.19.32.84
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇳🇱 NL 荷兰 1
+- type: vless
+  server: 172.67.64.98
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇳🇱 NL 荷兰 2
+- type: vless
+  server: 104.19.48.14
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇷🇺 RU 俄罗斯 1
+- type: vless
+  server: 104.19.48.48
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3037,9 +3169,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇮🇹 IT 意大利 1
 - type: vless
-  server: 8.35.211.28
+  server: 104.26.0.69
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3049,9 +3181,81 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇮🇹 IT 意大利 2
 - type: vless
-  server: 162.159.32.18
+  server: 162.159.152.65
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇹 IT 意大利 3
+- type: vless
+  server: 162.159.152.82
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇹 IT 意大利 4
+- type: vless
+  server: 162.159.32.90
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇮🇹 IT 意大利 5
+- type: vless
+  server: 104.19.48.95
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇦🇺 AU 澳大利亚 1
+- type: vless
+  server: 104.26.0.18
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇦🇺 AU 澳大利亚 2
+- type: vless
+  server: 8.39.125.7
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
+  network: ws
+  tls: true
+  servername: yd.bsbb.cc
+  ws-opts:
+    path: /cf
+    headers:
+      Host: yd.bsbb.cc
+  name: 🇦🇺 AU 澳大利亚 3
+- type: vless
+  server: 162.159.32.48
+  port: 2096
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3061,9 +3265,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇭🇰 HK 香港 1
 - type: vless
-  server: 172.64.144.39
+  server: 8.35.211.36
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3073,9 +3277,9 @@ proxies:
       Host: yd.bsbb.cc
   name: 🇭🇰 HK 香港 2
 - type: vless
-  server: 172.64.228.54
+  server: 172.64.144.79
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3083,11 +3287,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇭🇰 HK 香港 3
+  name: 🇳🇴 NO 挪威 1
 - type: vless
-  server: 198.41.223.24
+  server: 172.64.228.3
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3095,11 +3299,11 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇭🇰 HK 香港 4
+  name: 🇳🇴 NO 挪威 2
 - type: vless
-  server: 198.41.223.50
+  server: 173.245.58.81
   port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
+  uuid: c7ee339d-10b9-41e0-b7b3-b3832ba37f36
   network: ws
   tls: true
   servername: yd.bsbb.cc
@@ -3107,76 +3311,4 @@ proxies:
     path: /cf
     headers:
       Host: yd.bsbb.cc
-  name: 🇭🇰 HK 香港 5
-- type: vless
-  server: 8.39.125.18
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇭🇰 HK 香港 6
-- type: vless
-  server: 162.159.32.34
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇿 NZ 新西兰 1
-- type: vless
-  server: 162.159.32.69
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇿 NZ 新西兰 2
-- type: vless
-  server: 198.41.223.71
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇿 NZ 新西兰 3
-- type: vless
-  server: 198.41.223.94
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇳🇿 NZ 新西兰 4
-- type: vless
-  server: 172.64.228.1
-  port: 2096
-  uuid: 58598647-c9e0-46be-93a0-9167e3866f24
-  network: ws
-  tls: true
-  servername: yd.bsbb.cc
-  ws-opts:
-    path: /cf
-    headers:
-      Host: yd.bsbb.cc
-  name: 🇷🇴 RO 罗马尼亚 1
+  name: 🇸🇦 SA 沙特 1
