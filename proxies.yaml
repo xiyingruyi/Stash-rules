@@ -11,6 +11,29 @@ proxies:
       Host: Koma-YT.PAGeS.Dev
   name: 🇧🇪 BE 比利时 1
 - type: vless
+  server: 104.21.31.4
+  port: 8880
+  uuid: 0a5ab719-2407-4398-b507-8437ef365023
+  network: ws
+  tls: false
+  ws-opts:
+    path: /FCHANNEL---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY
+    headers:
+      Host: 104.21.31.4
+  name: 🇧🇪 BE 比利时 2
+- type: vless
+  server: lord.kokopit.info
+  port: 2096
+  uuid: 337bf72e-bb79-4d5f-be3f-7822eb77100c
+  network: ws
+  tls: true
+  servername: YdHxR987jY.bAsErTy.InFo
+  ws-opts:
+    path: /
+    headers:
+      Host: YdHxR987jY.bAsErTy.InFo
+  name: 🇧🇩 BD 孟加拉国 1
+- type: vless
   server: 198.62.62.235
   port: 443
   uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
