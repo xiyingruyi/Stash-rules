@@ -10,61 +10,149 @@ proxies:
     headers:
       Host: Koma-YT.PAGeS.Dev
   name: 🇧🇪 BE 比利时 1
-- type: vless
-  server: 104.21.31.4
-  port: 8880
-  uuid: 0a5ab719-2407-4398-b507-8437ef365023
+- type: trojan
+  server: 109.234.211.66
+  port: 2087
+  password: trojan
+  sni: store.timimi.dpdns.org
   network: ws
-  tls: false
-  ws-opts:
-    path: /FCHANNEL---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY---ELiV2-RAY
-    headers:
-      Host: 104.21.31.4
-  name: 🇧🇪 BE 比利时 2
-- type: vless
-  server: lord.kokopit.info
-  port: 2096
-  uuid: 337bf72e-bb79-4d5f-be3f-7822eb77100c
-  network: ws
-  tls: true
-  servername: YdHxR987jY.bAsErTy.InFo
   ws-opts:
     path: /
     headers:
-      Host: YdHxR987jY.bAsErTy.InFo
-  name: 🇧🇩 BD 孟加拉国 1
+      Host: store.timimi.dpdns.org
+  name: 🇧🇪 BE 比利时 2
+- type: trojan
+  server: 152.53.200.167
+  port: 8444
+  password: trojan
+  sni: jflsjlaf.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: jflsjlaf.pages.dev
+  name: 🇧🇪 BE 比利时 3
 - type: vless
-  server: 198.62.62.235
-  port: 443
-  uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
+  server: 175.212.45.195
+  port: 12053
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
   network: ws
   tls: true
-  servername: bank.alaska-tigr.info
+  servername: ylnhh.cc.cd
   ws-opts:
-    path: /love
+    path: /Telegram🇨🇳@WangCai2
     headers:
-      Host: bank.alaska-tigr.info
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 4
+- type: vless
+  server: 211.48.77.114
+  port: 22410
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 5
+- type: vless
+  server: 221.146.116.77
+  port: 15284
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 6
+- type: vless
+  server: 34.143.159.175
+  port: 443
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 7
+- type: vless
+  server: 43.160.248.66
+  port: 8443
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 8
+- type: vless
+  server: 68.64.179.243
+  port: 443
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 9
+- type: vless
+  server: 68.64.179.96
+  port: 443
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇧🇪 BE 比利时 10
+- type: trojan
+  server: 58.152.25.253
+  port: 443
+  password: BxceQaOe
+  sni: t.me/ripaojiedian
+  network: tcp
+  name: 🇦🇫 AF 阿富汗 1
+- type: vless
+  server: 59.3.3.161
+  port: 8443
+  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  network: ws
+  tls: true
+  servername: ylnhh.cc.cd
+  ws-opts:
+    path: /Telegram🇨🇳@WangCai2
+    headers:
+      Host: ylnhh.cc.cd
+  name: 🇦🇫 AF 阿富汗 2
+- type: vless
+  server: 45.145.42.170
+  port: 8005
+  uuid: 00000000-0000-4000-8000-000000000000
+  network: ws
+  tls: true
+  servername: sub.mot.ip-ddns.com
+  ws-opts:
+    path: /
+    headers:
+      Host: sub.mot.ip-ddns.com
   name: 🇧🇦 BA 波黑 1
 - type: vless
-  server: 198.62.62.248
+  server: 143.20.236.51
   port: 443
-  uuid: 5a4abb78-ecd7-4d68-ab2a-c11a3842f261
-  network: ws
-  tls: true
-  servername: tar.alabama-tigr.info
-  ws-opts:
-    path: /love
-    headers:
-      Host: tar.alabama-tigr.info
-  name: 🇧🇦 BA 波黑 2
-- type: vless
-  server: 104.18.32.47
-  port: 2052
-  uuid: 5e62ddcf-78c9-4b15-803a-436c8c839ddc
-  network: ws
+  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
+  network: tcp
   tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 104.18.32.47
-  name: 🇧🇦 BA 波黑 3
+  flow: xtls-rprx-vision
+  servername: yahoo.com
+  name: 🇧🇧 BB 巴巴多斯 1
