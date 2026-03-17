@@ -22,18 +22,6 @@ proxies:
       Host: jflsjlaf.pages.dev
   name: 🇧🇪 BE 比利时 2
 - type: vless
-  server: 175.212.45.195
-  port: 12053
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  network: ws
-  tls: true
-  servername: ylnhh.cc.cd
-  ws-opts:
-    path: /Telegram🇨🇳@WangCai2
-    headers:
-      Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 3
-- type: vless
   server: 211.48.77.114
   port: 22410
   uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
@@ -44,7 +32,7 @@ proxies:
     path: /Telegram🇨🇳@WangCai2
     headers:
       Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 4
+  name: 🇧🇪 BE 比利时 3
 - type: vless
   server: 221.146.116.77
   port: 15284
@@ -56,7 +44,7 @@ proxies:
     path: /Telegram🇨🇳@WangCai2
     headers:
       Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 5
+  name: 🇧🇪 BE 比利时 4
 - type: vless
   server: 34.143.159.175
   port: 443
@@ -68,7 +56,7 @@ proxies:
     path: /Telegram🇨🇳@WangCai2
     headers:
       Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 6
+  name: 🇧🇪 BE 比利时 5
 - type: vless
   server: 43.160.248.66
   port: 8443
@@ -80,7 +68,7 @@ proxies:
     path: /Telegram🇨🇳@WangCai2
     headers:
       Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 7
+  name: 🇧🇪 BE 比利时 6
 - type: vless
   server: 68.64.179.243
   port: 443
@@ -92,7 +80,7 @@ proxies:
     path: /Telegram🇨🇳@WangCai2
     headers:
       Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 8
+  name: 🇧🇪 BE 比利时 7
 - type: vless
   server: 68.64.179.96
   port: 443
@@ -104,7 +92,7 @@ proxies:
     path: /Telegram🇨🇳@WangCai2
     headers:
       Host: ylnhh.cc.cd
-  name: 🇧🇪 BE 比利时 9
+  name: 🇧🇪 BE 比利时 8
 - type: trojan
   server: 58.152.25.253
   port: 443
@@ -148,21 +136,3 @@ proxies:
     headers:
       Host: sub.mot.ip-ddns.com
   name: 🇧🇦 BA 波黑 1
-- type: vless
-  server: ipv6s514.okgg.top
-  port: 443
-  uuid: ccd85f23-9105-37fd-96b9-9dcbc89ff3eb
-  network: tcp
-  tls: true
-  flow: xtls-rprx-vision
-  servername: u710948u0cffipv6s514.okgg.top
-  name: 🇧🇧 BB 巴巴多斯 1
-- type: vless
-  server: 143.20.236.51
-  port: 443
-  uuid: d65cc14c-f53f-4fe2-b262-97856601319c
-  network: tcp
-  tls: false
-  flow: xtls-rprx-vision
-  servername: yahoo.com
-  name: 🇧🇧 BB 巴巴多斯 2
