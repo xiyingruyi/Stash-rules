@@ -70,29 +70,53 @@ proxies:
       Host: ylnhh.cc.cd
   name: 🇧🇪 BE 比利时 6
 - type: vless
-  server: 68.64.179.243
+  server: 192.0.54.188
   port: 443
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
   network: ws
   tls: true
-  servername: ylnhh.cc.cd
+  servername: snippet.danfeng.kozow.com
   ws-opts:
-    path: /Telegram🇨🇳@WangCai2
+    path: /danfeng?ed=2560
     headers:
-      Host: ylnhh.cc.cd
+      Host: snippet.danfeng.kozow.com
   name: 🇧🇪 BE 比利时 7
 - type: vless
-  server: 68.64.179.96
+  server: 192.0.54.225
   port: 443
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
   network: ws
   tls: true
-  servername: ylnhh.cc.cd
+  servername: snippet.danfeng.kozow.com
   ws-opts:
-    path: /Telegram🇨🇳@WangCai2
+    path: /danfeng?ed=2560
     headers:
-      Host: ylnhh.cc.cd
+      Host: snippet.danfeng.kozow.com
   name: 🇧🇪 BE 比利时 8
+- type: vless
+  server: 192.0.63.56
+  port: 443
+  uuid: 948fac3c-42bf-41a6-a5f9-704d36ff0d8d
+  network: ws
+  tls: true
+  servername: snippet.danfeng.kozow.com
+  ws-opts:
+    path: /danfeng?ed=2560
+    headers:
+      Host: snippet.danfeng.kozow.com
+  name: 🇧🇪 BE 比利时 9
+- type: vless
+  server: 193.9.49.65
+  port: 443
+  uuid: 9e4f36da-8f61-44f8-a9a7-0fd3a8d81234
+  network: ws
+  tls: true
+  servername: r.icy.de5.net
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: r.icy.de5.net
+  name: 🇧🇪 BE 比利时 10
 - type: trojan
   server: 58.152.25.253
   port: 443
