@@ -7,6 +7,14 @@ MANAGER_PATH="$MANAGER_DIR/openlist-menu.sh"
 
 mkdir -p "$MANAGER_DIR"
 
+remove_legacy_entry() {
+  for legacy in "/usr/local/bin/openlist" "/opt/homebrew/bin/openlist"; do
+    if [ -L "$legacy" ] || [ -f "$legacy" ]; then
+      rm -f "$legacy" 2>/dev/null || true
+    fi
+  done
+}
+
 cat > "$MANAGER_PATH" <<'EOF'
 #!/bin/bash
 
@@ -426,6 +434,8 @@ EOF
 
 chmod +x "$MANAGER_PATH"
 
+remove_legacy_entry
+
 for candidate in "$HOME/.local/bin" "/usr/local/bin" "/opt/homebrew/bin"; do
   if [ -d "$candidate" ] || mkdir -p "$candidate" 2>/dev/null; then
     if [ -w "$candidate" ]; then
@@ -438,6 +448,31 @@ done
 
 LINK_TARGET="${LINK_TARGET:-$MANAGER_PATH}"
 
+case ":$PATH:" in
+  *":$HOME/.local/bin:"*) ;;
+  *)
+    SHELL_RC=""
+    if [ -n "${ZSH_VERSION:-}" ]; then
+      SHELL_RC="$HOME/.zshrc"
+    elif [ -n "${BASH_VERSION:-}" ]; then
+      SHELL_RC="$HOME/.bash_profile"
+    elif [ -f "$HOME/.zshrc" ]; then
+      SHELL_RC="$HOME/.zshrc"
+    elif [ -f "$HOME/.bash_profile" ]; then
+      SHELL_RC="$HOME/.bash_profile"
+    else
+      SHELL_RC="$HOME/.zshrc"
+    fi
+
+    mkdir -p "$(dirname "$SHELL_RC")"
+    touch "$SHELL_RC"
+    if ! grep -F 'export PATH="$HOME/.local/bin:$PATH"' "$SHELL_RC" >/dev/null 2>&1; then
+      printf '\nexport PATH="$HOME/.local/bin:$PATH"\n' >> "$SHELL_RC"
+    fi
+    export PATH="$HOME/.local/bin:$PATH"
+    ;;
+esac
+
 cat <<MSG
 ============================================
 OpenList 菜单脚本已部署完成
@@ -449,5 +484,8 @@ OpenList 菜单脚本已部署完成
 
 当前入口位置：
   $LINK_TARGET
+
+如果当前终端还提示找不到 openlist，可执行：
+  hash -r
 ============================================
 MSG
