@@ -34,29 +34,6 @@ proxies:
       Host: sub.mot.ip-ddns.com
   name: 🇧🇪 BE 比利时 3
 - type: vless
-  server: 104.18.32.47
-  port: 2052
-  uuid: 5e62ddcf-78c9-4b15-803a-436c8c839ddc
-  network: ws
-  tls: false
-  ws-opts:
-    path: /
-    headers:
-      Host: 104.18.32.47
-  name: 🇧🇪 BE 比利时 4
-- type: vless
-  server: 193.9.49.65
-  port: 443
-  uuid: 9e4f36da-8f61-44f8-a9a7-0fd3a8d81234
-  network: ws
-  tls: true
-  servername: r.icy.de5.net
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: r.icy.de5.net
-  name: 🇧🇪 BE 比利时 5
-- type: vless
   server: 192.200.160.20
   port: 443
   uuid: ee248e40-9468-4ef6-81b7-707a1e47c54a
@@ -67,31 +44,14 @@ proxies:
     path: /yaeungws?ed=2560
     headers:
       Host: 639073677243557970.camry-perma.info
-  name: 🇧🇪 BE 比利时 6
-- type: vless
-  server: 45.145.42.170
-  port: 8005
-  uuid: 00000000-0000-4000-8000-000000000000
-  network: ws
-  tls: true
-  servername: sub.mot.ip-ddns.com
-  ws-opts:
-    path: /
-    headers:
-      Host: sub.mot.ip-ddns.com
-  name: 🇧🇦 BA 波黑 1
-- type: vless
-  server: vip1.kaixincloud.top
+  name: 🇧🇪 BE 比利时 4
+- type: trojan
+  server: 58.152.25.253
   port: 443
-  uuid: 9e4f36da-8f61-44f8-a9a7-0fd3a8d81234
-  network: ws
-  tls: true
-  servername: r.icy.de5.net
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: r.icy.de5.net
-  name: 🇧🇦 BA 波黑 2
+  password: BxceQaOe
+  sni: t.me/ripaojiedian
+  network: tcp
+  name: 🇧🇩 BD 孟加拉国 1
 - type: vless
   server: 192.200.160.20
   port: 443
@@ -103,28 +63,4 @@ proxies:
     path: /yaeungws
     headers:
       Host: 639073677243557970.camry-perma.info
-  name: 🇧🇦 BA 波黑 3
-- type: vless
-  server: 139.196.41.153
-  port: 443
-  uuid: 14b02e2a-8930-4afb-8412-ea4a4954ca5b
-  network: ws
-  tls: true
-  servername: ylnhh.cc.cd
-  ws-opts:
-    path: /gs5=6666:6666@47.239.178.125:6666
-    headers:
-      Host: ylnhh.cc.cd
-  name: 🇦🇩 AD 安道尔 1
-- type: vless
-  server: 64.120.89.69
-  port: 20231
-  uuid: 9e4f36da-8f61-44f8-a9a7-0fd3a8d81234
-  network: ws
-  tls: true
-  servername: r.icy.de5.net
-  ws-opts:
-    path: /?ed=2560
-    headers:
-      Host: r.icy.de5.net
-  name: 🇦🇩 AD 安道尔 2
+  name: 🇧🇦 BA 波黑 1
