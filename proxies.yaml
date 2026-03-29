@@ -21,6 +21,17 @@ proxies:
     headers:
       Host: jflsjlaf.pages.dev
   name: 🇧🇪 BE 比利时 2
+- type: trojan
+  server: 152.53.60.198
+  port: 8444
+  password: trojan
+  sni: jflsjlaf.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: jflsjlaf.pages.dev
+  name: 🇧🇪 BE 比利时 3
 - type: vless
   server: 185.94.29.156
   port: 4001
@@ -32,7 +43,19 @@ proxies:
     path: /
     headers:
       Host: sub.mot.ip-ddns.com
-  name: 🇧🇪 BE 比利时 3
+  name: 🇧🇪 BE 比利时 4
+- type: vless
+  server: 103.90.75.41
+  port: 2053
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.indevs.in
+  ws-opts:
+    path: /?ed=2560&Telegram🇨🇳@WangCai2
+    headers:
+      Host: sni.111000.indevs.in
+  name: 🇧🇪 BE 比利时 5
 - type: vless
   server: 192.200.160.20
   port: 443
@@ -44,7 +67,13 @@ proxies:
     path: /yaeungws?ed=2560
     headers:
       Host: 639073677243557970.camry-perma.info
-  name: 🇧🇪 BE 比利时 4
+  name: 🇧🇪 BE 比利时 6
+- type: trojan
+  server: 58.152.25.253
+  port: 443
+  password: BxceQaOe
+  network: tcp
+  name: 🇦🇩 AD 安道尔 1
 - type: trojan
   server: 58.152.25.253
   port: 443
@@ -52,6 +81,29 @@ proxies:
   sni: t.me/ripaojiedian
   network: tcp
   name: 🇧🇩 BD 孟加拉国 1
+- type: trojan
+  server: 152.53.200.98
+  port: 8444
+  password: trojan
+  sni: jflsjlaf.pages.dev
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: jflsjlaf.pages.dev
+  name: 🇧🇩 BD 孟加拉国 2
+- type: vless
+  server: 209.102.207.120
+  port: 443
+  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
+  network: ws
+  tls: true
+  servername: sni.111000.v6.navy
+  ws-opts:
+    path: /
+    headers:
+      Host: sni.111000.v6.navy
+  name: 🇧🇩 BD 孟加拉国 3
 - type: vless
   server: 192.200.160.20
   port: 443
