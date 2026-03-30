@@ -45,18 +45,6 @@ proxies:
       Host: sub.mot.ip-ddns.com
   name: 🇧🇪 BE 比利时 4
 - type: vless
-  server: 103.90.75.41
-  port: 2053
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.indevs.in
-  ws-opts:
-    path: /?ed=2560&Telegram🇨🇳@WangCai2
-    headers:
-      Host: sni.111000.indevs.in
-  name: 🇧🇪 BE 比利时 5
-- type: vless
   server: 192.200.160.20
   port: 443
   uuid: ee248e40-9468-4ef6-81b7-707a1e47c54a
@@ -67,7 +55,7 @@ proxies:
     path: /yaeungws?ed=2560
     headers:
       Host: 639073677243557970.camry-perma.info
-  name: 🇧🇪 BE 比利时 6
+  name: 🇧🇪 BE 比利时 5
 - type: trojan
   server: 58.152.25.253
   port: 443
@@ -92,18 +80,6 @@ proxies:
     headers:
       Host: jflsjlaf.pages.dev
   name: 🇧🇩 BD 孟加拉国 2
-- type: vless
-  server: 209.102.207.120
-  port: 443
-  uuid: 6202b230-417c-4d8e-b624-0f71afa9c75d
-  network: ws
-  tls: true
-  servername: sni.111000.v6.navy
-  ws-opts:
-    path: /
-    headers:
-      Host: sni.111000.v6.navy
-  name: 🇧🇩 BD 孟加拉国 3
 - type: vless
   server: 192.200.160.20
   port: 443
