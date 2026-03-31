@@ -2,25 +2,27 @@ name: Update Proxies
 
 on:
   schedule:
-    - cron: '0 1,4,6,9,13,16,22 * * *'  # 每天 UTC 00:00、06:00、09:00、12:00、14:00、17:00、21:00 运行（每 6 小时一次）
-  workflow_dispatch:  # 支持手动触发
+    - cron: '0 1,4,6,9,13,16,22 * * *'
+  workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_TOKEN || github.token }}  # 优先 PAT 写权限
+          token: ${{ secrets.PAT_TOKEN || github.token }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install Puppeteer with Stealth
-        run: npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
+        run: |
+          npm install puppeteer puppeteer-extra puppeteer-extra-plugin-stealth
 
       - name: Fetch subscription content with Puppeteer Stealth
         run: |
@@ -28,181 +30,226 @@ jobs:
           const puppeteer = require('puppeteer-extra');
           const StealthPlugin = require('puppeteer-extra-plugin-stealth');
           const fs = require('fs');
-          
+
           puppeteer.use(StealthPlugin());
-          
+
           (async () => {
-            const browser = await puppeteer.launch({
-              headless: 'new',
-              args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-dev-shm-usage',
-                '--disable-accelerated-2d-canvas',
-                '--no-first-run',
-                '--no-zygote',
-                '--disable-gpu',
-                '--disable-web-security',
-                '--disable-features=VizDisplayCompositor'
-              ]
-            });
-            const page = await browser.newPage();
-            
-            const userAgents = [
-              'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-              'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15'
-            ];
-            const randomUA = userAgents[Math.floor(Math.random() * userAgents.length)];
-            await page.setUserAgent(randomUA);
-            await page.setViewport({ width: 1920, height: 1080 });
-            await page.setExtraHTTPHeaders({
-              'Accept-Language': 'en-US,en;q=0.9',
-              'Accept-Encoding': 'gzip, deflate, br'
-            });
-            
+            let browser;
             let content = '';
-            
+
             try {
-              page.on('response', async (response) => {
+              browser = await puppeteer.launch({
+                headless: true,
+                args: [
+                  '--no-sandbox',
+                  '--disable-setuid-sandbox',
+                  '--disable-dev-shm-usage',
+                  '--no-first-run',
+                  '--no-zygote',
+                  '--disable-gpu'
+                ]
+              });
+
+              const page = await browser.newPage();
+
+              await page.setUserAgent(
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
+              );
+
+              await page.setViewport({ width: 1366, height: 768 });
+              await page.setExtraHTTPHeaders({
+                'Accept-Language': 'en-US,en;q=0.9'
+              });
+
+              page.on('console', msg => {
+                console.log('[PAGE]', msg.text());
+              });
+
+              page.on('response', async response => {
                 const url = response.url();
                 if (url.includes('/api/sub.php')) {
                   try {
                     const text = await response.text();
-                    if (text.length > 100 && !text.includes('Verify you are human')) {
+                    console.log('[API] status:', response.status(), 'length:', text.length);
+
+                    if (
+                      text &&
+                      text.length > 100 &&
+                      !text.includes('Verify you are human') &&
+                      !text.includes('403 Forbidden') &&
+                      !text.includes('<html')
+                    ) {
                       content = text.trim();
-                      console.log('Captured API response length:', content.length);
-                      console.log('Raw content preview (first 200 chars):', content.substring(0, 200));
                     }
-                  } catch (e) {
-                    console.error('Failed to get response text:', e.message);
+                  } catch (err) {
+                    console.log('[API] failed to read response text:', err.message);
                   }
                 }
               });
-              
-              console.log('Navigating to index.php');
-              await page.goto('https://www.bsbb.cc/sub/index.php', { 
-                waitUntil: 'networkidle0',
-                timeout: 30000 
+
+              console.log('Opening landing page...');
+              await page.goto('https://www.bsbb.cc/sub/', {
+                waitUntil: 'domcontentloaded',
+                timeout: 60000
               });
-              
-              await new Promise(resolve => setTimeout(resolve, 10000));
-              
-              const finalUrl = page.url();
-              console.log('Final URL after redirect:', finalUrl);
-              
-              await new Promise(resolve => setTimeout(resolve, 5000));
-              
-              if (content.length === 0) {
-                let targetUrl = finalUrl.includes('/api/sub.php') ? finalUrl : 'https://www.bsbb.cc/api/sub.php?t=cefcc1b46a5daecc824598207e9ff10a';
-                console.log('Fallback: Navigating to', targetUrl);
-                await page.goto(targetUrl, { 
-                  waitUntil: 'networkidle0',
-                  timeout: 30000 
-                });
-                await new Promise(resolve => setTimeout(resolve, 3000));
-                
-                const responses = await page.evaluate(() => {
-                  return Array.from(document.querySelectorAll('pre, body')).map(el => el.innerText).filter(text => text.length > 100);
-                });
-                if (responses.length > 0) {
-                  content = responses[0].trim();
-                } else {
-                  content = await page.evaluate(() => document.body.innerText.trim());
+
+              console.log('Initial URL:', page.url());
+
+              try {
+                const apiResponse = await page.waitForResponse(
+                  response => response.url().includes('/api/sub.php'),
+                  { timeout: 25000 }
+                );
+
+                console.log('Detected API response:', apiResponse.url(), 'status=', apiResponse.status());
+
+                if (!content) {
+                  const text = await apiResponse.text();
+                  if (
+                    text &&
+                    text.length > 100 &&
+                    !text.includes('Verify you are human') &&
+                    !text.includes('403 Forbidden') &&
+                    !text.includes('<html')
+                  ) {
+                    content = text.trim();
+                  }
                 }
-                console.log('Fallback content length:', content.length);
+              } catch (e) {
+                console.log('Did not capture /api/sub.php response in time:', e.message);
               }
-              
-              if (content.includes('Verify you are human') || content.length < 1000) {
-                throw new Error('Detected challenge page or insufficient content');
+
+              if (!content) {
+                console.log('Waiting briefly for delayed redirect/content...');
+                await new Promise(resolve => setTimeout(resolve, 12000));
+                console.log('URL after wait:', page.url());
               }
-              
+
+              if (!content && page.url().includes('/api/sub.php')) {
+                console.log('Page already redirected to api/sub.php, reading body...');
+                const bodyText = await page.evaluate(() => document.body ? document.body.innerText.trim() : '');
+
+                if (
+                  bodyText &&
+                  bodyText.length > 100 &&
+                  !bodyText.includes('Verify you are human') &&
+                  !bodyText.includes('403 Forbidden')
+                ) {
+                  content = bodyText;
+                }
+              }
+
+              if (!content) {
+                console.log('Trying page content as final fallback...');
+                const html = await page.content();
+                const bodyText = await page.evaluate(() => document.body ? document.body.innerText.trim() : '');
+
+                console.log('Fallback HTML length:', html.length);
+                console.log('Fallback body preview:', bodyText.slice(0, 200));
+
+                if (
+                  bodyText &&
+                  bodyText.length > 100 &&
+                  !bodyText.includes('Verify you are human') &&
+                  !bodyText.includes('403 Forbidden') &&
+                  !bodyText.includes('<html')
+                ) {
+                  content = bodyText;
+                }
+              }
+
+              if (
+                !content ||
+                content.length < 1000 ||
+                content.includes('Verify you are human') ||
+                content.includes('403 Forbidden') ||
+                content.includes('<html')
+              ) {
+                throw new Error('No valid subscription content captured');
+              }
+
               fs.writeFileSync('sub.txt', content);
-              console.log(`Final content length: ${content.length} characters, lines: ${content.split('\n').length}`);
-              
+              console.log(`Saved sub.txt: ${content.length} chars, ${content.split('\n').length} lines`);
             } catch (error) {
               console.error('Error during fetch:', error.message);
-              fs.writeFileSync('sub.txt', '');  
+              fs.writeFileSync('sub.txt', '');
+              process.exitCode = 1;
             } finally {
-              await browser.close();
+              if (browser) {
+                await browser.close();
+              }
             }
           })();
           EOF
-          
+
           node fetch.js
-          
-          if [ ! -s sub.txt ] || [ $(wc -c < sub.txt) -lt 1000 ]; then
+
+          if [ ! -s sub.txt ] || [ "$(wc -c < sub.txt)" -lt 1000 ]; then
             echo "Failed to fetch sufficient content. Check Puppeteer logs above."
             exit 1
           fi
+
           echo "Successfully fetched $(wc -l < sub.txt) lines"
 
       - name: Decode and extract VLESS/Trojan links
         run: |
-          if command -v base64 >/dev/null && base64 -d sub.txt > decoded.txt 2>/dev/null && [ $(wc -c < decoded.txt) -gt $(wc -c < sub.txt) ]; then
+          if command -v base64 >/dev/null && base64 -d sub.txt > decoded.txt 2>/dev/null && [ "$(wc -c < decoded.txt)" -gt "$(wc -c < sub.txt)" ]; then
             echo "Decoded Base64 content"
           else
             cp sub.txt decoded.txt
             echo "Treated as plain text"
           fi
-          
+
           echo "Decoded content preview (first 5 lines):"
-          head -5 decoded.txt
-          
-          # 提取完整行（vless:// 或 trojan:// 开头），包括标签/延迟
+          head -5 decoded.txt || true
+
           grep -E '^(vless|trojan)://.*$' decoded.txt | sort -u > nodes.txt || true
-          
+
           if [ ! -s nodes.txt ]; then
             touch nodes.txt
           fi
-          
+
           rm -f sub.txt decoded.txt
-          
+
           echo "Extracted $(wc -l < nodes.txt) nodes to nodes.txt"
 
       - name: Setup Python and Convert nodes.txt to proxies.yaml
-        if: always()  # 即使前一步失败也运行，但检查nodes.txt
+        if: always()
         run: |
-          # 安装Python依赖
           pip install pyyaml
-          
-          # 检查nodes.txt是否有效
-          if [ ! -s nodes.txt ] || [ $(wc -l < nodes.txt) -eq 0 ]; then
+
+          if [ ! -s nodes.txt ] || [ "$(wc -l < nodes.txt)" -eq 0 ]; then
             echo "nodes.txt is empty or invalid, skipping conversion."
             exit 0
           fi
-          
-          # 运行转换脚本
+
           python convert_nodes.py
-          
-          # 检查proxies.yaml是否生成
+
           if [ ! -s proxies.yaml ]; then
             echo "Failed to generate proxies.yaml."
             exit 1
           fi
-          
+
           echo "Successfully generated proxies.yaml with $(grep -c '^-' proxies.yaml) nodes."
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "xiyingruyi@163.com"  # 您的 primary email
+          git config --local user.email "xiyingruyi@163.com"
           git config --local user.name "xiyingruyi"
-          
-          # 检查 PAT_TOKEN 是否设置
+
           if [ -z "${{ secrets.PAT_TOKEN }}" ]; then
             echo "Error: PAT_TOKEN secret not set. Cannot push."
             exit 1
           fi
-          
+
           git add nodes.txt proxies.yaml
-          
+
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            # 北京时间 commit 消息
             COMMIT_MSG="Update nodes.txt and proxies.yaml - $(TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S CST')"
-            echo "Commit message: $COMMIT_MSG"  # 调试日志
+            echo "Commit message: $COMMIT_MSG"
             git commit -m "$COMMIT_MSG"
-            # 用 PAT 强制（无 fallback）
             git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}.git
             git push
             echo "Push successful!"
