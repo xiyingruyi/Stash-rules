@@ -1,46 +1,57 @@
-# -----------------------------
-# Ai 分流 - 完整升级版远程规则集
-# 描述: Grok (xAI), ChatGPT (OpenAI), Gemini (Google AI) 智能捕获升级版
-# 版本: 2.20 (2025-10-12 补全核心 API)
-# 使用: RULE-SET,ai-rules,Ai 分流
-# -----------------------------
 payload:
-  # Google 核心
-  - DOMAIN-SUFFIX,google.com
-  - DOMAIN-SUFFIX,googleapis.com
-  - DOMAIN-SUFFIX,gstatic.com
-  - DOMAIN-SUFFIX,googleusercontent.com
-
-  # Google 国家/地区域名，accounts 很容易跳这些
-  - DOMAIN-SUFFIX,google.com.hk
-  - DOMAIN-SUFFIX,google.com.vn
-  - DOMAIN-SUFFIX,google.co.jp
-  - DOMAIN-SUFFIX,google.com.sg
-  - DOMAIN-SUFFIX,google.com.tw
-  - DOMAIN-SUFFIX,google.co.uk
-  - DOMAIN-SUFFIX,google.ca
-  - DOMAIN-SUFFIX,google.com.au
-
-  # Gemini / Google AI 显式
+  # Gemini 主站
   - DOMAIN,gemini.google.com
-  - DOMAIN,gemini.gstatic.com
+  - DOMAIN,bard.google.com
+
+  # Google AI Studio / Gemini API
+  - DOMAIN,aistudio.google.com
+  - DOMAIN,makersuite.google.com
+  - DOMAIN,ai.google.dev
+  - DOMAIN-SUFFIX,ai.google.dev
+
+  # Gemini API / Generative Language API
   - DOMAIN,generativelanguage.googleapis.com
   - DOMAIN,alkalimakersuite-pa.clients6.google.com
+  - DOMAIN,makersuite-pa.clients6.google.com
   - DOMAIN,waa-pa.clients6.google.com
   - DOMAIN,signaler-pa.clients6.google.com
   - DOMAIN,jnn-pa.googleapis.com
   - DOMAIN,optimizationguide-pa.googleapis.com
-  - DOMAIN,csp.withgoogle.com
 
-  # 你截图里漏/容易漏的
+  # Gemini 相关资源
+  - DOMAIN,gemini.gstatic.com
   - DOMAIN,www.gstatic.com
-  - DOMAIN-SUFFIX,gstatic.com
-  - DOMAIN,www.googletagmanager.com
-  - DOMAIN-SUFFIX,googletagmanager.com
-  - DOMAIN-SUFFIX,withgoogle.com
-  - DOMAIN-SUFFIX,ggpht.com
-  - DOMAIN-SUFFIX,ytimg.com
-  - DOMAIN-SUFFIX,youtube.com
-  - DOMAIN-SUFFIX,doubleclick.net
-  - DOMAIN-SUFFIX,google-analytics.com
-  - DOMAIN-SUFFIX,googleadservices.com
+  - DOMAIN,ssl.gstatic.com
+  - DOMAIN,fonts.gstatic.com
+  - DOMAIN,fonts.googleapis.com
+
+  # Google 登录 / 账号 / OAuth
+  - DOMAIN,accounts.google.com
+  - DOMAIN,accounts.youtube.com
+  - DOMAIN,myaccount.google.com
+  - DOMAIN,oauth2.googleapis.com
+  - DOMAIN,apis.google.com
+
+  # Google 基础服务，Gemini 网页可能会用
+  - DOMAIN,www.google.com
+  - DOMAIN,ogs.google.com
+  - DOMAIN,clients1.google.com
+  - DOMAIN,clients2.google.com
+  - DOMAIN,clients3.google.com
+  - DOMAIN,clients4.google.com
+  - DOMAIN,clients5.google.com
+  - DOMAIN,clients6.google.com
+
+  # Google 静态/用户内容，尽量精确，不用太宽
+  - DOMAIN,lh3.googleusercontent.com
+  - DOMAIN,lh4.googleusercontent.com
+  - DOMAIN,lh5.googleusercontent.com
+  - DOMAIN,lh6.googleusercontent.com
+  - DOMAIN,encrypted-tbn0.gstatic.com
+  - DOMAIN,encrypted-tbn1.gstatic.com
+  - DOMAIN,encrypted-tbn2.gstatic.com
+  - DOMAIN,encrypted-tbn3.gstatic.com
+
+  # Gemini 关键词兜底
+  - DOMAIN-KEYWORD,gemini
+  - DOMAIN-KEYWORD,bard
