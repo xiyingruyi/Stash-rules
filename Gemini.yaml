@@ -1,40 +1,54 @@
 payload:
-  # Gemini 主站
+  # Gemini / Bard 主站
   - DOMAIN,gemini.google.com
   - DOMAIN,bard.google.com
+  - DOMAIN,gemini.google
+  - DOMAIN-SUFFIX,gemini.google.com
+  - DOMAIN-SUFFIX,bard.google.com
 
   # Google AI Studio / Gemini API
   - DOMAIN,aistudio.google.com
   - DOMAIN,makersuite.google.com
   - DOMAIN,ai.google.dev
+  - DOMAIN,notebooklm.google.com
   - DOMAIN-SUFFIX,ai.google.dev
 
-  # Gemini API / Generative Language API
+  # Gemini / Generative Language API
   - DOMAIN,generativelanguage.googleapis.com
+  - DOMAIN,generativelanguage.googleapis.com.cn
   - DOMAIN,alkalimakersuite-pa.clients6.google.com
   - DOMAIN,makersuite-pa.clients6.google.com
   - DOMAIN,waa-pa.clients6.google.com
   - DOMAIN,signaler-pa.clients6.google.com
   - DOMAIN,jnn-pa.googleapis.com
   - DOMAIN,optimizationguide-pa.googleapis.com
-
-  # Gemini 相关资源
-  - DOMAIN,gemini.gstatic.com
-  - DOMAIN,www.gstatic.com
-  - DOMAIN,ssl.gstatic.com
-  - DOMAIN,fonts.gstatic.com
-  - DOMAIN,fonts.googleapis.com
+  - DOMAIN,aisandbox-pa.googleapis.com
+  - DOMAIN,proactivebackend-pa.googleapis.com
 
   # Google 登录 / 账号 / OAuth
   - DOMAIN,accounts.google.com
-  - DOMAIN,accounts.youtube.com
   - DOMAIN,myaccount.google.com
+  - DOMAIN,accountsettings.google.com
   - DOMAIN,oauth2.googleapis.com
+  - DOMAIN,oauthaccountmanager.googleapis.com
   - DOMAIN,apis.google.com
-
-  # Google 基础服务，Gemini 网页可能会用
-  - DOMAIN,www.google.com
   - DOMAIN,ogs.google.com
+  - DOMAIN,people-pa.googleapis.com
+  - DOMAIN,people.googleapis.com
+  - DOMAIN,contacts.google.com
+  - DOMAIN,contacts.googleapis.com
+
+  # Google 账号安全 / 设备验证 / 登录辅助
+  - DOMAIN,ssl.gstatic.com
+  - DOMAIN,play.google.com
+  - DOMAIN,android.googleapis.com
+  - DOMAIN,android.clients.google.com
+  - DOMAIN,device-provisioning.googleapis.com
+  - DOMAIN,firebaseinstallations.googleapis.com
+  - DOMAIN,securetoken.googleapis.com
+  - DOMAIN,identitytoolkit.googleapis.com
+
+  # Google 客户端服务
   - DOMAIN,clients1.google.com
   - DOMAIN,clients2.google.com
   - DOMAIN,clients3.google.com
@@ -42,16 +56,57 @@ payload:
   - DOMAIN,clients5.google.com
   - DOMAIN,clients6.google.com
 
-  # Google 静态/用户内容，尽量精确，不用太宽
+  # Gemini 相关 Google API
+  - DOMAIN,content-autofill.googleapis.com
+  - DOMAIN,update.googleapis.com
+  - DOMAIN,safebrowsing.googleapis.com
+  - DOMAIN,firestore.googleapis.com
+  - DOMAIN,firebaseremoteconfig.googleapis.com
+  - DOMAIN,play.googleapis.com
+  - DOMAIN,translate.googleapis.com
+  - DOMAIN,speech.googleapis.com
+  - DOMAIN,texttospeech.googleapis.com
+  - DOMAIN,vision.googleapis.com
+  - DOMAIN,cloudresourcemanager.googleapis.com
+
+  # Google 基础页面，Gemini 登录和跳转会用到
+  - DOMAIN,www.google.com
+  - DOMAIN,www.google.com.hk
+  - DOMAIN,www.google.co.jp
+  - DOMAIN,www.google.co.uk
+  - DOMAIN,google.com
+
+  # Gemini / Google 静态资源
+  - DOMAIN,gemini.gstatic.com
+  - DOMAIN,www.gstatic.com
+  - DOMAIN,fonts.gstatic.com
+  - DOMAIN,fonts.googleapis.com
+
+  # Google 用户头像 / 账户图片
   - DOMAIN,lh3.googleusercontent.com
   - DOMAIN,lh4.googleusercontent.com
   - DOMAIN,lh5.googleusercontent.com
   - DOMAIN,lh6.googleusercontent.com
+
+  # Google 图片缓存
   - DOMAIN,encrypted-tbn0.gstatic.com
   - DOMAIN,encrypted-tbn1.gstatic.com
   - DOMAIN,encrypted-tbn2.gstatic.com
   - DOMAIN,encrypted-tbn3.gstatic.com
 
-  # Gemini 关键词兜底
+  # Gemini App / Firebase 相关
+  - DOMAIN,firebaselogging-pa.googleapis.com
+  - DOMAIN,firebase-settings.crashlytics.com
+  - DOMAIN,app-measurement.com
+  - DOMAIN-SUFFIX,app-measurement.com
+
+  # 宽泛兜底：解决 Gemini 偶发地区判断异常
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN-SUFFIX,googleusercontent.com
+
+  # 关键词兜底
   - DOMAIN-KEYWORD,gemini
   - DOMAIN-KEYWORD,bard
+  - DOMAIN-KEYWORD,generativelanguage
+  - DOMAIN-KEYWORD,makersuite
