@@ -1,0 +1,24 @@
+payload:
+  - DOMAIN-SUFFIX,youtube.com
+  - DOMAIN-SUFFIX,youtu.be
+  - DOMAIN-SUFFIX,youtube-nocookie.com
+  - DOMAIN-SUFFIX,youtubekids.com
+  - DOMAIN-SUFFIX,withyoutube.com
+
+  - DOMAIN,music.youtube.com
+  - DOMAIN,studio.youtube.com
+  - DOMAIN,tv.youtube.com
+  - DOMAIN,kids.youtube.com
+  - DOMAIN,m.youtube.com
+  - DOMAIN,www.youtube.com
+
+  - DOMAIN-SUFFIX,ytimg.com
+  - DOMAIN-SUFFIX,ggpht.com
+  - DOMAIN-SUFFIX,googlevideo.com
+
+  - DOMAIN,youtubei.googleapis.com
+  - DOMAIN,youtube.googleapis.com
+
+  - DOMAIN-SUFFIX,yt.be
+  - DOMAIN-SUFFIX,youtubegaming.com
+  - DOMAIN-SUFFIX,youtubeeducation.com
