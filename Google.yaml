@@ -5,16 +5,42 @@
 # 使用: RULE-SET,ai-rules,Ai 分流
 # -----------------------------
 payload:
-  # Gemini (Google AI) 流量
-  # -----------------------------
-  - DOMAIN-SUFFIX,googleusercontent.com,no-resolve
-  - DOMAIN-SUFFIX,googleapis.com,no-resolve
-  - DOMAIN-SUFFIX,gstatic.com,no-resolve
-  - DOMAIN-SUFFIX,google.com,no-resolve
-  - DOMAIN-SUFFIX,yt3.ggpht.com,no-resolve
-  - DOMAIN-SUFFIX,googletagmanager.com,no-resolve
-  - DOMAIN-SUFFIX,doubleclick.net,no-resolve
-  - DOMAIN-SUFFIX,google-analytics.com,no-resolve
-  - DOMAIN-SUFFIX,withgoogle.com,no-resolve
-  - DOMAIN-SUFFIX,google.com.vn,no-resolve
-  - DOMAIN-KEYWORD,gemini,no-resolve               # 智能捕获未来 Google AI 子域
+  # Google 核心
+  - DOMAIN-SUFFIX,google.com
+  - DOMAIN-SUFFIX,googleapis.com
+  - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN-SUFFIX,googleusercontent.com
+
+  # Google 国家/地区域名，accounts 很容易跳这些
+  - DOMAIN-SUFFIX,google.com.hk
+  - DOMAIN-SUFFIX,google.com.vn
+  - DOMAIN-SUFFIX,google.co.jp
+  - DOMAIN-SUFFIX,google.com.sg
+  - DOMAIN-SUFFIX,google.com.tw
+  - DOMAIN-SUFFIX,google.co.uk
+  - DOMAIN-SUFFIX,google.ca
+  - DOMAIN-SUFFIX,google.com.au
+
+  # Gemini / Google AI 显式
+  - DOMAIN,gemini.google.com
+  - DOMAIN,gemini.gstatic.com
+  - DOMAIN,generativelanguage.googleapis.com
+  - DOMAIN,alkalimakersuite-pa.clients6.google.com
+  - DOMAIN,waa-pa.clients6.google.com
+  - DOMAIN,signaler-pa.clients6.google.com
+  - DOMAIN,jnn-pa.googleapis.com
+  - DOMAIN,optimizationguide-pa.googleapis.com
+  - DOMAIN,csp.withgoogle.com
+
+  # 你截图里漏/容易漏的
+  - DOMAIN,www.gstatic.com
+  - DOMAIN-SUFFIX,gstatic.com
+  - DOMAIN,www.googletagmanager.com
+  - DOMAIN-SUFFIX,googletagmanager.com
+  - DOMAIN-SUFFIX,withgoogle.com
+  - DOMAIN-SUFFIX,ggpht.com
+  - DOMAIN-SUFFIX,ytimg.com
+  - DOMAIN-SUFFIX,youtube.com
+  - DOMAIN-SUFFIX,doubleclick.net
+  - DOMAIN-SUFFIX,google-analytics.com
+  - DOMAIN-SUFFIX,googleadservices.com
