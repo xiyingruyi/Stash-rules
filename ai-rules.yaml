@@ -1,0 +1,31 @@
+# ─────────────────────────────────────────────────
+# Ai 分流 · 精简版远程规则集
+# 覆盖: Grok (xAI) · ChatGPT (OpenAI) · Claude (Anthropic)
+# 版本: 1.1 (2026-06-07)
+# 使用: RULE-SET,ai-rules,Ai 分流
+# ─────────────────────────────────────────────────
+payload:
+
+  # ── Grok / xAI ─────────────────────────────────
+  # x.ai 后缀已覆盖: api.x.ai / auth.x.ai 等子域
+  # grok.com 后缀已覆盖: cli-chat-proxy / code / assets 等子域
+  - DOMAIN-SUFFIX,x.ai,no-resolve
+  - DOMAIN-SUFFIX,grok.com,no-resolve
+  - DOMAIN-KEYWORD,grok,no-resolve
+
+  # ── ChatGPT / OpenAI ───────────────────────────
+  - DOMAIN-SUFFIX,openai.com,no-resolve
+  - DOMAIN-SUFFIX,chatgpt.com,no-resolve
+  - DOMAIN-SUFFIX,oaistatic.com,no-resolve           # 静态资源 CDN
+  - DOMAIN-SUFFIX,oaiusercontent.com,no-resolve      # 用户上传内容
+  - DOMAIN-SUFFIX,sora.com,no-resolve                # Sora 视频生成
+  - DOMAIN-SUFFIX,crixet.com,no-resolve              # OpenAI 关联域名
+  - DOMAIN-SUFFIX,livekit.cloud,no-resolve           # Advanced Voice Mode
+  - DOMAIN-KEYWORD,openai,no-resolve
+  - DOMAIN-KEYWORD,chatgpt,no-resolve
+
+  # ── Claude / Anthropic ─────────────────────────
+  - DOMAIN-SUFFIX,anthropic.com,no-resolve
+  - DOMAIN-SUFFIX,claude.ai,no-resolve
+  - DOMAIN-SUFFIX,claudeusercontent.com,no-resolve   # 用户上传内容
+  - DOMAIN-KEYWORD,anthropic,no-resolve
