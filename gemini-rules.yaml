@@ -1,0 +1,43 @@
+# ─────────────────────────────────────────────────
+# Gemini 分流 · 远程规则集
+# 覆盖: Gemini 网页端 · Gemini API · AI Studio
+#        NotebookLM · Jules · DeepMind
+# 版本: 1.0 (2026-06-07)
+# 使用: RULE-SET,gemini-rules,Ai 分流
+# ─────────────────────────────────────────────────
+payload:
+
+  # ── Gemini 网页端 ───────────────────────────────
+  - DOMAIN-SUFFIX,gemini.google.com,no-resolve       # 主聊天界面
+  - DOMAIN-SUFFIX,gemini.google,no-resolve           # 短域名跳转
+  - DOMAIN-SUFFIX,gemini.gstatic.com,no-resolve      # 静态资源
+  - DOMAIN-SUFFIX,bard.google.com,no-resolve         # 旧版 Bard 重定向
+
+  # ── Gemini API ─────────────────────────────────
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,no-resolve  # 核心 API 端点
+  - DOMAIN-SUFFIX,generativeai.google,no-resolve     # Google AI 门户
+
+  # ── AI Studio ──────────────────────────────────
+  - DOMAIN-SUFFIX,aistudio.google.com,no-resolve     # AI Studio 新版
+  - DOMAIN-SUFFIX,makersuite.google.com,no-resolve   # AI Studio 旧版
+  - DOMAIN-SUFFIX,ai.google.dev,no-resolve           # 开发者文档 / API 密钥
+
+  # ── NotebookLM ─────────────────────────────────
+  - DOMAIN-SUFFIX,notebooklm.google.com,no-resolve
+  - DOMAIN-SUFFIX,notebooklm.google,no-resolve
+
+  # ── Jules (Google AI 编程助手) ──────────────────
+  - DOMAIN-SUFFIX,jules.google.com,no-resolve
+  - DOMAIN-SUFFIX,jules.google,no-resolve
+
+  # ── Google DeepMind ────────────────────────────
+  - DOMAIN-SUFFIX,deepmind.com,no-resolve
+  - DOMAIN-SUFFIX,googledeepmind.com,no-resolve
+
+# ─────────────────────────────────────────────────
+# ⚠️ 注意
+# googleapis.com 为 Google 公共域，以下仅匹配
+# Gemini 相关的具体子域名，不影响其他 Google 服务。
+# 若同时开启了 Google 规则集，以下条目可按需删除:
+#   generativelanguage.googleapis.com
+# ─────────────────────────────────────────────────
