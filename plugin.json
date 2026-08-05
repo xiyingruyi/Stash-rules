@@ -1,0 +1,17 @@
+{
+  "name": "酷狗音乐 (酷狗概念版)",
+  "type": "music",
+  "id": "kugou-concept",
+  "description": "EchoMusic 2.2.8-beta.5 自动领取会员覆写（概念版）",
+  "claim": {
+    "baseURL": "https://kugouvip.kugou.com",
+    "url": "/v1/get_union_vip",
+    "method": "GET",
+    "params": {
+      "busi_type": "concept"
+    },
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0) Gecko/20100101 Firefox/91.0"
+    }
+  }
+}
