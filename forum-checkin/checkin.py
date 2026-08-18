@@ -26,14 +26,32 @@ CHECKIN_TEXTS = ["签到", "每日签到", "打卡", "领取", "Check in", "Chec
 SUCCESS_TEXTS = ["签到成功", "已签到", "今日已签到", "打卡成功", "领取成功"]
 
 
-def load_cookies(env_name):
+def load_cookies(env_name, site_url):
     raw = os.environ.get(env_name, "").strip()
     if not raw:
         raise RuntimeError(f"缺少 GitHub Secret: {env_name}")
 
-    cookies = json.loads(raw)
-    if not isinstance(cookies, list):
-        raise ValueError(f"{env_name} 必须是 Cookie JSON 数组")
+    try:
+        cookies = json.loads(raw)
+        if isinstance(cookies, list):
+            return cookies
+    except json.JSONDecodeError:
+        pass
+
+    cookies = []
+    for item in raw.split(";"):
+        item = item.strip()
+        if not item or "=" not in item:
+            continue
+        name, value = item.split("=", 1)
+        cookies.append({
+            "name": name.strip(),
+            "value": value.strip(),
+            "url": site_url,
+        })
+
+    if not cookies:
+        raise ValueError(f"{env_name} 必须是完整 Cookie 字符串，例如 name=value; name2=value2")
     return cookies
 
 
@@ -49,7 +67,7 @@ def checkin(browser, site):
     )
 
     try:
-        context.add_cookies(load_cookies(site["cookie_env"]))
+        context.add_cookies(load_cookies(site["cookie_env"], site["url"]))
         page = context.new_page()
         page.goto(site["url"], wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(3000)
