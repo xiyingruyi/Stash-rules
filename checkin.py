@@ -9,7 +9,7 @@ TIMEOUT = int(os.getenv("TIMEOUT_MS", "30000"))
 SITES = [
     {
         "name": "NodeSeek",
-        "url": "https://www.nodeseek.com/board/",
+        "url": "https://www.nodeseek.com/board",
         "cookie_env": "NODESEEK_COOKIE",
         "success": ["今日已签到", "签到成功", "获得鸡腿", "当前排名"],
         "buttons": ["鸡腿 x 5", "鸡腿×5", "固定 5", "固定5", "试试手气", "签到"],
@@ -73,19 +73,31 @@ async def run_site(browser, site):
         for url in urls:
             try:
                 await page.goto(url, wait_until='domcontentloaded', timeout=TIMEOUT)
-                await page.wait_for_timeout(2000)
+                await page.wait_for_timeout(2500)
             except Exception:
                 continue
+            if '/login' in page.url.lower():
+                return {"site":site['name'], "ok":False, "message":"Cookie 无效，已跳转到登录页", "url":page.url}
             before=await body_text(page)
             if any(x in before for x in site['success']):
-                return {"site":site['name'], "ok":True, "message":"今天可能已经签到", "url":page.url}
-            clicked=await click_first(page, site['buttons'])
+                return {"site":site['name'], "ok":True, "message":"今天已经签到", "url":page.url}
+            if site['name'] == 'NodeSeek':
+                icon=page.locator('[title="签到"]')
+                if await icon.count() and await icon.first.is_visible():
+                    await icon.first.click(timeout=8000)
+                    await page.wait_for_timeout(1500)
+                clicked=await click_first(page, ["鸡腿 x 5", "鸡腿×5", "固定 5", "固定5", "试试手气"])
+            else:
+                clicked=await click_first(page, site['buttons'])
             if clicked:
                 await page.wait_for_timeout(3000)
+                if '/login' in page.url.lower():
+                    return {"site":site['name'], "ok":False, "message":"签到时跳转到登录页，Cookie 无效", "url":page.url}
                 after=await body_text(page)
-                ok=any(x in after for x in site['success']) or after != before
-                return {"site":site['name'], "ok":ok, "message":f"已点击：{clicked}" if ok else "点击后未检测到成功提示", "url":page.url}
-        return {"site":site['name'], "ok":False, "message":"未找到签到入口，可能是 Cookie 失效或页面改版", "url":page.url}
+                ok=any(x in after for x in site['success'])
+                msg=f"签到成功，已点击：{clicked}" if ok else f"已点击 {clicked}，但未检测到明确成功提示"
+                return {"site":site['name'], "ok":ok, "message":msg, "url":page.url}
+        return {"site":site['name'], "ok":False, "message":"未找到签到入口，可能是 Cookie 失效、风控或页面改版", "url":page.url}
     except Exception as e:
         return {"site":site['name'], "ok":False, "message":f"{type(e).__name__}: {e}", "url":page.url}
     finally:
